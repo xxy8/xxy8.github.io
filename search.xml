@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>github+hexo搭建博客</title>
+    <url>/2022/05/06/github-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1 工具"></a>1 工具</h2><ul>
+<li>github账号</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/">注册github账号</a></p>
+</blockquote>
+<ul>
+<li>node.js</li>
+</ul>
+<blockquote>
+<p>让js能作为服务端脚本语言 </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检测 node版本尽量高点，不高先升级nodejs版本，我的是v16.15.0，windows建议直接下载安装包覆盖安装地址</span></span><br><span class="line">node -v</span><br><span class="line"><span class="comment"># windows查询node安装地址</span></span><br><span class="line"><span class="built_in">where</span> node</span><br><span class="line"><span class="comment"># 清除npm缓存【Linux】</span></span><br><span class="line">npm cache clean -f</span><br><span class="line"><span class="comment"># 全局安装n【Linux】</span></span><br><span class="line">npm install -g n</span><br><span class="line"><span class="comment"># 升级到最新稳定版</span></span><br><span class="line">$ n stable</span><br><span class="line"><span class="comment"># 升级到最新版</span></span><br><span class="line">$ n latest</span><br><span class="line"><span class="comment"># 升级到定制版</span></span><br><span class="line">$ n v14.6.0</span><br><span class="line"><span class="comment"># 切换使用版本</span></span><br><span class="line">$ n 13.10.0 (ENTER)</span><br><span class="line"><span class="comment"># 删除制定版本</span></span><br><span class="line">$ n <span class="built_in">rm</span> 13.10.0</span><br><span class="line"><span class="comment"># 用制定的版本执行脚本</span></span><br><span class="line">$ n use 13.10.0 some.js</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>npm</li>
+</ul>
+<blockquote>
+<p>非官方的NodeJS包管理和分发工具</p>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/download/releases/">nodejs对应npm版本</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看版本</span></span><br><span class="line">npm -v</span><br><span class="line">cnpm -v</span><br><span class="line"><span class="comment"># 升级到指定版本</span></span><br><span class="line">npm install -g npm@8.5.5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>git</li>
+</ul>
+<blockquote>
+<p>分布式版本控制</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检测</span></span><br><span class="line">git --version</span><br><span class="line"><span class="comment"># 配置用户名和邮箱</span></span><br><span class="line">git config --global user.name <span class="string">&quot;github 用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;github 注册邮箱&quot;</span></span><br><span class="line"><span class="comment"># 生成SSH密钥，免于登录，进行比较，四次回车</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;github 注册邮箱&quot;</span></span><br><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>hexo</li>
+</ul>
+<blockquote>
+<p>一个快速、简洁且高效的博客框架，默认端口4000</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">npm i hexo-cli -g</span><br><span class="line"><span class="comment"># 是否成功，出现版本号</span></span><br><span class="line">hexo -v</span><br><span class="line"><span class="comment"># 进入创建的文件夹初始化</span></span><br><span class="line">hexo init .</span><br><span class="line">npm install</span><br><span class="line"><span class="comment"># 本地测试</span></span><br><span class="line"><span class="comment"># 新建博客</span></span><br><span class="line">hexo new <span class="string">&quot;博客名&quot;</span></span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 打开本地服务器</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 输入localhost:4000</span></span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-搭建个人仓库"><a href="#2-搭建个人仓库" class="headerlink" title="2. 搭建个人仓库"></a>2. 搭建个人仓库</h2><ul>
+<li>名字要和登录名相同【特别注意】</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">用户名.github.io</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>是公开的</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">public</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将博客目录下的_config.yml，加入deploy设置为个人仓库名</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">你的地址</span></span><br><span class="line">  <span class="comment"># github更新后为main，不能是master，gitee是master</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装hexo-deployer-git自动化部署发布工具</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>令牌</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">开发者设置 Developer settings </span><br><span class="line">个人访问令牌 Personal access tokens</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布博客</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo 新建</span></span><br><span class="line">hexo n</span><br><span class="line"><span class="comment"># hexo 生成静态页面</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># hexo 部署</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># 用户名</span></span><br><span class="line">你的用户名</span><br><span class="line"><span class="comment"># 密码</span></span><br><span class="line">令牌密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-美化博客"><a href="#3-美化博客" class="headerlink" title="3. 美化博客"></a>3. 美化博客</h2><h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>在本次搭建博客中，对github pages能作为微服务器有了了解。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/05/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
