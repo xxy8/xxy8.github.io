@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,7 +85,7 @@
 <meta property="og:description" content="镜中花，水中月，天地一信士，阴阳一尘埃。  这个博客是我个人的生活和学习的一段记录，从格物到致知，致知到心正，心正到修身，修身到养性，养性到齐家中…… 联系方式QQ:3314904417 本站插件本站遵循实用为主，插件以最少的依赖为最好 1234# 本地搜索npm install hexo-generator-searchdb --save# Git自动部署npm install --save">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-05-08T12:13:17.000Z">
-<meta property="article:modified_time" content="2022-05-08T13:09:39.579Z">
+<meta property="article:modified_time" content="2022-05-08T13:18:01.548Z">
 <meta property="article:author" content="xxy">
 <meta property="article:tag" content="xxy">
 <meta name="twitter:card" content="summary">
@@ -103,7 +101,7 @@
     sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -211,22 +209,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-shuyu">
           <a href="/shuyu/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
             
             书宇
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -306,7 +304,7 @@
 <p>镜中花，水中月，天地一信士，阴阳一尘埃。</p>
 </blockquote>
 <p>这个博客是我个人的生活和学习的一段记录，从格物到致知，致知到心正，心正到修身，修身到养性，养性到齐家中……</p>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p><code>QQ</code>:3314904417</p>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p><code>QQ:</code>3314904417</p>
 <h2 id="本站插件"><a href="#本站插件" class="headerlink" title="本站插件"></a>本站插件</h2><p>本站遵循实用为主，插件以最少的依赖为最好</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地搜索</span></span><br><span class="line">npm install hexo-generator-searchdb --save</span><br><span class="line"><span class="comment"># Git自动部署</span></span><br><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
 
@@ -908,7 +906,7 @@
             }
           }
 
-          if ('auto' === 'auto') {
+          if ('auto' === 'manual') {
             input.addEventListener('input', inputEventFunction);
           } else {
             $('.search-icon').click(inputEventFunction);
