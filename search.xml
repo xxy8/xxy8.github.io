@@ -77,6 +77,20 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清除已生成文件及缓存</span></span><br><span class="line">hexo clean </span><br><span class="line"><span class="comment"># hexo 新建，简写为hexo n</span></span><br><span class="line">hexo new <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 生成静态页面，简写做hexo g</span></span><br><span class="line">hexo generate </span><br><span class="line"><span class="comment">#推送到github库，简写做hexo d</span></span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment"># 用户名</span></span><br><span class="line">你的用户名</span><br><span class="line"><span class="comment"># 密码</span></span><br><span class="line">令牌密码</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><p>gitee</p>
+</li>
+<li><p>gitee pages需要实名</p>
+</li>
+<li><p>公开且仓库名要是用户名，不需要是 <strong>用户名.gitee.io</strong></p>
+</li>
+<li><p>确定公钥，私人令牌</p>
+</li>
+<li><p>部署到gitee，需要你每次推送后，去更新一下，如果想要自动更新，就需要开通 Gitee 的会员。</p>
+</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/xxy8/xxy8.github.io.git</span></span><br><span class="line">  		<span class="string">https://gitee.com/xxy8/xxy8.git,master</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="3-美化博客"><a href="#3-美化博客" class="headerlink" title="3. 美化博客"></a>3. 美化博客</h2><blockquote>
 <p>美化博客根据自己风格来定，我比较喜欢next风格</p>
 </blockquote>
