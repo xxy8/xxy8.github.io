@@ -4,8 +4,9 @@
     <title>github+hexo搭建博客</title>
     <url>/2022/05/06/github-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<blockquote>
-<p>人生天地间，忽如远行客<escape><span id="more"></span></escape></p>
+<p>人生天地间，忽如远行客</p>
 </blockquote>
+<p><escape><span id="more"></span></escape></p>
 <h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1. 工具"></a>1. 工具</h2><ul>
 <li>github账号</li>
 </ul>
@@ -225,6 +226,11 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% if page.prev or page.next %&#125;</span><br><span class="line">  &lt;nav class=&quot;pagination&quot;&gt;</span><br><span class="line">    &#123;&#123;</span><br><span class="line">      paginator(&#123;</span><br><span class="line">        prev_text: &#x27;&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;&#x27;,</span><br><span class="line">        next_text: &#x27;&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&#x27;,</span><br><span class="line">        mid_size: 1</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  &lt;/nav&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">改为</span><br><span class="line"></span><br><span class="line">&#123;% if page.prev or page.next %&#125;</span><br><span class="line">  &lt;nav class=&quot;pagination&quot;&gt;</span><br><span class="line">    &#123;&#123;</span><br><span class="line">      paginator(&#123;</span><br><span class="line">        prev_text: &#x27;&lt;i class=&quot;fa fa-hand-o-left&quot; aria-label=&quot;&#x27; + __(&#x27;accessibility.prev_page&#x27;) + &#x27;&quot;&gt;&lt;/i&gt;&#x27;,</span><br><span class="line">        next_text: &#x27;&lt;i class=&quot;fa fa-hand-o-right&quot; aria-label=&quot;&#x27; + __(&#x27;accessibility.next_page&#x27;) + &#x27;&quot;&gt;&lt;/i&gt;&#x27;,</span><br><span class="line">        mid_size: 1,</span><br><span class="line">		escape   : false</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  &lt;/nav&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>点击目录不跳转bug，在next里的js文件post-details.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.post-toc a&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  e.<span class="title function_">preventDefault</span>();</span><br><span class="line">  <span class="keyword">var</span> targetSelector = <span class="title class_">NexT</span>.<span class="property">utils</span>.escapeSelector(<span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;href&#x27;</span>));</span><br><span class="line">&lt;!-- 添加下面这行代码, 重新解析 <span class="variable constant_">URL</span> -&gt;</span><br><span class="line">  targetSelector = <span class="built_in">decodeURI</span>(<span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;href&#x27;</span>));</span><br><span class="line">  <span class="keyword">var</span> offset = $(targetSelector).<span class="title function_">offset</span>().<span class="property">top</span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="4-小工具"><a href="#4-小工具" class="headerlink" title="4. 小工具"></a>4. 小工具</h2><ul>
 <li>本地搜索</li>
 <li>主题配置文件</li>
@@ -267,7 +273,7 @@
 </ul>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>                <span class="comment"># 文章字数统计</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>                   <span class="comment"># 文章阅读时长</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span>          <span class="comment"># 站点总字数统计</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span>             <span class="comment"># 站点总阅读时长</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span>     <span class="comment"># 排除代码字数统计</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>在本次搭建博客中，对github pages能作为微服务器有了了解，也对自己的博客有了大致框架，遵循简洁实用的原则。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.  总结"></a>5.  总结</h2><p>在本次搭建博客中，对github pages能作为微服务器有了了解，也对自己的博客有了大致框架，遵循简洁实用的原则。</p>
 ]]></content>
       <tags>
         <tag>工具</tag>
