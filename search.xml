@@ -11134,4 +11134,599 @@ KPI考核</td>
         <tag>后端</tag>
       </tags>
   </entry>
+  <entry>
+    <title>工作面试问题</title>
+    <url>/2022/05/09/%E5%B7%A5%E4%BD%9C%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<center>其观于人,不知其非笑之为非笑也</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="1-第一次面试"><a href="#1-第一次面试" class="headerlink" title="1. 第一次面试"></a>1. 第一次面试</h2><ol>
+<li>自我介绍</li>
+</ol>
+<ul>
+<li>社招</li>
+</ul>
+<blockquote>
+<p>面试官，您好，我叫肖啸宇，现在有了一年半的工作经验，首先，我会java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，离开上一家公司是因为我想在技术上得到更多的锻炼，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
+</blockquote>
+<ul>
+<li>校招</li>
+</ul>
+<blockquote>
+<p>面试官，您好，我叫肖啸宇，现在是大三的一名学生，首先，我在校期间，学习了java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
+</blockquote>
+<ol start="2">
+<li>map.containsKey、map.containsValue和 list.contains的区别</li>
+</ol>
+<blockquote>
+<p>List集合的contains()方法用于判断集合中包不包含某个元素,返回值是boolean。 Map集合的containsKey()和containsValue()方法和上面的相同。</p>
+</blockquote>
+<ol start="3">
+<li>对技术有什么要求</li>
+</ol>
+<blockquote>
+<p>学习一些前延的技术</p>
+</blockquote>
+<ol start="3">
+<li>平时学习去哪里</li>
+</ol>
+<blockquote>
+<p>图书馆，以及跑步</p>
+</blockquote>
+<ol start="4">
+<li>static静态变量</li>
+</ol>
+<blockquote>
+<p>和类一起加载的全局变量</p>
+</blockquote>
+<ol start="5">
+<li><p>Java的特新</p>
+</li>
+<li><p>怎么输出一个Map集合</p>
+</li>
+</ol>
+<blockquote>
+<p>用迭代器</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>工作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>乐理基础</title>
+    <url>/2022/05/09/%E4%B9%90%E7%90%86%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<blockquote>
+<center>高山流水</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="1-简谱"><a href="#1-简谱" class="headerlink" title="1. 简谱"></a>1. 简谱</h2><table>
+<thead>
+<tr>
+<th>简谱</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>唱名</td>
+<td>do</td>
+<td>re</td>
+<td>mi</td>
+<td>fa</td>
+<td>so</td>
+<td>la</td>
+<td>si</td>
+</tr>
+<tr>
+<td>音名</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>A</td>
+<td>B</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>音名永远不会变，唱名可能会改变，好比名字和读音</p>
+</blockquote>
+<ul>
+<li><p>记录音的高低：用数字上面或者下面加点 ，上表高音或者倍高音，没有表示中音</p>
+</li>
+<li><p>记录音的长短：一个圆，四等分</p>
+<table>
+<thead>
+<tr>
+<th>音符</th>
+<th>全音符</th>
+<th>二分音符</th>
+<th>四分音符</th>
+<th>八分音符</th>
+<th>十六音符</th>
+<th>三十二音符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>符号</td>
+<td>X - - -</td>
+<td>X -</td>
+<td>X</td>
+<td><u>X</u></td>
+<td>X&#x3D;</td>
+<td><u>X&#x3D;</u></td>
+</tr>
+<tr>
+<td>拍</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>1&#x2F;2</td>
+<td>1&#x2F;4</td>
+<td>1&#x2F;8</td>
+</tr>
+<tr>
+<td>圆</td>
+<td>4&#x2F;4</td>
+<td>1&#x2F;2</td>
+<td>1&#x2F;4</td>
+<td>1&#x2F;8</td>
+<td>1&#x2F;16</td>
+<td>1&#x2F;32</td>
+</tr>
+<tr>
+<td><strong>休止符</strong></td>
+<td>全休止符</td>
+<td>二分休止符</td>
+<td>四分休止符</td>
+<td>八分休止符</td>
+<td>十六分休止符</td>
+<td>三十二分休止符</td>
+</tr>
+<tr>
+<td>符号</td>
+<td>0 0 0 0</td>
+<td>0 0</td>
+<td>0</td>
+<td><u>0</u></td>
+<td>0&#x3D;</td>
+<td><u>0&#x3D;</u></td>
+</tr>
+<tr>
+<td>附点音符</td>
+<td>X - - - - - -</td>
+<td>X - -</td>
+<td>X .</td>
+<td><u>X</u>.</td>
+<td>X&#x3D; .</td>
+<td><u>X&#x3D;</u> .</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>复附点音符，继续增加前面的附点时值的一半</p>
+</blockquote>
+</li>
+<li><p>连音符号 </p>
+</li>
+<li><p>切分音 *</p>
+</li>
+<li><p>强弱拍，小节，小节线，终止线</p>
+</li>
+</ul>
+<blockquote>
+<p>小节线后永远是强拍，小节线前永远是弱拍</p>
+</blockquote>
+<ul>
+<li><p>拍号 2&#x2F;4 3&#x2F;8</p>
+</li>
+<li><p>反复记号</p>
+</li>
+</ul>
+<p> <img src="https://img-blog.csdnimg.cn/6cab812e2fb4497aa9dfbbc7fd203c1c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>装饰音 倚音</li>
+</ul>
+<h2 id="2-音程（两个乐音之间的音高关系）"><a href="#2-音程（两个乐音之间的音高关系）" class="headerlink" title="2. 音程（两个乐音之间的音高关系）"></a>2. 音程（两个乐音之间的音高关系）</h2><ul>
+<li><p>旋律音程（先后发音）</p>
+</li>
+<li><p>和声音程（同时发音）</p>
+</li>
+<li><p>度：是在乐音体系中衡量两个音之间距离的单位</p>
+</li>
+<li><p>度数：音程中两个音之间包含的音级的数目</p>
+<blockquote>
+<p>1-3 叫三度，2-4 包含2，3，4也叫三度</p>
+</blockquote>
+</li>
+<li><p>单音程：八度以内的音程</p>
+</li>
+<li><p>复音程：八度以上的音程</p>
+</li>
+<li><p>音数：音程中两个音之间包含的全音和半音的数目</p>
+</li>
+<li><p>音程分类</p>
+</li>
+<li><p><img src="https://img-blog.csdnimg.cn/3edd248b41104a58ba63626e4fa801ee.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/1cc3f435c1bf46edaa515e0c1c40cb9d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<blockquote>
+<p>2367没有纯</p>
+<p>1458没大小</p>
+<p>大对小，纯对纯，增对减</p>
+<p>全全半全全全半</p>
+</blockquote>
+<h2 id="3-变化音程"><a href="#3-变化音程" class="headerlink" title="3. 变化音程"></a>3. 变化音程</h2><ul>
+<li>升记号(#) ：升记号表示将基本音级升高半音，如#3 ，#D；</li>
+<li>降记号(b)：降记号表示将基本音级降低半音，如b5,bE;</li>
+<li>重升记号(x) ：重升记号表示将基本音级升高一个全音，如x4,xA;</li>
+<li>重降记号(bb) ：重降记号表示将基本音级降低一个全音，如bb7，bbB；</li>
+<li>还原记号（互去掉上下两横）:还原记号表示将已升高或降低的音还原，即恢复成基本音级</li>
+<li>纯音扩大1&#x2F;2就是增音程</li>
+<li><img src="https://img-blog.csdnimg.cn/7e93e51090e44d7fb5576b0daeb45d27.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="4-三和弦-有三，七，九"><a href="#4-三和弦-有三，七，九" class="headerlink" title="4. 三和弦(有三，七，九)"></a>4. 三和弦(有三，七，九)</h2><ul>
+<li>大三和弦：大三度 + 小三度 CM(1-3-5) C(1 3 5) F(4 6 i) G(5 7 2);</li>
+<li>小三和弦：小三度 + 大三度AM(6-i-3) Dm(2 4 6) Em(3 5 7) Am(6 i 3)</li>
+<li>增三和弦：大三度 + 大三度 Caug (1 3 #5)</li>
+<li>减三和弦：小三度 + 小三度 Cdim (1 b3 b5)</li>
+</ul>
+<h2 id="5-七和弦"><a href="#5-七和弦" class="headerlink" title="5. 七和弦"></a>5. 七和弦</h2><ul>
+<li>大大七和弦 CM7 Cmaj7(1 3 5 7) FM7  Fmaj7(4 6 i 3)</li>
+<li>大小七和弦（属七和弦） C7(1 3 5 6 b7) G7(5 7 2 4)</li>
+<li>小大七和弦 DmM7(2 4 6 #i) Am7(6 i 3 #5)</li>
+<li>小小七和弦 Dm7（2 4 6 i)  Em7(3 5 7 i) Am7(6 i 3 5)</li>
+<li>减小七和弦 Bdim7(7 2 4 6)</li>
+<li>减减七和弦 Bm-5(7 2 4 b6)</li>
+</ul>
+<h2 id="6-九和弦"><a href="#6-九和弦" class="headerlink" title="6. 九和弦"></a>6. 九和弦</h2><ul>
+<li>C9（层九和弦)</li>
+<li>Cadd9(1 3 5 +2)</li>
+<li>Csus2(1 2 5)</li>
+<li>转位</li>
+</ul>
+<h2 id="7-调"><a href="#7-调" class="headerlink" title="7. 调"></a>7. 调</h2><ul>
+<li><p>调式（看第六个和第七个）</p>
+</li>
+<li><p>大调式 </p>
+<ul>
+<li>自然大调 1 2 3 4 5 6 7 i</li>
+<li>和声大调 1 2 3  4  5 b6 7 i</li>
+<li>旋律大调 1 2 3 4 5 b6 b7 i</li>
+</ul>
+</li>
+<li><p>小调式</p>
+<ul>
+<li>自然小调 6 7 i 2 3 4 5 6</li>
+<li>和声小调6 7 i 2 3 4 #5 6</li>
+<li>旋律小调6 7 i 2 3 #4 #5 6</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-训练方式"><a href="#8-训练方式" class="headerlink" title="8. 训练方式"></a>8. 训练方式</h2><ul>
+<li>听音模唱</li>
+<li>音阶</li>
+<li>撞音</li>
+<li>音程</li>
+<li>和弦构唱</li>
+</ul>
+<h2 id="9-歌曲转调和弦"><a href="#9-歌曲转调和弦" class="headerlink" title="9. 歌曲转调和弦"></a>9. 歌曲转调和弦</h2><p><img src="https://img-blog.csdnimg.cn/bb6870818d9747afbb96b2ae42f4d6eb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>往后推</p>
+</blockquote>
+<h2 id="10-简谱与五线谱互译"><a href="#10-简谱与五线谱互译" class="headerlink" title="10. 简谱与五线谱互译"></a>10. 简谱与五线谱互译</h2><ul>
+<li>一个# G调</li>
+<li>两个# D</li>
+<li>三个# A</li>
+<li>四个# E</li>
+</ul>
+<h2 id="11-绝对音高和固定音高《音色》和相对音高"><a href="#11-绝对音高和固定音高《音色》和相对音高" class="headerlink" title="11. 绝对音高和固定音高《音色》和相对音高"></a>11. 绝对音高和固定音高《音色》和相对音高</h2><h2 id="12-分火腿法"><a href="#12-分火腿法" class="headerlink" title="12. 分火腿法"></a>12. 分火腿法</h2><p>VVVV X - - -</p>
+<h2 id="13-总结"><a href="#13-总结" class="headerlink" title="13. 总结"></a>13. 总结</h2><p>学习了最基础的乐理，对以后美音体玄文能够有较大的提高</p>
+]]></content>
+      <tags>
+        <tag>音乐</tag>
+        <tag>无</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>物理学</title>
+    <url>/2022/05/09/%E7%89%A9%E7%90%86%E5%AD%A6/</url>
+    <content><![CDATA[<blockquote>
+<center>黄粱一梦，斗转星移</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<blockquote>
+<p>研究自然的科学实验（<strong>预防靶子定律</strong>）从原子到元素到细胞到宇宙,也就是微观+宏观+宇观</p>
+</blockquote>
+<h2 id="1-思想"><a href="#1-思想" class="headerlink" title="1. 思想"></a>1. 思想</h2><ul>
+<li><p>主要是形而上学的思想，用片面、静止来看待问题，抓主要矛盾，忽略次要矛盾，一个小方面不等于次要矛盾</p>
+<ul>
+<li><p>归纳推理：（靶子定律）是不符合逻辑的推理，从一般到一般</p>
+</li>
+<li><p>演绎推理：一个大前提，保证正确，然后推理出其他逻辑</p>
+</li>
+<li><p>类比推理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-历史"><a href="#2-历史" class="headerlink" title="2. 历史"></a>2. 历史</h2><ul>
+<li><p>经典机械观：运动|动力|矢量|曲线运动|微积分|动量|力不确定变为相互作用|温度|热|势能|动能|热能|机械能|…</p>
+<blockquote>
+<p>注意：摩擦力破坏机械能守恒，机械能不一定守恒，能量，动量，角动量，电荷在当前才是守恒</p>
+</blockquote>
+<ul>
+<li>物理学家：…&gt;牛顿（三大定律）&gt;开普勒(三大定律)&gt;伽利略&gt;布朗&gt;焦耳&gt;…</li>
+</ul>
+</li>
+<li><p>电磁量子观： 电|电势|电荷|磁|光|颜色|连续|波粒二象性|分子|原子|质子|电子|中子|离子|光子|夸克|量子|统计学|场|以太（传统的以太并不存在）|相对论|宇称|维度|超弦(还未被证实)|…</p>
+<ul>
+<li>物理学家：…&gt;奥斯特&gt;牛顿&gt;惠更斯&gt;  玻尔&gt;德布罗意&gt;薛定谔&gt;海森伯&gt;狄喇克&gt;玻恩 &gt;法拉第（Faraday）&gt;麦克斯韦（Maxwell）&gt;赫兹（Hertz）&gt;爱因斯坦&gt;…</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-机械观（宏观已知论）"><a href="#3-机械观（宏观已知论）" class="headerlink" title="3. 机械观（宏观已知论）"></a>3. 机械观（<strong>宏观已知论</strong>）</h2><ul>
+<li><p>运动与力（四大相互作用：强相互作用（微观）、弱相互作用（微观）、万有引力相互作用（宏观），电磁相互作用（宏观和微观））</p>
+<table>
+<thead>
+<tr>
+<th>基本作用力</th>
+<th>对象</th>
+<th>强度</th>
+<th>范围</th>
+<th>交换粒子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引力相互作用</td>
+<td>万物</td>
+<td>10^(-40)</td>
+<td>无穷</td>
+<td>G（引力子)</td>
+</tr>
+<tr>
+<td>电磁相互作用</td>
+<td>带电粒子间</td>
+<td>10^(-2)</td>
+<td>无穷</td>
+<td>r（光子）</td>
+</tr>
+<tr>
+<td>强相互作用</td>
+<td>强子，原子核</td>
+<td>1</td>
+<td>10^(-15)米，很短</td>
+<td>g(胶子)</td>
+</tr>
+<tr>
+<td>弱相互作用</td>
+<td>轻子（电子）</td>
+<td>10^(-5)</td>
+<td>10^(-18)米</td>
+<td>W^(+-),Z^0</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<blockquote>
+<p>不用力而用相互作用是把宏观和微观相统一，相互作用需要惯性系</p>
+</blockquote>
+<ul>
+<li>质心运动定理</li>
+</ul>
+<blockquote>
+<p>由质点系动量定理表示各质点的位置</p>
+</blockquote>
+<ul>
+<li><p>牛顿三大定律：1. 匀速或者静止，2. F&#x3D;ma，3. 作用力与反作用力</p>
+</li>
+<li><p>摩檫力：本质还是电磁相互作用，</p>
+</li>
+</ul>
+<blockquote>
+<p>F&#x3D;摩擦因子*mg *cos a</p>
+</blockquote>
+<ul>
+<li><p>惯性系：一个不断做匀速直线运动的参考系，<strong>但目前没有找到</strong>，用误差近似，牛顿力学基于惯性系发展的</p>
+</li>
+<li><p>矢量：方向和大小</p>
+</li>
+<li><p>开普勒三大定律：1.沿着椭圆运动，太阳位于焦点   2. 相同时间，面积S1 &#x3D; 面积S2   3. T^2&#x2F;r^3</p>
+</li>
+<li><p>万有引力(没有发现万有斥力)</p>
+</li>
+</ul>
+<blockquote>
+<p>F &#x3D; -Gm1m2&#x2F;r^2</p>
+</blockquote>
+<ul>
+<li>动量（微积分，定积分）</li>
+</ul>
+<blockquote>
+<p>F &#x3D; ma &#x3D; mdv&#x2F;dt–&gt;F*dt &#x3D; d(mv)–&gt;P &#x3D; mv矢量</p>
+</blockquote>
+<ul>
+<li>热力学</li>
+</ul>
+<blockquote>
+<p>热传导：对流，热传导，热辐射，理想气体状态方程：</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160004.png"></p>
+<p>热力学定律仅仅适用于地球</p>
+</blockquote>
+<ul>
+<li>动能（由牛顿第二定律演变而来，不涉及时间和加速度）</li>
+</ul>
+<blockquote>
+<p>功：力做的效果W &#x3D; F（L2-L1）*cos a </p>
+<p>动能F &#x3D; ma &#x3D; mdv&#x2F;dt,W &#x3D; F（L2-L1）*cos a &#x3D;mdv（L2-L1）&#x2F;dt &#x3D; 1&#x2F;2mv^2(标量，动能)</p>
+</blockquote>
+<h2 id="4-电磁量子观"><a href="#4-电磁量子观" class="headerlink" title="4.电磁量子观"></a>4.电磁量子观</h2><ul>
+<li>电磁光统一(麦克斯韦方程组)</li>
+</ul>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160214.png"></p>
+<ul>
+<li><p>麦克斯韦方程组微分形式<br><img src="D:\photo\物理学公式图片\2021-05-03_160437.png"></p>
+</li>
+<li><p>磁</p>
+<ul>
+<li><p>洛伦兹力</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160546.png"></p>
+</li>
+<li><p>磁介质：顺磁、逆磁、铁磁(Fe2O3)</p>
+</li>
+<li><p>电池（正极，负极，电解质溶液）</p>
+<ul>
+<li><p>一次性电池：</p>
+</li>
+<li><p>锌锰电池（干电池，防止放出H2，涂了Hg）Zn(负极)\ ZnCl2,NH4Cl  \ MnO2（正极）</p>
+</li>
+<li><p>碱式锌锰电池(5号电池) Zn \ KOH \ MnO2</p>
+</li>
+<li><p>锌银电池（纽扣式电池）Zn \ KOH \ Ag2O</p>
+</li>
+<li><p>二次电池（可充电电池，充电电池必须很慢）：</p>
+</li>
+<li><p>铅蓄电池(电动车电池)：Pb\ H2SO4 \PbO2</p>
+</li>
+<li><p>铬镍电池：Cd\KOH\NiOOH</p>
+</li>
+<li><p>氢镍电池（宇航员）:：吸氢材料</p>
+</li>
+<li><p>锂电池</p>
+</li>
+<li><p>燃料电池（氢氧电池）：H2\选择膜\O2</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>颜色</p>
+<ul>
+<li><p>世界上的东西是没有颜色的，可见光的反射</p>
+</li>
+<li><p>霓外紫内红 ，虹外红内紫</p>
+</li>
+<li><p>紫外线和辐射是衣服挡不住的，本质是电磁波短波，和光的波的长度不同而已</p>
+</li>
+</ul>
+</li>
+<li><p>波粒二象性</p>
+<ul>
+<li>波的干涉，两个波相互碰撞，会发生叠加和湮灭两种结果</li>
+<li>波的衍射，有一个东西挡着，然后后面出现波的结论</li>
+<li>猜想：电磁波能否改变波长，将不可见电磁变为可见光，是否存在超磁和次磁，和声音一样，还是波长不一样，就是电磁波；</li>
+<li>元素周期表的能量是从低到高再到低，Fe是最高，所以可以聚变和裂变</li>
+</ul>
+</li>
+<li><p>量子力学（统计概率云，普朗克常量）</p>
+</li>
+<li><p>薛定谔方程</p>
+<p>一维薛定谔方程</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160701.png" alt="一维薛定谔方程"></p>
+<p>三维薛定谔方程</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160742.png" alt="三维薛定谔方程"></p>
+<p>定态薛定谔方程</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_160857.png" alt="定态薛定谔方程"></p>
+</li>
+<li><p>约瑟夫森效应</p>
+<blockquote>
+<p>f &#x3D; （2eV）&#x2F;h</p>
+</blockquote>
+</li>
+<li><p>海森堡测不准原理<br>△q△p≥ħ&#x2F;2（ħ&#x3D;h&#x2F;2π）<br><img src="D:\photo\物理学公式图片\2021-05-03_161005.png"></p>
+</li>
+<li><p>量子力学做成的科技：激光、 超导、晶体管</p>
+</li>
+<li><p>狭义相对论（惯性系,距离和时间在不同的参照系是不同的）</p>
+<ul>
+<li>狭义相对论原理：真空光速不变原理\相对性原理</li>
+<li>狭义相对论结论：<ul>
+<li>同时具有相对性</li>
+<li>时间延缓</li>
+<li>长度收缩</li>
+<li>相对论的速度叠加关系</li>
+<li>质能关系公式：物质与能量相互等价：（E &#x3D; m c^2）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>广义相对论（惯性系＋非惯性系）</p>
+<blockquote>
+<p>M引&#x2F;M惯＝m引&#x2F;m惯</p>
+</blockquote>
+</li>
+<li><p>广义相对论原理</p>
+<ul>
+<li><p>广义协变原理</p>
+<blockquote>
+<p>自然规律对于任何参照系都应该具有相同的数学形式</p>
+</blockquote>
+</li>
+<li><p>等效原理</p>
+<blockquote>
+<p>匀加速参照系可与均匀引力场中静止的参照系等效</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>广义相对论的主要结论</p>
+<ul>
+<li><p>引力大的地方时间过得缓慢</p>
+</li>
+<li><p>引力导致空间弯曲</p>
+</li>
+</ul>
+</li>
+<li><p>广义相对论的一些预言</p>
+<ul>
+<li><p>恒星光的引力偏转</p>
+</li>
+<li><p>雷达回波延迟</p>
+</li>
+<li><p>水星近日点的进动</p>
+</li>
+</ul>
+</li>
+<li><p>爱因斯坦场方程</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_161045.png"></p>
+<p>含宇宙常数项的场方程(广义相对论)</p>
+<p><img src="D:\photo\物理学公式图片\2021-05-03_161138.png"></p>
+<blockquote>
+<p>宇宙常数项的场方方程是以宇宙已经平衡了为基准</p>
+</blockquote>
+</li>
+<li><p>超弦理论目标：</p>
+<ul>
+<li><p>协调相对论和量子论</p>
+</li>
+<li><p>实现四种基本相互作用的统一</p>
+</li>
+<li><p>统一描述微观与宇宙观</p>
+</li>
+</ul>
+</li>
+<li><p>未来发展方向：</p>
+<ul>
+<li><p>新能源</p>
+</li>
+<li><p>量子计算机</p>
+</li>
+<li><p>超弦理论（大一统）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>这个世界没有自己想的那么简单，也没有非常复杂，自然规律（物理，不是物理学）在不断探索中。</p>
+]]></content>
+      <tags>
+        <tag>无</tag>
+        <tag>物理</tag>
+      </tags>
+  </entry>
 </search>
