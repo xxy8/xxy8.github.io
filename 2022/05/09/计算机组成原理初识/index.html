@@ -1,0 +1,3335 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="思想," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="沧海一桑田，蓦然半回首">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理初识">
+<meta property="og:url" content="https://xxy8.github.io/2022/05/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%88%9D%E8%AF%86/index.html">
+<meta property="og:site_name" content="xxy">
+<meta property="og:description" content="沧海一桑田，蓦然半回首">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-05-09T03:50:25.000Z">
+<meta property="article:modified_time" content="2022-05-09T03:56:20.191Z">
+<meta property="article:author" content="xxy">
+<meta property="article:tag" content="思想">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="https://xxy8.github.io/2022/05/09/计算机组成原理初识/"/>
+
+
+
+
+
+  <title>计算机组成原理初识 | xxy</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xxy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一笑之语</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-shuyu">
+          <a href="/shuyu/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书宇
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-play">
+          <a href="/play/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-play"></i> <br />
+            
+            媒体
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xxy8.github.io/2022/05/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%88%9D%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机组成原理初识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-05-09T11:50:25+08:00">
+                2022-05-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-05-09T11:56:20+08:00">
+                2022-05-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<center>沧海一桑田，蓦然半回首</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><h3 id="1-1-发展"><a href="#1-1-发展" class="headerlink" title="1.1 发展"></a>1.1 发展</h3><ul>
+<li>第一代(1946-1957) 电子管时代</li>
+<li>第二代(1958-1964) 晶体管时代</li>
+<li>第三代(1965-1971) 中小规模集成电路时代</li>
+<li>第四代(1972-至今) 超大规模集成电路时代</li>
+</ul>
+<h3 id="1-2-元件"><a href="#1-2-元件" class="headerlink" title="1.2 元件"></a>1.2 元件</h3><ul>
+<li>摩尔定律</li>
+<li>半导体存储器的发展</li>
+<li>微处理器的发展</li>
+</ul>
+<h3 id="1-3-分类与方向"><a href="#1-3-分类与方向" class="headerlink" title="1.3 分类与方向"></a>1.3 分类与方向</h3><h4 id="1-3-1-按照用途"><a href="#1-3-1-按照用途" class="headerlink" title="1.3.1 按照用途"></a>1.3.1 按照用途</h4><ul>
+<li>电子模拟计算机</li>
+<li>电子数字计算机<ul>
+<li>专用计算机</li>
+<li>通用计算机<ul>
+<li>巨型机</li>
+<li>大型机</li>
+<li>中型机</li>
+<li>小型机</li>
+<li>微型机</li>
+<li>单片机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-2-按照指令和数据流"><a href="#1-3-2-按照指令和数据流" class="headerlink" title="1.3.2 按照指令和数据流"></a>1.3.2 按照指令和数据流</h4><ul>
+<li>单指令流和单数据流(SISD):冯诺依曼结构</li>
+<li>单指令流和多数据流(SIMD):包括阵列处理器和向量处理器系统</li>
+<li>多指令流和单数据流(MISD):这种计算机实际上不存在</li>
+<li>多指令流和多数据流(MIMD):包括多处理器和多计算机系统</li>
+</ul>
+<h4 id="1-3-3-方向"><a href="#1-3-3-方向" class="headerlink" title="1.3.3 方向"></a>1.3.3 方向</h4><ul>
+<li>微型计算机，微型化、网络化、高性能、多用途方向发展</li>
+<li>巨型计算机：巨型化、超高速、并行处理、智能化发展</li>
+</ul>
+<h3 id="1-4-计算机组成"><a href="#1-4-计算机组成" class="headerlink" title="1.4 计算机组成"></a>1.4 计算机组成</h3><h4 id="1-4-1-冯诺依曼机"><a href="#1-4-1-冯诺依曼机" class="headerlink" title="1.4.1 冯诺依曼机"></a>1.4.1 冯诺依曼机</h4><ul>
+<li>计算机硬件由运算器、控制器、存储器、输入设备、输出设备</li>
+<li>指令和数据以同等地位存储在存储器中，并可以按照地址寻访</li>
+<li>指令和数据均用二进制代码表示</li>
+<li>指令由操作码和地址码组成，操作码指出操作的类型，地址码指出操作数的地址</li>
+<li>指令在存储器中按顺序存放，通常指令顺序执行，特定情况下根据运算结果和根据设定的条件改变执行顺序</li>
+<li>早期的冯诺依曼以运算器为中心，，输入输出通过运算器与存储器传送数据，现代以存储器为中心，尽可能绕开CPU</li>
+</ul>
+<h4 id="1-4-2-功能部件"><a href="#1-4-2-功能部件" class="headerlink" title="1.4.2 功能部件"></a>1.4.2 功能部件</h4><ul>
+<li>输入设备</li>
+<li>输出设备</li>
+<li>存储器</li>
+</ul>
+<blockquote>
+<p>主存储器【主存，内存储器】，辅助存储器【辅存，外存储器】，地址寄存器【MAR】和高速缓存【Cache】现代是存在CPU中</p>
+<p>数据寄存器【MDR】，时序控制逻辑</p>
+</blockquote>
+<ul>
+<li>运算器</li>
+</ul>
+<blockquote>
+<p>算术运算和逻辑运算，核心是算术逻辑单元【ALU】，若干寄存器：累加器【ACC】、乘商寄存器【MQ】、操作数寄存器【X】、变址寄存器【IX】、基址寄存器【BR】、程序状态寄存器【PSW】，前面3个寄存器是必须的</p>
+</blockquote>
+<ul>
+<li>控制器</li>
+</ul>
+<blockquote>
+<p>由程序计数器【PC】、指令寄存器【IR】和控制单元【CU】组成</p>
+</blockquote>
+<h4 id="1-4-3-计算机软件分类"><a href="#1-4-3-计算机软件分类" class="headerlink" title="1.4.3 计算机软件分类"></a>1.4.3 计算机软件分类</h4><ul>
+<li>系统软件</li>
+</ul>
+<blockquote>
+<p>操作系统【OS】、数据库管理系统【DBMS】、语言处理程序、分布式软件系统、网络软件系统、标准库程序、服务性程序</p>
+</blockquote>
+<ul>
+<li>应用软件</li>
+</ul>
+<blockquote>
+<p>科学计算类、工程设计类</p>
+</blockquote>
+<h4 id="1-4-4-计算机语言"><a href="#1-4-4-计算机语言" class="headerlink" title="1.4.4 计算机语言"></a>1.4.4 计算机语言</h4><ul>
+<li>机器语言</li>
+<li>汇编语言</li>
+<li>高级语言</li>
+</ul>
+<h4 id="1-4-5-计算机工作过程"><a href="#1-4-5-计算机工作过程" class="headerlink" title="1.4.5 计算机工作过程"></a>1.4.5 计算机工作过程</h4><ul>
+<li>把程序和数据装入主存储器</li>
+<li>将源程序转换成可执行文件</li>
+</ul>
+<blockquote>
+<p>一般是预处理阶段，编译阶段，汇编阶段，链接阶段</p>
+</blockquote>
+<ul>
+<li>从可执行文件的首地址开始逐条执行指令</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>取指令：PC-MAR-M-MDR-IR</p>
+</li>
+<li><p>分析指令：OP(IR)-CU</p>
+</li>
+<li><p>执行指令：Ad(IR)-MAR-M-MDR-ACC</p>
+</li>
+<li><p>pc+1-pc</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="1-4-6-多级层次结构"><a href="#1-4-6-多级层次结构" class="headerlink" title="1.4.6 多级层次结构"></a>1.4.6 多级层次结构</h4><ul>
+<li><p>硬件层</p>
+</li>
+<li><p>微程序机器层</p>
+</li>
+<li><p>传统机器语言层</p>
+</li>
+<li><p>操作系统层</p>
+</li>
+<li><p>汇编语言层</p>
+</li>
+<li><p>高级语言层</p>
+</li>
+</ul>
+<h3 id="1-5-主要性能指标"><a href="#1-5-主要性能指标" class="headerlink" title="1.5 主要性能指标"></a>1.5 主要性能指标</h3><ul>
+<li>机器字长</li>
+<li>数据通路带宽</li>
+<li>主存容量</li>
+<li>运算速度</li>
+</ul>
+<blockquote>
+<p>吞吐量</p>
+<p>响应时间</p>
+</blockquote>
+<ul>
+<li>主频和Cpu时钟周期</li>
+<li>基准程序</li>
+</ul>
+<h3 id="1-6-专业术语"><a href="#1-6-专业术语" class="headerlink" title="1.6 专业术语"></a>1.6 专业术语</h3><ul>
+<li>系列机</li>
+<li>兼容</li>
+<li>软件可移植性</li>
+<li>固件</li>
+</ul>
+<h2 id="2-数据的表示和运算"><a href="#2-数据的表示和运算" class="headerlink" title="2. 数据的表示和运算"></a>2. 数据的表示和运算</h2><h3 id="2-1-进位计数制及其相互转换"><a href="#2-1-进位计数制及其相互转换" class="headerlink" title="2.1 进位计数制及其相互转换"></a>2.1 进位计数制及其相互转换</h3><ul>
+<li>二进制(2^1)</li>
+<li>三进制(3^1)</li>
+<li>四进制(2^2)</li>
+<li>八进制(2^3)</li>
+<li>九进制(3^2)</li>
+<li>十进制</li>
+<li>十六进制(2^4,ABCDEF)</li>
+</ul>
+<blockquote>
+<p>1111000010.01101 二进制 转换为八进制和十六进制，八进制取3位，十六进制取4位</p>
+<p>（1702.32）8 &#x3D; （1111000010.01101）2 </p>
+<p>（3C2.68）16 &#x3D; (1111000010.01101）2 </p>
+</blockquote>
+<blockquote>
+<p>不是每个十进制小数都可以准确的用二进制表示，但所有的二进制都可以用十进制表示</p>
+</blockquote>
+<h3 id="2-2-真值和机器数"><a href="#2-2-真值和机器数" class="headerlink" title="2.2 真值和机器数"></a>2.2 真值和机器数</h3><blockquote>
+<p>+15真值这种是机器数0101所代表的实际值</p>
+</blockquote>
+<h3 id="2-3-BCD码"><a href="#2-3-BCD码" class="headerlink" title="2.3 BCD码"></a>2.3 BCD码</h3><blockquote>
+<p>通常采用四位二进制数来表示一位十进制的一个数</p>
+</blockquote>
+<ul>
+<li>8421</li>
+</ul>
+<blockquote>
+<p>有权码</p>
+</blockquote>
+<ul>
+<li>余3码</li>
+<li>2421码</li>
+</ul>
+<h3 id="2-4-字符与字符串"><a href="#2-4-字符与字符串" class="headerlink" title="2.4 字符与字符串"></a>2.4 字符与字符串</h3><ul>
+<li>字符编码Ascall码</li>
+<li>GB18030</li>
+</ul>
+<h3 id="2-5-校验码"><a href="#2-5-校验码" class="headerlink" title="2.5 校验码"></a>2.5 校验码</h3><ul>
+<li>奇偶校验码</li>
+<li>海明校验码</li>
+<li>循环冗余校验码【CRC】</li>
+</ul>
+<h3 id="2-6-定点数的表示与运算"><a href="#2-6-定点数的表示与运算" class="headerlink" title="2.6 定点数的表示与运算"></a>2.6 定点数的表示与运算</h3><h4 id="2-6-1-定点数的表示"><a href="#2-6-1-定点数的表示" class="headerlink" title="2.6.1 定点数的表示"></a>2.6.1 定点数的表示</h4><ul>
+<li>定点小数</li>
+<li>定点整数</li>
+</ul>
+<h4 id="2-6-2-原码、补码、反码、移码"><a href="#2-6-2-原码、补码、反码、移码" class="headerlink" title="2.6.2 原码、补码、反码、移码"></a>2.6.2 原码、补码、反码、移码</h4><blockquote>
+<p>小数点求二进制，乘以2 &gt;1取1不大于1取0</p>
+</blockquote>
+<ul>
+<li><p>原码表示法</p>
+<ul>
+<li>纯小数的原码：[x]原 &#x3D; {x    1&gt;x&gt;&#x3D;0},{1-x &#x3D; 1+ |x|      0&gt;&#x3D;x&gt;-1}</li>
+<li>纯整数的原码：[x]原 &#x3D; {0,x   2^n &gt; x &gt;&#x3D;0},{2^n-x &#x3D; 2^n + |x|  0 &gt;&#x3D; x &gt;-2^n}</li>
+</ul>
+<blockquote>
+<p>真值0的原码有正0和负0的区别 即[+0]原 &#x3D; 00000 [-0]原 &#x3D; 10000</p>
+</blockquote>
+</li>
+<li><p>补码表示法【可以将原码加减法统一采用加法操作实现,取反加1】</p>
+<ul>
+<li>纯小数的补码定义：[x]补 &#x3D; {x  1&gt;x&gt;&#x3D;0},{2+x &#x3D; 2-|x|  0&gt;x&gt;&#x3D;-1}</li>
+<li>纯整数的补码定义: [x]补 &#x3D; {0,x   2^n &gt;x&gt;&#x3D;0},{2^(n+1) + x &#x3D; 2^(n+1) - |x|  0 &gt;&#x3D;x&gt;&#x3D;-2^n}</li>
+</ul>
+</li>
+<li><p>反码表示法【通常用来作为原码求补码，或补码求原码的中间过渡】</p>
+<ul>
+<li><p>纯小数的反码定义：[x]反 &#x3D; {x 1&gt;x&gt;&#x3D;0},{(2-2^-n) + x  0&gt;&#x3D;x&gt;-1}</p>
+</li>
+<li><p>纯整数的反码定义：[x]反 &#x3D; {0,x 2^n &gt; x &gt;&#x3D;0},{(2^(n+1)) + x 0 &gt;&#x3D; x &gt;-2^n}												</p>
+<blockquote>
+<p>真值0的反码表示不唯一，例如[+0]反 &#x3D; 0.0000；[-0]反 &#x3D; 1.1111；</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>移码表示法</p>
+</li>
+</ul>
+<blockquote>
+<p>移码常用来表示浮点数的阶码，它只能表示整数</p>
+</blockquote>
+<h4 id="2-6-3-定点数的运算"><a href="#2-6-3-定点数的运算" class="headerlink" title="2.6.3 定点数的运算"></a>2.6.3 定点数的运算</h4><ul>
+<li>定点数的移位运算</li>
+<li>算术移位</li>
+</ul>
+<blockquote>
+<p>对于正数，由于[x]原 &#x3D; [x]补 &#x3D; [x]反 &#x3D; 真值，添补0</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>数值</th>
+<th>码制</th>
+<th>添补代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>正数</td>
+<td>原码、补码、反码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>负数</td>
+<td>原码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>负数</td>
+<td>补码左移</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>负数</td>
+<td>补码右移</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>负数</td>
+<td>反码</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>逻辑移位</li>
+</ul>
+<blockquote>
+<p>逻辑移位不管左移还是右移添加的都是0，逻辑移位将操作数视为无符号数，移位规则：逻辑左移时，高位移丢，低位添0；逻辑右移时，低位移丢，高位添0</p>
+</blockquote>
+<ul>
+<li>循环移位</li>
+</ul>
+<blockquote>
+<p>分为带进位标志位CF的循环移位(大循环)和不带进位标志位的循环移位(小循环)，特别适合将数据的低字节数据和高字节数据互换</p>
+</blockquote>
+<ul>
+<li><p>原码定点数的加减法运算</p>
+<ul>
+<li><p>加法规则：先判符号位，若相同，则绝对值相加，结果符号位不变，若不同，则做减法，绝对值大的数减去绝对值小的数，结果符号位与绝对值大的数相同</p>
+</li>
+<li><p>减法规则：两个原码表示的数相减，首先将减数符号取反，然后将被减数与符号取反后的减数按原码加法进行运算</p>
+</li>
+</ul>
+<blockquote>
+<p>运算时注意机器字长，当左边位出现溢出时，将溢出位丢掉</p>
+</blockquote>
+</li>
+<li><p>补码定点数加减法运算</p>
+<ul>
+<li>加法：两数的补码直接相加</li>
+<li>减法：将被减数与减数的机器负数相加</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>补码运算的结果亦为补码</p>
+</blockquote>
+<ul>
+<li>符号扩展</li>
+</ul>
+<blockquote>
+<p>8位数和32位数相加，必须将8位数转换为32位数</p>
+</blockquote>
+<ul>
+<li>溢出概念和判断方法</li>
+</ul>
+<blockquote>
+<p>溢出是指运算结果超出了数的表示范围，仅当两个符号相同的数相加或两个符号相异的数相减才可能产生溢出</p>
+</blockquote>
+<ul>
+<li><p>补码定点数加减法溢出判断的方法</p>
+<ul>
+<li>采用一位符号位</li>
+<li>采用双符号位</li>
+<li>采用一号符号位根据数据位的进位情况判断溢出</li>
+</ul>
+</li>
+<li><p>定点数的乘法运算</p>
+</li>
+</ul>
+<blockquote>
+<p>乘法运算由累加和右移操作实现，根据机器数的不同，可分为原码一位乘法，和补码一位乘法</p>
+</blockquote>
+<ul>
+<li>原码一位乘法</li>
+</ul>
+<blockquote>
+<p>符号位和数值位分开，乘积符号由两个数的符号位“异或”形成，而乘积的数值部分则是两个数的绝对值相乘之积，因此原码一位乘法运算过程中的右移操作均为逻辑右移，考虑运算时出现绝对值大于1却没有溢出，所以部分积和被乘数取双符号位</p>
+</blockquote>
+<ul>
+<li>补码一位乘法(Booth算法)</li>
+</ul>
+<blockquote>
+<p>这是一种有符号数的乘法，采用相加和相减操作计算补码数据的乘积</p>
+</blockquote>
+<ul>
+<li>表1 Booth算法的移位规则</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>yn（高位）</th>
+<th>y(n+1)(低位)</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>部分积右移一位</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>部分积加[x]补，右移一位</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>部分积加[-x]补，右移一位</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>部分积右移一位</td>
+</tr>
+</tbody></table>
+<ul>
+<li>表2 乘法运算总结</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>乘法类型</th>
+<th>符号位参与运算</th>
+<th>符号位部分积</th>
+<th>符号位乘数</th>
+<th>累加次数</th>
+<th>移位方向</th>
+<th>移位次数</th>
+<th>移位每位次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>原码一位乘法</td>
+<td>否</td>
+<td>2位</td>
+<td>0位</td>
+<td>n</td>
+<td>右</td>
+<td>n</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>补码一位乘法</td>
+<td>是</td>
+<td>2位</td>
+<td>1位</td>
+<td>n+1</td>
+<td>右</td>
+<td>n</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>定点数的除法运算</li>
+</ul>
+<blockquote>
+<p>除法运算可以转换为累加-逻辑左移，根据机器数的不同，可分为原码除法和补码除法</p>
+</blockquote>
+<ul>
+<li>原码除法运算（不恢复余数法）【原码加减交替除法】</li>
+</ul>
+<blockquote>
+<p>商符和商值是分开的，商符由两个操作数的符号位“异或”形成</p>
+</blockquote>
+<ul>
+<li>补码除法运算【加减交替法】</li>
+</ul>
+<blockquote>
+<p>补码一位除法的特点是符号位与数值位一起运算，商符自然形成</p>
+</blockquote>
+<ul>
+<li>表3 除法运算总结</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>除法类型</th>
+<th>符号位参与运算</th>
+<th>加减次数</th>
+<th>移位方向</th>
+<th>移位次数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>原码加减交替法</td>
+<td>否</td>
+<td>N+1或N+2</td>
+<td>左</td>
+<td>N</td>
+<td>若最终余数为负，需恢复余数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>补码加减交替法</td>
+<td>是</td>
+<td>N+1</td>
+<td>左</td>
+<td>N</td>
+<td>商末位横置1</td>
+</tr>
+</tbody></table>
+<h3 id="2-7-数据的存储和排列"><a href="#2-7-数据的存储和排列" class="headerlink" title="2.7 数据的存储和排列"></a>2.7 数据的存储和排列</h3><ul>
+<li>数据的大端方式和小端方式存储</li>
+</ul>
+<blockquote>
+<p>通常以最低有效字节(LSB)和最高有效字节（MSB）来分别表示数的低位和高位，存储数据时，从低位到高位可以从左到右排列，也可以从右到左排列</p>
+</blockquote>
+<ul>
+<li>数据按照边界对齐方式存储</li>
+</ul>
+<blockquote>
+<p>空间换时间的思想，RISC和ARM采用边界对齐方式，而CISC和X86对齐和不对齐都支持</p>
+</blockquote>
+<h2 id="3-浮点数的表示和运算"><a href="#3-浮点数的表示和运算" class="headerlink" title="3. 浮点数的表示和运算"></a>3. 浮点数的表示和运算</h2><h3 id="3-1-浮点数的表示"><a href="#3-1-浮点数的表示" class="headerlink" title="3.1 浮点数的表示"></a>3.1 浮点数的表示</h3><ul>
+<li>浮点数的表现格式</li>
+</ul>
+<blockquote>
+<p>N &#x3D; r^E * M ，其中r一般等于2</p>
+</blockquote>
+<ul>
+<li>规格化浮点数</li>
+</ul>
+<blockquote>
+<p>所谓规格化，是指通过调整一个非规格化浮点数的尾数和阶码的大小，使非0的浮点数在尾数的最高数位保证是一个有效值</p>
+</blockquote>
+<ul>
+<li>左规</li>
+<li>右规</li>
+</ul>
+<h3 id="3-2-浮点数的表示范围"><a href="#3-2-浮点数的表示范围" class="headerlink" title="3.2 浮点数的表示范围"></a>3.2 浮点数的表示范围</h3><p>负上溢|负数区|负下溢|正下溢|正数区|正上溢</p>
+<blockquote>
+<p>上溢时，计算机必须中断运算操作，进行溢出处理，下溢时，浮点数值趋向于0，计算机仅将其当作机器0处理</p>
+</blockquote>
+<h3 id="3-3-IEEE-754标准"><a href="#3-3-IEEE-754标准" class="headerlink" title="3.3 IEEE 754标准"></a>3.3 IEEE 754标准</h3><ul>
+<li>表4 IEEE 754 浮点数的格式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型</th>
+<th>数符</th>
+<th>阶码</th>
+<th>尾数数值</th>
+<th>总位数</th>
+<th>偏置值十六进制</th>
+<th>编置值十进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>短浮点数</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>32</td>
+<td>7FH</td>
+<td>127</td>
+</tr>
+<tr>
+<td>2</td>
+<td>长浮点数</td>
+<td>1</td>
+<td>11</td>
+<td>52</td>
+<td>64</td>
+<td>3FFH</td>
+<td>1023</td>
+</tr>
+<tr>
+<td>3</td>
+<td>临时浮点数</td>
+<td>1</td>
+<td>15</td>
+<td>64</td>
+<td>80</td>
+<td>3FFFH</td>
+<td>16383</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>短浮点数与长浮点数都采用隐含尾数最高数位的方法，因此可多表示一位尾数，临时浮点数又称扩展精度浮点数，无隐含位</p>
+</blockquote>
+<h3 id="3-4-定点、浮点表示的区别"><a href="#3-4-定点、浮点表示的区别" class="headerlink" title="3.4 定点、浮点表示的区别"></a>3.4 定点、浮点表示的区别</h3><ul>
+<li>数值的表示范围</li>
+</ul>
+<blockquote>
+<p>字节相同时，浮点表示法所能表示的数值范围远远大于定值表示法</p>
+</blockquote>
+<ul>
+<li>精度</li>
+</ul>
+<blockquote>
+<p>指一个数所含有效数值位的位数，字节相同时，浮点数精度降低</p>
+</blockquote>
+<ul>
+<li>数的运算</li>
+</ul>
+<blockquote>
+<p>浮点数在运算时要做尾数和阶码的运算，运算结果要求规格化</p>
+</blockquote>
+<ul>
+<li>溢出问题</li>
+</ul>
+<blockquote>
+<p>定点运算，运算结果超出数的表示范围，发生溢出，浮点运算中，规格化后阶码超出所能表示的范围，发生溢出</p>
+</blockquote>
+<h3 id="3-5-浮点数的加减运算"><a href="#3-5-浮点数的加减运算" class="headerlink" title="3.5 浮点数的加减运算"></a>3.5 浮点数的加减运算</h3><blockquote>
+<p>浮点数的加减运算一律采用补码</p>
+</blockquote>
+<ul>
+<li>对阶</li>
+</ul>
+<blockquote>
+<p>使两个操作数的小数点位置对齐，使得两个数的阶码相等，小阶向大阶看齐</p>
+</blockquote>
+<ul>
+<li>尾数求和</li>
+</ul>
+<blockquote>
+<p>将对阶后的尾数按定点数加减法运算规则运算</p>
+</blockquote>
+<ul>
+<li>规格化</li>
+</ul>
+<blockquote>
+<p>左规，右规，左规一次相当于*2，右规一次相当于&#x2F;2</p>
+</blockquote>
+<ul>
+<li><p>舍入</p>
+<ul>
+<li>0舍1入法</li>
+<li>横置1法</li>
+</ul>
+</li>
+<li><p>溢出判断</p>
+</li>
+</ul>
+<blockquote>
+<p>浮点数的溢出是由阶码的符号决定的</p>
+</blockquote>
+<ul>
+<li>C语言的浮点数类型和类型转换</li>
+</ul>
+<blockquote>
+<p>char-int-long-double</p>
+</blockquote>
+<h2 id="4-算术逻辑单元【Arithmetic-Logic-Unit-，ALU】"><a href="#4-算术逻辑单元【Arithmetic-Logic-Unit-，ALU】" class="headerlink" title="4. 算术逻辑单元【Arithmetic Logic Unit ，ALU】"></a>4. 算术逻辑单元【Arithmetic Logic Unit ，ALU】</h2><blockquote>
+<p>运算器由算术逻辑单元、累加器、状态寄存器、通用寄存器等组成，ALU的功能包括+-*&#x2F;&amp;&amp;||!|以及移位、求补</p>
+</blockquote>
+<h3 id="4-1-串行加法器和并行加法器"><a href="#4-1-串行加法器和并行加法器" class="headerlink" title="4.1 串行加法器和并行加法器"></a>4.1 串行加法器和并行加法器</h3><blockquote>
+<p>ALU核心是加法器，加法器是由全加器配以其他必要的逻辑电路组成</p>
+</blockquote>
+<ul>
+<li>一位全加器</li>
+</ul>
+<blockquote>
+<p>有加数Ai、加数Bi与低位传进来的进位Ci-1共三个输入，有本位Si与向高位进位Ci共两个输出</p>
+</blockquote>
+<ul>
+<li>串行加法器</li>
+</ul>
+<blockquote>
+<p>只有一个全加器【FA】，数据逐位串行送入加法器中进行运算，器件少、成本低，运算速度慢；</p>
+</blockquote>
+<ul>
+<li>并行加法器</li>
+</ul>
+<blockquote>
+<p>多个全加器组成，其位数与机器的字长相同，各位数据同时运算，有串行进位和并行进位两种进位</p>
+</blockquote>
+<ul>
+<li>串行进位</li>
+</ul>
+<blockquote>
+<p>把n个全加器串接起来，就可以进行两个n位数相加</p>
+</blockquote>
+<ul>
+<li>并行进位【先行进位、同时进位】</li>
+</ul>
+<blockquote>
+<p>各级进位信号同时形成</p>
+</blockquote>
+<ul>
+<li>单机先行进位方式【组内并行、组间串行进位方式】</li>
+<li>多级先行进位方式【组内并行、组间并行进位方式】</li>
+</ul>
+<h3 id="4-2-算术逻辑单元的功能和结构"><a href="#4-2-算术逻辑单元的功能和结构" class="headerlink" title="4.2 算术逻辑单元的功能和结构"></a>4.2 算术逻辑单元的功能和结构</h3><ul>
+<li>带标志加法器</li>
+</ul>
+<blockquote>
+<p>无符号数加法器只能用于两个无符号数相加，不能进行带符号整数的加、减法运算，为了加快加法运算的速度，实际电路一定使用多级先行进位方式 </p>
+</blockquote>
+<ul>
+<li>算术逻辑单元</li>
+<li>补码加减法运算部件</li>
+</ul>
+<h2 id="5-存储系统"><a href="#5-存储系统" class="headerlink" title="5. 存储系统"></a>5. 存储系统</h2><h3 id="5-1-存储器的分类"><a href="#5-1-存储器的分类" class="headerlink" title="5.1 存储器的分类"></a>5.1 存储器的分类</h3><ul>
+<li><p>按照计算机的作用分</p>
+<ul>
+<li>主存储器</li>
+<li>辅助存储器</li>
+<li>高速缓冲存储器</li>
+</ul>
+</li>
+<li><p>按照存储介质分</p>
+<ul>
+<li>磁表面存储器(磁盘、磁带)</li>
+<li>磁心存储器</li>
+<li>半导体存储器(MOS型存储器、双极型存储器)</li>
+<li>光存储器（光盘）</li>
+</ul>
+</li>
+<li><p>按照存储方式分类</p>
+<ul>
+<li>随机存储器（RAM）</li>
+<li>只读存储器（ROM）</li>
+<li>串行访问存储器</li>
+</ul>
+</li>
+<li><p>按照信息可保存性分类</p>
+<ul>
+<li>易失性存储器</li>
+<li>非易失性存储器</li>
+<li>破坏性读出</li>
+<li>非破坏性读出</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-存储器的性能指标"><a href="#5-2-存储器的性能指标" class="headerlink" title="5.2 存储器的性能指标"></a>5.2 存储器的性能指标</h3><ul>
+<li>存储容量</li>
+</ul>
+<blockquote>
+<p>存储容量 &#x3D; 存储字数 * 字长</p>
+</blockquote>
+<ul>
+<li>单位成本</li>
+</ul>
+<blockquote>
+<p>每位价格 &#x3D; 总成本&#x2F;总容量</p>
+</blockquote>
+<ul>
+<li><p>存储速度</p>
+<blockquote>
+<p>数据传输率 &#x3D; 数据的宽度&#x2F;存储周期</p>
+</blockquote>
+<ul>
+<li>存取时间</li>
+<li>存储周期</li>
+<li>主存带宽</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-多级存储系统"><a href="#5-3-多级存储系统" class="headerlink" title="5.3 多级存储系统"></a>5.3 多级存储系统</h3><table>
+<thead>
+<tr>
+<th>CPU寄存器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cache</td>
+</tr>
+<tr>
+<td>主存</td>
+</tr>
+<tr>
+<td>磁盘</td>
+</tr>
+<tr>
+<td>磁带 光盘</td>
+</tr>
+</tbody></table>
+<h3 id="5-4-半导体随机存储器"><a href="#5-4-半导体随机存储器" class="headerlink" title="5.4 半导体随机存储器"></a>5.4 半导体随机存储器</h3><h4 id="5-4-1-静态随机存储器【SRAM】"><a href="#5-4-1-静态随机存储器【SRAM】" class="headerlink" title="5.4.1 静态随机存储器【SRAM】"></a>5.4.1 静态随机存储器【SRAM】</h4><blockquote>
+<p>SRAM的存储元是用双稳态触发器（六晶体管MOS）来记忆，非破坏性读出，存储速度快，集成度低，功耗大，一般用来组成高速缓冲存储器</p>
+</blockquote>
+<h4 id="5-4-2-动态随机存储器【DRAM】"><a href="#5-4-2-动态随机存储器【DRAM】" class="headerlink" title="5.4.2 动态随机存储器【DRAM】"></a>5.4.2 动态随机存储器【DRAM】</h4><blockquote>
+<p>DRAM是利用存储元电路中栅极电容上的电荷来存储信息，只使用一个晶体管</p>
+</blockquote>
+<ul>
+<li>刷新方式<ul>
+<li>集中刷新</li>
+<li>分散刷新</li>
+<li>异步刷新</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-4-3-存储器芯片的内部结构"><a href="#5-4-3-存储器芯片的内部结构" class="headerlink" title="5.4.3 存储器芯片的内部结构"></a>5.4.3 存储器芯片的内部结构</h4><blockquote>
+<p>存储体，I&#x2F;O读写电路、地址译码和控制电路、片选控制信号、读写控制信号等部分组成</p>
+</blockquote>
+<ul>
+<li>表5 SRAM与DRAM各自特点</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>特点</th>
+<th>SRAM</th>
+<th>DRAM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>存储信息</td>
+<td>触发器</td>
+<td>电容</td>
+</tr>
+<tr>
+<td>2</td>
+<td>破坏性读出</td>
+<td>非</td>
+<td>是</td>
+</tr>
+<tr>
+<td>3</td>
+<td>需要刷新</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>4</td>
+<td>送行列地址</td>
+<td>同时送</td>
+<td>分两次送</td>
+</tr>
+<tr>
+<td>5</td>
+<td>运行速度</td>
+<td>快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>6</td>
+<td>集成度</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>7</td>
+<td>发热量（功耗）</td>
+<td>大</td>
+<td>小</td>
+</tr>
+<tr>
+<td>8</td>
+<td>存储成本</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>9</td>
+<td>主要用途</td>
+<td>高速缓存</td>
+<td>主机内存</td>
+</tr>
+</tbody></table>
+<h3 id="5-5-只读存储器"><a href="#5-5-只读存储器" class="headerlink" title="5.5 只读存储器"></a>5.5 只读存储器</h3><h4 id="5-5-1-分类"><a href="#5-5-1-分类" class="headerlink" title="5.5.1 分类"></a>5.5.1 分类</h4><ul>
+<li>掩模式只读存储器</li>
+</ul>
+<blockquote>
+<p>生产过程直接写入</p>
+</blockquote>
+<ul>
+<li>一次可编程只读存储器</li>
+</ul>
+<blockquote>
+<p>一旦写入，无法改变</p>
+</blockquote>
+<ul>
+<li>可擦除可编程只读存储器</li>
+<li>闪速存储器</li>
+<li>固态硬盘</li>
+</ul>
+<h3 id="5-6-主存储器"><a href="#5-6-主存储器" class="headerlink" title="5.6 主存储器"></a>5.6 主存储器</h3><h4 id="5-6-1-基本组成"><a href="#5-6-1-基本组成" class="headerlink" title="5.6.1 基本组成"></a>5.6.1 基本组成</h4><blockquote>
+<p>主存储器由一个个存储0或1的记忆单元(也称存储元件)构成的存储矩阵（也称存储体）是存储器的核心部分</p>
+</blockquote>
+<h4 id="5-6-2-主存储器与CPU链接"><a href="#5-6-2-主存储器与CPU链接" class="headerlink" title="5.6.2 主存储器与CPU链接"></a>5.6.2 主存储器与CPU链接</h4><ul>
+<li>主存储器通过数据总线、地址总线和控制总线与CPU连接</li>
+<li>数据总线的位数与工作频率的乘积正比于数据传输率</li>
+<li>地址总线的位数决定了可寻址的最大内存空间</li>
+<li>控制总线（读&#x2F;写）指出总线周期的类型和本次输入&#x2F;输出操作完成的时刻</li>
+</ul>
+<h4 id="5-6-3-主存容量的扩展"><a href="#5-6-3-主存容量的扩展" class="headerlink" title="5.6.3 主存容量的扩展"></a>5.6.3 主存容量的扩展</h4><ul>
+<li>位扩展法</li>
+<li>字扩展法</li>
+<li>字位同时扩展法</li>
+</ul>
+<h4 id="5-6-4-存储芯片的地址分配和片选"><a href="#5-6-4-存储芯片的地址分配和片选" class="headerlink" title="5.6.4 存储芯片的地址分配和片选"></a>5.6.4 存储芯片的地址分配和片选</h4><ul>
+<li>线选法</li>
+<li>译码片选法</li>
+</ul>
+<h4 id="5-6-5-存储器与CPU的连接"><a href="#5-6-5-存储器与CPU的连接" class="headerlink" title="5.6.5 存储器与CPU的连接"></a>5.6.5 存储器与CPU的连接</h4><ul>
+<li>合理选择存储芯片</li>
+<li>地址线的连接</li>
+<li>数据线的连接</li>
+<li>读&#x2F;写命令线的连接</li>
+<li>片选线的连接</li>
+</ul>
+<h3 id="5-7-双端口RAM和多模块存储器"><a href="#5-7-双端口RAM和多模块存储器" class="headerlink" title="5.7 双端口RAM和多模块存储器"></a>5.7 双端口RAM和多模块存储器</h3><h4 id="5-7-1-双端口RAM"><a href="#5-7-1-双端口RAM" class="headerlink" title="5.7.1 双端口RAM"></a>5.7.1 双端口RAM</h4><blockquote>
+<p>空间并行技术</p>
+</blockquote>
+<h4 id="5-7-2-多模块存储器"><a href="#5-7-2-多模块存储器" class="headerlink" title="5.7.2 多模块存储器"></a>5.7.2 多模块存储器</h4><blockquote>
+<p>时间并行</p>
+</blockquote>
+<ul>
+<li>单体多字存储器</li>
+<li>多体并行存储器</li>
+</ul>
+<h3 id="5-8-高速缓冲存储器"><a href="#5-8-高速缓冲存储器" class="headerlink" title="5.8 高速缓冲存储器"></a>5.8 高速缓冲存储器</h3><blockquote>
+<p>通常将存储系统分为“Cache - 主存”层次和“主存-辅存”层次，高速缓冲技术就是利用程序访问的局部性原理</p>
+</blockquote>
+<ul>
+<li>Cache 的基本工作原理</li>
+</ul>
+<blockquote>
+<p>Cache位于存储器层次结构的顶层，通常由SRAM构成，当CPU发出请求时，若Cache命中，将此地址转换为Cache地址，直接对Cache进行读操作，不命中，仍需要访问主存，并把此字所在的块一次性从主存调入Cache。</p>
+</blockquote>
+<ul>
+<li><p>Cache与主存的映射方式</p>
+<ul>
+<li>直接映射</li>
+<li>全相联映射</li>
+<li>组相联映射</li>
+</ul>
+</li>
+<li><p>Cache中主存块的替换算法</p>
+<ul>
+<li>随机算法</li>
+<li>先进先出算法</li>
+<li>近期最少使用算法</li>
+</ul>
+</li>
+<li><p>Cache写策略</p>
+<ul>
+<li>全写法【FIFO】</li>
+<li>写回法<ul>
+<li>写分配法</li>
+<li>非写分配法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-9-虚拟存储器"><a href="#5-9-虚拟存储器" class="headerlink" title="5.9 虚拟存储器"></a>5.9 虚拟存储器</h3><blockquote>
+<p>虚拟存储器将主存或辅存的地址空间统一编址，形成一个庞大的地址空间，在这个空间，用户可以自由编程，而不必在乎实际的主存容量和程序在主存中实际的存放位置</p>
+</blockquote>
+<ul>
+<li>页式虚拟存储器</li>
+</ul>
+<blockquote>
+<p>以页为基本单位的虚拟存储器，主存的页为实页，虚存的页为虚页</p>
+</blockquote>
+<ul>
+<li><p>页表</p>
+</li>
+<li><p>快表（TLB）</p>
+</li>
+<li><p>具有TLB和Cache的多级存储系统</p>
+</li>
+<li><p>表6 TLB、Page、Cache三种缺失的可能情况</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>TLB</th>
+<th>Page</th>
+<th>Cache</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>命中</td>
+<td>命中</td>
+<td>命中</td>
+<td>TLB命中则Page一定命中，信息在主存，就可能在Cache中</td>
+</tr>
+<tr>
+<td>2</td>
+<td>命中</td>
+<td>命中</td>
+<td>缺失</td>
+<td>TLB命中则Page一定命中，信息在主存，也可能不在Cache中</td>
+</tr>
+<tr>
+<td>3</td>
+<td>缺失</td>
+<td>命中</td>
+<td>命中</td>
+<td>TLB缺失但Page可能命中，信息在主存，就可能在Cache中</td>
+</tr>
+<tr>
+<td>4</td>
+<td>缺失</td>
+<td>命中</td>
+<td>缺失</td>
+<td>TLB缺失但Page可能命中，信息在主存，也可能不在Cache中</td>
+</tr>
+<tr>
+<td>5</td>
+<td>缺失</td>
+<td>缺失</td>
+<td>缺失</td>
+<td>TLB缺失则Page也可能命中，信息不在主存，就一定不在Cache中</td>
+</tr>
+</tbody></table>
+<ul>
+<li>段式虚拟存储器</li>
+<li>段页式虚拟存储器</li>
+</ul>
+<blockquote>
+<p>虚地址分为段号，段内页号，页内地址三部分</p>
+</blockquote>
+<ul>
+<li><p>虚拟存储器与Cache的比较</p>
+</li>
+<li><p>相同</p>
+<ul>
+<li>最终目的都是为了提高系统的性能，两者都有容量、速度、价格的梯度</li>
+<li>都把数据划分为小信息块，并作为基本的传递单位，虚存系统的信息块更大</li>
+<li>都有地址的映射、替换算法、更新策略等问题</li>
+<li>依据程序的局部性原理应用“快速缓存的思想”，将活跃的数据放在相对高速的部件中</li>
+</ul>
+</li>
+<li><p>不同</p>
+<ul>
+<li>Cache主要解决系统速度，而虚拟存储器却是为了解决主存容量</li>
+<li>Cache全由硬件实现，是硬件存储器，对所有程序员透明，而虚拟存储器由OS和硬件共同实现，是逻辑上的存储器，对系统程序员不透明，但对应用程序员透明。</li>
+<li>对于不命中性能影响，因为CPU的速度约为Cache的10倍，主存的速度为硬盘的100倍以上，因此虚拟存储器系统不命中时对系统性能影响更大</li>
+<li>CPU与Cache和主存都建立了直接访问的通路，而辅存与CPU没有直接通路，也就是说在Cache不命中时主存能和CPU直接通信，同时将数据调入Cache，而虚拟存储器系统不命中时，只能先由硬盘调入主存，而不能直接和CPU通信</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-指令系统"><a href="#6-指令系统" class="headerlink" title="6. 指令系统"></a>6. 指令系统</h2><blockquote>
+<p>指令就是机器语言的一组有意义的二进制代码，能够使计算机执行某种操作；</p>
+</blockquote>
+<h3 id="6-1-指令的属性"><a href="#6-1-指令的属性" class="headerlink" title="6.1 指令的属性"></a>6.1 指令的属性</h3><ul>
+<li>指令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作指令格式</th>
+<th>操作码字段</th>
+<th>地址码字段</th>
+<th>地址码地址</th>
+<th>地址码地址</th>
+<th>地址码地址</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>零地址指令</td>
+<td>OP</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>不需要操作数的指令，仅用在堆栈计算机中</td>
+</tr>
+<tr>
+<td>一地址指令</td>
+<td>OP</td>
+<td>A1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>OP(A1)-&gt;A1加1、减1、求反、求补</td>
+</tr>
+<tr>
+<td>二地址指令</td>
+<td>OP</td>
+<td>A1</td>
+<td>A2</td>
+<td></td>
+<td></td>
+<td>（A1）OP（A2）-&gt;A1算术和逻辑运算指令</td>
+</tr>
+<tr>
+<td>三地址指令</td>
+<td>OP</td>
+<td>A1</td>
+<td>A2</td>
+<td>A3(结果)</td>
+<td></td>
+<td>(A1)OP(A2)-&gt;A3</td>
+</tr>
+<tr>
+<td>四地址指令</td>
+<td>OP</td>
+<td>A1</td>
+<td>A2</td>
+<td>A3(结果）</td>
+<td>A4(下址）</td>
+<td>(A1)OP(A2)-&gt;A3,A4&#x3D;下一条将要执行指令的地址</td>
+</tr>
+</tbody></table>
+<ul>
+<li>扩展操作码指令格式</li>
+</ul>
+<blockquote>
+<p>&lt;1&gt; 不允许短码是长码的前缀，即短操作码不能与长操作码的前面部分的代码相同</p>
+<p>&lt;2&gt; 各指令的操作码一定不能重复</p>
+</blockquote>
+<ul>
+<li>指令的操作系统<ul>
+<li>数据传送</li>
+<li>算术和逻辑运算</li>
+<li>移位操作</li>
+<li>转移操作</li>
+<li>输入输出操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2-指令的寻址方式"><a href="#6-2-指令的寻址方式" class="headerlink" title="6.2 指令的寻址方式"></a>6.2 指令的寻址方式</h3><blockquote>
+<p>有效地址（EA） &#x3D; 形式地址（A） + 寻址方式</p>
+</blockquote>
+<ul>
+<li><p>指令寻址</p>
+<blockquote>
+<p>寻找下一条将要执行的指令地址称为指令寻址</p>
+</blockquote>
+<ul>
+<li>顺序寻址方式</li>
+<li>跳跃寻址方式</li>
+</ul>
+</li>
+<li><p>数据寻址</p>
+<blockquote>
+<p>寻找操作数的地址称为数据寻址</p>
+</blockquote>
+<ul>
+<li>隐含寻址</li>
+<li>立即（数）寻址</li>
+<li>直接寻址</li>
+<li>间接寻址</li>
+<li>寄存器寻址</li>
+<li>寄存器间接寻址</li>
+<li>相对寻址</li>
+<li>基址寻址</li>
+<li>变址寻址</li>
+<li>堆栈寻址</li>
+</ul>
+</li>
+<li><p>表7 寻址方式、有效地址及访存次数</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>寻址方式</th>
+<th>有效地址</th>
+<th>访存次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>隐含寻址</td>
+<td>程序指定</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>立即（数）寻址</td>
+<td>A即是操作数</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>直接寻址</td>
+<td>EA &#x3D; A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>一次间接寻址</td>
+<td>EA &#x3D; （A）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>寄存器寻址</td>
+<td>EA &#x3D; Ri</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>寄存器间接一次寻址</td>
+<td>EA &#x3D; (Ri)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>相对寻址</td>
+<td>EA &#x3D; (PC) + A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>基址寻址</td>
+<td>EA &#x3D; (BR) + A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>变址寻址</td>
+<td>EA &#x3D; (IX) + A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>堆栈寻址</td>
+<td>入栈出栈EA确定方式不同</td>
+<td>硬堆栈不访存、软堆栈访存1次</td>
+</tr>
+</tbody></table>
+<h3 id="6-3-X86汇编指令"><a href="#6-3-X86汇编指令" class="headerlink" title="6.3 X86汇编指令"></a>6.3 X86汇编指令</h3><blockquote>
+<p>X86处理器中有8个32位的通用寄存器</p>
+</blockquote>
+<ul>
+<li>寻址模式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov eax, [ebx];</span><br><span class="line">mov [var], ebx;</span><br><span class="line">mov eax,[esi-4];</span><br><span class="line">mov [esi+eax], cl;</span><br><span class="line">mov edx, [esi+4*ebx];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最多只能利用两个32位寄存器和一个32位的有符号常数相加计算出一个内存地址</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax, [ebx-ecx];错误，只能够用加法</span><br><span class="line">mov [eax+esi+edi], ebx;错误，最多只能有两个寄存器参与运算</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据长度规定</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mov [ebx], 2;//不能够识别</span><br></pre></td></tr></table></figure>
+
+<p>可以写成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov byte ptr [ebx], 2;单字节</span><br><span class="line">mov word ptr [ebx], 2;双字节</span><br><span class="line">mov dword ptr [ebx], 2;四字节</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用指令</li>
+</ul>
+<blockquote>
+<p><reg> 表示任意寄存器，其后带有数字，则指定其位数；<mem>表示内存地址；<con>表示常数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov ax &lt;con16&gt;;机器码为B8H</span><br><span class="line">mov a1, &lt;con8&gt;;机器码为B0H</span><br><span class="line">mov &lt;reg16&gt;/&lt;mem16&gt;, &lt;reg16&gt;;机器码为89H</span><br><span class="line">mov &lt;reg8&gt;, &lt;reg8&gt;/&lt;mem8&gt;;机器码为8AH</span><br><span class="line">mov &lt;reg16&gt;, &lt;reg16&gt;/&lt;mem16&gt;;机器码为8BH</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>数据传送指令</p>
+</li>
+<li><p>mov指令</p>
+</li>
+</ul>
+<blockquote>
+<p>将第二个操作数复制到第一个操作数（寄存器或内存），但不能从内存<mem>复制到<mem>中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov &lt;reg&gt;, &lt;reg&gt;</span><br><span class="line">mov &lt;reg&gt;, &lt;mem&gt;</span><br><span class="line">mov &lt;mem&gt;, &lt;reg&gt;</span><br><span class="line">mov &lt;reg&gt;, &lt;con&gt;</span><br><span class="line">mov &lt;mem&gt;, &lt;con&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax, ebx;</span><br><span class="line">mov byte ptr [var], 5;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>push指令</li>
+</ul>
+<blockquote>
+<p>push指令将操作数压入内存的栈，常用于函数调用</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">push &lt;reg32&gt;</span><br><span class="line">push &lt;mem&gt;</span><br><span class="line">push &lt;con32&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push eax;</span><br><span class="line">push [var];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>pop指令</li>
+</ul>
+<blockquote>
+<p>pop出栈</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pop edi</span><br><span class="line">pop [ebx]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>算术与逻辑运算指令</p>
+</li>
+<li><p>add&#x2F;sub指令</p>
+</li>
+</ul>
+<blockquote>
+<p>将两个操作数相加或者相减，结果保存到第一个操作数中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add &lt;reg&gt;, &lt;reg&gt; / sub &lt;reg&gt;, &lt;reg&gt;</span><br><span class="line">add &lt;reg&gt;, &lt;mem&gt; / sub &lt;reg&gt;, &lt;mem&gt;</span><br><span class="line">add &lt;mem&gt;, &lt;reg&gt; / sub &lt;mem&gt;, &lt;reg&gt;</span><br><span class="line">add &lt;reg&gt;, &lt;con&gt; / sub &lt;reg&gt;, &lt;con&gt;</span><br><span class="line">add &lt;mem&gt;, &lt;con&gt; / sub &lt;mem&gt;, &lt;con&gt; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub eax, 10;eax&lt;- eax - 10</span><br><span class="line">add byte ptr [var], 10; var&lt;- var+10</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>inc&#x2F;dec指令</li>
+</ul>
+<blockquote>
+<p>inc、dec指令分别表示将操作数自加1、自减1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inc &lt;reg&gt; / dec &lt;reg&gt;</span><br><span class="line">inc &lt;mem&gt; / dec &lt;mem&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dec eax;eax自减1</span><br><span class="line">inc dword ptr [var];自加1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>imul指令</li>
+</ul>
+<blockquote>
+<p>带符号整数乘法指令，第一个操作数必须为寄存器，将第一个和第二个或者第二个和第三个操作数相乘，结果保存在第一个操作数中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">imul &lt;reg32&gt;, &lt;reg32&gt;</span><br><span class="line">imul &lt;reg32&gt;, &lt;mem&gt;</span><br><span class="line">imul &lt;reg32&gt;, &lt;reg32&gt;, &lt;con&gt;</span><br><span class="line">imul &lt;reg32&gt;, &lt;mem&gt;, &lt;con&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">imul eax, [var];eax&lt;-eax*[var]</span><br><span class="line">imul esi, edi, 25;esi&lt;-edi*25</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>idiv指令</li>
+</ul>
+<blockquote>
+<p>idiv是带符号整数除法指令，它只有一个操作数，即除数，而被除数则为edx：eax中的内容，商送到eax，余数送到edx</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idiv &lt;reg32&gt;</span><br><span class="line">idiv &lt;mem&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idiv ebx;</span><br><span class="line">idiv dword ptr [var];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>and&#x2F;or&#x2F;xor指令</li>
+</ul>
+<blockquote>
+<p>逻辑与、或、异或，操作数的位操作</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">and &lt;reg&gt;, &lt;reg&gt; / or &lt;reg&gt;, &lt;reg&gt; / xor &lt;reg&gt;, &lt;reg&gt;</span><br><span class="line">and &lt;reg&gt;, &lt;mem&gt; / or &lt;reg&gt;, &lt;mem&gt; / xor &lt;reg&gt;, &lt;mem&gt;</span><br><span class="line">and &lt;mem&gt;, &lt;reg&gt; / or &lt;mem&gt;, &lt;reg&gt; / xor &lt;mem&gt;, &lt;reg&gt; </span><br><span class="line">and &lt;reg&gt;, &lt;con&gt; / or &lt;reg&gt;, &lt;con&gt; / xor &lt;reg&gt;, &lt;con&gt; </span><br><span class="line">and &lt;mem&gt;, &lt;con&gt; / or &lt;mem&gt;, &lt;con&gt; / xor &lt;mem&gt;, &lt;con&gt;  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">and eax, 0fH ;将eax的强28位全部置为0，最后四位保持不变</span><br><span class="line">xor edx, edx ;置edx的内容为0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>not指令</li>
+</ul>
+<blockquote>
+<p>not指令是位翻转指令，将操作中的每一个数进行翻转,0-&gt;1,1-&gt;0</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">not &lt;reg&gt;</span><br><span class="line">not &lt;mem&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">not byte ptr [var];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>neg指令</li>
+</ul>
+<blockquote>
+<p>neg是取负指令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">neg &lt;reg&gt;</span><br><span class="line">neg &lt;mem&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">neg eax;eax &lt;- -eax</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>shl&#x2F;shr指令</li>
+</ul>
+<blockquote>
+<p>逻辑移位指令，shl逻辑左移，shr逻辑右移；第一个操作数表示被操作数，第二个表示指示移位的位数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shl &lt;reg&gt;, &lt;con8&gt; / shr &lt;reg&gt;, &lt;con8&gt;</span><br><span class="line">shl &lt;mem&gt;, &lt;con8&gt; / shr &lt;mem&gt;, &lt;con8&gt;</span><br><span class="line">shl &lt;reg&gt;, &lt;cl&gt; / shr &lt;reg&gt;, &lt;cl&gt;</span><br><span class="line">shl &lt;mem&gt;, &lt;cl&gt; / shr &lt;mem&gt;, &lt;cl&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shl eax, 1;eax的值左移一位 *2</span><br><span class="line">shr ebx，cl；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>控制流指令</li>
+</ul>
+<blockquote>
+<p>X86处理器维持着一个指示当前执行指令的指令指针（IP），此指针自动指向下一条指令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov esi, [ebp + 8]</span><br><span class="line">begin : xor ecx, ecx</span><br><span class="line">		mov eax, [esi]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>jmp指令</li>
+</ul>
+<blockquote>
+<p>jmp指令控制IP转移到lable所指示的地址</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmp &lt;lable&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmp begin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>jcondition指令</li>
+</ul>
+<blockquote>
+<p>条件转移指令，它依据处理机状态字中的一系列状态转移</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">je &lt;lable&gt; (jump when equal)</span><br><span class="line">jne &lt;lable&gt; (jump when not equal)</span><br><span class="line">jz &lt;lable&gt; (jump when last result was zero)</span><br><span class="line">jg &lt;lable&gt; (jump when greater than)</span><br><span class="line">jge &lt;lable&gt; (jump when greater than or equal to)</span><br><span class="line">jl &lt;lable&gt; (jump when less than)</span><br><span class="line">jle &lt;lable&gt; (jump when less than or equal to)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmp eax, ebx</span><br><span class="line">jle <span class="keyword">done</span>;如果eax的值小于等于ebx的值，跳转到<span class="keyword">done</span>指示的指令执行，否则执行下一条指令</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>cmp指令</li>
+</ul>
+<blockquote>
+<p>cmp用来比较两个操作数的值，并根据比较结果设置处理机状态字中的条件码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmp &lt;reg&gt;, &lt;reg&gt;</span><br><span class="line">cmp &lt;reg&gt;, &lt;mem&gt;</span><br><span class="line">cmp &lt;reg&gt;, &lt;con&gt;</span><br><span class="line">cmp &lt;mem&gt;, &lt;reg&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>栗子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmp dword ptr [var], 10</span><br><span class="line">jne loop;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>call&#x2F;ret指令</li>
+</ul>
+<blockquote>
+<p>分别实现子程序（过程、函数）的调用和返回</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">call &lt;lable&gt;</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-复杂指令系统计算机（-CISC）和精简指令系统计算机（RISC）"><a href="#6-4-复杂指令系统计算机（-CISC）和精简指令系统计算机（RISC）" class="headerlink" title="6.4 复杂指令系统计算机（ CISC）和精简指令系统计算机（RISC）"></a>6.4 复杂指令系统计算机（ CISC）和精简指令系统计算机（RISC）</h3><ul>
+<li>表8 CISC和RISC的对比</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>对比项目</th>
+<th>CISC</th>
+<th>RISC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>指令系统</td>
+<td>复杂，庞大</td>
+<td>简单、精简</td>
+</tr>
+<tr>
+<td>2</td>
+<td>指令数目</td>
+<td>一般大于200条</td>
+<td>一般小于100条</td>
+</tr>
+<tr>
+<td>3</td>
+<td>指令字长</td>
+<td>不固定</td>
+<td>定长</td>
+</tr>
+<tr>
+<td>4</td>
+<td>可访存指令</td>
+<td>不加限制</td>
+<td>只有Load&#x2F;Store指令</td>
+</tr>
+<tr>
+<td>5</td>
+<td>各种指令执行时间</td>
+<td>相差较大</td>
+<td>绝大多数在一个周期内完成</td>
+</tr>
+<tr>
+<td>6</td>
+<td>各种指令使用频度</td>
+<td>相差很大</td>
+<td>都比较常用</td>
+</tr>
+<tr>
+<td>7</td>
+<td>通用寄存器数量</td>
+<td>较少</td>
+<td>多</td>
+</tr>
+<tr>
+<td>8</td>
+<td>目标代码</td>
+<td>难以用优化编译生成高效的目标代码程序</td>
+<td>采用优化的编译程序，生成代码较为高效</td>
+</tr>
+<tr>
+<td>9</td>
+<td>控制方式</td>
+<td>绝大多数为微程序控制</td>
+<td>绝大多数为组合逻辑控制</td>
+</tr>
+<tr>
+<td>10</td>
+<td>指令流水线</td>
+<td>可以通过一定方式实现</td>
+<td>必须实现</td>
+</tr>
+</tbody></table>
+<h2 id="7-中央处理器"><a href="#7-中央处理器" class="headerlink" title="7. 中央处理器"></a>7. 中央处理器</h2><h3 id="7-1-功能和基础结构"><a href="#7-1-功能和基础结构" class="headerlink" title="7.1 功能和基础结构"></a>7.1 功能和基础结构</h3><ul>
+<li><p>CPU的功能</p>
+<ul>
+<li>指令控制</li>
+<li>操作控制</li>
+<li>时间控制</li>
+<li>数据加工</li>
+<li>中断处理</li>
+</ul>
+</li>
+<li><p>CPU的基本机构</p>
+<ul>
+<li><p>运算器</p>
+<ul>
+<li>算术逻辑单元（ALU）</li>
+<li>暂存寄存器</li>
+<li>累加寄存器</li>
+<li>通用寄存器组</li>
+<li>程序状态字寄存器</li>
+<li>移位器</li>
+<li>计数器</li>
+</ul>
+</li>
+<li><p>控制器</p>
+<blockquote>
+<p>控制器有硬布线控制器和微程序控制器</p>
+</blockquote>
+<ul>
+<li>程序计数器</li>
+<li>指令寄存器</li>
+<li>指令译码器</li>
+<li>存储器地址寄存器</li>
+<li>存储器数据寄存器</li>
+<li>时序系统</li>
+<li>微操作信号发生器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-2-指令执行过程"><a href="#7-2-指令执行过程" class="headerlink" title="7.2 指令执行过程"></a>7.2 指令执行过程</h3><blockquote>
+<p>CPU从主存中取出并执行一条指令的时间称为指令周期</p>
+</blockquote>
+<ul>
+<li><p>指令周期的数据流</p>
+<ul>
+<li>取指周期</li>
+</ul>
+<blockquote>
+<p>&lt;1&gt; PC MAR 地址总线 主存</p>
+<p>&lt;2&gt; CU发出控制信号 控制总线 主存</p>
+<p>&lt;3&gt; 主存 数据总线 MDR IR（存放指令）</p>
+<p>&lt;4&gt;CU发出读命令PC内容+1</p>
+</blockquote>
+<ul>
+<li>间址周期</li>
+</ul>
+<blockquote>
+<p>&lt;1&gt; Ad（IR或MDR）、MAR、地址总线、主存</p>
+<p>&lt;2&gt; CU发出读命令、控制总线、主存</p>
+<p>&lt;3&gt; 主存、数据总线、MDR（存放有效地址）</p>
+</blockquote>
+<ul>
+<li>执行周期</li>
+</ul>
+<blockquote>
+<p>执行周期的任务是根据IR中的指令字的操作码和操作数通过ALU操作产生执行结果，没有统一的数据流向</p>
+</blockquote>
+<ul>
+<li>中断周期</li>
+</ul>
+<blockquote>
+<p>中断周期的任务是处理中断请求</p>
+<p>&lt;1&gt; CU控制将SP-1，SP、MAR、地址总线、主存</p>
+<p>&lt;2&gt; CU发出写命令、控制总线、主存</p>
+<p>&lt;3&gt; PC、MDR、数据总线、主存（程序断点存入主存）</p>
+<p>&lt;4&gt; CU（中断服务程序的入口地址）、PC</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="7-3-指令执行方案"><a href="#7-3-指令执行方案" class="headerlink" title="7.3 指令执行方案"></a>7.3 指令执行方案</h3><ul>
+<li>单指令周期</li>
+<li>多指令周期</li>
+<li>流水线方案</li>
+</ul>
+<h3 id="7-4-数据通路的功能和基本结构"><a href="#7-4-数据通路的功能和基本结构" class="headerlink" title="7.4 数据通路的功能和基本结构"></a>7.4 数据通路的功能和基本结构</h3><blockquote>
+<p>数据通路是数据在功能部件之间传送的路径</p>
+</blockquote>
+<ul>
+<li><p>基本结构</p>
+<ul>
+<li>CPU内部单总线方式</li>
+<li>CPU内部三总线方式</li>
+<li>专用数据通路方式</li>
+</ul>
+</li>
+<li><p>数据流向</p>
+<ul>
+<li>寄存器之间的数据传送</li>
+</ul>
+<blockquote>
+<p>PC -&gt;BUS</p>
+<p>BUS-&gt;MAR</p>
+</blockquote>
+<ul>
+<li>主存与CPU之间的数据传送</li>
+</ul>
+<blockquote>
+<p>PC-&gt;BUS-&gt;MAR</p>
+<p>1-&gt;R</p>
+<p>MEM(MAR)-&gt;MDR</p>
+<p>MDR-&gt;Bus-&gt;IR</p>
+</blockquote>
+<ul>
+<li>执行算术或逻辑运算</li>
+</ul>
+<blockquote>
+<p>Ad(IR)-&gt;BUS-&gt;MAR</p>
+<p>1-&gt;R</p>
+<p>MEM-&gt;数据线-&gt;MDR</p>
+<p>MDR-&gt;BUS-&gt;Y</p>
+<p>(ACC)+（Y）-&gt;Z</p>
+<p>Z-&gt;ACC</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="7-5-控制器的功能和工作原理"><a href="#7-5-控制器的功能和工作原理" class="headerlink" title="7.5 控制器的功能和工作原理"></a>7.5 控制器的功能和工作原理</h3><h4 id="7-5-1-硬布线控制器"><a href="#7-5-1-硬布线控制器" class="headerlink" title="7.5.1 硬布线控制器"></a>7.5.1 硬布线控制器</h4><ul>
+<li>CU输入信号来源</li>
+</ul>
+<blockquote>
+<p>&lt;1&gt; 经指令译码器译码产生的指令信息</p>
+<p>&lt;2&gt;时序系统产生的机器周期信号和节拍信号</p>
+<p>&lt;3&gt; 来自执行单元的反馈信息即标志</p>
+</blockquote>
+<ul>
+<li><p>时序系统及微操作</p>
+<ul>
+<li>时钟周期</li>
+<li>机器周期</li>
+<li>指令周期</li>
+<li>微操作命令分析<ul>
+<li>取指周期的微操作命令</li>
+<li>间址周期的微操作命令</li>
+<li>执行周期的微操作命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CPU的控制方式</p>
+<ul>
+<li>同步控制方式</li>
+<li>异步控制方式</li>
+<li>联合控制方式</li>
+</ul>
+</li>
+<li><p>硬布线控制单元设计步骤</p>
+<ul>
+<li>列出微操作命令的操作时间表</li>
+<li>进行微操作信号综合</li>
+<li>画出微操作命令的逻辑图</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-5-2-微程序控制器"><a href="#7-5-2-微程序控制器" class="headerlink" title="7.5.2 微程序控制器"></a>7.5.2 微程序控制器</h4><ul>
+<li><p>基本概念</p>
+<ul>
+<li>微命令与微操作</li>
+<li>微指令与微周期</li>
+<li>主存储器与控制存储器</li>
+<li>程序与微程序</li>
+</ul>
+</li>
+<li><p>寄存器的区别</p>
+<ul>
+<li>地址寄存器【MAR】</li>
+</ul>
+<blockquote>
+<p>用于存放主存的读、写地址</p>
+</blockquote>
+<ul>
+<li>微地址寄存器【CMAR】</li>
+</ul>
+<blockquote>
+<p>用于存放控制存储器的读写微指令的地址</p>
+</blockquote>
+<ul>
+<li>指令寄存器【IR】</li>
+</ul>
+<blockquote>
+<p>用于存放从主存中读出的指令</p>
+</blockquote>
+<ul>
+<li>微指令寄存器【CMDR】</li>
+</ul>
+<blockquote>
+<p>用于存放从控制存储器中读出的微指令</p>
+</blockquote>
+</li>
+<li><p>微程序控制器的组成和工作过程</p>
+<ul>
+<li>控制存储器</li>
+<li>微指令寄存器</li>
+<li>微地址形成部件</li>
+<li>微地址寄存器</li>
+</ul>
+</li>
+<li><p>微程序控制器的工作过程</p>
+<ul>
+<li>执行取微指令公共操作</li>
+<li>由机器指令的操作码字段通过微地址形成部件产生该机器指令所对应的微程序的入口地址，并送入CMAR</li>
+<li>从CM中逐条取出对应的微指令并执行</li>
+<li>执行完对应于第一条机器指令的一个微程序后，又回到取指微程序的入口地址，重复第一步，以完成取下一条机器指令的操作</li>
+</ul>
+</li>
+<li><p>微指令的编码方式</p>
+<ul>
+<li>直接编码（直接控制）方式</li>
+<li>字段直接编码方式</li>
+</ul>
+</li>
+<li><p>微指令的地址形成方式</p>
+<ul>
+<li>直接由微指令的下地址字段指出</li>
+<li>根据机器指令的操作码形成</li>
+</ul>
+</li>
+<li><p>微指令的格式</p>
+<ul>
+<li>水平型微指令</li>
+<li>垂直型微指令</li>
+<li>混合型微指令</li>
+</ul>
+</li>
+<li><p>微程序控制单元的设计步骤</p>
+<ul>
+<li>写出对应机器指令的微操作命令及节拍安排</li>
+<li>确定微指令格式</li>
+<li>编写微指令码点</li>
+</ul>
+</li>
+<li><p>表 9 微程序控制器和硬布线控制器的对比</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>对比项目</th>
+<th>微程序控制器</th>
+<th>硬布线控制器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>工作原理</td>
+<td>微操作控制信号以微程序的形式存放在控制存储器中，执行指令时读出即可</td>
+<td>微操作控制信号由组合逻辑电路根据当前的指令码、状态和时序，即时产生</td>
+</tr>
+<tr>
+<td>2</td>
+<td>执行速度</td>
+<td>慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>3</td>
+<td>规整性</td>
+<td>较规整</td>
+<td>繁琐、不规整</td>
+</tr>
+<tr>
+<td>4</td>
+<td>应用场合</td>
+<td>CISC CPU</td>
+<td>RISC CPU</td>
+</tr>
+<tr>
+<td>5</td>
+<td>易扩充性</td>
+<td>易扩充修改</td>
+<td>困难</td>
+</tr>
+</tbody></table>
+<h3 id="7-6-指令流水线"><a href="#7-6-指令流水线" class="headerlink" title="7.6 指令流水线"></a>7.6 指令流水线</h3><blockquote>
+<p>采用流水线技术只需增加少量硬件就能够把计算机的运算速度提高几倍，并行处理技术</p>
+</blockquote>
+<ul>
+<li><p>阶段</p>
+<ul>
+<li>取指</li>
+<li>分析</li>
+<li>执行</li>
+</ul>
+</li>
+<li><p>当多条指令在处理器执行</p>
+<ul>
+<li>顺序执行方式</li>
+<li>流水线执行方式</li>
+</ul>
+</li>
+<li><p>流水线的分类</p>
+<ul>
+<li>部件功能级、处理机级和处理机间级流水线</li>
+<li>单功能流水线和多功能流水线</li>
+<li>动态流水线和静态流水线</li>
+<li>线性流水线和非线性流水线</li>
+</ul>
+</li>
+<li><p>影响流水线的因素</p>
+<ul>
+<li><p>资源冲突【结构相关】【资源重复配置+数据存储器+指令存储器】</p>
+</li>
+<li><p>数据冲突【数据相关】【同步】</p>
+<ul>
+<li>写后读（Read After Write，RAW）</li>
+<li>读后写（Write After Read ，WAR）</li>
+<li>写后写（Write AfterWrite，WAW）</li>
+</ul>
+</li>
+<li><p>控制冲突【控制相关】</p>
+</li>
+</ul>
+</li>
+<li><p>流水线的性能指标</p>
+<ul>
+<li>流水线的吞吐率</li>
+</ul>
+<blockquote>
+<p>TP &#x3D; n&#x2F;Tk</p>
+</blockquote>
+<ul>
+<li>流水线的加速比</li>
+</ul>
+<blockquote>
+<p>S &#x3D; T0&#x2F;Tk</p>
+</blockquote>
+<ul>
+<li>流水线的效率</li>
+</ul>
+<blockquote>
+<p>E &#x3D; T0&#x2F;(kTk)</p>
+</blockquote>
+</li>
+<li><p>超标量流水线</p>
+<ul>
+<li>超标量流水线技术</li>
+<li>超流水线技术</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-总线"><a href="#8-总线" class="headerlink" title="8. 总线"></a>8. 总线</h2><blockquote>
+<p>总线是一组能为多个部件分时共享的公共信息传送线路，分时和共享</p>
+</blockquote>
+<h3 id="8-1-总线属性"><a href="#8-1-总线属性" class="headerlink" title="8.1 总线属性"></a>8.1 总线属性</h3><ul>
+<li><p>总线设备</p>
+<ul>
+<li>主设备</li>
+<li>从设备</li>
+</ul>
+</li>
+<li><p>总线特性</p>
+<ul>
+<li>机械特性（尺寸、形状）</li>
+<li>电气特性（传输方向、有效的电平范围）</li>
+<li>功能特性（每根传输线的功能）</li>
+<li>时间特性（信号和时序的关系）</li>
+</ul>
+</li>
+<li><p>总线的猝发传输方式</p>
+</li>
+</ul>
+<blockquote>
+<p>在一个总线周期内传输存储地址连续的多个数据字的总线传输方式</p>
+</blockquote>
+<ul>
+<li><p>总线的分类</p>
+<ul>
+<li>片内总线</li>
+<li>系统总线<ul>
+<li>地址总线</li>
+<li>数据总线</li>
+<li>控制总线</li>
+</ul>
+</li>
+<li>通信总线<ul>
+<li>并行总线</li>
+<li>串行总线</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>系统总线的结构</p>
+<ul>
+<li>单总线结构</li>
+<li>双总线结构</li>
+<li>三总线结构</li>
+</ul>
+</li>
+<li><p>总线的性能指标</p>
+<ul>
+<li>总线的传输周期</li>
+<li>总线时钟周期</li>
+<li>总线的工作频率</li>
+<li>总线的时间频率</li>
+<li>总线带宽（不是总线宽度）</li>
+</ul>
+<blockquote>
+<p>总线带宽 &#x3D; (总线宽度&#x2F;8)* 总线频率 </p>
+<p>（总线工作频率）22*（16&#x2F;8）</p>
+</blockquote>
+<ul>
+<li>总线复用</li>
+<li>信号线数</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-2-总线仲裁"><a href="#8-2-总线仲裁" class="headerlink" title="8.2 总线仲裁"></a>8.2 总线仲裁</h3><ul>
+<li>集中仲裁方式<ul>
+<li>链式查询方式</li>
+<li>计数器定时查询方式</li>
+<li>独立请求方式</li>
+</ul>
+</li>
+<li>分布仲裁方式</li>
+</ul>
+<blockquote>
+<p>分布仲裁方式不需要中央仲裁器，每个潜在的</p>
+</blockquote>
+<ul>
+<li>表10 三种集中仲裁方式的区别和联系</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>对比项目</th>
+<th>链式查询</th>
+<th>计数器定时查询</th>
+<th>独立请求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>控制线数</td>
+<td>3（总线请求：1；总线忙：1；总线允许：1；）</td>
+<td>[log2n] + 2(总线请求：1；总线忙：1；总线允许：[log2n]；)</td>
+<td>2n+1(总线请求：n；总线忙：n；总线允许：1；)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>优点</td>
+<td>优先级固定；结构简单；扩充容易</td>
+<td>优先级灵活</td>
+<td>响应速度快，优先级灵活</td>
+</tr>
+<tr>
+<td>3</td>
+<td>缺点</td>
+<td>对电路故障敏感，优先级不灵活</td>
+<td>控制线路多；控制复杂</td>
+<td>控制线多；控制复杂</td>
+</tr>
+</tbody></table>
+<h3 id="8-3-总线操作和定时"><a href="#8-3-总线操作和定时" class="headerlink" title="8.3 总线操作和定时"></a>8.3 总线操作和定时</h3><ul>
+<li><p>总线传输的4个阶段</p>
+<ul>
+<li>申请分配阶段</li>
+<li>寻址阶段</li>
+<li>传输阶段</li>
+<li>结束阶段</li>
+</ul>
+</li>
+<li><p>同步定时方式【同步通信】</p>
+</li>
+</ul>
+<blockquote>
+<p>系统采用一个统一的时钟信号来协调发送和接收双方的传送定时关系</p>
+</blockquote>
+<ul>
+<li>异步定时方式<ul>
+<li>不互锁方式</li>
+<li>半互锁方式</li>
+<li>全互锁方式</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-4-总线标准"><a href="#8-4-总线标准" class="headerlink" title="8.4 总线标准"></a>8.4 总线标准</h3><ul>
+<li>ISA【并行】</li>
+<li>EISA【并行】</li>
+<li>VESA</li>
+<li>PCI</li>
+<li>PCI-Express【PCI-E】</li>
+<li>AGP</li>
+<li>RS-232C</li>
+<li>USB</li>
+<li>PCMCIA</li>
+<li>IDE</li>
+<li>SCSI</li>
+<li>SATA</li>
+</ul>
+<h2 id="9-输入-x2F-输出系统"><a href="#9-输入-x2F-输出系统" class="headerlink" title="9. 输入&#x2F;输出系统"></a>9. 输入&#x2F;输出系统</h2><blockquote>
+<p>输入输出是以主机为中心</p>
+</blockquote>
+<h3 id="9-1-基本属性"><a href="#9-1-基本属性" class="headerlink" title="9.1 基本属性"></a>9.1 基本属性</h3><ul>
+<li>外部设备</li>
+<li>接口</li>
+<li>输入设备</li>
+<li>输出设备</li>
+<li>外存设备</li>
+<li>I&#x2F;O软件</li>
+<li>I&#x2F;O硬件</li>
+</ul>
+<h3 id="9-2-I-x2F-O控制方式"><a href="#9-2-I-x2F-O控制方式" class="headerlink" title="9.2 I&#x2F;O控制方式"></a>9.2 I&#x2F;O控制方式</h3><ul>
+<li>程序查询方式</li>
+<li>程序中断方式</li>
+<li>DMA方式【直接内存访问】</li>
+<li>通道方式</li>
+</ul>
+<h3 id="9-3-外部设备"><a href="#9-3-外部设备" class="headerlink" title="9.3 外部设备"></a>9.3 外部设备</h3><ul>
+<li><p>输入设备</p>
+<ul>
+<li>键盘</li>
+<li>鼠标</li>
+</ul>
+</li>
+<li><p>输出设备</p>
+<ul>
+<li><p>显示器</p>
+<ul>
+<li>屏幕大小</li>
+<li>分辨率</li>
+<li>灰度级</li>
+<li>刷新</li>
+<li>刷新频率</li>
+<li>显示存储器【VRAM】<ul>
+<li>阴极射线管（CRT）显示器<ul>
+<li>字符显示器</li>
+<li>图形显示器</li>
+</ul>
+</li>
+<li>液晶显示器【LCD】</li>
+<li>LED（发光二极管）显示器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>打印机</p>
+<ul>
+<li>针式打印机</li>
+<li>喷黑式打印机</li>
+<li>激光打印机</li>
+</ul>
+</li>
+<li><p>外存储器</p>
+<ul>
+<li>磁盘存储器</li>
+<li>磁盘阵列<ul>
+<li>RAID0</li>
+<li>RAID1</li>
+<li>RAID2</li>
+<li>RAID3</li>
+<li>RAID4</li>
+<li>RAID5</li>
+</ul>
+</li>
+<li>光盘存储器<ul>
+<li>CD-ROM</li>
+<li>CD-R</li>
+<li>CD-RW</li>
+<li>DVD-ROM</li>
+</ul>
+</li>
+<li>固态硬盘<ul>
+<li>Flash Memory</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-4-I-x2F-O接口"><a href="#9-4-I-x2F-O接口" class="headerlink" title="9.4 I&#x2F;O接口"></a>9.4 I&#x2F;O接口</h3><ul>
+<li><p>I&#x2F;O接口的功能</p>
+<ul>
+<li>实现主机和外设的通信联络控制</li>
+<li>进行地址译码和设备选择</li>
+<li>实现数据缓冲</li>
+<li>信号格式的转换</li>
+<li>传送控制信号和状态信息</li>
+</ul>
+</li>
+<li><p>I&#x2F;O接口的基本结构</p>
+<blockquote>
+<p>接口和端口不是同一个概念，端口是指接口电路中可以进行读&#x2F;写的寄存器，若干端口加上相应的控制逻辑才可以组成接口</p>
+</blockquote>
+</li>
+<li><p>I&#x2F;O接口的类型</p>
+<ul>
+<li>按照数据传送方式<ul>
+<li>并行接口【一个字节或一个字的所有位】</li>
+<li>串行接口【一位一位】</li>
+</ul>
+</li>
+<li>按照主机访问I&#x2F;O设备的控制方式<ul>
+<li>程序查询接口</li>
+<li>中断接口</li>
+<li>DMA接口</li>
+</ul>
+</li>
+<li>按功能选择的灵活性<ul>
+<li>可编程接口</li>
+<li>不可编程接口</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>I&#x2F;O端口及其编址</p>
+<ul>
+<li>统一编址【存储器映射方式】</li>
+<li>独立编址【I&#x2F;O映射方式】</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-5-I-x2F-O方式"><a href="#9-5-I-x2F-O方式" class="headerlink" title="9.5 I&#x2F;O方式"></a>9.5 I&#x2F;O方式</h3><ul>
+<li><p>程序查询方式</p>
+<ul>
+<li>CPU执行初始化程序，并预置传送参数</li>
+<li>向I&#x2F;O接口发出命令字，启动I&#x2F;o设备</li>
+<li>向外设接口读取其状态信息</li>
+<li>CPU不断查询I&#x2F;O设备状态，直到外设准备就绪</li>
+<li>传送一次数据</li>
+<li>修改地址和计数器参数</li>
+<li>判断传送是否结束，若未结束转第三步，直至计数器位为0</li>
+</ul>
+</li>
+<li><p>程序中断方式</p>
+<ul>
+<li>异常和中断<ul>
+<li>异常<ul>
+<li>故障</li>
+<li>自陷</li>
+<li>终止</li>
+</ul>
+</li>
+<li>外部中断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>中断的作用</p>
+<ul>
+<li>实现CPU与I&#x2F;O设备的并行工作</li>
+<li>处理硬件故障和软件错误</li>
+<li>实现人机交互，用户干预机器需要用到中断系统</li>
+<li>实现多道程序，分时操作，多道程序的切换需借助于中断系统</li>
+<li>实时处理需要借助中断系统来实现快速响应</li>
+<li>实现应用程序和操作系统（管态程序）的切换，也称为“软中断”</li>
+<li>多处理器系统中各处理器之间的信息交流和任务切换</li>
+</ul>
+</li>
+<li><p>中断的工作流程</p>
+<ul>
+<li>中断请求</li>
+</ul>
+<blockquote>
+<p>内中断皆为不可屏蔽中断</p>
+</blockquote>
+<ul>
+<li>中断判优</li>
+<li>CPU响应中断的条件<ul>
+<li>中断源有中断请求</li>
+<li>CPU允许中断及断开中断</li>
+<li>一条指令执行完毕,且没有更紧迫的任务</li>
+</ul>
+</li>
+<li>中断响应<ul>
+<li>关中断</li>
+<li>保存断点</li>
+<li>引出中断服务程序</li>
+</ul>
+</li>
+<li>中断向量</li>
+<li>中断处理过程<ul>
+<li>关中断</li>
+<li>保存断点</li>
+<li>引出中断服务程序</li>
+<li>保存现场和屏蔽字</li>
+<li>开中断</li>
+<li>执行中断服务程序</li>
+<li>关中断</li>
+<li>恢复现场和屏蔽字</li>
+<li>开中断\中断返回</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多重中断和中断屏蔽技术</p>
+<ul>
+<li>在中断服务程序中提前设置开中断指令</li>
+<li>优先级别高的中断源有权中断优先级别低的中断源</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-6-DMA方式"><a href="#9-6-DMA方式" class="headerlink" title="9.6 DMA方式"></a>9.6 DMA方式</h3><ul>
+<li>DMA方式特点<ul>
+<li>它使主存和CPU的固定联系脱钩,主存既可被CPU访问,又可以被外设访问</li>
+<li>在数据块传送时,主存地址的确定,传送数据的计数等都由硬件电路直接实现</li>
+<li>主存中要开辟专用缓冲区,及时供给和接收外设的数据</li>
+<li>DMA传送速度快,CPU和外设并行工作,提高了系统效率</li>
+<li>DMA在传送开始前要通过程序进行预处理,结束后要通过中断方式进行后处理</li>
+</ul>
+</li>
+<li>DMA控制器的组成<ul>
+<li>主存地址计数器</li>
+<li>传送长度计数器</li>
+<li>数据缓冲寄存器</li>
+<li>DMA请求触发器</li>
+<li>控制&#x2F;状态逻辑</li>
+<li>中断机构</li>
+</ul>
+</li>
+<li>DMA的传送方式<ul>
+<li>停止CPU访问</li>
+<li>周期挪用 [周期窃取]</li>
+<li>DMA与CPU交替访存</li>
+</ul>
+</li>
+<li>DMA传送过程<ul>
+<li>预处理</li>
+<li>数据传送</li>
+<li>后处理</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-总结"><a href="#10-总结" class="headerlink" title="10. 总结"></a>10. 总结</h2><p>本次对于计算机组成原理有了较深刻的理解,对于以前一些不懂的知识有了融汇贯通的感觉,同时也明白自己的渺小.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%80%9D%E6%83%B3/" rel="tag"># 思想</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/05/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" rel="next" title="数据结构初识">
+                <i class="fa fa-chevron-left"></i> 数据结构初识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                
+				<a href="/archives">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xxy8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_44005434" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-CSDN"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%83%8C%E6%99%AF"><span class="nav-text">1. 背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%8F%91%E5%B1%95"><span class="nav-text">1.1 发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%85%83%E4%BB%B6"><span class="nav-text">1.2 元件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%88%86%E7%B1%BB%E4%B8%8E%E6%96%B9%E5%90%91"><span class="nav-text">1.3 分类与方向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-%E6%8C%89%E7%85%A7%E7%94%A8%E9%80%94"><span class="nav-text">1.3.1 按照用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-%E6%8C%89%E7%85%A7%E6%8C%87%E4%BB%A4%E5%92%8C%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-text">1.3.2 按照指令和数据流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-%E6%96%B9%E5%90%91"><span class="nav-text">1.3.3 方向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90"><span class="nav-text">1.4 计算机组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA"><span class="nav-text">1.4.1 冯诺依曼机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-2-%E5%8A%9F%E8%83%BD%E9%83%A8%E4%BB%B6"><span class="nav-text">1.4.2 功能部件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="nav-text">1.4.3 计算机软件分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="nav-text">1.4.4 计算机语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-text">1.4.5 计算机工作过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-6-%E5%A4%9A%E7%BA%A7%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-text">1.4.6 多级层次结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E4%B8%BB%E8%A6%81%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text">1.5 主要性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-text">1.6 专业术语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="nav-text">2. 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E5%8F%8A%E5%85%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="nav-text">2.1 进位计数制及其相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%9C%9F%E5%80%BC%E5%92%8C%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-text">2.2 真值和机器数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-BCD%E7%A0%81"><span class="nav-text">2.3 BCD码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">2.4 字符与字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="nav-text">2.5 校验码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="nav-text">2.6 定点数的表示与运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-1-%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">2.6.1 定点数的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-2-%E5%8E%9F%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E7%A7%BB%E7%A0%81"><span class="nav-text">2.6.2 原码、补码、反码、移码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-3-%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-text">2.6.3 定点数的运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E6%8E%92%E5%88%97"><span class="nav-text">2.7 数据的存储和排列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="nav-text">3. 浮点数的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">3.1 浮点数的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="nav-text">3.2 浮点数的表示范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-IEEE-754%E6%A0%87%E5%87%86"><span class="nav-text">3.3 IEEE 754标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E5%AE%9A%E7%82%B9%E3%80%81%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">3.4 定点、浮点表示的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="nav-text">3.5 浮点数的加减运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83%E3%80%90Arithmetic-Logic-Unit-%EF%BC%8CALU%E3%80%91"><span class="nav-text">4. 算术逻辑单元【Arithmetic Logic Unit ，ALU】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8%E5%92%8C%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="nav-text">4.1 串行加法器和并行加法器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E7%BB%93%E6%9E%84"><span class="nav-text">4.2 算术逻辑单元的功能和结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-text">5. 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">5.1 存储器的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text">5.2 存储器的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E5%A4%9A%E7%BA%A7%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-text">5.3 多级存储系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E5%8D%8A%E5%AF%BC%E4%BD%93%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.4 半导体随机存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-1-%E9%9D%99%E6%80%81%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8%E3%80%90SRAM%E3%80%91"><span class="nav-text">5.4.1 静态随机存储器【SRAM】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-2-%E5%8A%A8%E6%80%81%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8%E3%80%90DRAM%E3%80%91"><span class="nav-text">5.4.2 动态随机存储器【DRAM】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-3-%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="nav-text">5.4.3 存储器芯片的内部结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.5 只读存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-1-%E5%88%86%E7%B1%BB"><span class="nav-text">5.5.1 分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.6 主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-1-%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-text">5.6.1 基本组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-2-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E9%93%BE%E6%8E%A5"><span class="nav-text">5.6.2 主存储器与CPU链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-3-%E4%B8%BB%E5%AD%98%E5%AE%B9%E9%87%8F%E7%9A%84%E6%89%A9%E5%B1%95"><span class="nav-text">5.6.3 主存容量的扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-4-%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80%E5%88%86%E9%85%8D%E5%92%8C%E7%89%87%E9%80%89"><span class="nav-text">5.6.4 存储芯片的地址分配和片选</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-5-%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-text">5.6.5 存储器与CPU的连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-%E5%8F%8C%E7%AB%AF%E5%8F%A3RAM%E5%92%8C%E5%A4%9A%E6%A8%A1%E5%9D%97%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.7 双端口RAM和多模块存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-1-%E5%8F%8C%E7%AB%AF%E5%8F%A3RAM"><span class="nav-text">5.7.1 双端口RAM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-2-%E5%A4%9A%E6%A8%A1%E5%9D%97%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.7.2 多模块存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.8 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">5.9 虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-text">6. 指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">6.1 指令的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="nav-text">6.2 指令的寻址方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-X86%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-text">6.3 X86汇编指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E5%A4%8D%E6%9D%82%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%EF%BC%88-CISC%EF%BC%89%E5%92%8C%E7%B2%BE%E7%AE%80%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%EF%BC%88RISC%EF%BC%89"><span class="nav-text">6.4 复杂指令系统计算机（ CISC）和精简指令系统计算机（RISC）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">7. 中央处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84"><span class="nav-text">7.1 功能和基础结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-text">7.2 指令执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%96%B9%E6%A1%88"><span class="nav-text">7.3 指令执行方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">7.4 数据通路的功能和基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">7.5 控制器的功能和工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-1-%E7%A1%AC%E5%B8%83%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-text">7.5.1 硬布线控制器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-2-%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-text">7.5.2 微程序控制器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">7.6 指令流水线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E6%80%BB%E7%BA%BF"><span class="nav-text">8. 总线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E6%80%BB%E7%BA%BF%E5%B1%9E%E6%80%A7"><span class="nav-text">8.1 总线属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="nav-text">8.2 总线仲裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-%E6%80%BB%E7%BA%BF%E6%93%8D%E4%BD%9C%E5%92%8C%E5%AE%9A%E6%97%B6"><span class="nav-text">8.3 总线操作和定时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86"><span class="nav-text">8.4 总线标准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E8%BE%93%E5%85%A5-x2F-%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="nav-text">9. 输入&#x2F;输出系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="nav-text">9.1 基本属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-I-x2F-O%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="nav-text">9.2 I&#x2F;O控制方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-%E5%A4%96%E9%83%A8%E8%AE%BE%E5%A4%87"><span class="nav-text">9.3 外部设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-I-x2F-O%E6%8E%A5%E5%8F%A3"><span class="nav-text">9.4 I&#x2F;O接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-I-x2F-O%E6%96%B9%E5%BC%8F"><span class="nav-text">9.5 I&#x2F;O方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-DMA%E6%96%B9%E5%BC%8F"><span class="nav-text">9.6 DMA方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%80%BB%E7%BB%93"><span class="nav-text">10. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xxy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
