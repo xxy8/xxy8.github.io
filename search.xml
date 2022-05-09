@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/05/08/hello-world/</url>
-    <content><![CDATA[<blockquote>
-<p>镜中花<escape><span id="more"></span></escape></p>
-</blockquote>
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>github/gitee+hexo搭建博客</title>
     <url>/2022/05/06/github%E6%88%96gitee-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<blockquote>
@@ -319,8 +295,8 @@
   </entry>
   <entry>
     <title>简洁好用软件和网址</title>
-    <url>/2022/05/09/%E7%AE%80%E6%B4%81%E5%A5%BD%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/</url>
-    <content><![CDATA[<h1 id="简洁好用软件和网址"><a href="#简洁好用软件和网址" class="headerlink" title="简洁好用软件和网址"></a>简洁好用软件和网址</h1><blockquote>
+    <url>/2022/05/09/%E7%AE%80%E6%B4%81%E5%A5%BD%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%92%8C%E7%BD%91%E5%9D%80/</url>
+    <content><![CDATA[<blockquote>
 <center>弱小和无知不是问题，傲慢才是</center>
 </blockquote>
 <p><escape><span id="more"></span></escape></p>
@@ -328,10 +304,7 @@
 <p><strong>第一次更新日期：2021-03-13  星期六</strong></p>
 <p><strong>第二次更新日期：2021-09-30  星期四</strong></p>
 </blockquote>
-<blockquote>
-<p>@<a href="%E7%9B%AE%E5%BD%95">Toc</a></p>
-</blockquote>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><blockquote>
+<h2 id="1-软件"><a href="#1-软件" class="headerlink" title="1. 软件"></a>1. 软件</h2><h3 id="1-1-操作系统"><a href="#1-1-操作系统" class="headerlink" title="1.1 操作系统"></a>1.1 操作系统</h3><blockquote>
 <ol>
 <li>Linux操作系统&#x2F;<a href="http://www.xitongzhijia.net/linux/">点击跳转Linux</a></li>
 <li>UNIX操作系统&#x2F;<a href="https://www.jb51.net/softs/list516_1.html/">点击跳转UNIX</a></li>
@@ -339,7 +312,7 @@
 <li>Mac操作系统&#x2F; <a href="https://www.apple.com.cn/cn/search/Mac+OS+X+10.8+Mountain+Lion/">点击跳转Mac</a></li>
 </ol>
 </blockquote>
-<h3 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h3><blockquote>
+<h3 id="1-2-系统软件"><a href="#1-2-系统软件" class="headerlink" title="1.2 系统软件"></a>1.2 系统软件</h3><blockquote>
 <ol>
 <li>(卸载)Revo Uninstaller&#x2F;<a href="https://revouninstaller.pro/">点击跳转Revo Uninstaller</a></li>
 <li>(压缩)7-zip&#x2F;<a href="https://www.7-zip.org/">点击跳转7-zip</a></li>
@@ -440,7 +413,7 @@
 <li>greasyfork&#x2F;<a href="https://greasyfork.org/zh-CN/scripts">点击跳转greasyfork</a></li>
 </ol>
 </blockquote>
-<h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><h3 id="编程学习"><a href="#编程学习" class="headerlink" title="编程学习"></a>编程学习</h3><blockquote>
+<h2 id="2-网址"><a href="#2-网址" class="headerlink" title="2. 网址"></a>2. 网址</h2><h3 id="编程学习"><a href="#编程学习" class="headerlink" title="编程学习"></a>编程学习</h3><blockquote>
 <ol>
 <li>(java)KuangStudy&#x2F;<a href="https://www.kuangstudy.com/">点击跳转KuangStudy</a></li>
 <li>(all)Gitee&#x2F;<a href="https://gitee.com/">点击跳转Gitee</a></li>
@@ -784,465 +757,648 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/05/09/%E7%AE%80%E6%B4%81%E5%A5%BD%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%92%8C%E7%BD%91%E5%9D%80/</url>
-    <content><![CDATA[<h1 id="简洁好用软件和网址"><a href="#简洁好用软件和网址" class="headerlink" title="简洁好用软件和网址"></a>简洁好用软件和网址</h1><blockquote>
-<p>弱小和无知不是问题，傲慢才是。</p>
+    <title>设计模式</title>
+    <url>/2022/05/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<center>朝菌不知晦朔，蟪蛄不知春秋</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<blockquote>
+<p>设计是为了提高软件的性能和安全以及程序员更加容易维护和编写，设计模式不是单一的，是复杂灵活的，GOF&#x2F;&#x2F;四人组</p>
+</blockquote>
+<h3 id="1-设计原则"><a href="#1-设计原则" class="headerlink" title="1. 设计原则"></a>1. 设计原则</h3><table>
+<thead>
+<tr>
+<th>设计原则名称</th>
+<th>定  义</th>
+<th>使用频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单一职责原则(Single Responsibility Principle, SRP)</td>
+<td>一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>开闭原则(Open-Closed Principle, OCP)</td>
+<td>软件实体应当对扩展开放，对修改关闭</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>里氏代换原则(Liskov Substitution Principle, LSP)</td>
+<td>所有引用基类的地方必须能透明地使用其子类的对象</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>依赖倒转原则(Dependence Inversion Principle, DIP)</td>
+<td>高层模块不应该依赖低层模块，它们都应该依赖抽象。抽象不应该依赖于细节，细节应该依赖于抽象</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>接口隔离原则(Interface Segregation Principle, ISP)</td>
+<td>客户端不应该依赖那些它不需要的接口</td>
+<td>★★☆☆☆</td>
+</tr>
+<tr>
+<td>合成复用原则(Composite Reuse Principle, CRP)</td>
+<td>优先使用对象组合，而不是继承来达到复用的目的</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>迪米特法则(Law of Demeter, LoD)</td>
+<td>每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位</td>
+<td>★★★☆☆</td>
+</tr>
+</tbody></table>
+<h3 id="2-创建型模式（记忆：工建原单，对对象的创建和使用）"><a href="#2-创建型模式（记忆：工建原单，对对象的创建和使用）" class="headerlink" title="2. 创建型模式（记忆：工建原单，对对象的创建和使用）"></a>2. 创建型模式（记忆：工建原单，对对象的创建和使用）</h3><blockquote>
+<ol>
+<li>简单工厂模式(Simple Factory)</li>
+</ol>
+<ul>
+<li>结构：工厂角色，抽象产品角色，具体产品角色</li>
+<li>类型：</li>
+<li>说明：把所有需要实例化的对象放入一个工厂里，由工厂进行实例化</li>
+<li>试用范围：没有太过于复杂的软件</li>
+</ul>
 </blockquote>
 <blockquote>
-<p><strong>第一次更新日期：2021-03-13  星期六</strong></p>
-<p><strong>第二次更新日期：2021-09-30  星期四</strong></p>
+<ol start="2">
+<li>工厂方法模式(Factory Method）</li>
+</ol>
+<ul>
+<li>结构：抽象产品，具体产品，抽象工厂，具体工厂</li>
+<li>类型：</li>
+<li>说明：相对应于一个产品等级结构，也就是同一类型的对象和类，在简单工厂下再造具体工厂，负责一个品牌的同一类型</li>
+<li>试用范围：比较广泛</li>
+</ul>
 </blockquote>
 <blockquote>
-<p>@<a href="%E7%9B%AE%E5%BD%95">Toc</a></p>
-</blockquote>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><blockquote>
-<ol>
-<li>Linux操作系统&#x2F;<a href="http://www.xitongzhijia.net/linux/">点击跳转Linux</a></li>
-<li>UNIX操作系统&#x2F;<a href="https://www.jb51.net/softs/list516_1.html/">点击跳转UNIX</a></li>
-<li>Windows操作系统&#x2F;<a href="https://windows.dqsspx.top/">点击跳转Windows</a></li>
-<li>Mac操作系统&#x2F; <a href="https://www.apple.com.cn/cn/search/Mac+OS+X+10.8+Mountain+Lion/">点击跳转Mac</a></li>
+<ol start="3">
+<li>抽象工厂模式(Abstract Factory)</li>
 </ol>
+<ul>
+<li>结构：抽象工厂，具体工厂，抽象产品，具体产品</li>
+<li>类型：</li>
+<li>说明：相对应于一个产品族，也就是一个品牌的所有类和对象</li>
+<li>试用范围：对于一个产品族</li>
+</ul>
 </blockquote>
-<h3 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h3><blockquote>
-<ol>
-<li>(卸载)Revo Uninstaller&#x2F;<a href="https://revouninstaller.pro/">点击跳转Revo Uninstaller</a></li>
-<li>(压缩)7-zip&#x2F;<a href="https://www.7-zip.org/">点击跳转7-zip</a></li>
-<li>(压缩)Bandzip&#x2F;<a href="http://www.bandisoft.com/">点击跳转bandzip</a></li>
-<li>（分类）Rolan&#x2F;<a href="https://getrolan.com/">点击跳转rolan</a></li>
-<li>分区助手&#x2F;<a href="https://www.disktool.cn/">点击跳转分区助手</a></li>
-<li>(快捷键)CheatSheet<a href="https://cheatsheet-mac.en.softonic.com/mac">点击跳转CheatSheet</a></li>
-<li>(下载器)IDM&#x2F;<a href="http://www.internetdownloadmanager.com/">点击跳转IDM</a></li>
-<li>VM虚拟软件机&#x2F;<a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">点击跳转虚拟软件机</a></li>
-<li>阿里云Linux镜像&#x2F;<a href="http://mirrors.aliyun.com/centos/">点击跳转阿里云Linux镜像</a></li>
+<blockquote>
+<ol start="4">
+<li>建造者模式(Builder)</li>
 </ol>
+<ul>
+<li>结构：抽象建造者，具体建造者，产品角色，指挥者</li>
+<li>类型：</li>
+<li>说明：有复杂的内部结构，组成结构类似</li>
+<li>试用范围：</li>
+</ul>
 </blockquote>
-<h3 id="网络软件"><a href="#网络软件" class="headerlink" title="网络软件"></a>网络软件</h3><blockquote>
-<ol>
-<li>Chrome&#x2F;<a href="https://www.google.cn/chrome/">点击跳转chrome</a></li>
-<li>火狐&#x2F;<a href="http://www.firefox.com.cn/">点击跳转火狐</a></li>
-<li>WiFi&#x2F; <a href="https://jingyan.baidu.com/article/5d368d1e28e2697f60c0578c.html">点击跳转WIFI</a></li>
-<li>Xshell&#x2F;<a href="https://xshell.en.softonic.com/">点击跳转Xshell</a></li>
+<blockquote>
+<ol start="5">
+<li>原型模式(Prototype)</li>
 </ol>
+<ul>
+<li>结构：抽象原型，具体原型，客户类</li>
+<li>类型：深克隆（Serializable）浅克隆（Cloneable）</li>
+<li>说明：可以通过一个已有对象复制获取更多的对象</li>
+<li>试用范围：不是单例的情况</li>
+</ul>
 </blockquote>
-<h3 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h3><blockquote>
-<ol>
-<li>火绒安全&#x2F;<a href="https://www.huorong.cn/">点击跳转火绒</a></li>
+<blockquote>
+<ol start="6">
+<li>单例模式(Singleton)</li>
 </ol>
+<ul>
+<li>结构：instance</li>
+<li>类型：懒汉型+延迟加载+锁、饿汉型、静态内部类、枚举</li>
+<li>说明：Singleton只有一个实例</li>
+<li>试用范围：</li>
+</ul>
 </blockquote>
-<h3 id="图像编辑"><a href="#图像编辑" class="headerlink" title="图像编辑"></a>图像编辑</h3><blockquote>
+<h3 id="3-结构型模式（记忆-ABCDFFP，对现有系统进行补救以及对现有类进行重用，类与对象，类的结构，对象与类，对象的结构）"><a href="#3-结构型模式（记忆-ABCDFFP，对现有系统进行补救以及对现有类进行重用，类与对象，类的结构，对象与类，对象的结构）" class="headerlink" title="3. 结构型模式（记忆:ABCDFFP，对现有系统进行补救以及对现有类进行重用，类与对象，类的结构，对象与类，对象的结构）"></a>3. 结构型模式（记忆:ABCDFFP，对现有系统进行补救以及对现有类进行重用，类与对象，类的结构，对象与类，对象的结构）</h3><blockquote>
 <ol>
-<li>PhotoShop&#x2F;<a href="http://p2.czjswl.cn/index.php?m=goods&a=details&content_id=9#">点击跳转PhotoShop</a></li>
-<li>FSCapturePortable&#x2F;<a href="https://faststone-capture.en.softonic.com/">点击跳转FSCapturePortable</a></li>
-<li>格式工厂&#x2F;<a href="http://www.pcgeshi.com/">点击跳转格式工厂</a></li>
-<li>(水印)Inpaint&#x2F;<a href="https://inpaint.updatestar.com/">点击跳转Inpaint</a></li>
-<li>(识别)天若OCR&#x2F;<a href="https://tianruoocr.cn/">点击跳转天若OCR</a></li>
-<li>(前端）Axure RP<a href="https://www.axure.com/download">点击跳转Axure RP</a></li>
-<li>Gif录制工具&#x2F;<a href="https://www.screentogif.com/">点击跳转Gif录制工具</a></li>
+<li>适配器模式（Adapter）</li>
 </ol>
+<ul>
+<li><p>结构：目标抽象类，适配器类，适配者类，客户类</p>
+</li>
+<li><p>类型：类适配器，对象适配器，缺省适配器（默认适配器），双向适配器</p>
+</li>
+<li><p>说明：将一个接口转换为客户希望的另一个接口，或其他跨平台操作</p>
+</li>
+<li><p>试用范围：有很多第三方接口</p>
+</li>
+</ul>
 </blockquote>
-<h3 id="社交软件"><a href="#社交软件" class="headerlink" title="社交软件"></a>社交软件</h3><blockquote>
+<blockquote>
+<ol start="2">
+<li>桥接模式（柄体模式，接口模式,Bridge）</li>
+</ol>
+<ul>
+<li>结构：抽象类（不是接口），扩充抽象类，实现类接口，具体实现类</li>
+<li>类型：</li>
+<li>说明:将抽象和实现部分分离，使它们可以独立的变化</li>
+<li>试用范围：两个独立变化的维度，例如彩笔，有彩笔类和颜色，把颜色定为类，彩笔也定为类</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>组合模式(Composite，树形结构，部分-整体)</li>
+</ol>
+<ul>
+<li><p>结构：抽象构件，叶子构件，容器构件，客户类</p>
+</li>
+<li><p>类型：透明组合模式，安全组合模式（一般用）</p>
+</li>
+<li><p>说明：树形结构</p>
+</li>
+<li><p>试用范围：客户能够忽略不同对象层次的变化</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>装饰模式(Decorator，替代继承，用来更加好看)</li>
+</ol>
+<ul>
+<li><p>结构：抽象构件，具体构件，抽象装饰类，具体装饰类</p>
+</li>
+<li><p>类型：透明修饰（很少有），半透明修饰（一般）</p>
+</li>
+<li><p>说明：比继承更加灵活</p>
+</li>
+<li><p>试用范围：final定义的类想要继承，密码修饰，其他IO</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="5">
+<li>外观模式(Facade)</li>
+</ol>
+<ul>
+<li><p>结构：外观角色，子系统模式</p>
+</li>
+<li><p>类型：</p>
+</li>
+<li><p>说明：通过外观类提供子接口</p>
+</li>
+<li><p>试用范围：C&#x2F;S客户端菜单或者工具栏，B&#x2F;S首页和导航栏,</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="6">
+<li>享元模式(Flyweight，节约内存空间)</li>
+</ol>
+<ul>
+<li>结构：抽象享元类，具体享元类，非共享具体享元类，享元工厂类</li>
+<li>类型：</li>
+<li>说明：</li>
+<li>试用范围：存在大量相同或者相似的对象</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="7">
+<li>代理模式(Proxy)</li>
+</ol>
+<ul>
+<li>结构：抽象主题角色，代理主题角色，真实主题角色</li>
+<li>类型：远程代理，虚拟代理，保护代理，动态代理，缓冲带你，防火墙代理，同步化代理，智能引用代理</li>
+<li>说明：</li>
+<li>试用范围：不能直接访问对象或者其他类</li>
+</ul>
+</blockquote>
+<h3 id="4-行为型模式（对象之间的交互，中间，类行为型模式，对象行为型模式）"><a href="#4-行为型模式（对象之间的交互，中间，类行为型模式，对象行为型模式）" class="headerlink" title="4. 行为型模式（对象之间的交互，中间，类行为型模式，对象行为型模式）"></a>4. 行为型模式（对象之间的交互，中间，类行为型模式，对象行为型模式）</h3><blockquote>
 <ol>
-<li>Tim &#x2F;<a href="https://office.qq.com/">点击跳转Tim</a></li>
-<li>微信&#x2F;<a href="https://weixin.qq.com/">点击跳转微信</a></li>
+<li>职责链模式（Chain of Responsibility）</li>
 </ol>
+<ul>
+<li>结构：抽象处理者，具体处理者，客户类</li>
+<li>类型：</li>
+<li>说明：从上到下，可能是直线，也可能是一个环，树形结构，</li>
+<li>试用范围：try catch语句</li>
+</ul>
 </blockquote>
-<h3 id="音乐视频"><a href="#音乐视频" class="headerlink" title="音乐视频"></a>音乐视频</h3><blockquote>
-<ol>
-<li>Listen1 &#x2F;<a href="http://listen1.github.io/listen1/">点击跳转Listen1</a></li>
-<li>Potplayer&#x2F;<a href="https://potplayer.en.softonic.com/">点击跳转Potplayer</a></li>
-<li>QQ影音&#x2F;<a href="https://player.qq.com/">点击跳转QQ影音</a></li>
-<li>EV录屏&#x2F;<a href="https://www.higeshi.cn/v2-lupingdstongyong?bd_vid=7425008542762323571">点击跳转EV录屏</a></li>
-<li>网易云&#x2F;<a href="http://www.51xiazai.cn/soft/110772.htm">点击跳转网易云</a></li>
-<li>央视影音&#x2F;<a href="https://app.cctv.com/appkhdxz/more/index.shtml#page5">点击跳转央视影音</a></li>
+<blockquote>
+<ol start="2">
+<li>命令模式(Command，动作模式，事务模式)</li>
 </ol>
+<ul>
+<li>结构：抽象命令类，具体命令类，调用者，接收者，客户类</li>
+<li>类型：</li>
+<li>说明：本质是对命令进行封装</li>
+<li>试用范围：支持命令的撤销（Undo）和恢复（Redo）操作，命令队列和宏（组合）命令</li>
+</ul>
 </blockquote>
-<h3 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h3><blockquote>
-<ol>
-<li>Office&#x2F;<a href="https://www.microsoft.com/zh-cn/microsoft-365/products-apps-services">点击跳转Office</a></li>
-<li>幕布&#x2F;<a href="https://mubu.com/">点击跳转幕布</a></li>
-<li>Note&#x2F; <a href="https://www.yinxiang.com/pc/?utm_source=b1&utm_medium=b1&utm_term=horka">点击跳转Note</a></li>
-<li>Typora&#x2F;<a href="https://www.typora.io/">点击跳转Typora</a></li>
-<li>Notepad++&#x2F;<a href="https://notepad-plus.en.softonic.com/">点击跳转Notepad++</a></li>
+<blockquote>
+<ol start="3">
+<li>解释器模式（Interpreter，设计一种新的语言）</li>
 </ol>
+<ul>
+<li>结构：抽象表达式，终结符表达式，非终结符表达式，环境类，客户类</li>
+<li>类型：</li>
+<li>说明：文法规则：:: &#x3D; 定义为，| 或，{}组合,* 0至多次,抽象语法树（AST）</li>
+<li>试用范围：简单文法规则</li>
+</ul>
 </blockquote>
-<h3 id="编程软件"><a href="#编程软件" class="headerlink" title="编程软件"></a>编程软件</h3><blockquote>
-<ol>
-<li>微信开发者工具&#x2F;<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">点击跳转微信开发者工具</a></li>
-<li>Visual Studio Code&#x2F;<a href="https://code.visualstudio.com/Download">点击跳转Visual Studio Code</a></li>
-<li>Visual studio2017&#x2F;<a href="http://autocad.hrbdbwlkj.top/pc/31.html">点击跳转Visual studio2017</a></li>
-<li>Sublime_text&#x2F;<a href="http://www.sublimetext.com/download">点击跳转Sublime_text</a></li>
-<li>Mysql&#x2F;<a href="https://dev.mysql.com/downloads/mysql/">点击跳转Mysql</a></li>
-<li>Navicat for MySQL&#x2F;<a href="navicat.com/en/products">点击跳转Navicat for MySQLl</a></li>
-<li>Dbeaver&#x2F;<a href="https://dbeaver.io/download/">点击跳转Dbeaver</a></li>
-<li>SQL Server&#x2F;<a href="https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads">点击跳转SQL Server</a></li>
-<li>Jdk&#x2F; <a href="https://www.oracle.com/java/technologies/javase-downloads.html">点击跳转Jdk</a></li>
-<li>IBM.Rational.Rose &#x2F;<a href="https://www.cnblogs.com/dufu-csdn/p/dufu_2.html">点击跳转IBM.Rational.Rose</a></li>
-<li>Eclipse &#x2F;<a href="https://www.eclipse.org/downloads/">点击跳转Eclipse</a></li>
-<li>IDEA &#x2F;<a href="https://www.jetbrains.com/products/#type=ide">点击跳转IDEA</a></li>
-<li>HBuilder&#x2F;<a href="https://www.dcloud.io/hbuilderx.html">点击跳转HBuilder</a></li>
-<li>文本编辑器typora&#x2F;<a href="https://www.typora.io/">点击跳转typora</a></li>
-<li>Node.js环境&#x2F; <a href="https://nodejs.org/en/">点击跳转Node.js</a></li>
-<li>git&#x2F;<a href="https://git-scm.com/downloads">点击跳转git</a></li>
-<li>Redis-x64-3.0.504&#x2F;<a href="https://github.com/MicrosoftArchive/redis/releases">点击跳转Redis-x64-3.0.504</a></li>
-<li>kai Linux&#x2F;[点击跳转kai Linux] (<a href="https://www.kali.org/docs/">https://www.kali.org/docs/</a>)</li>
-<li>Tortoisesvn&#x2F;<a href="https://tortoisesvn.net/">点击跳转Tortoisesvn</a></li>
-<li>Teamcity&#x2F;<a href="https://www.jetbrains.com/teamcity/">点击跳转Teamcity</a></li>
+<blockquote>
+<ol start="4">
+<li>迭代器模式(Iterator，游标)</li>
 </ol>
+<ul>
+<li>结构：抽象迭代器，具体迭代器，抽象聚合类，具体聚合类</li>
+<li>类型：Object next（） Boolean hasNext()  void remove()互相关联next()</li>
+<li>说明：</li>
+<li>试用范围:对一个聚合对象进行遍历,可以是List也可以是Set</li>
+</ul>
 </blockquote>
-<h3 id="游戏软件"><a href="#游戏软件" class="headerlink" title="游戏软件"></a>游戏软件</h3><blockquote>
-<ol>
-<li>Steam&#x2F;<a href="http://lewan.baidu.com/lewanold?gameName=steam&idfrom=5018">点击跳转steam</a></li>
-<li>Wegame&#x2F;<a href="https://www.wegame.com.cn/">点击跳转wegame</a></li>
+<blockquote>
+<p>5.中介者模式(Mediator)</p>
+<ul>
+<li>结构：抽象中介者，具体中介者，抽象同事类，具体同事类</li>
+<li>类型：</li>
+<li>说明：结构性（中转作用）行为性（协调作用）</li>
+<li>试用范围：MVC</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol start="6">
+<li>备忘录模式(Memento)</li>
 </ol>
+<ul>
+<li>结构：原发器，备忘录，负责人</li>
+<li>类型：</li>
+<li>说明：要注意封装</li>
+<li>试用范围：撤销和恢复，后悔想要修改，数据库，</li>
+</ul>
 </blockquote>
-<h3 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h3><blockquote>
-<ol>
-<li>(插件)侧边翻译&#x2F;<a href="https://www.jb51.net/softs/754671.html">点击跳转侧边翻译</a></li>
-<li>(插件）油猴&#x2F;<a href="https://www.tampermonkey.net/">点击跳转油猴</a></li>
-<li>(插件) Vs code插件&#x2F;open in browser &#x2F; Chinese &#x2F; Close HTML&#x2F;XML tag&#x2F;  tabnine&#x2F;Live Server</li>
-<li>(插件网站)&#x2F;<a href="https://www.cxyhub.com/">点击跳转插件网址</a></li>
-<li>greasyfork&#x2F;<a href="https://greasyfork.org/zh-CN/scripts">点击跳转greasyfork</a></li>
+<blockquote>
+<ol start="7">
+<li>观察者模式(Observer)</li>
 </ol>
+<ul>
+<li>结构：目标类（可以是抽象，也可以是实现类），具体目标类（可以很多类），观察者，具体观察者</li>
+<li>类型：</li>
+<li>说明：Java.util包提供了Observable类以及Observer接口</li>
+<li>试用范围：有两个方面，一个依赖另一个方面，MVC</li>
+</ul>
 </blockquote>
-<h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><h3 id="编程学习"><a href="#编程学习" class="headerlink" title="编程学习"></a>编程学习</h3><blockquote>
-<ol>
-<li>(java)KuangStudy&#x2F;<a href="https://www.kuangstudy.com/">点击跳转KuangStudy</a></li>
-<li>(all)Gitee&#x2F;<a href="https://gitee.com/">点击跳转Gitee</a></li>
-<li>(all)GitHub&#x2F;<a href="https://www.zhihu.com/question/20070065">点击跳转如何使用GitHub</a>&#x2F;<a href="https://github.com/gitbucket">点击跳转gitbucket源码</a>&#x2F;<a href="https://github.com/">点击跳转Github</a>&#x2F;<a href="http://www.ruanyifeng.com/blog/2012/07/git.html">点击跳转Git分支管理策略</a>&#x2F;<a href="https://blog.csdn.net/jamesmf/article/details/17483787">点击跳转成功的 Git 分支模型</a>&#x2F;<a href="http://maven.apache.org/">点击跳转学习Git分支</a></li>
-<li>(all)51cto&#x2F;<a href="https://www.51cto.com/">点击跳转51cto</a></li>
-<li>(all)W3school&#x2F;<a href="https://www.w3school.com.cn/w3c/w3c_china.asp">点击跳转W3school</a></li>
-<li>(all)W3cscool&#x2F;<a href="http://home.ustc.edu.cn/~xie1993/">点击跳转w3cschool</a></li>
-<li>(all)菜鸟&#x2F;<a href="https://www.runoob.com/">点击跳转菜鸟</a></li>
-<li>(all视频)B站&#x2F;<a href="https://www.bilibili.com/">点击跳转B站</a></li>
-<li>(all)尚硅谷&#x2F;<a href="http://www.atguigu.com/">点击跳转尚硅谷</a></li>
-<li>(问答题目)问答库&#x2F;<a href="https://www.asklib.com/">点击跳转问答库</a></li>
-<li>(TIBOE编程语言排名)&#x2F;<a href="https://www.tiobe.com/tiobe-index/">点击跳转TIBOE编程语言排名</a></li>
-<li>(开源中国)Oschina&#x2F;<a href="https://www.oschina.net/">点击跳转oschina</a></li>
-<li>阿里巴巴开发手册&#x2F;<a href="https://kangroo.gitee.io/ajcg/#/?id=%e5%89%8d%e8%a8%80">点击跳转阿里巴巴开发手册</a></li>
-<li>百度文档试用&#x2F;<a href="https://eduai.baidu.com/">点击跳转百度文档试用</a></li>
-<li>软件测试(慕测)平台&#x2F;<a href="http://10.22.108.106/login2">点击跳转软件测试</a></li>
-<li>网易公开课&#x2F;<a href="https://open.163.com/">点击跳转网易公开课</a></li>
-<li>游戏设计模式&#x2F;<a href="http://gameprogrammingpatterns.com/">点击跳转游戏设计模式(英文版)</a>&#x2F; <a href="https://gpp.tkchu.me/">点击跳转游戏设计模式(中文版)</a></li>
-<li>魔乐科技&#x2F;<a href="https://www.mldn.cn/article">点击跳转魔乐科技</a></li>
-<li>oeasy&#x2F;<a href="http://oeasy.org/">点击跳转oeasy</a></li>
-<li>代码不规范代表&#x2F;<a href="https://github.com/trekhleb/state-of-the-art-shitcode">点击跳转代码不规范代表</a></li>
-<li>( Linux学习）Idev365&#x2F;<a href="https://next.idev365.com/">点击跳转Idev365</a></li>
-<li>阿帕奇&#x2F;<a href="https://httpd.apache.org/">点击跳转阿帕奇</a></li>
-<li>Scrapy入门教程&#x2F;<a href="https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/tutorial.html">点击跳转Scrapy入门教程</a>&#x2F;<a href="https://wiki.jikexueyuan.com/project/scrapy/scrapy-tutorial.html">点击跳转Scrapy 入门教程</a>&#x2F;<a href="https://doc.scrapy.org/en/latest/intro/overview.html">点击跳转英文版</a></li>
-<li>Python文件读写&#x2F;<a href="https://www.yiibai.com/python/python_files_io.html">点击跳转Python文件读写</a></li>
-<li>Python快速入门 &#x2F;<a href="https://www.yiibai.com/python/python_quick_guide.html">点击跳转Python快速入门</a></li>
-<li>Python结巴分词&#x2F;<a href="https://www.cnblogs.com/LgyBean/p/6263008.html">点击跳转Python结巴分词</a></li>
-<li>Python抓股票历史记录&#x2F;<a href="https://blog.csdn.net/qq_25936689/article/details/53217221">点击跳转Python抓股票历史记录</a></li>
-<li>安卓在线文档&#x2F;<a href="http://developer.android.com/reference/packages.html">点击跳转安卓在线文档</a></li>
-<li>网易有数&#x2F;<a href="https://youdata.163.com/index/manual/o/4Analyze_data_and_visualize_it/59showme.html">点击跳转网易有数</a></li>
-<li>大数据学习路线&#x2F;<a href="https://blog.csdn.net/jianghero/article/details/79141787">点击跳转大数据学习路线</a></li>
-<li>Apache kafka&#x2F;<a href="https://www.orchome.com/kafka/index">点击跳转Apache kafka</a></li>
-<li>scala-lang&#x2F;<a href="https://www.scala-lang.org/api/current/">点击跳转scala-lang</a></li>
-<li>王家林免费课&#x2F;<a href="https://blog.51cto.com/wilsonking/1765124">点击跳转王家林免费课</a></li>
-<li>极客学院&#x2F;<a href="https://www.jikexueyuan.com/course/javascript/">点击跳转极客学院</a></li>
-<li>Kafka Streams&#x2F;<a href="https://www.cnblogs.com/devos/p/5616086.html">点击跳转Kafka Streams</a></li>
-<li>HA集群安装&#x2F;<a href="https://www.cnblogs.com/mengyao/p/5692467.html">点击跳转HA集群安装</a></li>
-<li>Apache Storm&#x2F;<a href="http://ifeve.com/storm-fault-tolerance/">点击跳转Apache Storm</a></li>
-<li>淘宝开放平台 - 文档中心&#x2F;<a href="http://open.taobao.com/docs/doc.htm?spm=a219a.7629140.0.0.W9hUpX&treeId=5&articleId=102465&docType=1">点击跳转淘宝开放平台 - 文档中心</a></li>
-<li>makefile讲解&#x2F;<a href="https://www.cnblogs.com/mydomain/archive/2011/08/12/2136087.html">点击跳转makefile</a>&#x2F;<a href="https://blog.csdn.net/liang13664759/article/details/1771246">点击跳转makefile</a></li>
-<li>Vim简明教程&#x2F;<a href="https://blog.csdn.net/niushuai666/article/details/7275406">点击跳转Vim简明教程</a></li>
-<li>Linux学习&#x2F;<a href="http://www.study-area.org/menu2.htm">点击跳转Linux学习</a></li>
-<li>Linux中find常见用法示例&#x2F;<a href="https://www.cnblogs.com/wanqieddy/archive/2011/06/09/2076785.html">点击跳转Linux中find常见用法示例</a></li>
-<li>Awk命令&#x2F;<a href="https://www.cnblogs.com/chengmo/archive/2013/01/17/2865479.html">点击跳转Awk命令</a></li>
-<li>Sed命令&#x2F;<a href="https://www.cnblogs.com/leaftime/p/3270257.html">点击跳转Sed命令</a></li>
-<li>Linux_ServicesManagement_RHEL7&#x2F;<a href="https://blog.csdn.net/jmilk/article/details/49780157">点击跳转Linux_ServicesManagement_RHEL7</a></li>
-<li>Mac OS X内核编程&#x2F;<a href="http://www.51qudong.net/155.html">点击跳转Mac OS X内核编程</a></li>
-<li>关于批处理重定向&#x2F;<a href="https://www.cnblogs.com/ini_always/archive/2011/09/15/2177913.html">点击跳转关于批处理重定向</a></li>
-<li>Bat命令学习&#x2F;<a href="https://www.cnblogs.com/SunShineYPH/archive/2011/12/13/2285570.html">点击跳转Bat命令</a></li>
-<li>深入理解计算机系统&#x2F;<a href="https://www.cnblogs.com/lanxuezaipiao/p/4141351.html">点击跳转深入理解计算机系统</a></li>
-<li>操作系统概论&#x2F;<a href="https://www.docin.com/p-634611005.html?qq-pf-to=pcqq.c2c">点击跳转操作系统概论</a></li>
-<li>爱课程&#x2F;<a href="http://www.icourses.cn/home/?resId=74921&courseId=2583&firstShowFlag=1">点击跳转爱课程</a></li>
-<li>Oracel技术&#x2F;<a href="https://www.oracle.com/java/technologies/">点击跳转Oracel技术</a></li>
-<li>B&#x2F;S、和C&#x2F;S模式的特点&#x2F;<a href="http://blog.sina.com.cn/s/blog_6cfc341d0101704e.html">点击跳转B&#x2F;S、和C&#x2F;S模式的特点</a></li>
-<li>Maven&#x2F;<a href="https://www.iteye.com/blog/stamen-2030552">点击跳转Maven冲突</a>&#x2F;<a href="https://search.maven.org/">中央仓库</a>&#x2F;<a href="https://www.cnblogs.com/adolfmc/archive/2012/07/31/2616908.html">maven常用命令介绍</a>&#x2F;<a href="https://developer.aliyun.com/mvn/guide">点击跳转阿里云Maven中央仓库</a>&#x2F;<a href="https://blog.csdn.net/sunzhenhua0608/article/details/32938533">点击跳转pom.xml文件详解</a>&#x2F;<a href="http://maven.apache.org/"> 点击跳转Apache maven</a></li>
-<li>Maven进阶&#x2F;<a href="https://blog.csdn.net/wanghantong/article/details/9375013">点击跳转maven详解之生命周期与插件</a>&#x2F;<a href="https://blog.csdn.net/tounaobun/article/details/8959682">点击跳转Maven部署构件至远程仓库</a>&#x2F;<a href="https://www.cnblogs.com/tenghoo/p/maven_life_cycle.html">点击跳转Maven的生命周期</a>&#x2F;<a href="https://www.cnblogs.com/a-ray-of-sunshine/p/5011111.html">点击跳转Maven的几个重要配置文件</a>&#x2F;<a href="https://blog.csdn.net/silver_sail/article/details/41210667">Maven 打jar包配置</a></li>
-<li>JAVA EXAMPLE PROGRAMS&#x2F;<a href="http://java2novice.com/java_string_examples/">点击跳转JAVA EXAMPLE PROGRAMS</a></li>
-<li>Mockito 简明教程&#x2F;<a href="https://developer.aliyun.com/article/47318">点击跳转Mockito 简明教程</a></li>
-<li>推酷&#x2F;<a href="https://www.tuicool.com/login">点击跳转推酷</a></li>
-<li>IBM Java&#x2F;<a href="https://developer.ibm.com/languages/java/">点击跳转IBM Java</a></li>
-<li>Hadoop&#x2F;<a href="http://hadoop.apache.org/docs/r2.7.6/hadoop-project-dist/hadoop-common/SingleCluster.html">点击跳转Hadoop</a></li>
-<li>Jdk在线文档&#x2F;<a href="https://tool.oschina.net/apidocs/apidoc?api=jdk-zh">点击跳转Jdk在线文档</a></li>
-<li>openanolis&#x2F;<a href="https://openanolis.cn/?spm=a2c6h.12873639.J_5404914170.4.4a1d7bb7OUpeLB">点击跳转openanolis</a></li>
-<li>多编程语言基础学习&#x2F;<a href="http://www.java2s.com/">点击跳转多编程语言基础学习</a></li>
-<li>开源博客&#x2F;<a href="https://www.oschina.net/blog">点击跳转开源博客</a></li>
-<li>Spring Boot2&#x2F;<a href="https://www.yuque.com/atguigu/springboot/lcfeme">点击跳转Spring Boot2</a></li>
-<li>C++ reference&#x2F;<a href="https://en.cppreference.com/w/">点击跳转C++ reference</a></li>
-<li>StackOverflow&#x2F;<a href="https://stackoverflow.com/">点击跳转StackOverflow</a></li>
-<li>Swagger&#x2F;<a href="https://swagger.io/">点击跳转Swagger</a></li>
-<li>ITeye论坛&#x2F;<a href="https://www.iteye.com/forums">点击跳转ITeye论坛</a></li>
-<li>Java POI Excel&#x2F;<a href="https://www.cnblogs.com/zqmingok/archive/2010/04/16/1713480.html">点击跳转Java POI Excel( pio:纯java操作excel的api )</a></li>
-<li>DaniWeb&#x2F;<a href="https://www.daniweb.com/software-development/2">点击跳转DaniWeb</a></li>
-<li>开源中国&#x2F;<a href="https://www.oschina.net/">点击跳转开源中国</a></li>
-<li>InfoQ&#x2F;<a href="https://www.infoq.cn/">点击跳转InfoQ</a></li>
-<li>stackoom&#x2F;<a href="https://stackoom.com/">点击跳转stackoom</a></li>
-<li>ios.cpp&#x2F;<a href="https://opensource.apple.com/source/libcpp/libcpp-31/src/ios.cpp.auto.html">点击跳转ios.cpp</a></li>
-<li>ewant&#x2F;<a href="https://www.ewant.org/">点击跳转ewant</a></li>
-<li>优课联盟&#x2F;<a href="http://www.uooc.net.cn/league/union">点击跳转优课联盟</a></li>
-<li>程序员导航站&#x2F;<a href="https://iiter.cn/">点击跳转程序员导航</a></li>
-<li>Java工具包hutool&#x2F;<a href="https://www.hutool.cn/">点击跳转Java工具包hutool</a></li>
-<li>开发者在线工具&#x2F;<a href="https://tool.lu/c/developer/">点击跳转开发者在线工具</a></li>
-<li>Pmd5破解&#x2F;<a href="https://pmd5.com/">点击跳转Pmd5</a></li>
-<li>编程导航&#x2F;<a href="https://www.code-nav.cn/">点击跳转编程导航</a></li>
-<li>AI导航网&#x2F;<a href="https://www.ainav.cn/">点击跳转AI导航网</a></li>
-<li>创造师&#x2F;<a href="http://chuangzaoshi.com/code">点击跳转创造师</a></li>
-<li>github入门开源项目&#x2F;<a href="https://hellogithub.com/">点击跳转github开源项目</a></li>
-<li>密码工具箱&#x2F;<a href="http://tools.jb51.net/password">点击跳转密码工具箱</a></li>
-<li>API测试eolinker&#x2F;<a href="https://www.eolinker.com/?status=l%E2%80%A6">点击跳转API测试eolinker</a></li>
-<li>GO酷壳&#x2F;<a href="https://coolshell.cn/">GO酷壳</a></li>
-<li>Java语言Gecco&#x2F;<a href="http://www.geccocrawler.com/tag/sysc/">点击跳转Gecco</a></li>
-<li>学习SpringBoot&#x2F;<a href="http://www.spring4all.com/">点击跳转学习Spring Boot</a>&#x2F;<a href="http://www.ityouknow.com/">点击跳转学习Spring Boot</a>&#x2F;<a href="https://blog.didispace.com/">点击跳转学习Spring Boot</a></li>
-<li>学习大数据&#x2F;<a href="http://bigdata.evget.com/">点击跳转学习大数据慧都</a>&#x2F;<a href="http://lxw1234.com/">点击跳转学习大数据</a>&#x2F;<a href="https://www.iteblog.com/">点击跳转学习大数据</a>&#x2F;<a href="http://www.tianshouzhi.com/">点击跳转学习大数据</a></li>
-<li>菜鸟工具&#x2F;<a href="https://c.runoob.com/">点击跳转菜鸟工具</a></li>
+<blockquote>
+<ol start="8">
+<li>状态模式（State）</li>
 </ol>
+<ul>
+<li>结构：环境类，抽象状态类，具体状态类</li>
+<li>类型：</li>
+<li>说明：</li>
+<li>试用范围：解决系统中复杂对象的状态转换以及不同行为状态下行为的封装问题</li>
+</ul>
 </blockquote>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><blockquote>
-<ol>
-<li>Oracle系统表&#x2F;<a href="https://www.cnblogs.com/mq0036/p/4157267.html">点击跳转Oracle系统表</a></li>
-<li>海量数据进行分库分表及其实践&#x2F;<a href="https://blog.csdn.net/wusd1256/article/details/79183970">点击跳转海量数据进行分库分表及其实践</a></li>
-<li>Mysql8.0.17压缩包安装——超详细简单教程&#x2F;<a href="https://blog.csdn.net/qq_38264999/article/details/98858903">点击跳转Mysql8.0.17压缩包安装——超详细简单教程</a></li>
-<li>shardingsphere-JDBC&#x2F;<a href="https://shardingsphere.apache.org/document/current/en/overview/">点击跳转shardingsphere-JDBC</a></li>
-<li>MySQL引擎&#x2F;<a href="https://www.cnblogs.com/sopc-mc/archive/2011/11/01/2232212.html">点击跳转MySQL引擎</a></li>
-<li>Redis&#x2F;<a href="https://juejin.cn/book/6844733724618129422/section/6844733724697985038#heading-1">点击跳转Redis</a>&#x2F;<a href="http://doc.redisfans.com/index.html">Redis命令参考</a></li>
-<li>Mybatis Blog&#x2F;<a href="https://blog.mybatis.org/">点击跳转Mybatis Blog</a></li>
+<blockquote>
+<ol start="9">
+<li>策略模式(Strategy，封装算法)</li>
 </ol>
+<ul>
+<li>结构：环境类，抽象策略类，具体策略类</li>
+<li>类型：</li>
+<li>说明：区别于硬编码</li>
+<li>试用范围：用于算法的自由切换和扩展</li>
+</ul>
 </blockquote>
-<h3 id="模板网站"><a href="#模板网站" class="headerlink" title="模板网站"></a>模板网站</h3><blockquote>
-<ol>
-<li>学之思开源考试系统&#x2F;<a href="https://gitee.com/mindskip/xzs-mysql?_from=gitee_search">点击跳转学之思开源考试系统</a></li>
-<li>Vhr&#x2F;<a href="https://github.com/lenve/vhr/blob/master/README_zh.md">点击跳转Vhr</a></li>
-<li>翁天信&#x2F;<a href="">点击跳转翁天信</a></li>
-<li>小游网&#x2F;<a href="https://xiaoyou66.com/">点击跳转小游网</a></li>
-<li>Axton&#x2F;<a href="https://axton.cc/">点击跳转Axton</a></li>
-<li>SHIQI博客网站&#x2F;<a href="http://ursocute.github.io/">点击跳转SHIQI</a></li>
-<li>reddit&#x2F;<a href="https://www.oschina.net/p/reddit">点击跳转reddit</a></li>
-<li>vue音乐&#x2F;<a href="https://gitee.com/xyzer009/music-website">点击跳转vue音乐</a></li>
-<li>el-admin&#x2F;<a href="https://el-admin.xin/login?redirect=/dashboard">点击跳转el-admin</a></li>
-<li>Ant&#x2F;<a href="https://preview.pro.ant.design/dashboard/analysis">点击跳转Ant</a></li>
-<li>Rollin博客&#x2F;<a href="https://realglow.cn/">点击跳转Rollin博客</a>&#x2F;<a href="https://github.com/chaochaoxiaoshu?tab=repositories">点击跳转源码</a></li>
-<li>（前端博客）友人C博客&#x2F;<a href="https://www.ihewro.com/">点击跳转友人C博客</a></li>
-<li>APP源码&#x2F;<a href="https://mp.weixin.qq.com/s/YY8v4roiEnG4QIei6niYdA">点击跳转APP源码</a></li>
-<li>狗种类识别&#x2F;<a href="https://blog.csdn.net/u012319493/article/details/78826960">点击跳转狗种类识别</a></li>
-<li>开源博客&#x2F;<a href="https://gitee.com/biezhi/tale#/biezhi/tale/blob/develop/LICENSE">点击跳转开源博客</a></li>
-<li>（模板）模板之家&#x2F;<a href="http://www.cssmoban.com/">点击跳转模板之家</a></li>
-<li>源码之家&#x2F;<a href="https://www.mycodes.net/">点击跳转源码之家</a></li>
-<li>JavaWeb后端开发&#x2F;<a href="http://www.javaweb.vip/register">点击跳转JavaWeb后端开发</a></li>
-<li>RuoYi&#x2F;<a href="https://gitee.com/y_project/RuoYi-Vue/tree/master/ruoyi-ui">点击跳转RuoYi</a></li>
-<li>麋鹿鲁哟的博客&#x2F;<a href="https://www.cnblogs.com/miluluyo/">点击跳转麋鹿鲁哟的博客</a></li>
-<li>Maxwell的博客&#x2F;<a href="https://imzxh.cn/">点击跳转Maxwell的博客</a></li>
-<li>做棵大树的博客&#x2F;<a href="https://beatree.cn/">点击跳转做棵大树的博客</a></li>
-<li>字节智造的博客&#x2F;<a href="https://www.zsxcool.com/">点击跳转字节智造的博客</a></li>
-<li>四个空格的博客&#x2F;<a href="https://www.4spaces.org/">点击跳转四个空格的博客</a></li>
-<li>程序猿甜品店的博客&#x2F;<a href="https://www.jefsky.com/">点击跳转程序猿甜品店的博客</a></li>
-<li>汝者非鱼的博客&#x2F;<a href="https://rzfyu.com/">点击跳转汝者非鱼的博客</a></li>
-<li>marsden&#x2F;<a href="https://www.marsden.cn/">点击跳转marsden</a></li>
-<li>源码之家&#x2F;<a href="http://down.chinaz.com/">点击跳转源码之家</a></li>
+<blockquote>
+<ol start="10">
+<li>模板方法模式(Template Method)</li>
 </ol>
+<ul>
+<li>结构：抽象类，具体子类</li>
+<li>类型：</li>
+<li>说明：在抽象父类中提供一个称之为模板方法的方法来定义这些方法的执行次序，基本方法（钩子方法，抽象方法，具体方法）+模板方法</li>
+<li>试用范围：框架（spring，struct）</li>
+</ul>
 </blockquote>
-<h3 id="前端UI"><a href="#前端UI" class="headerlink" title="前端UI"></a>前端UI</h3><blockquote>
-<ol>
-<li>(前端)Layui&#x2F;<a href="https://www.layui.com/doc/">点击跳转Layui</a></li>
-<li>(前端框架)Bootstrap&#x2F;<a href="https://www.bootcss.com/">点击跳转Bootstrap</a></li>
-<li>react-router&#x2F;<a href="https://serializedowen.com/docs/react-router-dom/%E5%90%91%E5%AF%BC/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">点击跳转react-router</a></li>
-<li>(vue框架衍生）NuxtJS&#x2F;<a href="https://zh.nuxtjs.org/docs/2.x/get-started/upgrading/">点击跳转Nuxt</a></li>
-<li>font awesome图标库&#x2F;<a href="http://www.fontawesome.com.cn/faicons/">点击跳转font awesome图标库</a></li>
-<li>阿里巴巴矢量图标库&#x2F;<a href="https://www.iconfont.cn/">点击跳转阿里巴巴矢量图标库</a></li>
-<li>(疫情接口)swagger&#x2F;<a href="http://121.199.29.84:8001/swagger-ui.html#/">点击跳转swagger</a></li>
-<li>(css3渐变演示)Grabient&#x2F;<a href="https://www.grabient.com/">点击跳转Grabient</a></li>
-<li>（基于Vue前端）Element&#x2F;<a href="https://element.eleme.cn/#/zh-CN">点击跳转Element</a></li>
-<li>(前端模板和组件)飞冰&#x2F;<a href="https://ice.work/">点击跳转飞冰</a></li>
-<li>（前端框架）vue&#x2F;<a href="https://cn.vuejs.org/">点击跳转vue</a></li>
-<li>（前端框架）react&#x2F;<a href="https://react.docschina.org/">点击跳转react</a></li>
-<li>(css预处理语言less)less&#x2F;<a href="http://lesscss.cn/">点击跳转less</a></li>
-<li>cavas动画&#x2F;<a href="https://www.html5tricks.com/tag/html5-canvas/">点击跳转canvas动画</a></li>
-<li>jQueryAPI查询&#x2F;<a href="https://jquery.cuishifeng.cn/">点击跳转JQueryAPI查询</a></li>
-<li>Ant Design of React&#x2F;<a href="https://ant.design/docs/react/introduce-cn">点击跳转Ant Design of React</a></li>
-<li>（前端）Bootstrap可视化布局&#x2F;<a href="https://www.bootcss.com/p/layoutit/">点击跳转Bootstrap可视化布局</a></li>
-<li>Angular API&#x2F;<a href="https://angular.cn/api">点击跳转Angular API</a></li>
-<li>Highcharts画js图表&#x2F;<a href="http://api.highcharts.com/highcharts">点击跳转Highcharts画js图表</a></li>
-<li>正则表达式在线测试&#x2F;<a href="http://tools.jb51.net/tools/regex.asp">点击跳转正则表达式在线测试</a></li>
-<li>前端小功能&#x2F;<a href="https://www.jq22.com/daima">点击跳转前端小功能</a></li>
-<li>Xournal++&#x2F;<a href="https://xournalpp.github.io/">点击跳转Xournal++</a></li>
-<li>H5-Dooring&#x2F;<a href="https://www.oschina.net/p/h5-dooring">点击跳转H5-Dooring</a></li>
-<li>cssgridgenerator &#x2F; <a href="https://gitee.com/loock/cssgridgenerator">点击跳转cssgridgenerator</a>            </li>
-<li>CSS Layout&#x2F;<a href="https://csslayout.io/">点击跳转CSS Layout</a></li>
-<li>Flexbox布局&#x2F;<a href="https://loading.io/flexbox">点击跳转Flexbox布局</a></li>
-<li>Layoutit布局&#x2F;<a href="https://grid.layoutit.com/">点击跳转layoutit</a></li>
-<li>Ikonate&#x2F;<a href="https://ikonate.com/">点击跳转Ikonate</a></li>
-<li>iconstore&#x2F;<a href="https://iconstore.co/">点击跳转iconstore</a></li>
-<li>icoon&#x2F;<a href="https://icooon-mono.com/">点击跳转icoon</a></li>
-<li>iconfinder&#x2F;<a href="https://www.iconfinder.com/">点击跳转iconfinder</a></li>
-<li>设计seeseed&#x2F;<a href="https://www.seeseed.com/">点击跳转设计seeseed</a></li>
+<blockquote>
+<ol start="11">
+<li>访问者模式(Visitor)</li>
 </ol>
+<ul>
+<li>结构：抽象访问者，具体访问者，抽象元素，具体元素，对象结构（List，Set）</li>
+<li>类型：</li>
+<li>说明：与其他模式联用</li>
+<li>试用范围：变量</li>
+</ul>
 </blockquote>
-<h3 id="面试工作"><a href="#面试工作" class="headerlink" title="面试工作"></a>面试工作</h3><blockquote>
-<ol>
-<li>面试非基础问题&#x2F;<a href="https://blog.csdn.net/weixin_41462230/article/details/79006818">点击跳转面试非基础问题</a></li>
-<li>(面试)力扣&#x2F;<a href="https://leetcode-cn.com/">点击跳转力扣</a></li>
-<li>(找工作)Boss直聘&#x2F;<a href="https://www.zhipin.com/?sid=sem_pz_bdpc_dasou_title">点击跳转Boss直聘</a></li>
-<li>(找工作)牛客求职网&#x2F;<a href="https://www.nowcoder.com/recommend">点击跳转牛客求职网</a></li>
-<li>(找工作)牛客讨论区&#x2F;<a href="https://www.nowcoder.com/discuss">点击跳转牛客讨论区</a></li>
-<li>(找工作)牛客校招日程&#x2F;<a href="https://www.nowcoder.com/school/schedule">点击跳转牛客校招日程</a></li>
-<li>(找工作)名企笔试真题&#x2F;<a href="https://www.nowcoder.com/contestRoom">点击跳转名企笔试真题</a></li>
-<li>(找工作)校招笔试真题&#x2F;<a href="https://www.nowcoder.com/">点击跳转校招笔试真题</a></li>
-<li>Current Online Acmers&#x2F;<a href="http://acm.hdu.edu.cn/onlineuser.php">点击跳转Current Online Acmers</a></li>
-<li>经典必刷&#x2F;<a href="https://www.nowcoder.com/ta/classic-code?query=&asc=true&order=&page=1">经典必刷</a></li>
-<li>ACM在线编程&#x2F;<a href="https://www.nowcoder.com/ta/acm-training">点击跳转ACM在线编程</a></li>
-<li>求职题库&#x2F;<a href="https://www.nowcoder.com/contestRoom">点击跳转求职题库</a></li>
-<li>CSDN工作求职&#x2F;<a href="https://bbs.csdn.net/forums/vue?category=3">点击跳转CSDN工作求职</a></li>
-<li>算法学习&#x2F;<a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">点击跳转算法学习</a></li>
-<li>前程无忧&#x2F;<a href="https://search.51job.com/list/190200,000000,0000,00,9,99,java,2,1.html?lang=c&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&ord_field=0&dibiaoid=0&line=&welfare=">点击跳转前程无忧</a></li>
-</ol>
-</blockquote>
-<h3 id="网页技能"><a href="#网页技能" class="headerlink" title="网页技能"></a>网页技能</h3><blockquote>
-<ol>
-<li>查看Github源码，将github.com修改为github1s.com</li>
-<li>(查询历史价格)+vvv.com</li>
-<li>前端设计建议（悬浮立体）</li>
-<li>提高GitHub速度&#x2F;<a href="https://blog.csdn.net/codinglover5/article/details/107826097?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~default-1.control404&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~default-1.control40">点击跳转提高GitHub速度</a></li>
-<li>Excel函数表&#x2F;<a href="https://support.microsoft.com/zh-cn/office/excel-%E5%87%BD%E6%95%B0-%E6%8C%89%E5%AD%97%E6%AF%8D%E9%A1%BA%E5%BA%8F-b3944572-255d-4efb-bb96-c6d90033e188?ui=zh-cn&rs=zh-cn&ad=cn">点击跳转Excel</a></li>
-</ol>
-</blockquote>
-<h3 id="图文编辑"><a href="#图文编辑" class="headerlink" title="图文编辑"></a>图文编辑</h3><blockquote>
-<ol>
-<li>UML图&#x2F;<a href="https://www.processon.com/">点击跳转UML图</a></li>
-<li>(小说）写作猫&#x2F;<a href="https://xiezuocat.com/#/?s=catbd3">点击跳转写作猫</a></li>
-<li>(小说) 灯果写作&#x2F;<a href="https://www.mypitaya.com/coreTechnology?renqun_youhua=2326980&bd_vid=7295531632903482569">点击跳转灯果写作</a></li>
-<li>(思维导图)XMind&#x2F;<a href="https://www.xmind.cn/">点击跳转XMind</a></li>
-<li>(思维导图)墨刀&#x2F;<a href="https://modao.cc/">点击跳转墨刀</a></li>
-<li>（logo）logo设计&#x2F;<a href="https://www.chuangkit.com/">点击跳转logo</a></li>
-<li>图怪兽&#x2F;<a href="https://818ps.com/?user_source=r1463307">点击跳转图怪兽</a></li>
-<li>论文&#x2F;<a href="https://www.cn-ki.net/">点击跳转论文</a></li>
-<li>前端设计&#x2F;<a href="https://dribbble.com/">点击跳转前端设计</a></li>
-<li>PPT&#x2F; <a href="http://www.1ppt.com/">点击跳转第一PPT</a>&#x2F;<a href="http://www.51pptmoban.com/">点击跳转51PPT</a>&#x2F;<a href="https://www.ypppt.com/">点击跳转优品PPT</a>&#x2F;<a href="https://pptsupermarket.com/">点击跳转PPT超级市场</a>&#x2F;<a href="https://www.dingdangsheji.com/">点击跳转叮当设计</a>&#x2F;<a href="http://sandunppt.com/#15">点击跳转三顿导航</a></li>
-<li>processon&#x2F;<a href="https://www.processon.com/">点击跳转processon</a></li>
-<li>迅捷画图&#x2F;<a href="https://www.liuchengtu.com/">点击跳转迅捷画图</a></li>
-<li>画图工具draw.io&#x2F;<a href="https://draw.io/">画图工具draw.io</a></li>
-<li>PlantUML&#x2F;<a href="https://plantuml.com/zh/">点击跳转PlantUML</a></li>
-<li>Diagrams&#x2F;<a href="https://app.diagrams.net/">点击跳转Diagrams</a></li>
-<li>在线抠图&#x2F;<a href="https://www.gaoding.com/koutu?hmsr=pcbaidu-sem-kt-kt-0350-sem">点击跳转在线抠图</a></li>
-<li>下载图片千库网&#x2F;<a href="https://588ku.com/">点击跳转下载图片千库网</a></li>
-<li>CleverPDF&#x2F;<a href="https://www.cleverpdf.com/">点击跳转CleverPDF</a></li>
-<li>(无版权图片)Unsplash&#x2F;<a href="https://unsplash.com/">点击跳转Unsplash</a>&#x2F;<a href="https://pixabay.com/zh/">点击跳转pixabay</a></li>
-<li>(思维导图)ZhiMap&#x2F;<a href="https://zhimap.com/">点击跳转ZhiMap</a></li>
-<li>极简壁纸&#x2F;<a href="https://bz.zzzmh.cn/index">点击跳转极简壁纸</a></li>
-<li>pixabay&#x2F;<a href="https://pixabay.com/">点击跳转pixabay</a></li>
-<li>动图gfycat&#x2F;<a href="https://gfycat.com/">点击跳转gfycat</a></li>
-<li>wallpaperscraft&#x2F;<a href="https://wallpaperscraft.com/">点击跳转wallpaperscraft</a></li>
-<li>图片剪辑&#x2F;<a href="https://subei.me/">点击跳转图片剪辑</a></li>
-<li>微信Markdown&#x2F;<a href="https://doocs.gitee.io/md/#/">点击跳转微信Markdown</a></li>
-<li>新片场&#x2F;<a href="https://www.xinpianchang.com/square">点击跳转新片场</a></li>
-<li>音效网&#x2F;<a href="https://www.aigei.com/sound/">点击跳转音效网</a></li>
-<li>新极品&#x2F;<a href="http://www.fulivip.com/">点击跳转新极品</a></li>
-<li>easyPDF&#x2F;<a href="https://easypdf.com/cn">点击跳转easyPDF</a></li>
-<li>GitMind&#x2F;<a href="https://gitmind.cn/app/template">点击跳转GitMind</a></li>
-<li>MindLine&#x2F;<a href="https://www.mindline.cn/webapp">点击跳转MindLine</a></li>
-</ol>
-</blockquote>
-<h3 id="稀奇古怪"><a href="#稀奇古怪" class="headerlink" title="稀奇古怪"></a>稀奇古怪</h3><blockquote>
-<ol>
-<li>(推荐)Portableappk&#x2F;<a href="https://portableappk.com/">点击跳转portableappk</a></li>
-<li>(古籍馆)古籍馆&#x2F;<a href="https://www.gujiguan.com/">点击跳转古籍馆</a></li>
-<li>(视频)吾爱分享&#x2F;<a href="https://52online.vip/">点击跳转吾爱分享</a></li>
-<li>一言金句&#x2F;<a href="https://hitokoto.cn/">点击跳转一言金句</a></li>
-<li>正版中国&#x2F;<a href="https://getitfree.cn/">点击跳转正版中国</a></li>
-<li>(电子书)&#x2F;<a href="https://manybooks.net/">点击跳转电子书</a></li>
-<li>(搜索)工具搜索&#x2F;<a href="https://www.toolnb.com/">点击跳转工具搜索</a></li>
-<li>scp&#x2F;<a href="http://scp-wiki.wikidot.com/">点击跳转scp</a></li>
-<li>(视频)嘀哩嘀哩&#x2F;<a href="http://dlidli.wang/">点击跳转嘀哩嘀哩</a></li>
-<li>(reg007注册平台)&#x2F;<a href="https://www.reg007.com/">点击跳转reg007</a></li>
-<li>国际象棋&#x2F;<a href="https://lichess.org/">点击跳转国际象棋</a></li>
-<li>AnywhereAnything&#x2F;<a href="http://demo.jb51.net/js/2016/html5_AnywhereAnything/">点击跳转AnywhereAnything</a></li>
-<li>考证参考&#x2F;<a href="https://www.educity.cn/">点击跳转考证参考</a></li>
-<li>科塔学术导航&#x2F;<a href="https://site.sciping.com/">点击跳转科塔学术导航</a></li>
-<li>果壳科技&#x2F;<a href="https://www.guokr.com/scientific/channel/hot/">点击跳转果壳科技</a></li>
-<li>自由钢琴&#x2F;<a href="https://www.autopiano.cn/">点击跳转自由钢琴</a></li>
-<li>国家统计局&#x2F;<a href="http://www.stats.gov.cn/">点击跳转国家统计局</a></li>
-<li>大数据导航&#x2F;<a href="http://hao.199it.com/">点击跳转大数据导航</a></li>
-<li>镝数据&#x2F;<a href="https://www.dydata.io/">点击跳转镝数据</a></li>
-<li>国家标准全文公开系统&#x2F;<a href="http://openstd.samr.gov.cn/bzgk/gb/icsMainQuery?icsKey=01.&icsName=%E7%BB%BC%E5%90%88%E3%80%81%E6%9C%AF%E8%AF%AD%E5%AD%A6%E3%80%81%E6%A0%87%E5%87%86%E5%8C%96%E3%80%81%E6%96%87%E7%8C%AE">点击跳转国家标准全文公开系统</a></li>
-<li>学兔兔&#x2F;<a href="www.bzfxw.com">点击跳转学兔兔</a></li>
-<li>Library Genesis&#x2F;<a href="http://www.libgen.is/">点击跳转Library Genesis</a></li>
-<li>国家标准信息公共服务平台&#x2F;<a href="http://std.samr.gov.cn/">点击跳转国家标准信息公共服务平台</a></li>
-<li>独普云&#x2F;<a href="https://www.dupuyun.com/">点击跳转独普云</a></li>
-<li>zerotohero.ca语言地图&#x2F;<a href="https://www.zerotohero.ca/">点击跳转zerotohero.ca</a></li>
-<li>学习强国&#x2F;<a href="https://www.xuexi.cn/">点击跳转学习强国</a></li>
-<li>云听&#x2F;<a href="http://www.radio.cn/pc-portal/home/index.html">点击跳转云听</a></li>
-<li>央视频&#x2F;<a href="https://www.yangshipin.cn/">点击跳转央视频</a></li>
-<li>国家应急广播&#x2F;<a href="http://www.cneb.gov.cn/">点击跳转国家应急广播</a></li>
-<li>鱼塘热榜&#x2F;<a href="https://tophub.fun/?class_id=IT&hot_id=85">点击跳转鱼塘热榜</a></li>
-<li>音乐下载&#x2F;<a href="https://music.liuzhijin.cn/">音乐下载</a>&#x2F;<a href="https://music.zhuolin.wang/">VIP下载</a></li>
-<li>AI剪辑&#x2F;<a href="https://fstongxue.gitee.io/">点击跳转AI剪辑</a></li>
-<li>(视频教学)eHow&#x2F;<a href="https://www.ehow.com/">点击跳转eHow</a></li>
-<li>ilovepdf&#x2F;<a href="https://www.ilovepdf.com/zh-cn">点击跳转ilovepdf</a></li>
-<li>纪录片天地&#x2F;<a href="http://www.jlpcn.net/vodtypehtml/1.html">点击跳转纪录片天地</a></li>
-<li>办公资源&#x2F;<a href="http://ppt.gxzfxz.top/ppt/?utm_source=baidu&utm_medium=cpc&utm_campaign=PPT-%E5%93%81%E7%89%8C%E8%AF%8D-A&utm_term=%E5%8A%9E%E5%85%AC%E8%B5%84%E6%BA%90%E7%BD%91%E5%AE%98%E7%BD%91">点击跳转办公资源</a></li>
-<li>mixkit&#x2F;<a href="https://mixkit.co/free-stock-video/">点击跳转mixkit</a></li>
-<li>运动会直播&#x2F;<a href="http://daonaerzhao.com/">点击跳转运动会直播</a></li>
-<li>企查查&#x2F;<a href="https://www.qcc.com/web/search?key=%E5%B0%8F%E7%B1%B3">点击跳转企查查</a></li>
-<li>北大出版社电子教材书架&#x2F;<a href="https://pup6.yunzhan365.com/bookcase/kiru/index.html">点击跳转北大出版社电子教材书架</a></li>
-<li>医学微视&#x2F;<a href="https://www.mvyxws.com/">点击跳转医学微视</a></li>
-<li>声同&#x2F;<a href="http://www.somdom.com/">点击跳转声同</a></li>
-<li>书格&#x2F;<a href="https://www.shuge.org/ebooks/">点击跳转书格</a></li>
-<li>国家教育资源公共服务平台&#x2F;<a href="https://www.eduyun.cn/">点击跳转国家教育资源公共服务平台</a></li>
-<li>办事指南wikiHow&#x2F;<a href="https://zh.wikihow.com/%E9%A6%96%E9%A1%B5">点击跳转wikiHow</a></li>
-<li>一个木函&#x2F;<a href="https://web.woobx.cn/">点击跳转一个木函</a></li>
-<li>果汁导航&#x2F;<a href="http://guozhivip.com/">点击跳转果汁导航</a></li>
-<li>哆啦网&#x2F;<a href="http://www.duola.vip/">点击跳转哆啦网</a></li>
-<li>在线工具&#x2F;<a href="http://www.atoolbox.net/">点击跳转在线工具</a></li>
-<li>考拉新媒体导航&#x2F;<a href="https://www.kaolamedia.com/">点击跳转考拉新媒体导航</a></li>
-<li>萌导航&#x2F;<a href="https://www.moe123.net/">点击跳转萌导航</a></li>
-<li>图床导航&#x2F;<a href="http://imgdh.com/">点击跳转图床导航</a></li>
-<li>设保导航&#x2F;<a href="https://hao.sheboo.com/">点击跳转设保导航</a></li>
-<li>大学资源网&#x2F;<a href="http://www.dxzy163.com/">点击跳转大学资源网</a></li>
-<li>全历史&#x2F;<a href="https://www.allhistory.com/">点击跳转全历史</a></li>
-<li>四大名著地图&#x2F;<a href="http://www.sdmzh.com.cn/map/index.html">点击跳转四大名著地图</a></li>
-<li>好大学在线&#x2F;<a href="https://www.cnmooc.org/home/index.mooc">点击跳转好大学在线</a></li>
-<li>时光网&#x2F;<a href="http://www.mtime.com/">点击跳转时光网</a></li>
-<li>豆瓣网&#x2F;<a href="https://www.douban.com/">点击跳转豆瓣网</a></li>
-<li>素材巷&#x2F;<a href="http://www.sucaixiang.com/">点击跳转素材巷</a></li>
-<li>ted演讲&#x2F;<a href="https://www.ted.com/">点击跳转ted演讲</a></li>
-<li>谷歌学术&#x2F;<a href="https://gfsoso.99lb.net/scholar.html">点击跳转谷歌学术</a></li>
-<li>简答题&#x2F;<a href="https://www.jiandati.com/">点击跳转简答题</a></li>
-<li>freeSLL&#x2F;<a href="https://freessl.cn/">点击跳转freeSSL</a></li>
-<li>Startme&#x2F;<a href="https://start.me/start/cn/cn-start">点击跳转Startme</a></li>
-<li>资源库&#x2F;<a href="https://onestar.newstar.net.cn/resources">点击跳转资源库</a></li>
-<li>doyoudo&#x2F;<a href="http://www.doyoudo.com/">点击跳转doyoudo</a></li>
-<li>好知&#x2F;<a href="http://www.howzhi.com/">点击跳转好知</a></li>
-<li>鸠摩搜书&#x2F;<a href="https://www.jiumodiary.com/">点击跳转鸠摩搜书</a></li>
-<li>莫尔斯电码对照&#x2F;<a href="https://www.qsl.net/bg3tt/zl/mesdm.htm">点击进入莫尔斯电码对照</a></li>
-<li>书伴&#x2F;<a href="https://bookfere.com/">点击跳转书伴</a></li>
-<li>相识电子书&#x2F;<a href="http://m.xiangshi123.com/">点击跳转相识电子书</a></li>
-<li>超星读书&#x2F;<a href="http://book.chaoxing.com/">点击跳转超星读书</a></li>
-<li>全球网络攻击实时地图&#x2F;<a href="https://cybermap.kaspersky.com/">点击跳转全球网络攻击实时地图</a></li>
-<li>知妖&#x2F;<a href="https://www.cbaigui.com/%E4%B8%96%E7%95%8C">点击跳转知妖</a></li>
-<li>爱航天网&#x2F;<a href="http://www.aihangtian.com/">点击跳转爱航天网</a></li>
-<li>工具人&#x2F;<a href="https://www.toolfk.com/">点击跳转工具人</a></li>
-<li>炫辕&#x2F;<a href="https://xydh.fun/">点击跳转炫辕</a></li>
-<li>国内国外导航&#x2F;<a href="https://www.egouz.com/">点击跳转国内国外导航</a></li>
-<li>兔二工具&#x2F;<a href="https://toer2.com/">点击跳转兔二工具</a></li>
-<li>工具123&#x2F;<a href="http://www.gjw123.com/">点击跳转工具123</a></li>
-<li>一个工具箱&#x2F;<a href="http://www.atoolbox.net/">点击跳转一个工具箱</a></li>
-<li>孟坤工具箱&#x2F;<a href="http://tool.mkblog.cn/">点击跳转孟坤工具箱</a></li>
-<li>实用工具大全&#x2F;<a href="https://tool.520101.com/">点击跳转使用工具大全</a></li>
-<li>Startme&#x2F;<a href="https://start.me/start/cn/cn-start">点击跳转Startme</a></li>
-</ol>
-</blockquote>
-<h3 id="其他网址"><a href="#其他网址" class="headerlink" title="其他网址"></a>其他网址</h3><h3 id="电话"><a href="#电话" class="headerlink" title="电话"></a>电话</h3><blockquote>
-<ol>
-<li>12345 市长热线</li>
-<li>12348 全国免费法律咨询</li>
-<li>12333 全国劳动监察</li>
-<li>12368 全国法院查询</li>
-<li>12388 妇女权益保护</li>
-</ol>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>欢迎大家总结</p>
+<h3 id="5-一句话总结设计模式"><a href="#5-一句话总结设计模式" class="headerlink" title="5. 一句话总结设计模式"></a>5. 一句话总结设计模式</h3><table>
+<tbody>
+<tr>
+<th>
+分类</th>
+<th>
+设计模式</th>
+<th>
+简述</th>
+<th>
+一句话归纳</th>
+<th>
+目的</th>
+<th>
+生活案例</th>
+</tr>
+<tr>
+<td colspan="1" rowspan="4">
+创建型设计模式<br>
+（简单来说就是用来创建对象的）</td>
+<td>
+工厂模式（Factory Pattern）</td>
+<td>
+不同条件下创建不同实例</td>
+<td>
+产品标准化，生产更高效</td>
+<td>
+封装创建细节</td>
+<td>
+实体工厂</td>
+</tr>
+<tr>
+<td>
+单例模式（Singleton Pattern）</td>
+<td>
+保证一个类仅有一个实例，并且提供一个全局访问点</td>
+<td>
+世上只有一个我</td>
+<td>
+保证独一无二</td>
+<td>
+CEO</td>
+</tr>
+<tr>
+<td>
+原型模式（Prototype Pattern）</td>
+<td>
+通过拷贝原型创建新的对象</td>
+<td>
+拔一根猴毛，吹出千万个</td>
+<td>
+高效创建对象</td>
+<td>
+克隆</td>
+</tr>
+<tr>
+<td>
+建造者模式（Builder Pattern）</td>
+<td>
+用来创建复杂的复合对象</td>
+<td>
+高配中配和低配，想选哪配就哪配</td>
+<td>
+开放个性配置步骤</td>
+<td>
+选配</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="7">
+结构型设计模式<br>
+（关注类和对象的组合）</td>
+<td>
+代理模式（Proxy Pattern）</td>
+<td>
+为其他对象提供一种代理以控制对这个对象的访问</td>
+<td>
+没有资源没时间，得找别人来帮忙</td>
+<td>
+增强职责</td>
+<td>
+媒婆</td>
+</tr>
+<tr>
+<td>
+外观模式（Facade Pattern）</td>
+<td>
+对外提供一个统一的接口用来访问子系统</td>
+<td>
+打开一扇门，通向全世界</td>
+<td>
+统一访问入口</td>
+<td>
+前台</td>
+</tr>
+<tr>
+<td>
+装饰器模式（Decorator Pattern）</td>
+<td>
+为对象添加新功能</td>
+<td>
+他大舅他二舅都是他舅</td>
+<td>
+灵活扩展、同宗同源</td>
+<td>
+煎饼</td>
+</tr>
+<tr>
+<td>
+享元模式（Flyweight Pattern）</td>
+<td>
+使用对象池来减少重复对象的创建</td>
+<td>
+优化资源配置，减少重复浪费</td>
+<td>
+共享资源池</td>
+<td>
+全国社保联网</td>
+</tr>
+<tr>
+<td>
+组合模式（Composite Pattern）</td>
+<td>
+将整体与局部（树形结构）进行递归组合，让客户端能够以一种的方式对其进行处理</td>
+<td>
+人在一起叫团伙，心在一起叫团队</td>
+<td>
+统一整体和个体</td>
+<td>
+组织架构树</td>
+</tr>
+<tr>
+<td>
+适配器模式（Adapter Pattern）</td>
+<td>
+将原来不兼容的两个类融合在一起</td>
+<td>
+万能充电器</td>
+<td>
+兼容转换</td>
+<td>
+电源适配</td>
+</tr>
+<tr>
+<td>
+桥接模式（Bridge Pattern）</td>
+<td>
+将两个能够独立变化的部分分离开来</td>
+<td>
+约定优于配置</td>
+<td>
+不允许用继承</td>
+<td>
+桥</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="11">
+行为型设计模式<br>
+（关注对象之间的通信）</td>
+<td>
+模板模式（Template Pattern）</td>
+<td>
+定义一套流程模板，根据需要实现模板中的操作</td>
+<td>
+流程全部标准化，需要微调请覆盖</td>
+<td>
+逻辑复用</td>
+<td>
+把大象装进冰箱</td>
+</tr>
+<tr>
+<td>
+策略模式（Strategy Pattern）</td>
+<td>
+封装不同的算法，算法之间能互相替换</td>
+<td>
+条条大道通罗马，具体哪条你来定</td>
+<td>
+把选择权交给用户</td>
+<td>
+选择支付方式</td>
+</tr>
+<tr>
+<td>
+责任链模式（Chain of Responsibility Pattern）</td>
+<td>
+拦截的类都实现统一接口，每个接收者都包含对下一个接收者的引用。将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</td>
+<td>
+各人自扫门前雪，莫管他们瓦上霜</td>
+<td>
+解耦处理逻辑</td>
+<td>
+踢皮球</td>
+</tr>
+<tr>
+<td>
+迭代器模式（Iterator Pattern）</td>
+<td>
+提供一种方法顺序访问一个聚合对象中的各个元素</td>
+<td>
+流水线上坐一天，每个包裹扫一遍</td>
+<td>
+统一对集合的访问方式</td>
+<td>
+逐个检票进站</td>
+</tr>
+<tr>
+<td>
+命令模式（Command Pattern）</td>
+<td>
+将请求封装成命令，并记录下来，能够撤销与重做</td>
+<td>
+运筹帷幄之中，决胜千里之外</td>
+<td>
+解耦请求和处理</td>
+<td>
+遥控器</td>
+</tr>
+<tr>
+<td>
+状态模式（State Pattern）</td>
+<td>
+根据不同的状态做出不同的行为</td>
+<td>
+状态驱动行为，行为决定状态</td>
+<td>
+绑定状态和行为</td>
+<td>
+订单状态跟踪</td>
+</tr>
+<tr>
+<td>
+备忘录模式（Memento Pattern）</td>
+<td>
+保存对象的状态，在需要时进行恢复</td>
+<td>
+失足不成千古恨，想重来时就重来</td>
+<td>
+备份、后悔机制</td>
+<td>
+草稿箱</td>
+</tr>
+<tr>
+<td>
+中介者模式（Mediator Pattern）</td>
+<td>
+将对象之间的通信关联关系封装到一个中介类中单独处理，从而使其耦合松散</td>
+<td>
+联系方式我给你，怎么搞定我不管</td>
+<td>
+统一管理网状资源</td>
+<td>
+朋友圈</td>
+</tr>
+<tr>
+<td>
+解释器模式（Interpreter Pattern）</td>
+<td>
+给定一个语言，定义它的语法表示，并定义一个解释器，这个解释器使用该标识来解释语言中的句子</td>
+<td>
+我想说”方言“，一切解释权都归我</td>
+<td>
+实现特定语法解析</td>
+<td>
+摩斯密码</td>
+</tr>
+<tr>
+<td>
+观察者模式（Observer Pattern）</td>
+<td>
+状态发生改变时通知观察者，一对多的关系</td>
+<td>
+到点就通知我</td>
+<td>
+解耦观察者与被观察者</td>
+<td>
+闹钟</td>
+</tr>
+<tr>
+<td>
+访问者模式（Visitor Pattern）</td>
+<td>
+稳定数据结构，定义新的操作行为</td>
+<td>
+横看成岭侧成峰，远近高低各不同</td>
+<td>
+解耦数据结构和数据操作</td>
+<td>
+KPI考核</td>
+</tr>
+<tr>
+<td>
+&nbsp;</td>
+<td>
+委派模式（Delegate Pattern）</td>
+<td>
+允许对象组合实现与继承相同的代码重用，负责任务的调用和分配</td>
+<td>
+这个需求很简单，怎么实现我不管</td>
+<td>
+只对结果负责</td>
+<td>
+授权委托书</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p>设计模式对自己的编程的思想和规范有了很好的引导,以及对软件完成后性能和安全的思考加深，如果有一些错误和建议，欢迎评论区指出。</p>
 ]]></content>
+      <tags>
+        <tag>思想</tag>
+      </tags>
   </entry>
 </search>
