@@ -5981,7 +5981,7 @@ KPI考核</td>
 <li><p>一般开发的三层架构为：数据访问层（DAL Data Access Layer）、业务逻辑层（BLL Business Logic Layer）、表现层（UI User Interface）、实体类库&lt;不属于上面任何一层&gt;（Model）</p>
 </li>
 <li><p>模块</p>
-<p><img src="/images%5C5-1Z606104H1294.gif" alt="图片"></p>
+<p><img src="https://xxy8.github.io/images/5-1Z606104H1294.gif" alt="图片"></p>
 </li>
 <li><p>Core Container(核心容器)</p>
 <ul>
