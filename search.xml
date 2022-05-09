@@ -5793,7 +5793,7 @@ KPI考核</td>
   <entry>
     <title>java GUI</title>
     <url>/2022/05/09/java-GUI/</url>
-    <content><![CDATA[<h1 id="JAVA-GUI"><a href="#JAVA-GUI" class="headerlink" title="JAVA GUI"></a>JAVA GUI</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <center>人生天地之间，若白驹过隙，忽然而已</center>
 </blockquote>
 <p><escape><span id="more"></span></escape></p>
@@ -5981,7 +5981,7 @@ KPI考核</td>
 <li><p>一般开发的三层架构为：数据访问层（DAL Data Access Layer）、业务逻辑层（BLL Business Logic Layer）、表现层（UI User Interface）、实体类库&lt;不属于上面任何一层&gt;（Model）</p>
 </li>
 <li><p>模块</p>
-<p><img src="D:\photo\5-1Z606104H1294.gif" alt="图片"></p>
+<p><img src="/images%5C5-1Z606104H1294.gif" alt="图片"></p>
 </li>
 <li><p>Core Container(核心容器)</p>
 <ul>
@@ -11148,13 +11148,13 @@ KPI考核</td>
 <li>社招</li>
 </ul>
 <blockquote>
-<p>面试官，您好，我叫肖啸宇，现在有了一年半的工作经验，首先，我会java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，离开上一家公司是因为我想在技术上得到更多的锻炼，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
+<p>面试官，您好，我叫xxy，现在有了一年半的工作经验，首先，我会java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，离开上一家公司是因为我想在技术上得到更多的锻炼，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
 </blockquote>
 <ul>
 <li>校招</li>
 </ul>
 <blockquote>
-<p>面试官，您好，我叫肖啸宇，现在是大三的一名学生，首先，我在校期间，学习了java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
+<p>面试官，您好，我叫xxy，现在是大四的一名学生，首先，我在校期间，学习了java基础，javaWeb，MySQL，SQL Server和SSM框架，然后自学了vue和springBoot框架，接着参与过一个业绩评比管理系统的开发，这个系统主要用了MySQL+SSM+BootStrap技术，我在其中主要是负责一些功能的后端开发，我还比较喜欢通过博客来整理自己所学过的知识。我一直都想加入贵公司，觉得贵公司的文化和技术氛围非常优秀，期待能与您共事。</p>
 </blockquote>
 <ol start="2">
 <li>map.containsKey、map.containsValue和 list.contains的区别</li>
