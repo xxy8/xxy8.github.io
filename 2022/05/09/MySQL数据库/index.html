@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="无所待而游无穷也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据库">
+<meta property="og:url" content="https://xxy8.github.io/2022/05/09/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="xxy">
+<meta property="og:description" content="无所待而游无穷也">
+<meta property="og:locale">
+<meta property="og:image" content="c:/Users/xxy/AppData/Roaming/Typora/typora-user-images/image-20210529172519078.png">
+<meta property="article:published_time" content="2022-05-09T05:18:42.000Z">
+<meta property="article:modified_time" content="2022-05-09T05:48:18.001Z">
+<meta property="article:author" content="xxy">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/xxy/AppData/Roaming/Typora/typora-user-images/image-20210529172519078.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="https://xxy8.github.io/2022/05/09/MySQL数据库/"/>
+
+
+
+
+
+  <title>MySQL数据库 | xxy</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xxy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一笑之语</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-shuyu">
+          <a href="/shuyu/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书宇
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-play">
+          <a href="/play/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-play"></i> <br />
+            
+            媒体
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xxy8.github.io/2022/05/09/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL数据库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-05-09T13:18:42+08:00">
+                2022-05-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-05-09T13:48:18+08:00">
+                2022-05-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<center>无所待而游无穷也</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h4 id="1-分类："><a href="#1-分类：" class="headerlink" title="1. 分类："></a>1. 分类：</h4><ul>
+<li><p>关系型数据库（通过表与表之间的关系，行与列之间关系进行存储【SQL】）：MySQL,Oracle,Sql Server，SqlLite</p>
+</li>
+<li><p>非关系型数据库（【NOSQL（not only sql）】通过对象存储，自身属性来决定）：Redis，MongDB</p>
+</li>
+<li><p>数据库引擎</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据库引擎</th>
+<th>MYSIAM</th>
+<th>INNODB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事务支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>数据行锁定</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>外键约束</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>表空间的大小</td>
+<td>较小</td>
+<td>较大，约两倍</td>
+</tr>
+<tr>
+<td>使用时期</td>
+<td>默认使用</td>
+<td>早些年使用</td>
+</tr>
+<tr>
+<td>使用操作</td>
+<td>节约空间，速度较快</td>
+<td>安全性高，支持事务处理</td>
+</tr>
+<tr>
+<td>在物理文件的位置</td>
+<td>有 <em>.frm(表结构的定义文件)和</em>**.MYD（数据文件【data】）和*.MYI文件（索引文件【index】）</td>
+<td>在data数据目录下中只有一个*.frm文件，以及上级目录下的ibdata1文件</td>
+</tr>
+</tbody></table>
+<h4 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2. MySQL"></a>2. MySQL</h4><h5 id="2-1-注意"><a href="#2-1-注意" class="headerlink" title="2.1 注意"></a>2.1 注意</h5><ul>
+<li><p>尽量不要 .exe,会有注册表；用压缩包安装，下载地址<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">mysql压缩包安装下载</a></p>
+</li>
+<li><p>教程:解压，配置环境变量，新建 my.ini配置文件，<a target="_blank" rel="noopener" href="https://blog.csdn.net/keniy3/article/details/105895240?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162236658616780262520010%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162236658616780262520010&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-105895240.pc_search_result_cache&utm_term=mysql%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">mysql压缩包安装教程见其他博主</a></p>
+</li>
+<li><p>所有语句使用分号；结尾</p>
+</li>
+</ul>
+<h5 id="2-2-数据库语言（CRUD【增删改查】）"><a href="#2-2-数据库语言（CRUD【增删改查】）" class="headerlink" title="2.2 数据库语言（CRUD【增删改查】）"></a>2.2 数据库语言（CRUD【增删改查】）</h5><ul>
+<li>DDL【数据库定义语言】</li>
+<li>DML【数据库操作语言】</li>
+<li>DQL【数据库查询语言】</li>
+<li>DCL【数据库控制语言】</li>
+</ul>
+<h5 id="2-3-操作用户语句"><a href="#2-3-操作用户语句" class="headerlink" title="2.3 操作用户语句"></a>2.3 操作用户语句</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-- 创建用户</span><br><span class="line">create user xx IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line"></span><br><span class="line">-- 删除用户</span><br><span class="line">drop user xxy;</span><br><span class="line"></span><br><span class="line">-- 修改当前账户密码</span><br><span class="line">set PASSWORD = PASSWORD(&#x27;123&#x27;);</span><br><span class="line">set PASSWORD = PASSWORD(&#x27;root&#x27;);</span><br><span class="line">-- 修改指定用户密码</span><br><span class="line">set PASSWORD for xx = PASSWORD(&#x27;123&#x27;);</span><br><span class="line">-- 修改用户名</span><br><span class="line">RENAME user xx to xxy;</span><br><span class="line"></span><br><span class="line">-- 查找所有用户</span><br><span class="line">SELECT *from mysql.`user`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-4-权限语句（主要DCL）"><a href="#2-4-权限语句（主要DCL）" class="headerlink" title="2.4 权限语句（主要DCL）"></a>2.4 权限语句（主要DCL）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-- 用户授权</span><br><span class="line">-- All PRIVILEGES 全部权限，除了给别人授权</span><br><span class="line">GRANT all PRIVILEGES on *.* to xxy;</span><br><span class="line"></span><br><span class="line">-- 撤销权限【删除权限】</span><br><span class="line">REVOKE ALL PRIVILEGES on *.* from xxy;</span><br><span class="line"></span><br><span class="line">-- 修改权限&#x27;通过撤销和重新授权进行更改&#x27;</span><br><span class="line"></span><br><span class="line">-- 查询权限</span><br><span class="line">show GRANTS;</span><br><span class="line">SHOW GRANTS for xxy;</span><br><span class="line">show GRANTS for root@localhost;</span><br><span class="line"></span><br><span class="line">-- 刷新权限,每个语句执行后都要刷新权限，防止没有更新</span><br><span class="line">flush PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-5-操作数据库语句（主要DDL）"><a href="#2-5-操作数据库语句（主要DDL）" class="headerlink" title="2.5 操作数据库语句（主要DDL）"></a>2.5 操作数据库语句（主要DDL）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">-- mysql不区分大小写</span><br><span class="line">-- 操作数据库</span><br><span class="line"></span><br><span class="line">-- #注释的本质是-- 单行注释</span><br><span class="line">/*</span><br><span class="line">多行注释</span><br><span class="line">*/</span><br><span class="line">-- 展示一个表的所有信息</span><br><span class="line">describe tempdb;</span><br><span class="line">-- 退出连接</span><br><span class="line">exit;</span><br><span class="line"></span><br><span class="line">-- 创建数据库</span><br><span class="line">create database  if not exists temp1;</span><br><span class="line">-- 如果你的数据库名字和字段名是一个特殊字符，就需要带``(Tab键的上面)</span><br><span class="line">-- 使用数据库</span><br><span class="line">use `temp1`;</span><br><span class="line"></span><br><span class="line">-- 删除数据库</span><br><span class="line">drop database if exists temp1;</span><br><span class="line"></span><br><span class="line">-- 修改数据库名字 最安全的做法是进入到mysql安装目录，修改库名;还可以导出改名再导入</span><br><span class="line"></span><br><span class="line">-- 展示所有数据库</span><br><span class="line">show databases;</span><br><span class="line"></span><br><span class="line">-- 查看创建数据库的语句</span><br><span class="line">show create database temp1;</span><br><span class="line"></span><br><span class="line">-- 查询系统版本</span><br><span class="line">SELECT  VERSION();</span><br><span class="line"></span><br><span class="line">-- 数据库属性类型</span><br><span class="line">--无符号的整数，声明了该列不能为负数</span><br><span class="line">Unsign</span><br><span class="line"></span><br><span class="line">-- 不足的位置用0填充</span><br><span class="line">zerofill</span><br><span class="line"></span><br><span class="line">-- 自增，必须为整数</span><br><span class="line">AUTO_INCREMENT</span><br><span class="line"></span><br><span class="line">-- 空、非空</span><br><span class="line">null、not null</span><br><span class="line"></span><br><span class="line">-- 默认，不指定该列的值就有默认的值</span><br><span class="line">default</span><br><span class="line"></span><br><span class="line">-- 拓展</span><br><span class="line">/*</span><br><span class="line">每一个表都必须存在的五个字段，表示一个记录存在；</span><br><span class="line"> id 主键</span><br><span class="line">version 乐观锁</span><br><span class="line">is_delete 伪删除</span><br><span class="line">gmt_create 创建时间</span><br><span class="line">gmt_update 修改时间</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-6-操作表语句"><a href="#2-6-操作表语句" class="headerlink" title="2.6 操作表语句"></a>2.6 操作表语句</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-- 创建简单的表</span><br><span class="line">create table if not exists `tb_student`(</span><br><span class="line">-- int(4)代表四位数字</span><br><span class="line">`student_id` int(4) not null AUTO_INCREMENT COMMENT &#x27;学号&#x27;,</span><br><span class="line">`student_name` varchar(10) not null default &#x27;匿名&#x27; COMMENT &#x27;姓名&#x27;,</span><br><span class="line">`student_password` varchar(20) not null DEFAULT &#x27;12345&#x27; COMMENT &#x27;密码&#x27;,</span><br><span class="line">`student_gender` varchar(2) not null DEFAULT &#x27;男&#x27; comment &#x27;性别&#x27;,</span><br><span class="line">`student_brithday` datetime default null comment &#x27;出生日期&#x27;,</span><br><span class="line">`student_address` varchar(50) default null comment &#x27;地址&#x27;,</span><br><span class="line">primary key(`student_id`)</span><br><span class="line"></span><br><span class="line">)AUTO_INCREMENT=0001 default charset=utf8;</span><br><span class="line"></span><br><span class="line">-- 删除表</span><br><span class="line">drop table if exists tb_user;</span><br><span class="line"></span><br><span class="line">--  修改表名</span><br><span class="line">alter table tb_user rename as tb_user2;</span><br><span class="line"></span><br><span class="line">-- 展示所有的表</span><br><span class="line">show tables;</span><br><span class="line"></span><br><span class="line">-- 查看创建表的语句</span><br><span class="line">show create table tb_student;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-7-操作表的字段语句"><a href="#2-7-操作表的字段语句" class="headerlink" title="2.7 操作表的字段语句"></a>2.7 操作表的字段语句</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">-- 字段数据类型</span><br><span class="line">create table if not exists tb_user(</span><br><span class="line">-- tinyint 非常小的数据 1个字节（Byte）=8位（bit)在MySQL中布尔类型实际上是TinyInt(1)</span><br><span class="line">	user_id1 tinyint null ,</span><br><span class="line">-- smallint 比较小的数据 1个字节</span><br><span class="line">	user_id2 smallint null,</span><br><span class="line">-- mediumint 中等大小的的数据 3个字节</span><br><span class="line">	user_id3 mediumint null,</span><br><span class="line">-- int 标准的整数，4个字节，常用</span><br><span class="line">	user_id4 int  null AUTO_INCREMENT comment ‘用户id’,</span><br><span class="line">-- bigint 较大的整数 8个字节</span><br><span class="line">	user_id5 bigint,</span><br><span class="line">-- integer 比较大的整数，12个字节</span><br><span class="line">	user_id6 integer null,</span><br><span class="line">-- bit 最小的位 0和1，除0以外都是1</span><br><span class="line">	user_id7 bit(1) null,</span><br><span class="line">-- real 是不精确的双精度浮点型 8字节</span><br><span class="line">	user_weight1 real null,</span><br><span class="line">-- double 双精度浮点型 8字节（精度问题）</span><br><span class="line">	user_weight2 double null,</span><br><span class="line">-- float 单精度浮点型 4字节 精度不高</span><br><span class="line">	user_weight3 float null,</span><br><span class="line">/*字符串形式的浮点数 金融计算 16个字节 </span><br><span class="line">3代表有效位数,2代表小数点后的有效位数</span><br><span class="line">*/</span><br><span class="line">	user_money decimal(3,2) null,</span><br><span class="line">-- numeric 总的位数为2位数字，小数点后的位数为0位。</span><br><span class="line">	user_numeric numeric(2,0) null,</span><br><span class="line">-- char 字符串固定大小 0-255</span><br><span class="line">	user_gender char null,</span><br><span class="line">-- varchar 可变字符串，0-65535 常用对接java实体的String</span><br><span class="line">	user_name varchar(10) null,</span><br><span class="line">-- tinytext 微型文本 2^8 - 1</span><br><span class="line">	user_descrpt1 tinytext null,</span><br><span class="line">-- text 文本串 2^16-1</span><br><span class="line">	user_descrpt2 text null,</span><br><span class="line">-- mediumtext 文本串 2^24-1</span><br><span class="line">	user_descrpt3 mediumtext null,</span><br><span class="line">-- longtext 文本串 2^32-1</span><br><span class="line">	user_descrpt3 longtext null,</span><br><span class="line">-- date YYYY-MM-DD日期</span><br><span class="line">	user_brithday1 data,</span><br><span class="line">-- tiem HH:mm:ss 时间格式</span><br><span class="line">	user_brithday2 time ,</span><br><span class="line">-- datatime 最常用的格式 YYYY-MM-DD HH:mm:ss </span><br><span class="line">	user_brithday3 datatime null,</span><br><span class="line">-- timestamp 时间戳 1970.1.1到现在的毫秒数，也较为常用</span><br><span class="line">	user_brithday4 timestamp null,</span><br><span class="line">-- year 年份</span><br><span class="line">	user_brithday5 year null,</span><br><span class="line">-- null 没有值，未知，不要使用NULL进行运算，结果为NULL</span><br><span class="line">	user_brithday null,</span><br><span class="line">-- tinyblob 用于存储二进制文件 255字节</span><br><span class="line">	user_1  tinyblob NULL ,</span><br><span class="line">-- blob 用于存储二进制文件 最大65k</span><br><span class="line">  user_2  blob NULL ,</span><br><span class="line">-- mediumblob 用于存储二进制文件 最大16M</span><br><span class="line">  user_3  mediumblob NULL ,</span><br><span class="line">-- longblob 用于存储二进制文件 最大4G</span><br><span class="line">  user_4  longblob NULL ,</span><br><span class="line">-- enum(&#x27;&#x27;) 枚举类型是字符串类型 </span><br><span class="line">/*</span><br><span class="line">主要好处为MySQL在存储此类数据时，</span><br><span class="line">直接转化成数字存储而不是字符串，</span><br><span class="line">可以节省空间，</span><br><span class="line">并且在表的.frm文件中存储“数字-字符串”之间的对应关系</span><br><span class="line">*/</span><br><span class="line">  user_5  enum(&#x27;&#x27;) NULL ,</span><br><span class="line">-- set(&#x27;&#x27;) SET是一个字符串对象，可以有零或多个值 64个成员</span><br><span class="line">	user_6  set(&#x27;&#x27;) NULL DEFAULT &#x27;&#x27; ,</span><br><span class="line">-- binary  二进制类型  字节数为2</span><br><span class="line">	user_7  binary(2) NULL ,</span><br><span class="line">--varbinary(2) 二进制类型 0-2字节</span><br><span class="line">	user_8  varbinary(2) NULL ,</span><br><span class="line">-- point 空间数据格式 用于表示GIS中的地理坐标，在GIS中广泛使用 在表后设置ENGINE=MyISAM</span><br><span class="line">	user_9  point NULL ,</span><br><span class="line">-- LineString 空间数据格式 由Point个值组成</span><br><span class="line">	user_10  linestring NULL ,</span><br><span class="line">-- polygon 空间数据格式几何类型 </span><br><span class="line">	user_11  polygon NULL ,</span><br><span class="line">-- geometry 空间位置信息</span><br><span class="line">	user_12  geometry NULL ,</span><br><span class="line">-- multipoint 几何集合</span><br><span class="line">	user_13  multipoint NULL ,</span><br><span class="line">-- multilinestring 两个LineString值 返回一个双精度数字</span><br><span class="line">	user_14  multilinestring NULL ,</span><br><span class="line">-- multipolygon 有两个Polygon值</span><br><span class="line">	user_15  multipolygon NULL ,</span><br><span class="line">-- geometrycollection 包含两个Point值和一个LineString值</span><br><span class="line">	user_16  geometrycollection NULL ,</span><br><span class="line">)ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">-- 增加表中的字段</span><br><span class="line">alter table tb_user2 add user_name varchar(10) not null;</span><br><span class="line"></span><br><span class="line">-- 删除表中的字段</span><br><span class="line">alter table tb_user2 drop user_age;</span><br><span class="line"></span><br><span class="line">-- 修改表中的字段名和约束，**change**不管要不要改表名，表名都要写两次</span><br><span class="line">alter table tb_user2 change user_name user_name1 varchar(2);</span><br><span class="line">-- 修改表中的约束</span><br><span class="line">alter table tb_user2 modify user_name int(2);</span><br><span class="line"></span><br><span class="line">-- 展示表中的字段和约束</span><br><span class="line">desc tb_user2;</span><br><span class="line">describe tb_user2;</span><br><span class="line">show full columns from tb_user2;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-8-操作表中的数据-主要DML，DQL"><a href="#2-8-操作表中的数据-主要DML，DQL" class="headerlink" title="2.8 操作表中的数据(主要DML，DQL)"></a>2.8 操作表中的数据(主要DML，DQL)</h5><blockquote>
+<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210529172519078.png" alt="image-20210529172519078"></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-- 增加插入数据</span><br><span class="line">insert into tb_user2(user_id,user_name1) values(&#x27;11&#x27;,&#x27;li&#x27;);</span><br><span class="line"></span><br><span class="line">-- 删除表中的指定的数据</span><br><span class="line">delete from `tb_user2` where `user_name1`=&#x27;ke&#x27;;</span><br><span class="line">-- 清空表的内容；避免使用delete from `tb_user2`，因为不清空自增；</span><br><span class="line">truncate tb_user2;</span><br><span class="line"></span><br><span class="line">-- 修改表中的所有数据</span><br><span class="line">update `tb_user2` set `user_name1` = &#x27;kk&#x27;,`user_name` = &#x27;hh&#x27;;</span><br><span class="line">-- 修改表中指定的数据，where后面可以包括布尔值 &gt;、 &lt;、 =、 !=、between...and...、and、or、not</span><br><span class="line">update `tb_user2` set `user_name1` = &#x27;ke&#x27; where `user_id` = &#x27;11&#x27;;</span><br><span class="line"></span><br><span class="line">-- 查询表中的所有数据，尽量不要用*</span><br><span class="line">SELECT `user_id` as 用户Id,`user_name1` as 用户姓名1,`user_name` as 用户姓名 from tb_user2 as a;</span><br><span class="line">-- 查询表中的指定数据的数量 通过函数count（） where后面同样可以包括表达式，子查询，like%_，in()，is not null,</span><br><span class="line">SELECT count(*) as 总数 from tb_user2 where user_id = &#x27;12&#x27;;</span><br><span class="line">-- 去重查询某项</span><br><span class="line">SELECT DISTINCT user_name from tb_user2;</span><br><span class="line"></span><br><span class="line">--联表查询【SQL JOINS 】</span><br><span class="line">-- innner join</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">inner join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- left join 即使右边没有匹配的值</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">left join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- RIGHT JOIN 即使左边没有匹配的值，用Null代替</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">right join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- 自连接</span><br><span class="line">select u1.user_id as &#x27;父ID&#x27;,u2.user_id as &#x27;子ID&#x27; </span><br><span class="line">from `tb_user1` as u1,`tb_user1` as u2</span><br><span class="line">where u1.user_id = u2.user_id;</span><br><span class="line"></span><br><span class="line">-- 分页limit和排序order by（一起必须在前面）</span><br><span class="line">select DISTINCT u1.user_id as &#x27;父ID&#x27;,u2.user_id as &#x27;子ID&#x27; </span><br><span class="line">from `tb_user1` as u1,`tb_user1` as u2</span><br><span class="line">where u1.user_id = u2.user_id</span><br><span class="line">order by u1.user_id desc/asc</span><br><span class="line">limit 1,2;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-9-常用函数"><a href="#2-9-常用函数" class="headerlink" title="2.9 常用函数"></a>2.9 常用函数</h5><blockquote>
+<p>mysql常用函数官网：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/built-in-function-reference.html">mysql常用函数官网</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">-- 数学运算</span><br><span class="line">-- 绝对值</span><br><span class="line">select ABS(-12);</span><br><span class="line">-- 向上（大）取整</span><br><span class="line">select CEILING(9.4);</span><br><span class="line">-- 向下（小）取整</span><br><span class="line">SELECT FLOOR(9.7);</span><br><span class="line">-- 返回0-1之间随机数</span><br><span class="line">SELECT RAND();</span><br><span class="line">-- 判断一个数的符号，负数返回-1</span><br><span class="line">SELECT SIGN(-10);</span><br><span class="line"></span><br><span class="line">-- 字符串函数</span><br><span class="line">-- 字符串长度</span><br><span class="line">SELECT CHARACTER_LENGTH(&quot;jdhgh&quot;);</span><br><span class="line">-- 拼接字符串</span><br><span class="line">SELECT CONCAT(&#x27;h&#x27;,&#x27;d&#x27;,&#x27;h&#x27;);</span><br><span class="line">-- 查询位置并插入</span><br><span class="line">SELECT INSERT(&#x27;我爱shhsshh&#x27;,1,2,&#x27;ch&#x27;);</span><br><span class="line">-- 转换为小写</span><br><span class="line">select LOWER(&quot;UUd&quot;);</span><br><span class="line">-- 转换为大写</span><br><span class="line">SELECT UPPER(&quot;jj&quot;);</span><br><span class="line">-- 返回第一个字母出现的子串的索引</span><br><span class="line">SELECT INSTR(&#x27;dshsjhhhdbch&#x27;,&#x27;d&#x27;);</span><br><span class="line">-- 替换出现的字符</span><br><span class="line">SELECT REPLACE(&#x27;hhhhfghsdvgfs&#x27;,&#x27;vg&#x27;,&#x27;kl&#x27;);</span><br><span class="line">-- 返回指定的字符串</span><br><span class="line">SELECT SUBSTR(&#x27;dhggdjsd&#x27;,2,6);</span><br><span class="line">-- 反转</span><br><span class="line">SELECT REVERSE(&#x27;ghhkdhkl&#x27;);</span><br><span class="line"></span><br><span class="line">-- 时间日期函数</span><br><span class="line">-- 获取当前日期</span><br><span class="line">SELECT CURRENT_DATE();</span><br><span class="line">SELECT CURDATE();</span><br><span class="line">SELECT NOW();</span><br><span class="line">-- 获取本地时间</span><br><span class="line">SELECT LOCALTIME();</span><br><span class="line">-- 获取系统时间</span><br><span class="line">SELECT SYSDATE();</span><br><span class="line">-- 只得到日期的一个值</span><br><span class="line">SELECT YEAR(NOW());</span><br><span class="line">SELECT MONTH(NOW());</span><br><span class="line">SELECT DAY(NOW());</span><br><span class="line">SELECT HOUR(NOW());</span><br><span class="line">SELECT MINUTE(NOW());</span><br><span class="line">SELECT SECOND(NOW());</span><br><span class="line"></span><br><span class="line">-- 系统函数</span><br><span class="line">SELECT SYSTEM_USER();</span><br><span class="line">SELECT USER();</span><br><span class="line">SELECT SYSDATE();</span><br><span class="line">SELECT VERSION();</span><br><span class="line"></span><br><span class="line">-- 聚合函数：最大值，最小值，平均值，求和，总数 GROUP BY ...HAVING</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-10-操作表中的约束"><a href="#2-10-操作表中的约束" class="headerlink" title="2.10 操作表中的约束"></a>2.10 操作表中的约束</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">-- 主键和物理外键，创建表的时候就完成了</span><br><span class="line">-- 学生表</span><br><span class="line">create table if not exists `tb_student`(</span><br><span class="line">-- int(4)代表四位数字</span><br><span class="line">`student_id` int(4) not null AUTO_INCREMENT COMMENT &#x27;学号&#x27;,</span><br><span class="line">`student_name` varchar(10) not null default &#x27;匿名&#x27; COMMENT &#x27;姓名&#x27;,</span><br><span class="line">`student_password` varchar(20) not null DEFAULT &#x27;12345&#x27; COMMENT &#x27;密码&#x27;,</span><br><span class="line">`student_gender` varchar(2) not null DEFAULT &#x27;男&#x27; comment &#x27;性别&#x27;,</span><br><span class="line">`student_brithday` datetime default null comment &#x27;出生日期&#x27;,</span><br><span class="line">`student_address` varchar(50) default null comment &#x27;地址&#x27;,</span><br><span class="line">primary key(`student_id`)</span><br><span class="line"></span><br><span class="line">)ENGINE = INNODB AUTO_INCREMENT=0001 default charset=utf8;</span><br><span class="line">-- 用户表</span><br><span class="line">create table `tb_user`(</span><br><span class="line">	`user_id` varchar(3) not null,</span><br><span class="line">	`student_id` int(4) not null,</span><br><span class="line">	`user_age` int not null,</span><br><span class="line">	primary key(`user_id`),</span><br><span class="line">	key `FK_student_id` (`student_id`),</span><br><span class="line">constraint `FK_student_id` FOREIGN KEY(`student_id`) REFERENCES `tb_student`(`student_id`)</span><br><span class="line">)ENGINE = INNODB DEFAULT CHARSET=utf8；</span><br><span class="line"></span><br><span class="line">-- 主键、物理外键创建表的时候没有</span><br><span class="line">-- 用户表1</span><br><span class="line">create table `tb_user1`(</span><br><span class="line">	`user_id` varchar(3) not null COMMENT &#x27;用户1ID&#x27;,</span><br><span class="line">	`student_id` int(4) not null comment &#x27;学生Id&#x27;,</span><br><span class="line">	`user_age` int not null comment &#x27;用户年龄&#x27;</span><br><span class="line">)ENGINE = INNODB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">-- 表外创建主键</span><br><span class="line">alter table `tb_user1`</span><br><span class="line">add constraint `tb_user1_PK_user_id`</span><br><span class="line">primary key(`user_id`);</span><br><span class="line"></span><br><span class="line">-- 表外修改主键</span><br><span class="line">alter table myself modify id int primary key;</span><br><span class="line"></span><br><span class="line">-- 表外删除主键（针对主键对），必须有且只有一个主键</span><br><span class="line">alter table myself drop primary key;</span><br><span class="line"></span><br><span class="line">-- 表外创建外键</span><br><span class="line">alter table `tb_user1`</span><br><span class="line">add constraint `tb_user1_FK_tb_student_student_id`</span><br><span class="line">foreign key(`student_id`) references `tb_student`(`student_id`)</span><br><span class="line"></span><br><span class="line">-- 表外删除外键</span><br><span class="line">alter table myself drop foreign key myself_ibfk_1;</span><br><span class="line"></span><br><span class="line">-- 表外检查约束，在MYSQL中，CHECK子句会被分析，但是会被忽略，域(Domain)与断言(Assertion)也是无法使用的，原因类似于CHECK</span><br><span class="line">alter table tb_account</span><br><span class="line">add constraint tb_account_CK_money</span><br><span class="line">CHECK(money &gt;= -100.00 and money &lt;= 10000.00);</span><br><span class="line"></span><br><span class="line">-- 定义默认约束 字段名 数据类型 DEFAULT 默认值</span><br><span class="line">alter table myself add id int not null default &#x27;abc&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-11-MD5密码加密-不支持索引，cpu消耗大，自己能够加密最好"><a href="#2-11-MD5密码加密-不支持索引，cpu消耗大，自己能够加密最好" class="headerlink" title="2.11 MD5密码加密[不支持索引，cpu消耗大，自己能够加密最好]"></a>2.11 MD5密码加密[不支持索引，cpu消耗大，自己能够加密最好]</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 插入的时候MD5</span><br><span class="line">INSERT into tb_student(student_id,student_name,student_password,student_gender,student_brithday,student_address) values(44,&#x27;gh&#x27;,MD5(&#x27;khdjgf&#x27;),&#x27;男&#x27;,&#x27;1999-11-15&#x27;,&#x27;dbhfhjdh&#x27;);</span><br><span class="line"></span><br><span class="line">-- 修改密码为MD5</span><br><span class="line">update tb_student set student_password=MD5(student_password) where student_id = 2;</span><br><span class="line"></span><br><span class="line">-- 查询</span><br><span class="line">SELECT *from tb_student where student_name = &#x27;gh&#x27; and student_password=MD5(&#x27;khdjgf&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-12-事务"><a href="#2-12-事务" class="headerlink" title="2.12 事务"></a>2.12 事务</h5><blockquote>
+<p>特点：ACID（原一隔持）</p>
+</blockquote>
+<blockquote>
+<p>隔离性可能出现的问题</p>
+<p>脏读：一个事务读取了另一个没有提交的数据</p>
+<p>不可重复读：在一个事务内读取表中某一行数据，多次读取结果不同，【不一定是错误，只是场合有可能不对】</p>
+<p>虚读（幻读）：指一个 事务内读取到了别的事务插入的事务，导致前后读取不一致；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">-- 事务关键词：</span><br><span class="line">-- mysql是默认事务自动提交的</span><br><span class="line">-- 关闭自动提交事务</span><br><span class="line">set autocommit = 0;</span><br><span class="line">-- 事务开启</span><br><span class="line">START TRANSACTION;</span><br><span class="line">-- 提交</span><br><span class="line">COMMIT;</span><br><span class="line">-- 回滚</span><br><span class="line">ROLLBACK;</span><br><span class="line">-- 事务结束，恢复</span><br><span class="line">set autocommit = 1;</span><br><span class="line">-- 设置事务的保存点</span><br><span class="line">SAVEPOINT 保存点名;</span><br><span class="line">-- 回滚到保存点</span><br><span class="line">ROLLBACK to SAVEPOINT 保存点名；</span><br><span class="line">-- 撤销保存点</span><br><span class="line">RELEASE SAVEPOINT 保存点名</span><br><span class="line">-- 从这里开始</span><br><span class="line">use temp1;</span><br><span class="line">create table if not exists `tb_account`(</span><br><span class="line">	`account_id` int(3) not null auto_increment,</span><br><span class="line">	`username` varchar(30) not null,</span><br><span class="line">	`money` DECIMAL(9,2) not NULL,</span><br><span class="line">	primary key(`account_id`)</span><br><span class="line">)ENGINE = INNODB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">select *from `tb_account`;</span><br><span class="line"></span><br><span class="line">alter table account rename as tb_account;</span><br><span class="line"></span><br><span class="line">INSERT into tb_account(`username`,`money`) VALUES (&#x27;A&#x27;,400.88),(&#x27;B&#x27;,5000.87);</span><br><span class="line">-- 1.关闭事务自动提交</span><br><span class="line">set autoCOMMIT = 0;</span><br><span class="line">-- 2. 手动开启一个事务</span><br><span class="line">START TRANSACTION;</span><br><span class="line">UPDATE tb_account set money=money-500 where `username`=&#x27;A&#x27;;</span><br><span class="line">UPDATE tb_account set money=money+500 where `username`=&#x27;B&#x27;;</span><br><span class="line">-- 提交事务</span><br><span class="line">COMMIT;</span><br><span class="line">-- 回滚</span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line">-- 恢复默认值</span><br><span class="line">set autoCOMMIT = 1;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-13-索引（本质是数据结构，帮助数据库建立高效获取数据的数据结构）"><a href="#2-13-索引（本质是数据结构，帮助数据库建立高效获取数据的数据结构）" class="headerlink" title="2.13 索引（本质是数据结构，帮助数据库建立高效获取数据的数据结构）"></a>2.13 索引（本质是数据结构，帮助数据库建立高效获取数据的数据结构）</h5><blockquote>
+<p>分类：</p>
+<p>主键索引（primary key）：一个表只能一个主键索引</p>
+<p>唯一索引（Unique key）：可以多个</p>
+<p>常规索引（key、index）</p>
+<p>全文索引（fullText）：快速定位，一般用于数据引擎MyISAM</p>
+<p><a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">mysql索引内部实现</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-- 索引的使用：创建时加，创建后加</span><br><span class="line"></span><br><span class="line">-- 创建索引</span><br><span class="line">create index id_t_student_stu_name on t_student(`stu_name`);</span><br><span class="line">EXPLAIN SELECT *from t_student where stu_name=&#x27;胡伟亮&#x27;;</span><br><span class="line">-- 创建后增加全文索引</span><br><span class="line">alter table temp1.tb_student add FULLTEXT INDEX `student_name`(`student_name`);</span><br><span class="line"></span><br><span class="line">-- 删除索引</span><br><span class="line">alter table t_student drop index id_t_student_stu_name1;</span><br><span class="line"></span><br><span class="line">-- 修改索引名字</span><br><span class="line">alter table t_student rename index id_t_student_stu_name to id_t_student_stu_name1;</span><br><span class="line"></span><br><span class="line">-- 展示索引</span><br><span class="line">show index from t_student;</span><br><span class="line">-- EXPLAIN 分析sql执行的情况 </span><br><span class="line">EXPLAIN SELECT *from tb_student;</span><br><span class="line">-- 分析非全文索引情况</span><br><span class="line">EXPLAIN SELECT *from tb_student where match(student_name) AGAINST (&#x27;匿名&#x27;);</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">索引并不越多越好</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-14-备份"><a href="#2-14-备份" class="headerlink" title="2.14 备份"></a>2.14 备份</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.利用mysql可视化工具</span></span><br><span class="line"><span class="comment"># 2.直接拷贝data数据物理文件</span></span><br><span class="line"><span class="comment"># 3.cmd指令</span></span><br><span class="line"><span class="comment"># 导出</span></span><br><span class="line">mysqldump -hlocalhost -uroot -proot temp1 tb_account tb_user1 &gt; D:/a.sql</span><br><span class="line"><span class="comment"># 导入,最好先登录,然后创建使用数据库，</span></span><br><span class="line"><span class="built_in">source</span> D:/a.sql；</span><br><span class="line"><span class="comment"># 不登录导入，不建议</span></span><br><span class="line">mysql -uroot -proot 库名 &lt; 文件位置</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-15-JDBC连接池"><a href="#2-15-JDBC连接池" class="headerlink" title="2.15 JDBC连接池"></a>2.15 JDBC连接池</h5><blockquote>
+<p>数据库连接（connection）-数据库sql操作（preparedStatement【可以防止SQL注入】）-结果操作(整数或resultSet)–释放</p>
+</blockquote>
+<ul>
+<li>c3p0（需要导入包,工具类）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.itcaststore.utils;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据源工具</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DataSourceUtils</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ComboPooledDataSource</span>();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Connection&gt; tl = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>&lt;Connection&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title function_">getDataSource</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> dataSource;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 当DBUtils需要手动控制事务时，调用该方法获得一个连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">		<span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> tl.get();</span><br><span class="line">		<span class="keyword">if</span> (con == <span class="literal">null</span>) &#123;</span><br><span class="line">			con = dataSource.getConnection();</span><br><span class="line">			tl.set(con);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> con;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 开启事务</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startTransaction</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">		<span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> getConnection();</span><br><span class="line">		<span class="keyword">if</span> (con != <span class="literal">null</span>)</span><br><span class="line">			con.setAutoCommit(<span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 从ThreadLocal中释放并且关闭Connection,并结束事务</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">releaseAndCloseConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">		<span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> getConnection();</span><br><span class="line">		<span class="keyword">if</span> (con != <span class="literal">null</span>) &#123;</span><br><span class="line">			con.commit();</span><br><span class="line">			tl.remove();</span><br><span class="line">			con.close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 事务回滚</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">rollback</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">		<span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> getConnection();</span><br><span class="line">		<span class="keyword">if</span> (con != <span class="literal">null</span>) &#123;</span><br><span class="line">			con.rollback();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dbcp（需要导入包）</li>
+<li>druid：阿里巴巴</li>
+</ul>
+<h5 id="2-16-复杂增删改查"><a href="#2-16-复杂增删改查" class="headerlink" title="2.16 复杂增删改查"></a>2.16 复杂增删改查</h5><ul>
+<li>增</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO T_D_AC_TRADE_EN NOLOGGING</span><br><span class="line">  (C_IDEN,</span><br><span class="line">   C_TD_TYPE,</span><br><span class="line">   C_PORT_CODE,</span><br><span class="line">   C_SEC_CODE,</span><br><span class="line">   C_DT_CODE,</span><br><span class="line">   C_SEC_VAR_CODE,</span><br><span class="line">   C_DC_CODE,</span><br><span class="line">   C_MKT_CODE,</span><br><span class="line">   C_DTA_CODE,</span><br><span class="line">   C_DV_ISSUE_MODE,</span><br><span class="line">   C_DV_INVEST_CLS,</span><br><span class="line">   C_SH_ACC_CODE,</span><br><span class="line">   D_TRADE,</span><br><span class="line">   N_TD_MONEY,</span><br><span class="line">   N_SETT_MONEY_DUE,</span><br><span class="line">   D_SETT_DUE,</span><br><span class="line">   C_DC_CODE_SETT,</span><br><span class="line">   C_CA_CODE_SETT_DUE,</span><br><span class="line">   D_SETT_FACT,</span><br><span class="line">   C_TD_NO,</span><br><span class="line">   C_DATA_IDF,</span><br><span class="line">   C_CFG_CODE,</span><br><span class="line">   N_CHECK_STATE,</span><br><span class="line">   C_UPDATE_BY,</span><br><span class="line">   C_UPDATE_TIME,</span><br><span class="line">   C_CHECK_BY,</span><br><span class="line">   C_CHECK_TIME,</span><br><span class="line">   N_TD_AMOUNT,</span><br><span class="line">   D_REG,</span><br><span class="line">   N_INCOME)</span><br><span class="line">  SELECT SEQU_D_AC_TRADE_EN.NEXTVAL AS C_IDEN,</span><br><span class="line">         &#x27;DJPX&#x27; AS C_TD_TYPE,</span><br><span class="line">         C_PORT_CODE AS C_PORT_CODE,</span><br><span class="line">         C_SEC_CODE AS C_SEC_CODE,</span><br><span class="line">         C_DT_CODE AS C_DT_CODE,</span><br><span class="line">         C_SEC_VAR_CODE AS C_SEC_VAR_CODE,</span><br><span class="line">         C_DC_CODE AS C_DC_CODE,</span><br><span class="line">         C_MKT_CODE AS C_MKT_CODE,</span><br><span class="line">         C_DTA_CODE AS C_DTA_CODE,</span><br><span class="line">         C_DV_ISSUE_MODE AS C_DV_ISSUE_MODE,</span><br><span class="line">         C_DV_INVEST_CLS AS C_DV_INVEST_CLS,</span><br><span class="line">         C_SH_ACC_CODE AS C_SH_ACC_CODE,</span><br><span class="line">         D_TRADE AS D_TRADE,</span><br><span class="line">         N_TD_MONEY AS N_TD_MONEY,</span><br><span class="line">         N_SETT_MONEY_DUE AS N_SETT_MONEY_DUE,</span><br><span class="line">         D_SETT_DUE AS D_SETT_DUE,</span><br><span class="line">         C_DC_CODE_SETT AS C_DC_CODE_SETT,</span><br><span class="line">         C_CA_CODE_SETT_DUE AS C_CA_CODE_SETT_DUE,</span><br><span class="line">         D_SETT_FACT AS D_SETT_FACT,</span><br><span class="line">         C_TD_NO AS C_TD_NO,</span><br><span class="line">         &#x27;Z&#x27; AS C_DATA_IDF,</span><br><span class="line">         C_CFG_CODE AS C_CFG_CODE,</span><br><span class="line">         1 AS N_CHECK_STATE,</span><br><span class="line">         ? AS C_UPDATE_BY,</span><br><span class="line">         ? AS C_UPDATE_TIME,</span><br><span class="line">         ? AS C_CHECK_BY,</span><br><span class="line">         ? AS C_CHECK_TIME,</span><br><span class="line">         N_TD_AMOUNT AS N_TD_AMOUNT,</span><br><span class="line">         D_REG AS D_REG,</span><br><span class="line">         N_INCOME AS N_INCOME</span><br><span class="line">    FROM (select distinct A.C_IDEN,</span><br><span class="line">                          NVL(PORT1.C_PORT_CODE,</span><br><span class="line">                              NVL(B.C_T_CODE, PORT2.C_PORT_CODE)) as C_PORT_CODE,</span><br><span class="line">                          A.C_PORT_PERIODNO,</span><br><span class="line">                          A.C_SEC_CODE || &#x27; &#x27; || C.C_MKT_NO AS C_SEC_CODE,</span><br><span class="line">                          DECODE(A.C_MKT_CODE,</span><br><span class="line">                                 &#x27; &#x27;,</span><br><span class="line">                                 &#x27;COTC&#x27;,</span><br><span class="line">                                 NVL(A.C_MKT_CODE, &#x27;COTC&#x27;)) AS C_MKT_CODE,</span><br><span class="line">                          A.C_DT_CODE,</span><br><span class="line">                          S.c_Sec_Var_Code AS C_SEC_VAR_CODE,</span><br><span class="line">                          S.c_Dc_Code AS C_DC_CODE,</span><br><span class="line">                          A.C_TD_NO,</span><br><span class="line">                          NVL(A.C_DC_CODE_EQU, &#x27;&#x27;) AS C_DC_CODE_EQU,</span><br><span class="line">                          DECODE(A.C_DTA_CODE,</span><br><span class="line">                                 &#x27; &#x27;,</span><br><span class="line">                                 &#x27;PT&#x27;,</span><br><span class="line">                                 NVL(A.C_DTA_CODE, &#x27;PT&#x27;)) AS C_DTA_CODE,</span><br><span class="line">                          DECODE(A.C_DV_ISSUE_MODE,</span><br><span class="line">                                 &#x27; &#x27;,</span><br><span class="line">                                 &#x27;SS&#x27;,</span><br><span class="line">                                 NVL(A.C_DV_ISSUE_MODE, &#x27;SS&#x27;)) AS C_DV_ISSUE_MODE,</span><br><span class="line">                          A.C_TD_CHAN_CODE,</span><br><span class="line">                          A.C_DV_INVEST_CLS,</span><br><span class="line">                          A.C_SH_ACC_CODE,</span><br><span class="line">                          A.D_TRADE,</span><br><span class="line">                          A.N_TD_MONEY,</span><br><span class="line">                          A.N_TD_AMOUNT,</span><br><span class="line">                          NVL(A.N_INCOME, 0) AS N_INCOME,</span><br><span class="line">                          NVL(A.C_DC_CODE_EQU, S.c_Dc_Code) AS C_DC_CODE_EQU,</span><br><span class="line">                          A.D_REG,</span><br><span class="line">                          A.N_SETT_MONEY_DUE,</span><br><span class="line">                          A.D_SETT_DUE,</span><br><span class="line">                          (nvl(acc1.C_DC_CODE,</span><br><span class="line">                               nvl(acc2.C_DC_CODE,</span><br><span class="line">                                   nvl(acc3.C_DC_CODE, &#x27; &#x27;)))) AS C_DC_CODE_SETT,</span><br><span class="line">                          (nvl(acc1.c_ca_code,</span><br><span class="line">                               nvl(acc2.C_CA_CODE,</span><br><span class="line">                                   nvl(acc3.C_CA_CODE, &#x27; &#x27;)))) AS C_CA_CODE_SETT_DUE,</span><br><span class="line">                          NVL(A.D_SETT_FACT, A.D_SETT_DUE) AS D_SETT_FACT,</span><br><span class="line">                          &#x27;INFI_JY_HSDJPX&#x27; AS C_CFG_CODE</span><br><span class="line">            from V_D_AC_TRADE_EN1 A</span><br><span class="line">            LEFT JOIN T_P_AB_PORT PORT1</span><br><span class="line">              ON A.C_PORT_CODE = PORT1.C_PORT_CODE</span><br><span class="line">            LEFT JOIN (SELECT DET.C_S_CODE, DET.C_T_CODE</span><br><span class="line">                        FROM T_V_D_GROUP G</span><br><span class="line">                        JOIN T_V_D_GROUP_DETAIL DET</span><br><span class="line">                          ON G.C_GROUP_CODE = DET.C_GROUP_CODE</span><br><span class="line">                         AND G.C_GROUP_CODE = &#x27;WEBJH_CPDM&#x27;) B</span><br><span class="line">              ON A.C_PORT_CODE = B.C_S_CODE</span><br><span class="line">            LEFT JOIN T_P_AB_PORT PORT2</span><br><span class="line">              ON PORT2.C_PORT_NAME LIKE</span><br><span class="line">                 &#x27;%&#x27; || A.C_PORT_CODE || &#x27;_&#x27; || A.C_PORT_PERIODNO || &#x27;%&#x27;</span><br><span class="line">            LEFT JOIN T_P_BI_MKT C</span><br><span class="line">              ON A.C_MKT_CODE = C.C_MKT_CODE</span><br><span class="line">            LEFT JOIN T_P_SV_SEC_BASE S</span><br><span class="line">              on A.C_SEC_CODE || &#x27; &#x27; || C.C_MKT_NO = S.C_SEC_CODE</span><br><span class="line">             and S.n_Check_State = 1</span><br><span class="line">            left join T_P_BI_CASH_ACC acc1</span><br><span class="line">              on a.C_CA_CODE_SETT_DUE = acc1.C_CA_CODE</span><br><span class="line">            left join((SELECT B.C_CA_CODE as C_CA_CODE,</span><br><span class="line">                             A.C_PORT_CODE,</span><br><span class="line">                             B.C_OPEN_ACC_NO,</span><br><span class="line">                             B.C_DC_CODE</span><br><span class="line">                        FROM T_P_AB_PORT_ACC_RELA A</span><br><span class="line">                        LEFT JOIN T_P_BI_FUND_ACC B</span><br><span class="line">                          ON A.C_RELA_CODE = B.C_IDEN) acc2)</span><br><span class="line">              on a.C_PORT_CODE = acc2.C_PORT_CODE</span><br><span class="line">             and acc2.C_OPEN_ACC_NO = a.C_CA_CODE_SETT_DUE</span><br><span class="line">             and acc2.C_DC_CODE = S.c_Dc_Code</span><br><span class="line">            left join((SELECT B.C_CA_CODE AS C_CA_CODE,</span><br><span class="line">                             a.C_PORT_CODE,</span><br><span class="line">                             b.C_DC_CODE,</span><br><span class="line">                             B.C_DV_ACC_TYPE</span><br><span class="line">                        FROM T_P_AB_PORT_RELA A</span><br><span class="line">                        join T_P_BI_CASH_ACC B</span><br><span class="line">                          ON A.C_RELA_CODE = B.C_CA_CODE</span><br><span class="line">                       WHERE 1 = 1</span><br><span class="line">                         AND A.N_CHECK_STATE = 1</span><br><span class="line">                         AND B.N_CHECK_STATE = 1) acc3)</span><br><span class="line">              on acc3.C_PORT_CODE = A.C_PORT_CODE</span><br><span class="line">             and acc3.C_DC_CODE = S.c_Dc_Code</span><br><span class="line">             and ACC3.C_DV_ACC_TYPE = &#x27;ACC_SAV&#x27;</span><br><span class="line">           where a.c_dt_code = &#x27;DJPX_XJDJ&#x27;</span><br><span class="line">             and TRIM(S.C_SEC_CODE) IS not NULL</span><br><span class="line">             and a.d_TRADE = ?</span><br><span class="line">             and a.C_PORT_CODE in (select * from table(?)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM T_D_AC_TRADE_EN WHERE C_IDEN IN(</span><br><span class="line">			select Z.C_IDEN from T_D_AC_TRADE_EN Z join</span><br><span class="line">(</span><br><span class="line">				select distinct</span><br><span class="line">					      A.C_SEC_CODE ||&#x27; &#x27;|| C.C_MKT_NO AS C_SEC_CODE					     </span><br><span class="line">			       from V_D_AC_TRADE_EN1 A </span><br><span class="line">			    JOIN T_P_AB_PORT PORT1</span><br><span class="line">					ON A.C_PORT_CODE = PORT1.C_PORT_CODE</span><br><span class="line">					LEFT JOIN (SELECT DET.C_S_CODE,DET.C_T_CODE </span><br><span class="line">					FROM T_V_D_GROUP G </span><br><span class="line">					JOIN T_V_D_GROUP_DETAIL DET ON G.C_GROUP_CODE = DET.C_GROUP_CODE AND G.C_GROUP_CODE = &#x27;WEBJH_CPDM&#x27;) B</span><br><span class="line">						ON A.C_PORT_CODE = B.C_S_CODE</span><br><span class="line">					LEFT JOIN T_P_AB_PORT PORT2</span><br><span class="line">						ON PORT2.C_PORT_NAME LIKE &#x27;%&#x27;||A.C_PORT_CODE||&#x27;_&#x27;||A.C_PORT_PERIODNO||&#x27;%&#x27;</span><br><span class="line">			    LEFT JOIN T_P_BI_MKT C</span><br><span class="line">             ON A.C_MKT_CODE = C.C_MKT_CODE</span><br><span class="line">          LEFT JOIN T_P_SV_SEC_BASE S</span><br><span class="line">            on A.C_SEC_CODE ||&#x27; &#x27;|| C.C_MKT_NO = S.C_SEC_CODE</span><br><span class="line">            and S.n_Check_State = 1      </span><br><span class="line">          left join T_D_AC_TRADE_EN D</span><br><span class="line">             on D.c_Port_Code = NVL(PORT1.C_PORT_CODE,NVL(B.C_T_CODE,PORT2.C_PORT_CODE))</span><br><span class="line">             and D.c_Sec_Code =  A.C_SEC_CODE ||&#x27; &#x27;|| C.C_MKT_NO</span><br><span class="line">             and D.d_Trade = A.d_Trade</span><br><span class="line">             and A.c_Dt_Code = &#x27;DJPX_HLTZ&#x27;</span><br><span class="line">           left join V_P_CO_TD_SETT_CA V</span><br><span class="line">           on V.C_PORT_CODE = A.c_Port_Code</span><br><span class="line">           and  V.C_MKT_CODE = A.c_Sec_Code</span><br><span class="line">			       WHERE A.C_DT_CODE = &#x27;DJPX_HLTZ&#x27; </span><br><span class="line">			       and TRIM(S.C_SEC_CODE) IS not NULL</span><br><span class="line"></span><br><span class="line">			) 	Y</span><br><span class="line">      on Z.c_Sec_Code = Y.c_sec_code)</span><br><span class="line">			AND  D_TRADE = P;D_DATE </span><br><span class="line">			       AND  C_PORT_CODE IN (SELECT * FROM TABLE( P;C_PORT ) )</span><br><span class="line">			       and C_CFG_CODE = &#x27;INFI_JY_HSDJPX&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br></pre></td><td class="code"><pre><span class="line"> update T_P_SV_SEC_BASE sec</span><br><span class="line">      set (C_SEC_NAME,</span><br><span class="line">           C_SEC_MKT_CODE,</span><br><span class="line">           C_SEC_ISIN_CODE,</span><br><span class="line">           C_MKT_CODE,</span><br><span class="line">           C_SEC_VAR_CODE,</span><br><span class="line">           C_DC_CODE,</span><br><span class="line">           N_PRICE_FCR,</span><br><span class="line">           C_SEC_CODE_TRG,</span><br><span class="line">           N_AMOUNT_HD,</span><br><span class="line">           N_FV_ISSUE,</span><br><span class="line">           D_TO_LIST,</span><br><span class="line">           D_OFF_LIST,</span><br><span class="line">           C_DV_VAR_DUR,</span><br><span class="line">           C_DV_QUT_MOD,</span><br><span class="line">           N_RATE,</span><br><span class="line">           N_FV_IR,</span><br><span class="line">           N_PRICE_ISSUE,</span><br><span class="line">           C_DV_AI_MOD,</span><br><span class="line">           C_DV_PI_MOD,</span><br><span class="line">           D_AI_BEGIN,</span><br><span class="line">           D_AI_END,</span><br><span class="line">           C_DV_AI_EXPR,</span><br><span class="line">           N_RATIO,</span><br><span class="line">           N_CHECK_STATE,</span><br><span class="line">           C_UPDATE_BY,</span><br><span class="line">           C_UPDATE_TIME,</span><br><span class="line">           C_CHECK_BY,</span><br><span class="line">           C_CHECK_TIME,</span><br><span class="line">           C_RZRQ_MARK,</span><br><span class="line">           C_DV_RIGHT,</span><br><span class="line">           C_CONTAINRIGHT_FLAG,</span><br><span class="line">           C_ETF_TYPE,</span><br><span class="line">           C_SEC_NAME_CN,</span><br><span class="line">           C_GUAR_TYPE,</span><br><span class="line">           C_FINA_COMM,</span><br><span class="line">           C_MAIN_PROP,</span><br><span class="line">           C_DATA_IDF) =</span><br><span class="line">          (SELECT C_SEC_NAME AS C_SEC_NAME,</span><br><span class="line">                  C_SEC_MKT_CODE AS C_SEC_MKT_CODE,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_ISIN_CODE,</span><br><span class="line">                  C_MKT_CODE AS C_MKT_CODE,</span><br><span class="line">                  C_SEC_VAR_CODE AS C_SEC_VAR_CODE,</span><br><span class="line">                  C_DC_CODE AS C_DC_CODE,</span><br><span class="line">                  N_PRICE_FCR AS N_PRICE_FCR,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_CODE_TRG,</span><br><span class="line">                  N_AMOUNT_HD AS N_AMOUNT_HD,</span><br><span class="line">                  N_FV_ISSUE AS N_FV_ISSUE,</span><br><span class="line">                  to_date(D_TO_LIST) AS D_TO_LIST,</span><br><span class="line">                  to_date(D_OFF_LIST) AS D_OFF_LIST,</span><br><span class="line">                  C_DV_VAR_DUR AS C_DV_VAR_DUR,</span><br><span class="line">                  &#x27; &#x27; AS C_DV_QUT_MOD,</span><br><span class="line">                  N_RATE / 100 AS N_RATE,</span><br><span class="line">                  N_FV_IR AS N_FV_IR,</span><br><span class="line">                  &#x27;&#x27; AS N_PRICE_ISSUE,</span><br><span class="line">                  C_DV_AI_MOD AS C_DV_AI_MOD,</span><br><span class="line">                  C_DV_PI_MOD AS C_DV_PI_MOD,</span><br><span class="line">                  to_date(D_AI_BEGIN) AS D_AI_BEGIN,</span><br><span class="line">                  to_date(D_AI_END) AS D_AI_END,</span><br><span class="line">                  C_DV_AI_EXPR AS C_DV_AI_EXPR,</span><br><span class="line">                  0 AS N_RATIO,</span><br><span class="line">                  N_CHECK_STATE AS N_CHECK_STATE,</span><br><span class="line">                  &#x27;xxy&#x27; AS C_UPDATE_BY,</span><br><span class="line">                  date&#x27;2021-11-30&#x27; AS C_UPDATE_TIME,</span><br><span class="line">                  &#x27;xxy&#x27; AS C_CHECK_BY,</span><br><span class="line">                  date&#x27;2021-11-30&#x27; AS C_CHECK_TIME,</span><br><span class="line">                  &#x27; &#x27; AS C_RZRQ_MARK,</span><br><span class="line">                  &#x27;NULLRIGHT&#x27; AS C_DV_RIGHT,</span><br><span class="line">                  &#x27; &#x27; AS C_CONTAINRIGHT_FLAG,</span><br><span class="line">                  &#x27; &#x27; AS C_ETF_TYPE,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_NAME_CN,</span><br><span class="line">                  C_GUAR_TYPE AS C_GUAR_TYPE,</span><br><span class="line">                  C_FINA_COMM AS C_FINA_COMM,</span><br><span class="line">                  &#x27; &#x27; AS C_MAIN_PROP,</span><br><span class="line">                  &#x27;Z&#x27; AS C_DATA_IDF</span><br><span class="line">             FROM (with cur as (select C_IDEN,</span><br><span class="line">                                       C_SEC_NAME,</span><br><span class="line">                                       C_SEC_MKT_CODE,</span><br><span class="line">                                       C_MKT_CODE,</span><br><span class="line">                                       C_SEC_VAR_CODE,</span><br><span class="line">                                       C_DC_CODE,</span><br><span class="line">                                       D_TO_LIST,</span><br><span class="line">                                       D_OFF_LIST,</span><br><span class="line">                                       C_DV_VAR_DUR,</span><br><span class="line">                                       N_RATE,</span><br><span class="line">                                       N_FV_IR,</span><br><span class="line">                                       C_DV_AI_MOD,</span><br><span class="line">                                       C_DV_AI_EXPR,</span><br><span class="line">                                       C_DV_PI_MOD,</span><br><span class="line">                                       D_AI_BEGIN,</span><br><span class="line">                                       D_AI_END,</span><br><span class="line">                                       C_GUAR_TYPE,</span><br><span class="line">                                       C_FINA_COMM</span><br><span class="line">                                  from V_D_OD_SEC_BASE</span><br><span class="line">                                minus</span><br><span class="line">                                select C_IDEN,</span><br><span class="line">                                       C_SEC_NAME,</span><br><span class="line">                                       C_SEC_MKT_CODE,</span><br><span class="line">                                       C_MKT_CODE,</span><br><span class="line">                                       C_SEC_VAR_CODE,</span><br><span class="line">                                       C_DC_CODE,</span><br><span class="line">                                       D_TO_LIST,</span><br><span class="line">                                       D_OFF_LIST,</span><br><span class="line">                                       C_DV_VAR_DUR,</span><br><span class="line">                                       N_RATE,</span><br><span class="line">                                       N_FV_IR,</span><br><span class="line">                                       C_DV_AI_MOD,</span><br><span class="line">                                       C_DV_AI_EXPR,</span><br><span class="line">                                       C_DV_PI_MOD,</span><br><span class="line">                                       D_AI_BEGIN,</span><br><span class="line">                                       D_AI_END,</span><br><span class="line">                                       C_GUAR_TYPE,</span><br><span class="line">                                       C_FINA_COMM</span><br><span class="line">                                  from T_D_OD_SEC_BASE_HS)</span><br><span class="line">                    select z.C_IDEN,</span><br><span class="line">                           nvl(ST.C_SEC_CODE, z.C_SEC_CODE) as C_SEC_CODE,</span><br><span class="line">                           z.C_SEC_NAME,</span><br><span class="line">                           z.C_SEC_MKT_CODE,</span><br><span class="line">                           nvl(ST.C_MKT_CODE, z.C_MKT_CODE) AS C_MKT_CODE,</span><br><span class="line">                           nvl(st.C_SEC_VAR_CODE, z.C_SEC_VAR_CODE) AS C_SEC_VAR_CODE,</span><br><span class="line">                           nvl(st.C_DC_CODE, z.C_DC_CODE) AS C_DC_CODE,</span><br><span class="line">                           1 AS N_PRICE_FCR,</span><br><span class="line">                           1 AS N_AMOUNT_HD,</span><br><span class="line">                           1 AS N_FV_ISSUE,</span><br><span class="line">                           z.D_TO_LIST,</span><br><span class="line">                           z.D_OFF_LIST,</span><br><span class="line">                           z.C_DV_VAR_DUR,</span><br><span class="line">                           z.N_RATE,</span><br><span class="line">                           z.N_FV_IR,</span><br><span class="line">                           z.C_DV_AI_MOD,</span><br><span class="line">                           z.C_DV_AI_EXPR,</span><br><span class="line">                           z.C_DV_PI_MOD,</span><br><span class="line">                           z.D_AI_BEGIN,</span><br><span class="line">                           z.D_AI_END,</span><br><span class="line">                           z.C_GUAR_TYPE,</span><br><span class="line">                           z.C_FINA_COMM,</span><br><span class="line">                           decode(trim(z.C_SEC_VAR_CODE), &#x27;&#x27;, 0, 1) AS N_CHECK_STATE</span><br><span class="line">                      from (select cur.*,</span><br><span class="line">                                   cur.C_SEC_MKT_CODE || m.c_mkt_no as C_SEC_CODE</span><br><span class="line">                              from cur</span><br><span class="line">                              join T_D_OD_SEC_BASE_HS b</span><br><span class="line">                                on cur.c_iden = b.c_iden</span><br><span class="line">                              LEFT JOIN T_P_BI_MKT M</span><br><span class="line">                                ON cur.C_MKT_CODE = M.C_MKT_CODE) Z</span><br><span class="line">                      join t_p_sv_sec_base sec</span><br><span class="line">                        on z.c_sec_code = sec.c_sec_code</span><br><span class="line">                      LEFT JOIN T_D_AI_STOCK ST</span><br><span class="line">                        on z.c_sec_code = st.c_sec_code) z</span><br><span class="line">                     where z.C_SEC_MKT_CODE = sec.C_SEC_MKT_CODE</span><br><span class="line">           ) where exists (</span><br><span class="line">           select 1 from (SELECT C_SEC_NAME AS C_SEC_NAME,</span><br><span class="line">                  C_SEC_MKT_CODE AS C_SEC_MKT_CODE,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_ISIN_CODE,</span><br><span class="line">                  C_MKT_CODE AS C_MKT_CODE,</span><br><span class="line">                  C_SEC_VAR_CODE AS C_SEC_VAR_CODE,</span><br><span class="line">                  C_DC_CODE AS C_DC_CODE,</span><br><span class="line">                  N_PRICE_FCR AS N_PRICE_FCR,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_CODE_TRG,</span><br><span class="line">                  N_AMOUNT_HD AS N_AMOUNT_HD,</span><br><span class="line">                  N_FV_ISSUE AS N_FV_ISSUE,</span><br><span class="line">                  to_date(D_TO_LIST) AS D_TO_LIST,</span><br><span class="line">                  to_date(D_OFF_LIST) AS D_OFF_LIST,</span><br><span class="line">                  C_DV_VAR_DUR AS C_DV_VAR_DUR,</span><br><span class="line">                  &#x27; &#x27; AS C_DV_QUT_MOD,</span><br><span class="line">                  N_RATE / 100 AS N_RATE,</span><br><span class="line">                  N_FV_IR AS N_FV_IR,</span><br><span class="line">                  &#x27;&#x27; AS N_PRICE_ISSUE,</span><br><span class="line">                  C_DV_AI_MOD AS C_DV_AI_MOD,</span><br><span class="line">                  C_DV_PI_MOD AS C_DV_PI_MOD,</span><br><span class="line">                  to_date(D_AI_BEGIN) AS D_AI_BEGIN,</span><br><span class="line">                  to_date(D_AI_END) AS D_AI_END,</span><br><span class="line">                  C_DV_AI_EXPR AS C_DV_AI_EXPR,</span><br><span class="line">                  0 AS N_RATIO,</span><br><span class="line">                  N_CHECK_STATE AS N_CHECK_STATE,</span><br><span class="line">                  &#x27;xxy&#x27; AS C_UPDATE_BY,</span><br><span class="line">                  date&#x27;2021-11-30&#x27; AS C_UPDATE_TIME,</span><br><span class="line">                  &#x27;xxy&#x27; AS C_CHECK_BY,</span><br><span class="line">                  date&#x27;2021-11-30&#x27; AS C_CHECK_TIME,</span><br><span class="line">                  &#x27; &#x27; AS C_RZRQ_MARK,</span><br><span class="line">                  &#x27;NULLRIGHT&#x27; AS C_DV_RIGHT,</span><br><span class="line">                  &#x27; &#x27; AS C_CONTAINRIGHT_FLAG,</span><br><span class="line">                  &#x27; &#x27; AS C_ETF_TYPE,</span><br><span class="line">                  &#x27; &#x27; AS C_SEC_NAME_CN,</span><br><span class="line">                  C_GUAR_TYPE AS C_GUAR_TYPE,</span><br><span class="line">                  C_FINA_COMM AS C_FINA_COMM,</span><br><span class="line">                  &#x27; &#x27; AS C_MAIN_PROP,</span><br><span class="line">                  &#x27;Z&#x27; AS C_DATA_IDF</span><br><span class="line">             FROM (with cur as (select C_IDEN,</span><br><span class="line">                                       C_SEC_NAME,</span><br><span class="line">                                       C_SEC_MKT_CODE,</span><br><span class="line">                                       C_MKT_CODE,</span><br><span class="line">                                       C_SEC_VAR_CODE,</span><br><span class="line">                                       C_DC_CODE,</span><br><span class="line">                                       D_TO_LIST,</span><br><span class="line">                                       D_OFF_LIST,</span><br><span class="line">                                       C_DV_VAR_DUR,</span><br><span class="line">                                       N_RATE,</span><br><span class="line">                                       N_FV_IR,</span><br><span class="line">                                       C_DV_AI_MOD,</span><br><span class="line">                                       C_DV_AI_EXPR,</span><br><span class="line">                                       C_DV_PI_MOD,</span><br><span class="line">                                       D_AI_BEGIN,</span><br><span class="line">                                       D_AI_END,</span><br><span class="line">                                       C_GUAR_TYPE,</span><br><span class="line">                                       C_FINA_COMM</span><br><span class="line">                                  from V_D_OD_SEC_BASE</span><br><span class="line">                                minus</span><br><span class="line">                                select C_IDEN,</span><br><span class="line">                                       C_SEC_NAME,</span><br><span class="line">                                       C_SEC_MKT_CODE,</span><br><span class="line">                                       C_MKT_CODE,</span><br><span class="line">                                       C_SEC_VAR_CODE,</span><br><span class="line">                                       C_DC_CODE,</span><br><span class="line">                                       D_TO_LIST,</span><br><span class="line">                                       D_OFF_LIST,</span><br><span class="line">                                       C_DV_VAR_DUR,</span><br><span class="line">                                       N_RATE,</span><br><span class="line">                                       N_FV_IR,</span><br><span class="line">                                       C_DV_AI_MOD,</span><br><span class="line">                                       C_DV_AI_EXPR,</span><br><span class="line">                                       C_DV_PI_MOD,</span><br><span class="line">                                       D_AI_BEGIN,</span><br><span class="line">                                       D_AI_END,</span><br><span class="line">                                       C_GUAR_TYPE,</span><br><span class="line">                                       C_FINA_COMM</span><br><span class="line">                                  from T_D_OD_SEC_BASE_HS)</span><br><span class="line">                    select z.C_IDEN,</span><br><span class="line">                           nvl(ST.C_SEC_CODE, z.C_SEC_CODE) as C_SEC_CODE,</span><br><span class="line">                           z.C_SEC_NAME,</span><br><span class="line">                           z.C_SEC_MKT_CODE,</span><br><span class="line">                           nvl(ST.C_MKT_CODE, z.C_MKT_CODE) AS C_MKT_CODE,</span><br><span class="line">                           nvl(st.C_SEC_VAR_CODE, z.C_SEC_VAR_CODE) AS C_SEC_VAR_CODE,</span><br><span class="line">                           nvl(st.C_DC_CODE, z.C_DC_CODE) AS C_DC_CODE,</span><br><span class="line">                           1 AS N_PRICE_FCR,</span><br><span class="line">                           1 AS N_AMOUNT_HD,</span><br><span class="line">                           1 AS N_FV_ISSUE,</span><br><span class="line">                           z.D_TO_LIST,</span><br><span class="line">                           z.D_OFF_LIST,</span><br><span class="line">                           z.C_DV_VAR_DUR,</span><br><span class="line">                           z.N_RATE,</span><br><span class="line">                           z.N_FV_IR,</span><br><span class="line">                           z.C_DV_AI_MOD,</span><br><span class="line">                           z.C_DV_AI_EXPR,</span><br><span class="line">                           z.C_DV_PI_MOD,</span><br><span class="line">                           z.D_AI_BEGIN,</span><br><span class="line">                           z.D_AI_END,</span><br><span class="line">                           z.C_GUAR_TYPE,</span><br><span class="line">                           z.C_FINA_COMM,</span><br><span class="line">                           decode(trim(z.C_SEC_VAR_CODE), &#x27;&#x27;, 0, 1) AS N_CHECK_STATE</span><br><span class="line">                      from (select cur.*,</span><br><span class="line">                                   cur.C_SEC_MKT_CODE || m.c_mkt_no as C_SEC_CODE</span><br><span class="line">                              from cur</span><br><span class="line">                              join T_D_OD_SEC_BASE_HS b</span><br><span class="line">                                on cur.c_iden = b.c_iden</span><br><span class="line">                              LEFT JOIN T_P_BI_MKT M</span><br><span class="line">                                ON cur.C_MKT_CODE = M.C_MKT_CODE) Z</span><br><span class="line">                      join t_p_sv_sec_base sec</span><br><span class="line">                        on z.c_sec_code = sec.c_sec_code</span><br><span class="line">                      LEFT JOIN T_D_AI_STOCK ST</span><br><span class="line">                        on z.c_sec_code = st.c_sec_code) ) k</span><br><span class="line">                     where k.C_SEC_MKT_CODE = sec.C_SEC_MKT_CODE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">-- 判断两张表的数据是否有不同</span><br><span class="line">with cur as</span><br><span class="line">				 (select C_IDEN,C_SEC_NAME,C_SEC_MKT_CODE,C_MKT_CODE,C_SEC_VAR_CODE,C_DC_CODE,D_TO_LIST,D_OFF_LIST,C_DV_VAR_DUR,N_RATE,N_FV_IR,C_DV_AI_MOD,C_DV_AI_EXPR,C_DV_PI_MOD,D_AI_BEGIN,D_AI_END,C_GUAR_TYPE,C_FINA_COMM from V_D_OD_SEC_BASE</span><br><span class="line">				  minus</span><br><span class="line">				  select C_IDEN,C_SEC_NAME,C_SEC_MKT_CODE,C_MKT_CODE,C_SEC_VAR_CODE,C_DC_CODE,D_TO_LIST,D_OFF_LIST,C_DV_VAR_DUR,N_RATE,N_FV_IR,C_DV_AI_MOD,C_DV_AI_EXPR,C_DV_PI_MOD,D_AI_BEGIN,D_AI_END,C_GUAR_TYPE,C_FINA_COMM from T_D_OD_SEC_BASE_HS</span><br><span class="line">				 )</span><br><span class="line">				select z.C_IDEN,</span><br><span class="line">				       nvl(ST.C_SEC_CODE, z.C_SEC_CODE) as C_SEC_CODE,</span><br><span class="line">				       z.C_SEC_NAME,</span><br><span class="line">				       z.C_SEC_MKT_CODE,</span><br><span class="line">				       nvl(ST.C_MKT_CODE, z.C_MKT_CODE) AS C_MKT_CODE,</span><br><span class="line">				       nvl(st.C_SEC_VAR_CODE, z.C_SEC_VAR_CODE) AS C_SEC_VAR_CODE,</span><br><span class="line">				       nvl(st.C_DC_CODE, z.C_DC_CODE) AS C_DC_CODE,</span><br><span class="line">				       1 AS N_PRICE_FCR,</span><br><span class="line">				       1 AS N_AMOUNT_HD,</span><br><span class="line">				       1 AS N_FV_ISSUE,</span><br><span class="line">				       z.D_TO_LIST,</span><br><span class="line">				       z.D_OFF_LIST,</span><br><span class="line">				       z.C_DV_VAR_DUR,</span><br><span class="line">				       z.N_RATE,</span><br><span class="line">				       z.N_FV_IR,</span><br><span class="line">				       z.C_DV_AI_MOD,</span><br><span class="line">				       z.C_DV_AI_EXPR,</span><br><span class="line">				       z.C_DV_PI_MOD,</span><br><span class="line">				       z.D_AI_BEGIN,</span><br><span class="line">				       z.D_AI_END,</span><br><span class="line">				       z.C_GUAR_TYPE,</span><br><span class="line">				       z.C_FINA_COMM,</span><br><span class="line">				       decode(trim(z.C_SEC_VAR_CODE), &#x27;&#x27;, 0, 1) AS N_CHECK_STATE</span><br><span class="line">				  from (select cur.*, cur.C_SEC_MKT_CODE || m.c_mkt_no as C_SEC_CODE</span><br><span class="line">				          from cur</span><br><span class="line">				          join T_D_OD_SEC_BASE_HS b</span><br><span class="line">				            on cur.c_iden = b.c_iden</span><br><span class="line">				          LEFT JOIN T_P_BI_MKT M</span><br><span class="line">				            ON cur.C_MKT_CODE = M.C_MKT_CODE) Z</span><br><span class="line">				  join t_p_sv_sec_base sec</span><br><span class="line">				    on z.c_sec_code = sec.c_sec_code</span><br><span class="line">				  LEFT JOIN T_D_AI_STOCK ST</span><br><span class="line">				    on z.c_sec_code = st.c_sec_code</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建临时表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">create global temporary table R_D_AC_TRADE_EN</span><br><span class="line">(</span><br><span class="line">   C_IDEN               VARCHAR2(20) not null,</span><br><span class="line">   C_PORT_CODE          VARCHAR2(20),</span><br><span class="line">   C_PORT_PERIODNO      VARCHAR2(20),</span><br><span class="line">   C_SEC_CODE           VARCHAR2(20),</span><br><span class="line">   C_MKT_CODE           VARCHAR2(50) default &#x27; &#x27;,</span><br><span class="line">   C_DT_CODE            VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   C_DC_CODE_EQU        VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   C_DTA_CODE           VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   C_DV_ISSUE_MODE      VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   C_TD_CHAN_CODE       VARCHAR2(20) default &#x27; &#x27;,   </span><br><span class="line">   C_DV_INVEST_CLS      VARCHAR2(20) default &#x27; &#x27;,   </span><br><span class="line">   C_SH_ACC_CODE    VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   C_TD_NO    VARCHAR2(20) default &#x27; &#x27;,</span><br><span class="line">   D_TRADE         DATE,</span><br><span class="line">   N_TD_MONEY      NUMBER(18,4),</span><br><span class="line">   N_TD_AMOUNT     NUMBER(18,4),</span><br><span class="line">   N_INCOME        NUMBER(18,4),</span><br><span class="line">   D_REG        DATE,</span><br><span class="line">   N_SETT_MONEY_DUE         NUMBER(18,4),</span><br><span class="line">   D_SETT_DUE  DATE,</span><br><span class="line">   C_CA_CODE_SETT_DUE    VARCHAR2(50),</span><br><span class="line">   D_SETT_FACT        DATE</span><br><span class="line">)</span><br><span class="line">on commit delete rows;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h4><p>总结了mysql的基础，中间还有许多没有讲到的基础，并不是全部内容，这是自己学习时的感悟与总结，如果有错误或者建议，欢迎大家评论区指出，谢谢大家。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/05/09/Linux%E7%B3%BB%E7%BB%9F%E5%88%9D%E8%AF%86/" rel="next" title="Linux系统初识">
+                <i class="fa fa-chevron-left"></i> Linux系统初识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/05/09/java%E5%9F%BA%E7%A1%80/" rel="prev" title="java基础">
+                java基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                
+				<a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xxy8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_44005434" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-CSDN"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="nav-text">1. 分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-MySQL"><span class="nav-text">2. MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-%E6%B3%A8%E6%84%8F"><span class="nav-text">2.1 注意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80%EF%BC%88CRUD%E3%80%90%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%91%EF%BC%89"><span class="nav-text">2.2 数据库语言（CRUD【增删改查】）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-%E6%93%8D%E4%BD%9C%E7%94%A8%E6%88%B7%E8%AF%AD%E5%8F%A5"><span class="nav-text">2.3 操作用户语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-%E6%9D%83%E9%99%90%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%BB%E8%A6%81DCL%EF%BC%89"><span class="nav-text">2.4 权限语句（主要DCL）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%BB%E8%A6%81DDL%EF%BC%89"><span class="nav-text">2.5 操作数据库语句（主要DDL）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-%E6%93%8D%E4%BD%9C%E8%A1%A8%E8%AF%AD%E5%8F%A5"><span class="nav-text">2.6 操作表语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-%E6%93%8D%E4%BD%9C%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E8%AF%AD%E5%8F%A5"><span class="nav-text">2.7 操作表的字段语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-%E6%93%8D%E4%BD%9C%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE-%E4%B8%BB%E8%A6%81DML%EF%BC%8CDQL"><span class="nav-text">2.8 操作表中的数据(主要DML，DQL)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-9-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">2.9 常用函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-10-%E6%93%8D%E4%BD%9C%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.10 操作表中的约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-11-MD5%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86-%E4%B8%8D%E6%94%AF%E6%8C%81%E7%B4%A2%E5%BC%95%EF%BC%8Ccpu%E6%B6%88%E8%80%97%E5%A4%A7%EF%BC%8C%E8%87%AA%E5%B7%B1%E8%83%BD%E5%A4%9F%E5%8A%A0%E5%AF%86%E6%9C%80%E5%A5%BD"><span class="nav-text">2.11 MD5密码加密[不支持索引，cpu消耗大，自己能够加密最好]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-12-%E4%BA%8B%E5%8A%A1"><span class="nav-text">2.12 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-13-%E7%B4%A2%E5%BC%95%EF%BC%88%E6%9C%AC%E8%B4%A8%E6%98%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E5%B8%AE%E5%8A%A9%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E9%AB%98%E6%95%88%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89"><span class="nav-text">2.13 索引（本质是数据结构，帮助数据库建立高效获取数据的数据结构）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-14-%E5%A4%87%E4%BB%BD"><span class="nav-text">2.14 备份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-15-JDBC%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-text">2.15 JDBC连接池</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-16-%E5%A4%8D%E6%9D%82%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-text">2.16 复杂增删改查</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%80%BB%E7%BB%93"><span class="nav-text">3. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xxy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

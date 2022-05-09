@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,后端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大学之道，在明明德，在亲民，在止于至善">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java常用类">
+<meta property="og:url" content="https://xxy8.github.io/2022/05/09/java%E5%B8%B8%E7%94%A8%E7%B1%BB/index.html">
+<meta property="og:site_name" content="xxy">
+<meta property="og:description" content="大学之道，在明明德，在亲民，在止于至善">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-05-09T05:46:24.000Z">
+<meta property="article:modified_time" content="2022-05-09T06:05:15.086Z">
+<meta property="article:author" content="xxy">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="后端">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="https://xxy8.github.io/2022/05/09/java常用类/"/>
+
+
+
+
+
+  <title>java常用类 | xxy</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xxy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一笑之语</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-shuyu">
+          <a href="/shuyu/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书宇
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-play">
+          <a href="/play/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-play"></i> <br />
+            
+            媒体
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xxy8.github.io/2022/05/09/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java常用类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-05-09T13:46:24+08:00">
+                2022-05-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-05-09T14:05:15+08:00">
+                2022-05-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<center>大学之道，在明明德，在亲民，在止于至善</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<blockquote>
+<p>是一些比较常见的常用类，不是所有的常用类。</p>
+</blockquote>
+<h2 id="1-Object（所有类的父类）"><a href="#1-Object（所有类的父类）" class="headerlink" title="1. Object（所有类的父类）"></a>1. Object（所有类的父类）</h2><center>Object类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object clone()</td>
+<td>普通</td>
+<td>浅拷贝，需要实现Cloneable接口,深拷贝需要反序列化</td>
+</tr>
+<tr>
+<td>boolean equals(Object)</td>
+<td>普通</td>
+<td>比较两个对象的地址是否相等</td>
+</tr>
+<tr>
+<td>void finalize()</td>
+<td>普通</td>
+<td>当垃圾回收器确定不存在对该对象的更多引用时，对象的圾回收器调用该方法</td>
+</tr>
+<tr>
+<td>Class getClass()</td>
+<td>普通</td>
+<td>反射返回一个对象运行时的实例类（.class文件）</td>
+</tr>
+<tr>
+<td>int hashCode()</td>
+<td>普通</td>
+<td>返回该对象的散列码值，可以判断两个对象是否相等，不同一定不等，相同不一定相等</td>
+</tr>
+<tr>
+<td>void notify()</td>
+<td>普通</td>
+<td>激活等待在该对象的监视器上的一个线程，notify(), wait()依赖于“同步锁”&lt;共享的资源&gt;</td>
+</tr>
+<tr>
+<td>void notifyAll()</td>
+<td>普通</td>
+<td>激活等待在该对象的监视器上的全部线程</td>
+</tr>
+<tr>
+<td>String toString()</td>
+<td>普通</td>
+<td>默认返回运行时类名+@+对象的hashCode的16进制数</td>
+</tr>
+<tr>
+<td>void wait()</td>
+<td>普通</td>
+<td>在其他线程调用此对象的 notify() 方法或 notifyAll() 方法前，导致当前线程等待</td>
+</tr>
+</tbody></table>
+<h2 id="2-String类"><a href="#2-String类" class="headerlink" title="2. String类"></a>2. String类</h2><center>String类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String()</td>
+<td>构造</td>
+<td>创建一个空的字符串</td>
+</tr>
+<tr>
+<td>String(byte[] bys)</td>
+<td>构造</td>
+<td>通过字节数组创建字符串</td>
+</tr>
+<tr>
+<td>String(char[] chs)</td>
+<td>构造</td>
+<td>通过字符数组创建字符串</td>
+</tr>
+<tr>
+<td>String(byte[] bys,int offset,int length)</td>
+<td>构造</td>
+<td>通过字节数组一部分创建字符串</td>
+</tr>
+<tr>
+<td>String(char[] chs,int offset,int length)</td>
+<td>构造</td>
+<td>通过字符数组一部分创建字符串</td>
+</tr>
+<tr>
+<td>String(String original)</td>
+<td>构造</td>
+<td>通过字符串常量值创建字符串</td>
+</tr>
+<tr>
+<td>equals(Object obj)</td>
+<td>普通</td>
+<td>比较两个字符串是否相等</td>
+</tr>
+<tr>
+<td>equalsIngnoreCase(Object obj)</td>
+<td>普通</td>
+<td>忽略大小写比较两个字符串是否相等</td>
+</tr>
+<tr>
+<td>contains(String str)</td>
+<td>普通</td>
+<td>是否包含指定字符串</td>
+</tr>
+<tr>
+<td>startsWith(String str)</td>
+<td>普通</td>
+<td>是否以指定的字符串开头</td>
+</tr>
+<tr>
+<td>endWith(String str)</td>
+<td>普通</td>
+<td>是否以指定的字符串结尾</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td>普通</td>
+<td>是否为空</td>
+</tr>
+<tr>
+<td>matches(String regex)</td>
+<td>普通</td>
+<td>判断字符串是否匹配给定的正则表达式</td>
+</tr>
+<tr>
+<td>length()</td>
+<td>普通</td>
+<td>获取长度</td>
+</tr>
+<tr>
+<td>charAt(int index)</td>
+<td>普通</td>
+<td>获取指定索引位置处的字符</td>
+</tr>
+<tr>
+<td>indexOf(int ch)</td>
+<td>普通</td>
+<td>获取指定字符第一次出现的索引值(从0开始)</td>
+</tr>
+<tr>
+<td>indexOf(int ch,int fromIndex)</td>
+<td>普通</td>
+<td>获取从指定索引位置开始，获取指定字符第一次出现的索引值</td>
+</tr>
+<tr>
+<td>indexOf(String s)</td>
+<td>普通</td>
+<td>获取指定字符串第一次出现的索引值</td>
+</tr>
+<tr>
+<td>indexOf(String s,int fromIndex)</td>
+<td>普通</td>
+<td>获取从指定索引位置开始，获取指定字符串第一次出现的索引值</td>
+</tr>
+<tr>
+<td>lastIndexOf(int ch)</td>
+<td>普通</td>
+<td>获取指定字符最后一次出现的索引值</td>
+</tr>
+<tr>
+<td>substring(int start)</td>
+<td>普通</td>
+<td>从指定位置开始一直截取到末尾</td>
+</tr>
+<tr>
+<td>substring(int start,int end)</td>
+<td>普通</td>
+<td>截取[start,end)范围</td>
+</tr>
+<tr>
+<td>byte[] getBytes()</td>
+<td>普通</td>
+<td>将字符串转成字节数组</td>
+</tr>
+<tr>
+<td>char[] toCharArray()</td>
+<td>普通</td>
+<td>将字符串转成字符数组</td>
+</tr>
+<tr>
+<td>static valueOf(char[] chs)</td>
+<td>普通</td>
+<td>将char[]转成字符串</td>
+</tr>
+<tr>
+<td>static valueOf(int num)</td>
+<td>普通</td>
+<td>将int类型转成字符串</td>
+</tr>
+<tr>
+<td>static valueOf(Object obj)</td>
+<td>普通</td>
+<td>将任意类型转成字符串</td>
+</tr>
+<tr>
+<td>toLowerCase()</td>
+<td>普通</td>
+<td>转成小写</td>
+</tr>
+<tr>
+<td>toUpcase()</td>
+<td>普通</td>
+<td>转成大写</td>
+</tr>
+<tr>
+<td>concat(String str)</td>
+<td>普通</td>
+<td>字符连接</td>
+</tr>
+<tr>
+<td>replace(char old,char new)</td>
+<td>普通</td>
+<td>将old字符替换成new字符</td>
+</tr>
+<tr>
+<td>replace(String old,String new)</td>
+<td>普通</td>
+<td>将old字符串替换成new字符串</td>
+</tr>
+<tr>
+<td>trim()</td>
+<td>普通</td>
+<td>去除两边空格</td>
+</tr>
+<tr>
+<td>int compareTo(String s)</td>
+<td>普通</td>
+<td>字典比较，如果前面值小于后面值返回负数，否则返回正数，先比较第一个元素，如果相等再比较第二个元素…返回元素之间的差值；如果比较字符串有包含关系，返回的值是它们长度的差值</td>
+</tr>
+<tr>
+<td>int compareToIgnoreCase(String s)</td>
+<td>普通</td>
+<td>忽略大小写字典比较</td>
+</tr>
+<tr>
+<td>String replaceAll(String regex, String replacement)</td>
+<td>普通</td>
+<td>使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串</td>
+</tr>
+<tr>
+<td>String replaceFirst(String regex, String replacement)</td>
+<td>普通</td>
+<td>使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串</td>
+</tr>
+<tr>
+<td>String[] split(String regex)</td>
+<td>普通</td>
+<td>根据给定正则表达式的匹配拆分此字符串</td>
+</tr>
+<tr>
+<td>String[] split(String regex, int limit)</td>
+<td>普通</td>
+<td>根据匹配给定的正则表达式来拆分此字符串</td>
+</tr>
+</tbody></table>
+<h2 id="3-StringBuilder类"><a href="#3-StringBuilder类" class="headerlink" title="3. StringBuilder类"></a>3. StringBuilder类</h2><center>StringBuilder类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuilder()</td>
+<td>构造</td>
+<td>以默认容量创建空的StringBuilder对象</td>
+</tr>
+<tr>
+<td>StringBuilder(int capacity)</td>
+<td>构造</td>
+<td>以指定容量创建空的StringBuilder对象</td>
+</tr>
+<tr>
+<td>StringBuilder(String str)</td>
+<td>构造</td>
+<td>以指定的字符串创建StringBuilder对象</td>
+</tr>
+<tr>
+<td>int capacity()</td>
+<td>普通</td>
+<td>获取容量</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td>普通</td>
+<td>获取长度</td>
+</tr>
+<tr>
+<td>append(int value)</td>
+<td>普通</td>
+<td>追加。可以追加多种类型</td>
+</tr>
+<tr>
+<td>insert(int offset,String s)</td>
+<td>普通</td>
+<td>在指定的位置插入指定数据</td>
+</tr>
+<tr>
+<td>deleteCharAt(int index)</td>
+<td>普通</td>
+<td>删除指定索引处的元素</td>
+</tr>
+<tr>
+<td>delete(int start,int end)</td>
+<td>普通</td>
+<td>删除[start,start-1]范围内的元素</td>
+</tr>
+<tr>
+<td>replace(int start,int end,String s)</td>
+<td>普通</td>
+<td>将[start,end-1]范围内的元素替换成指定字符串</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>普通</td>
+<td>元素反转</td>
+</tr>
+<tr>
+<td>String subString(int start)</td>
+<td>普通</td>
+<td>截取指定位置一直到末尾</td>
+</tr>
+<tr>
+<td>String subString(int start,int end)</td>
+<td>普通</td>
+<td>截取[start,end-1]范围</td>
+</tr>
+</tbody></table>
+<h2 id="4-StringBuffer类"><a href="#4-StringBuffer类" class="headerlink" title="4.  StringBuffer类"></a>4.  StringBuffer类</h2><center>StringBuffer类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuffer()</td>
+<td>构造</td>
+<td>以默认容量创建空的StringBuffer对象</td>
+</tr>
+<tr>
+<td>StringBuffer(int capacity)</td>
+<td>构造</td>
+<td>以指定容量创建空的StringBuffer对象</td>
+</tr>
+<tr>
+<td>StringBuffer(String str)</td>
+<td>构造</td>
+<td>以指定的字符串创建StringBuffer对象</td>
+</tr>
+<tr>
+<td>append(int value)</td>
+<td>普通</td>
+<td>追加。可以追加多种类型</td>
+</tr>
+<tr>
+<td>insert(int offset,String s)</td>
+<td>普通</td>
+<td>在指定的位置插入指定数据</td>
+</tr>
+<tr>
+<td>delete(int start,int end)</td>
+<td>普通</td>
+<td>删除[start,start-1]范围内的元素</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>普通</td>
+<td>元素反转</td>
+</tr>
+</tbody></table>
+<h2 id="5-CharSequence接口"><a href="#5-CharSequence接口" class="headerlink" title="5. CharSequence接口"></a>5. CharSequence接口</h2><center>CharSequence接口的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public char charAt(int index)</td>
+<td>普通</td>
+<td>获取指定索引的字符</td>
+</tr>
+<tr>
+<td>public int length()</td>
+<td>普通</td>
+<td>获取字符串长度</td>
+</tr>
+<tr>
+<td>public CharSequence subSequence(int start, int end)</td>
+<td>普通</td>
+<td>截取部分字符串</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li><p>String、StringBuilder、StringBuffer三者都实现了CharSequence接口</p>
+</li>
+<li><p>String内容不可改变，StringBuilder和StringBuffer内容可变</p>
+</li>
+<li><p>StringBuilder是线程不安全的，不同步，效率高；StringBuffer是线程安全的，同步，效率低</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="6-编码表"><a href="#6-编码表" class="headerlink" title="6.  编码表"></a>6.  编码表</h2><center>编码表</center>
+
+<table>
+<thead>
+<tr>
+<th>编码名字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ASCII码</td>
+<td>最高为是符号为，其他是数值位，所有编码表都兼容ASCII码表</td>
+</tr>
+<tr>
+<td>ISO-8859-1</td>
+<td>拉丁码表</td>
+</tr>
+<tr>
+<td>BG2312</td>
+<td>中文编码表</td>
+</tr>
+<tr>
+<td>GBK</td>
+<td>GB2312的升级版，1个汉字对应2个字节</td>
+</tr>
+<tr>
+<td>GB18030</td>
+<td>GBK的升级版</td>
+</tr>
+<tr>
+<td>BIG-5</td>
+<td>中文繁体编码表，俗称”大5码”</td>
+</tr>
+<tr>
+<td>Unicode</td>
+<td>国际标注码，所有字符都有两个字节表示，Java默认使用该编码表</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>万国码，一个汉字对应3个字节</td>
+</tr>
+</tbody></table>
+<h2 id="7-正则表达式"><a href="#7-正则表达式" class="headerlink" title="7.  正则表达式"></a>7.  正则表达式</h2><center>正则表达式</center>
+
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>x字符，a表a字符</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜线字符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符</td>
+</tr>
+<tr>
+<td>[abc]</td>
+<td>表示a、b、c中的一个字符</td>
+</tr>
+<tr>
+<td>[^abc]</td>
+<td>表示不是a、b、c中的任何一个字符</td>
+</tr>
+<tr>
+<td>[a-zA-Z]</td>
+<td>表示a<del>z或A</del>Z中的一个字符</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>表示数字</td>
+</tr>
+<tr>
+<td>.</td>
+<td>表示任意字符</td>
+</tr>
+<tr>
+<td>\.</td>
+<td>表示’.’字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>表示数字字符，[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>[^0-9],表示非数字字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>表示单词字符，[a-zA-Z_0-9]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>[^a-zA-Z_0-9]，表示非单词字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>任意一位空格如”\n“、”\t“</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>任何一位非空格</td>
+</tr>
+<tr>
+<td>^</td>
+<td>表示行的开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示行的结尾</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>表示单词的边界</td>
+</tr>
+<tr>
+<td>?</td>
+<td>表示0次或者1次</td>
+</tr>
+<tr>
+<td>*</td>
+<td>表示0次或者多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>表示1次或者多次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>表示n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>表示至少n次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>n~m次</td>
+</tr>
+<tr>
+<td>正则表达式A正则表达式B</td>
+<td>与</td>
+</tr>
+<tr>
+<td>正则表达式A|正则表达式B</td>
+<td>或</td>
+</tr>
+<tr>
+<td>（正则表达式）</td>
+<td>多个作为一组表示</td>
+</tr>
+</tbody></table>
+<h2 id="8-AutoCloseable接口"><a href="#8-AutoCloseable接口" class="headerlink" title="8. AutoCloseable接口"></a>8. AutoCloseable接口</h2><center>使用方式，自动关闭处理</center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IMessage</span> <span class="keyword">extends</span> <span class="title class_">AutoCloseable</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-Runtime类"><a href="#9-Runtime类" class="headerlink" title="9. Runtime类"></a>9. Runtime类</h2><center>Runtime类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public static Runtime getRuntime()</td>
+<td>普通</td>
+<td>通过该类的实例对象来获取当前虚拟机的相关信息</td>
+</tr>
+<tr>
+<td>public int availableProcessors()</td>
+<td>普通</td>
+<td>获取可以用的处理器的个数</td>
+</tr>
+<tr>
+<td>long  maxMemory()</td>
+<td>普通</td>
+<td>返回 Java 虚拟机试图使用的最大内存量</td>
+</tr>
+<tr>
+<td>long freeMemory()</td>
+<td>普通</td>
+<td>返回 Java 虚拟机中的空闲内存量</td>
+</tr>
+<tr>
+<td>long totalMemory()</td>
+<td>普通</td>
+<td>返回 Java 虚拟机中的内存总量</td>
+</tr>
+<tr>
+<td>void gc()</td>
+<td>普通</td>
+<td>运行垃圾收集器，释放垃圾空间</td>
+</tr>
+</tbody></table>
+<h2 id="10-System类"><a href="#10-System类" class="headerlink" title="10. System类"></a>10. System类</h2><center>System类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>没有构造方法</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>public static void arrayCopy(Object[] srcArr,int srcPos,Object[] desArr,int destPos,int len)</td>
+<td>普通</td>
+<td>数组复制</td>
+</tr>
+<tr>
+<td>public static long  currentTimeMills()</td>
+<td>普通</td>
+<td>获取当前时间毫秒值</td>
+</tr>
+<tr>
+<td>public static void gc()</td>
+<td>普通</td>
+<td>运行垃圾回收处理机制（系统会在某个不确定的时间调用该方法),会调用finalize()，进行垃圾回收</td>
+</tr>
+<tr>
+<td>exit(int status)</td>
+<td>普通</td>
+<td>退出JVM，0表示非异常退出</td>
+</tr>
+</tbody></table>
+<h2 id="11-Cleaner类"><a href="#11-Cleaner类" class="headerlink" title="11. Cleaner类"></a>11. Cleaner类</h2><center>使用方式，自动释放资源</center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传统回收前依靠finalize（），jdk1.9提供Cleaner类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MemberCleaning</span> <span class="keyword">implements</span> <span class="title class_">AutoCloseable</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-Math类"><a href="#12-Math类" class="headerlink" title="12. Math类"></a>12. Math类</h2><center>Math类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abs(int a)</td>
+<td>普通</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>ceil(double d)</td>
+<td>普通</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>floor(double d)</td>
+<td>普通</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>max(int a,int b)</td>
+<td>普通</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>pow(double a,double b)</td>
+<td>普通</td>
+<td>a的b次幂</td>
+</tr>
+<tr>
+<td>random()</td>
+<td>普通</td>
+<td>随机数[0.0,1.0]</td>
+</tr>
+<tr>
+<td>round(float f)</td>
+<td>普通</td>
+<td>四舍五入</td>
+</tr>
+<tr>
+<td>sqrt(double d)</td>
+<td>普通</td>
+<td>算术平方根</td>
+</tr>
+<tr>
+<td>log(int a)</td>
+<td>普通</td>
+<td>对数</td>
+</tr>
+</tbody></table>
+<h2 id="13-Random类"><a href="#13-Random类" class="headerlink" title="13. Random类"></a>13. Random类</h2><center>Random类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Random()</td>
+<td>构造</td>
+<td>以当前时间毫秒值作为种子，创建Random对象</td>
+</tr>
+<tr>
+<td>Random(long seed)</td>
+<td>构造</td>
+<td>以指定种子创建Random对象</td>
+</tr>
+<tr>
+<td>nextInt()</td>
+<td>普通</td>
+<td>生成1个int类型范围的随机数</td>
+</tr>
+<tr>
+<td>nextInt(int n)</td>
+<td>普通</td>
+<td>产生1个[0,n-1]范围内的随机数</td>
+</tr>
+</tbody></table>
+<h2 id="14-大数字处理类"><a href="#14-大数字处理类" class="headerlink" title="14. 大数字处理类"></a>14. 大数字处理类</h2><center>大数字处理类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BigInteger(String s)</td>
+<td>构造</td>
+<td>通过字符串创建BigInteger对象</td>
+</tr>
+<tr>
+<td>add(BigInteger bi)</td>
+<td>普通</td>
+<td>加法运算</td>
+</tr>
+<tr>
+<td>subtract(BigInteger bi)</td>
+<td>普通</td>
+<td>减法运算</td>
+</tr>
+<tr>
+<td>multiply(BigInteger bi)</td>
+<td>普通</td>
+<td>乘法运算</td>
+</tr>
+<tr>
+<td>divide(BigInteger bi)</td>
+<td>普通</td>
+<td>除法运算</td>
+</tr>
+<tr>
+<td>public BigInteger remainder(BigInteger val)</td>
+<td>普通</td>
+<td>做取余运算</td>
+</tr>
+<tr>
+<td>public BigInteger[] divideAndRemainder (BigInteger val)</td>
+<td>普通</td>
+<td>用数组返回余数和商，结果数组中第一个值为商，第二个值为余数</td>
+</tr>
+<tr>
+<td>public BigInteger max(BigInteger val)</td>
+<td>普通</td>
+<td>返回较大的数值</td>
+</tr>
+<tr>
+<td>public BigInteger min(BigInteger val)</td>
+<td>普通</td>
+<td>返回较小的数值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BigDecimal(String s)</td>
+<td>构造</td>
+<td>通过字符创建BigDecimal对象</td>
+</tr>
+<tr>
+<td>BigDecimal(int s)</td>
+<td>构造</td>
+<td>通过int创建BigDecimal对象</td>
+</tr>
+<tr>
+<td>BigDecimal(double s)</td>
+<td>构造</td>
+<td>通过double创建BigDecimal对象</td>
+</tr>
+<tr>
+<td>public BigDecimal add(BigDecimal augend)</td>
+<td>普通</td>
+<td>做加法操作</td>
+</tr>
+<tr>
+<td>ublic BigDecimal subtract(BigDecimal subtrahend)</td>
+<td>普通</td>
+<td>做减法操作</td>
+</tr>
+<tr>
+<td>public BigDecimal multiply(BigDecimal multiplicand)</td>
+<td>普通</td>
+<td>做乘法操作</td>
+</tr>
+<tr>
+<td>public BigDecimal divide(BigDecimal divisor , int sacle ,int roundingMode)</td>
+<td>普通</td>
+<td>做除法操作，方法中 3 个参数分别代表除数、商的小数点后的位数、近似处理模式</td>
+</tr>
+</tbody></table>
+<h2 id="15-Date类"><a href="#15-Date类" class="headerlink" title="15. Date类"></a>15. Date类</h2><center>Date类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Date()</td>
+<td>构造</td>
+<td>以当前时间毫秒值创建Date对象</td>
+</tr>
+<tr>
+<td>Date(long time)</td>
+<td>构造</td>
+<td>以指定的毫秒值创建Date对象</td>
+</tr>
+<tr>
+<td>long getTime()</td>
+<td>普通</td>
+<td>获取Date对象的毫秒值</td>
+</tr>
+<tr>
+<td>setTime(long time)</td>
+<td>普通</td>
+<td>设置Data对象的毫秒值</td>
+</tr>
+</tbody></table>
+<h2 id="16-SimpleDateFormat类（子类）和DateFormat类（抽象类）"><a href="#16-SimpleDateFormat类（子类）和DateFormat类（抽象类）" class="headerlink" title="16. SimpleDateFormat类（子类）和DateFormat类（抽象类）"></a>16. SimpleDateFormat类（子类）和DateFormat类（抽象类）</h2><center>SimpleDateFormat类（子类）和DateFormat类（抽象类）的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getDateInstance(int style,Locale loc)</td>
+<td>普通</td>
+<td>获取日期格式器，该格式器具有给定的语言环境和给定的格式化风格</td>
+</tr>
+<tr>
+<td>String format(Date date)</td>
+<td>普通</td>
+<td>格式化</td>
+</tr>
+<tr>
+<td>Date parse(String time)</td>
+<td>普通</td>
+<td>解析</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SimpleDateFormat()</td>
+<td>构造</td>
+<td>以默认模式创建对象</td>
+</tr>
+<tr>
+<td>SimpleDateFormat(String pattern)</td>
+<td>构造</td>
+<td>以指定模式创建对象</td>
+</tr>
+<tr>
+<td>String format(Date date)</td>
+<td>普通</td>
+<td>格式化</td>
+</tr>
+<tr>
+<td>Date parse(String time)</td>
+<td>普通</td>
+<td>解析</td>
+</tr>
+</tbody></table>
+<h2 id="17-国际化"><a href="#17-国际化" class="headerlink" title="17. 国际化"></a>17. 国际化</h2><center>国际化使用方式</center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Locale类</span></span><br><span class="line"><span class="type">locale</span> <span class="variable">loc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Locale</span>(<span class="string">&quot;zh&quot;</span>,<span class="string">&quot;CN&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="18-Arrays数组操作类"><a href="#18-Arrays数组操作类" class="headerlink" title="18. Arrays数组操作类"></a>18. Arrays数组操作类</h2><center>Arrays数组操作类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public static void sort(Object[] a)</td>
+<td>普通</td>
+<td>升序排列</td>
+</tr>
+<tr>
+<td>public static int binarySearch(Object[] a, Object key)</td>
+<td>普通</td>
+<td>对排好序的数组进行二分查找法操作</td>
+</tr>
+<tr>
+<td>public static int compare(int[] a,int[] b)</td>
+<td>普通</td>
+<td>比较两个数组的大小，大于（返回1），小于（返回-1），等于（返回0）</td>
+</tr>
+<tr>
+<td>public static boolean equals(long[] a, long[] a2)</td>
+<td>普通</td>
+<td>数组相等判断</td>
+</tr>
+<tr>
+<td>public static void fill(int[] a, int val)</td>
+<td>普通</td>
+<td>数组填充</td>
+</tr>
+<tr>
+<td>public static String toString(int[] a)</td>
+<td>普通</td>
+<td>数组转换为字符串</td>
+</tr>
+</tbody></table>
+<h2 id="19-UUID类"><a href="#19-UUID类" class="headerlink" title="19. UUID类"></a>19. UUID类</h2><center>UUID类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public static UUID randomUUID();</td>
+<td>普通</td>
+<td>生成一个随机UUID时</td>
+</tr>
+<tr>
+<td>public static UUID fromString(String name)</td>
+<td>普通</td>
+<td>通过指定格式的字符串获取UUID数据</td>
+</tr>
+</tbody></table>
+<h2 id="20-Optional空处理"><a href="#20-Optional空处理" class="headerlink" title="20. Optional空处理"></a>20. Optional空处理</h2><center>Optional空处理类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public static <T>  Optional<T>empty（）</td>
+<td>普通</td>
+<td>返回空数据</td>
+</tr>
+<tr>
+<td>public T get（）</td>
+<td>普通</td>
+<td>获取保存的数据</td>
+</tr>
+<tr>
+<td>public static <T>  Optional<T>of（T value）</td>
+<td>普通</td>
+<td>保存数据，如果有null则出现NullPointerException异常</td>
+</tr>
+<tr>
+<td>public static <T>  Optional<T>ofNullable（T value）</td>
+<td>普通</td>
+<td>保存数据，允许为空</td>
+</tr>
+<tr>
+<td>public T orElse(T other)</td>
+<td>普通</td>
+<td>空数据时返回其他数据</td>
+</tr>
+</tbody></table>
+<h2 id="21-ThreadLocal"><a href="#21-ThreadLocal" class="headerlink" title="21. ThreadLocal"></a>21. ThreadLocal</h2><center>ThreadLocal类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public void set(T value)</td>
+<td>普通</td>
+<td>保存数据</td>
+</tr>
+<tr>
+<td>public T get()</td>
+<td>普通</td>
+<td>获取数据</td>
+</tr>
+<tr>
+<td>public void remove</td>
+<td>普通</td>
+<td>删除当前线程保存的数据</td>
+</tr>
+</tbody></table>
+<h2 id="22-Scanner类"><a href="#22-Scanner类" class="headerlink" title="22. Scanner类"></a>22. Scanner类</h2><center>Scanner类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scanner(InputStream is)</td>
+<td>构造</td>
+<td>构造一个文本扫描器，它生成的值是从指定的值输入流扫描的,System.in 是一个标准的输入流，属于InputStream</td>
+</tr>
+<tr>
+<td>boolean hasNext()</td>
+<td>普通</td>
+<td>是否有下一个数,有true，没有false</td>
+</tr>
+<tr>
+<td>String next()</td>
+<td>普通</td>
+<td>获取下个数</td>
+</tr>
+<tr>
+<td>int nextInt()</td>
+<td>普通</td>
+<td>获取下个int数据</td>
+</tr>
+<tr>
+<td>String nextLine()</td>
+<td>普通</td>
+<td>获取一行数据</td>
+</tr>
+</tbody></table>
+<h2 id="23-Calendar类"><a href="#23-Calendar类" class="headerlink" title="23. Calendar类"></a>23. Calendar类</h2><center>Calendar类的常用方法</center>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Calender getInstance()</td>
+<td>普通</td>
+<td>以默认时区和语言创建日历</td>
+</tr>
+<tr>
+<td>int get(int field)</td>
+<td>普通</td>
+<td>获取指定字段的日历值</td>
+</tr>
+<tr>
+<td>set(int field,int value)</td>
+<td>普通</td>
+<td>给指定的日历字段设置指定的值</td>
+</tr>
+<tr>
+<td>set(int year,int month,int date)</td>
+<td>普通</td>
+<td>设置年月日</td>
+</tr>
+<tr>
+<td>Date getTime()</td>
+<td>普通</td>
+<td>获取日历对象的日期</td>
+</tr>
+<tr>
+<td>setTime(Date d)</td>
+<td>普通</td>
+<td>设置日历对象的日期</td>
+</tr>
+<tr>
+<td>add(int field,int amount)</td>
+<td>普通</td>
+<td>对指定的日历字段添加指定的值</td>
+</tr>
+</tbody></table>
+<h2 id="24-总结"><a href="#24-总结" class="headerlink" title="24. 总结"></a>24. 总结</h2><p>还有很多没有写完的常用类，欢迎大家总结！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag"># 后端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/05/09/java%E5%9F%BA%E7%A1%80/" rel="next" title="java基础">
+                <i class="fa fa-chevron-left"></i> java基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/05/09/%E7%B1%BB%E9%9B%86%E6%A1%86%E6%9E%B6%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89/" rel="prev" title="类集框架（集合）">
+                类集框架（集合） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                
+				<a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xxy8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_44005434" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-CSDN"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Object%EF%BC%88%E6%89%80%E6%9C%89%E7%B1%BB%E7%9A%84%E7%88%B6%E7%B1%BB%EF%BC%89"><span class="nav-text">1. Object（所有类的父类）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-String%E7%B1%BB"><span class="nav-text">2. String类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-StringBuilder%E7%B1%BB"><span class="nav-text">3. StringBuilder类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-StringBuffer%E7%B1%BB"><span class="nav-text">4.  StringBuffer类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-CharSequence%E6%8E%A5%E5%8F%A3"><span class="nav-text">5. CharSequence接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%BC%96%E7%A0%81%E8%A1%A8"><span class="nav-text">6.  编码表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">7.  正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-AutoCloseable%E6%8E%A5%E5%8F%A3"><span class="nav-text">8. AutoCloseable接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Runtime%E7%B1%BB"><span class="nav-text">9. Runtime类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-System%E7%B1%BB"><span class="nav-text">10. System类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-Cleaner%E7%B1%BB"><span class="nav-text">11. Cleaner类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Math%E7%B1%BB"><span class="nav-text">12. Math类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Random%E7%B1%BB"><span class="nav-text">13. Random类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E5%A4%A7%E6%95%B0%E5%AD%97%E5%A4%84%E7%90%86%E7%B1%BB"><span class="nav-text">14. 大数字处理类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-Date%E7%B1%BB"><span class="nav-text">15. Date类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-SimpleDateFormat%E7%B1%BB%EF%BC%88%E5%AD%90%E7%B1%BB%EF%BC%89%E5%92%8CDateFormat%E7%B1%BB%EF%BC%88%E6%8A%BD%E8%B1%A1%E7%B1%BB%EF%BC%89"><span class="nav-text">16. SimpleDateFormat类（子类）和DateFormat类（抽象类）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E5%9B%BD%E9%99%85%E5%8C%96"><span class="nav-text">17. 国际化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-Arrays%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E7%B1%BB"><span class="nav-text">18. Arrays数组操作类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-UUID%E7%B1%BB"><span class="nav-text">19. UUID类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-Optional%E7%A9%BA%E5%A4%84%E7%90%86"><span class="nav-text">20. Optional空处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-ThreadLocal"><span class="nav-text">21. ThreadLocal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-Scanner%E7%B1%BB"><span class="nav-text">22. Scanner类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-Calendar%E7%B1%BB"><span class="nav-text">23. Calendar类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E6%80%BB%E7%BB%93"><span class="nav-text">24. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xxy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
