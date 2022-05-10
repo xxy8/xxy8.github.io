@@ -6083,7 +6083,7 @@ KPI考核</td>
 </ul>
 </li>
 </ol>
-<h3 id="18-内部类"><a href="#18-内部类" class="headerlink" title="18. 内部类"></a>18. 内部类</h3><ul>
+<h2 id="18-内部类"><a href="#18-内部类" class="headerlink" title="18. 内部类"></a>18. 内部类</h2><ul>
 <li>成员内部类：类中定义一个类</li>
 <li>静态内部类：类中定义一个静态类</li>
 <li>局部内部类：方法定义一个类</li>
