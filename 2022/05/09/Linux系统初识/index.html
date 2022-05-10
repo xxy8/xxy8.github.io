@@ -86,13 +86,13 @@
 <meta property="og:site_name" content="xxy">
 <meta property="og:description" content="大道至简">
 <meta property="og:locale">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210601191938904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://xxy8.github.io/images/linux1.png">
 <meta property="article:published_time" content="2022-05-09T05:14:32.000Z">
-<meta property="article:modified_time" content="2022-05-10T03:46:59.040Z">
+<meta property="article:modified_time" content="2022-05-10T05:14:40.740Z">
 <meta property="article:author" content="xxy">
 <meta property="article:tag" content="系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210601191938904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center">
+<meta name="twitter:image" content="https://xxy8.github.io/images/linux1.png">
 
 
 
@@ -365,7 +365,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-05-10T11:46:59+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2022-05-10T13:14:40+08:00">
                 2022-05-10
               </time>
             
@@ -412,7 +412,7 @@
 
 <h2 id="3-文件操作"><a href="#3-文件操作" class="headerlink" title="3. 文件操作"></a>3. 文件操作</h2><blockquote>
 <p>vim键盘图</p>
-<p><img src="https://img-blog.csdnimg.cn/20210601191938904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://xxy8.github.io/images/linux1.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件操作</span></span><br><span class="line"><span class="comment"># 新建一个文件[-a]【改变读取时间记录】、[-c]【目的档案不存在就不建立】、[-f]【不使用，为了兼容】、[-m]【改变修改时间记录】</span></span><br><span class="line"><span class="built_in">touch</span> [-acfm][-d&lt;日期时间&gt;][-r&lt;参考文件或目录&gt;] [-t&lt;日期时间&gt;][--<span class="built_in">help</span>][--version][文件]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一个文件，[-r]【递归】 、[-f]【强制】、[-i]【互动】</span></span><br><span class="line"><span class="built_in">rm</span> [-fir] [文件名]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名【去掉目录】，或者移动一个文件</span></span><br><span class="line"><span class="built_in">mv</span> [文件名1] [目录&lt;绝对路径&gt;] [文件名2]</span><br><span class="line"><span class="comment"># 编辑文件，命令模式-iao键-输入模式-Esc键-底线命令模式-:wq-保存退出-cat 文件名-查看</span></span><br><span class="line">vim [文件名]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看文件内容 [-A]【相当於-vET，列出特殊字符】、[-b]【列出行号】、[-E]【显示断行$】、[-n]【列出行号，包括空白行】、[-T]【[tab] 按键以 ^I 显示】、[-v]【列出看不出的特殊字符】</span></span><br><span class="line"><span class="built_in">cat</span> [-AbEnTv] [文件名]</span><br><span class="line"><span class="comment"># 倒序查看文件内容</span></span><br><span class="line"><span class="built_in">tac</span> [文件名]</span><br><span class="line"><span class="comment"># 显示行号查看文件 [-b]【a：空行也列出行号，t：空行不列出行号】、[-n]【ln：行号在最左方，rn:右方显示，且不加 0,rz:右方显示，且加 0】</span></span><br><span class="line"><span class="comment"># [-w]【行号栏位的占用的位数】</span></span><br><span class="line"><span class="built_in">nl</span> [-bnm] [文件名]</span><br><span class="line"><span class="comment"># 一页一页翻动</span></span><br><span class="line">more [文件名]</span><br><span class="line">less [文件名]</span><br><span class="line"><span class="comment"># 取出文件前面几行</span></span><br><span class="line"><span class="built_in">head</span> [-n number] [文件名]</span><br><span class="line"><span class="comment"># 取出后面几行</span></span><br><span class="line"><span class="built_in">tail</span> [-n number] [文件名]</span><br></pre></td></tr></table></figure>
 

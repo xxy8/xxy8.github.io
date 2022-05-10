@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="xxy">
 <meta property="og:description" content="学习，偷的半日闲">
 <meta property="og:locale">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210406112020973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://xxy8.github.io/images/javajichu1.png">
 <meta property="article:published_time" content="2022-05-09T05:43:50.000Z">
-<meta property="article:modified_time" content="2022-05-09T05:45:30.285Z">
+<meta property="article:modified_time" content="2022-05-10T05:25:02.134Z">
 <meta property="article:author" content="xxy">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="后端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210406112020973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center">
+<meta name="twitter:image" content="https://xxy8.github.io/images/javajichu1.png">
 
 
 
@@ -366,8 +366,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-05-09T13:45:30+08:00">
-                2022-05-09
+              <time title="更新于" itemprop="dateModified" datetime="2022-05-10T13:25:02+08:00">
+                2022-05-10
               </time>
             
           </span>
@@ -407,7 +407,7 @@
 <blockquote>
 <p>不是所有的基础内容，只是个人的记录和随想。</p>
 </blockquote>
-<h2 id="1-计算机"><a href="#1-计算机" class="headerlink" title="1. 计算机"></a>1. 计算机</h2><p><img src="https://img-blog.csdnimg.cn/20210406112020973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="1-计算机"><a href="#1-计算机" class="headerlink" title="1. 计算机"></a>1. 计算机</h2><p><img src="https://xxy8.github.io/images/javajichu1.png" alt="在这里插入图片描述"></p>
 <h2 id="2-Java发展"><a href="#2-Java发展" class="headerlink" title="2. Java发展"></a>2. Java发展</h2><ul>
 <li><input checked="" disabled="" type="checkbox"> javaEE（企业）</li>
 <li><input disabled="" type="checkbox"> ME（手机，淘汰）</li>
@@ -541,10 +541,148 @@
 <li><p>凡是属于IO流都要关掉</p>
 </li>
 <li><p>输入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Scanner.close();</span><br><span class="line">Scanner.next();<span class="comment">//不能得到空格</span></span><br><span class="line">Scanner.nextLine();<span class="comment">//以回车符为结束符</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>&#96;&#96;&#96;java<br>Scanner.close();<br>Scanner.next();&#x2F;&#x2F;不能得到空格<br>Scanner.nextLine();&#x2F;&#x2F;以回车符为结束符</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. switch（i）jdk7可以为字符串</span><br><span class="line"></span><br><span class="line">5. 反编译</span><br><span class="line"></span><br><span class="line">   &gt; .class--&gt;.java//用来看源码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 14. 面向对象</span><br><span class="line"></span><br><span class="line">- 方法</span><br><span class="line">  异常抛出throws</span><br><span class="line"></span><br><span class="line">- 方法的调用（递归）</span><br><span class="line">  static 和类一起加载</span><br><span class="line"></span><br><span class="line">- 值传递和引用传递</span><br><span class="line">  值传递：只是把值传给形参，</span><br><span class="line">  引用传递：对象，本质还是值传递</span><br><span class="line"></span><br><span class="line">- 面向对象本质：以类的方式组织代码，以对象来组织封装数据</span><br><span class="line"></span><br><span class="line">- javaME Android</span><br><span class="line"></span><br><span class="line">  2006 Hadoop</span><br><span class="line"></span><br><span class="line">- 值传递、引用传递</span><br><span class="line"></span><br><span class="line">  &gt; 构造函数：类名相同，没有返回值，**注意：一旦定义有参构造，必须显示定义无参构造，**</span><br><span class="line"></span><br><span class="line">  1. new 关键字本质在调用构造器</span><br><span class="line"></span><br><span class="line">  2. 初始化对象的值</span><br><span class="line"></span><br><span class="line">## 15. 抽象（abstract ）</span><br><span class="line"></span><br><span class="line">- 非非，抽象方法只能在抽象类中，非抽象类只能有非抽象方法，不能有抽象方法</span><br><span class="line"></span><br><span class="line">- 抽象类（里面的方法必须全部实现，不想全部实现，一般加一个适配模式）</span><br><span class="line"></span><br><span class="line">- 不能被 new </span><br><span class="line"></span><br><span class="line">- 抽象方法（只能靠子类帮我们实现）</span><br><span class="line"></span><br><span class="line">- 接口（制定的规则）架构师</span><br><span class="line"></span><br><span class="line">  - 方法默认有public abstract</span><br><span class="line"></span><br><span class="line">  - 属性是常量public static final</span><br><span class="line"></span><br><span class="line">  - 接口不能被实例化，没有构造方法</span><br><span class="line"></span><br><span class="line">## 16.  封装</span><br><span class="line"></span><br><span class="line">- 高内聚，低耦合</span><br><span class="line"></span><br><span class="line">- 属性私有化get、set</span><br><span class="line"></span><br><span class="line">## 17. 继承与多态</span><br><span class="line"></span><br><span class="line">- java单继承，多实现</span><br><span class="line"></span><br><span class="line">- public protected default private (不可继承)</span><br><span class="line"></span><br><span class="line">- 所有类都是直接或间接继承Object类</span><br><span class="line"></span><br><span class="line">- super（）调用父类的构造方法，必须在子类构造方法的第一个，不能和this同时调用构造方法。</span><br><span class="line"></span><br><span class="line">| 比较        | 对象 | 前提           | 构造方法 |</span><br><span class="line">| ----------- | ---- | -------------- | -------- |</span><br><span class="line">| this：      | 本身 | 没继承可以使用 | 本类构造 |</span><br><span class="line">| super（）： | 父类 | 只能继承条件下 | 父类构造 |</span><br><span class="line"></span><br><span class="line">- 方法重写：（和属性无关，需要有继承关系，修饰符范围可以扩大，抛出的异常可以被缩小）</span><br><span class="line"></span><br><span class="line">- 静态和非静态方法区别很大，</span><br><span class="line">- 方法多态（和属性无关，父类和子类有联系，重写和继承，父类的引用可以指向子类）</span><br><span class="line"></span><br><span class="line">- 对象执行 的方法看左边的类，</span><br><span class="line"></span><br><span class="line">1. static 方法属于类，不属于实例，</span><br><span class="line"></span><br><span class="line">2. final：常量</span><br><span class="line"></span><br><span class="line">3. private 方法不能继承，没有多态</span><br><span class="line"></span><br><span class="line">4. A instanceof B 判断引用类型</span><br><span class="line"></span><br><span class="line">5. 父类引用指向子类的对象</span><br><span class="line"></span><br><span class="line">6. 子类转换为父类：向上转型</span><br><span class="line"></span><br><span class="line">7. 父类转换为子类：向下转型：强制转换</span><br><span class="line"></span><br><span class="line">8. static：</span><br><span class="line"></span><br><span class="line">   - 静态导入包</span><br><span class="line"></span><br><span class="line">   - 静态变量：多线程</span><br><span class="line"></span><br><span class="line">   - 静态方法（静静）</span><br><span class="line"></span><br><span class="line">   - final 不能继承</span><br><span class="line"></span><br><span class="line">### 18. 内部类</span><br><span class="line"></span><br><span class="line">- 成员内部类：类中定义一个类</span><br><span class="line">- 静态内部类：类中定义一个静态类</span><br><span class="line">- 局部内部类：方法定义一个类</span><br><span class="line">- 匿名内部类：实现接口的类前面写一个类</span><br><span class="line"></span><br><span class="line">## 19. 异常</span><br><span class="line"></span><br><span class="line">- 异常，检查，运行，错误，通过JVM线程结束</span><br><span class="line">- 捕获</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">try &#123;</span><br><span class="line">    //里面可能会有异常，如果有异常则捕获</span><br><span class="line">&#125; catch &#123;</span><br><span class="line">    //抛出异常</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">    //不管有没有异常，都会执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>switch（i）jdk7可以为字符串</p>
+</li>
+<li><p>反编译</p>
+<blockquote>
+<p>.class–&gt;.java&#x2F;&#x2F;用来看源码</p>
+</blockquote>
+</li>
 </ol>
+<h2 id="14-面向对象"><a href="#14-面向对象" class="headerlink" title="14. 面向对象"></a>14. 面向对象</h2><ul>
+<li><p>方法<br>异常抛出throws</p>
+</li>
+<li><p>方法的调用（递归）<br>static 和类一起加载</p>
+</li>
+<li><p>值传递和引用传递<br>值传递：只是把值传给形参，<br>引用传递：对象，本质还是值传递</p>
+</li>
+<li><p>面向对象本质：以类的方式组织代码，以对象来组织封装数据</p>
+</li>
+<li><p>javaME Android</p>
+<p>2006 Hadoop</p>
+</li>
+<li><p>值传递、引用传递</p>
+<blockquote>
+<p>构造函数：类名相同，没有返回值，<strong>注意：一旦定义有参构造，必须显示定义无参构造，</strong></p>
+</blockquote>
+<ol>
+<li><p>new 关键字本质在调用构造器</p>
+</li>
+<li><p>初始化对象的值</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="15-抽象（abstract-）"><a href="#15-抽象（abstract-）" class="headerlink" title="15. 抽象（abstract ）"></a>15. 抽象（abstract ）</h2><ul>
+<li><p>非非，抽象方法只能在抽象类中，非抽象类只能有非抽象方法，不能有抽象方法</p>
+</li>
+<li><p>抽象类（里面的方法必须全部实现，不想全部实现，一般加一个适配模式）</p>
+</li>
+<li><p>不能被 new </p>
+</li>
+<li><p>抽象方法（只能靠子类帮我们实现）</p>
+</li>
+<li><p>接口（制定的规则）架构师</p>
+<ul>
+<li><p>方法默认有public abstract</p>
+</li>
+<li><p>属性是常量public static final</p>
+</li>
+<li><p>接口不能被实例化，没有构造方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-封装"><a href="#16-封装" class="headerlink" title="16.  封装"></a>16.  封装</h2><ul>
+<li><p>高内聚，低耦合</p>
+</li>
+<li><p>属性私有化get、set</p>
+</li>
+</ul>
+<h2 id="17-继承与多态"><a href="#17-继承与多态" class="headerlink" title="17. 继承与多态"></a>17. 继承与多态</h2><ul>
+<li><p>java单继承，多实现</p>
+</li>
+<li><p>public protected default private (不可继承)</p>
+</li>
+<li><p>所有类都是直接或间接继承Object类</p>
+</li>
+<li><p>super（）调用父类的构造方法，必须在子类构造方法的第一个，不能和this同时调用构造方法。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>对象</th>
+<th>前提</th>
+<th>构造方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this：</td>
+<td>本身</td>
+<td>没继承可以使用</td>
+<td>本类构造</td>
+</tr>
+<tr>
+<td>super（）：</td>
+<td>父类</td>
+<td>只能继承条件下</td>
+<td>父类构造</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>方法重写：（和属性无关，需要有继承关系，修饰符范围可以扩大，抛出的异常可以被缩小）</p>
+</li>
+<li><p>静态和非静态方法区别很大，</p>
+</li>
+<li><p>方法多态（和属性无关，父类和子类有联系，重写和继承，父类的引用可以指向子类）</p>
+</li>
+<li><p>对象执行 的方法看左边的类，</p>
+</li>
+</ul>
+<ol>
+<li><p>static 方法属于类，不属于实例，</p>
+</li>
+<li><p>final：常量</p>
+</li>
+<li><p>private 方法不能继承，没有多态</p>
+</li>
+<li><p>A instanceof B 判断引用类型</p>
+</li>
+<li><p>父类引用指向子类的对象</p>
+</li>
+<li><p>子类转换为父类：向上转型</p>
+</li>
+<li><p>父类转换为子类：向下转型：强制转换</p>
+</li>
+<li><p>static：</p>
+<ul>
+<li><p>静态导入包</p>
+</li>
+<li><p>静态变量：多线程</p>
+</li>
+<li><p>静态方法（静静）</p>
+</li>
+<li><p>final 不能继承</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="18-内部类"><a href="#18-内部类" class="headerlink" title="18. 内部类"></a>18. 内部类</h3><ul>
+<li>成员内部类：类中定义一个类</li>
+<li>静态内部类：类中定义一个静态类</li>
+<li>局部内部类：方法定义一个类</li>
+<li>匿名内部类：实现接口的类前面写一个类</li>
+</ul>
+<h2 id="19-异常"><a href="#19-异常" class="headerlink" title="19. 异常"></a>19. 异常</h2><ul>
+<li>异常，检查，运行，错误，通过JVM线程结束</li>
+<li>捕获</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//里面可能会有异常，如果有异常则捕获</span></span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="comment">//抛出异常</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//不管有没有异常，都会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>throw主动抛出异常，通常在方法中，throws一般在方法上</li>
 <li>自定义异常:继承Exception</li>
@@ -738,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="nav-text">1. 计算机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Java%E5%8F%91%E5%B1%95"><span class="nav-text">2. Java发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-jdk%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%80%E8%88%ACjdk%E9%87%8C%E9%9D%A2%E5%8C%85%E6%8B%ACjre%EF%BC%89"><span class="nav-text">3. jdk卸载和安装（一般jdk里面包括jre）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-text">4.运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%B3%A8%E9%87%8A%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">5. 注释和标识符、关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%96%B9%E6%B3%95"><span class="nav-text">6. 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%86%85%E5%AD%98"><span class="nav-text">7. 内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E6%95%B0%E7%BB%84"><span class="nav-text">8. 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">9. 冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">10. 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">11. 变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">12. 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">13. 输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-%E6%80%BB%E7%BB%93"><span class="nav-text">20. 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="nav-text">1. 计算机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Java%E5%8F%91%E5%B1%95"><span class="nav-text">2. Java发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-jdk%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%80%E8%88%ACjdk%E9%87%8C%E9%9D%A2%E5%8C%85%E6%8B%ACjre%EF%BC%89"><span class="nav-text">3. jdk卸载和安装（一般jdk里面包括jre）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-text">4.运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%B3%A8%E9%87%8A%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">5. 注释和标识符、关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%96%B9%E6%B3%95"><span class="nav-text">6. 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%86%85%E5%AD%98"><span class="nav-text">7. 内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E6%95%B0%E7%BB%84"><span class="nav-text">8. 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">9. 冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">10. 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">11. 变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">12. 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">13. 输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">14. 面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E6%8A%BD%E8%B1%A1%EF%BC%88abstract-%EF%BC%89"><span class="nav-text">15. 抽象（abstract ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E5%B0%81%E8%A3%85"><span class="nav-text">16.  封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81"><span class="nav-text">17. 继承与多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-text">18. 内部类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-%E5%BC%82%E5%B8%B8"><span class="nav-text">19. 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-%E6%80%BB%E7%BB%93"><span class="nav-text">20. 总结</span></a></li></ol></div>
             
 
           </div>

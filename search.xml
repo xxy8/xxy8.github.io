@@ -5083,7 +5083,7 @@ KPI考核</td>
 
 <h2 id="3-文件操作"><a href="#3-文件操作" class="headerlink" title="3. 文件操作"></a>3. 文件操作</h2><blockquote>
 <p>vim键盘图</p>
-<p><img src="https://img-blog.csdnimg.cn/20210601191938904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://xxy8.github.io/images/linux1.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 文件操作</span></span><br><span class="line"><span class="comment"># 新建一个文件[-a]【改变读取时间记录】、[-c]【目的档案不存在就不建立】、[-f]【不使用，为了兼容】、[-m]【改变修改时间记录】</span></span><br><span class="line"><span class="built_in">touch</span> [-acfm][-d&lt;日期时间&gt;][-r&lt;参考文件或目录&gt;] [-t&lt;日期时间&gt;][--<span class="built_in">help</span>][--version][文件]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一个文件，[-r]【递归】 、[-f]【强制】、[-i]【互动】</span></span><br><span class="line"><span class="built_in">rm</span> [-fir] [文件名]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名【去掉目录】，或者移动一个文件</span></span><br><span class="line"><span class="built_in">mv</span> [文件名1] [目录&lt;绝对路径&gt;] [文件名2]</span><br><span class="line"><span class="comment"># 编辑文件，命令模式-iao键-输入模式-Esc键-底线命令模式-:wq-保存退出-cat 文件名-查看</span></span><br><span class="line">vim [文件名]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看文件内容 [-A]【相当於-vET，列出特殊字符】、[-b]【列出行号】、[-E]【显示断行$】、[-n]【列出行号，包括空白行】、[-T]【[tab] 按键以 ^I 显示】、[-v]【列出看不出的特殊字符】</span></span><br><span class="line"><span class="built_in">cat</span> [-AbEnTv] [文件名]</span><br><span class="line"><span class="comment"># 倒序查看文件内容</span></span><br><span class="line"><span class="built_in">tac</span> [文件名]</span><br><span class="line"><span class="comment"># 显示行号查看文件 [-b]【a：空行也列出行号，t：空行不列出行号】、[-n]【ln：行号在最左方，rn:右方显示，且不加 0,rz:右方显示，且加 0】</span></span><br><span class="line"><span class="comment"># [-w]【行号栏位的占用的位数】</span></span><br><span class="line"><span class="built_in">nl</span> [-bnm] [文件名]</span><br><span class="line"><span class="comment"># 一页一页翻动</span></span><br><span class="line">more [文件名]</span><br><span class="line">less [文件名]</span><br><span class="line"><span class="comment"># 取出文件前面几行</span></span><br><span class="line"><span class="built_in">head</span> [-n number] [文件名]</span><br><span class="line"><span class="comment"># 取出后面几行</span></span><br><span class="line"><span class="built_in">tail</span> [-n number] [文件名]</span><br></pre></td></tr></table></figure>
 
@@ -5333,7 +5333,7 @@ KPI考核</td>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:v-bind</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="attr">xmlns:v-on</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>demo2<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入vue.js--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--view层：模板--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-nav</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">v-bind:course</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">app-nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">from</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--双向数据绑定--&gt;</span></span><br><span class="line">        输入的文本：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;message&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;30&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;message&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        性别：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;男&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;gender&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">lable</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span> <span class="attr">checked</span>&gt;</span>男<span class="tag">&lt;/<span class="name">lable</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;女&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;gender&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">lable</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">lable</span>&gt;</span></span><br><span class="line">        选中了谁：&#123;&#123; gender &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">&quot;selected&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> <span class="attr">disabled</span>&gt;</span>请选择<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>C<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        选中了谁：&#123;&#123; selected &#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//定义一个组件</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&quot;app-nav&quot;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">props</span>: [<span class="string">&#x27;course&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript">       <span class="attr">template</span>:  <span class="string">&#x27;&lt;ol&gt;\n&#x27;</span> +</span></span><br><span class="line"><span class="language-javascript">           <span class="string">&#x27;&lt;li&gt;&#123;&#123; course &#125;&#125;&lt;/li&gt;\n&#x27;</span> +</span></span><br><span class="line"><span class="language-javascript">           <span class="string">&#x27;&lt;/ol&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> app1 = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>: <span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//Model层：数据，</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>: <span class="string">&quot;123&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">gender</span>: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">selected</span>: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">items</span>: [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;Linux&quot;</span>,<span class="string">&quot;Vue&quot;</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//方法，必须定义在Methods对象中，v-on：来绑定事件</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-3-Vue生命周期"><a href="#3-3-Vue生命周期" class="headerlink" title="3.3 Vue生命周期"></a>3.3 Vue生命周期</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/0ba95bbaba36a87036f7c384f43c10cd.png" alt="Vue 实例生命周期"></p>
+<h3 id="3-3-Vue生命周期"><a href="#3-3-Vue生命周期" class="headerlink" title="3.3 Vue生命周期"></a>3.3 Vue生命周期</h3><p><img src="https://xxy8.github.io/images/vue1.png" alt="Vue 实例生命周期"></p>
 <ul>
 <li>栗子</li>
 </ul>
@@ -5711,7 +5711,7 @@ KPI考核</td>
 <h5 id="2-7-操作表的字段语句"><a href="#2-7-操作表的字段语句" class="headerlink" title="2.7 操作表的字段语句"></a>2.7 操作表的字段语句</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 字段数据类型</span><br><span class="line">create table if not exists tb_user(</span><br><span class="line">-- tinyint 非常小的数据 1个字节（Byte）=8位（bit)在MySQL中布尔类型实际上是TinyInt(1)</span><br><span class="line">	user_id1 tinyint null ,</span><br><span class="line">-- smallint 比较小的数据 1个字节</span><br><span class="line">	user_id2 smallint null,</span><br><span class="line">-- mediumint 中等大小的的数据 3个字节</span><br><span class="line">	user_id3 mediumint null,</span><br><span class="line">-- int 标准的整数，4个字节，常用</span><br><span class="line">	user_id4 int  null AUTO_INCREMENT comment ‘用户id’,</span><br><span class="line">-- bigint 较大的整数 8个字节</span><br><span class="line">	user_id5 bigint,</span><br><span class="line">-- integer 比较大的整数，12个字节</span><br><span class="line">	user_id6 integer null,</span><br><span class="line">-- bit 最小的位 0和1，除0以外都是1</span><br><span class="line">	user_id7 bit(1) null,</span><br><span class="line">-- real 是不精确的双精度浮点型 8字节</span><br><span class="line">	user_weight1 real null,</span><br><span class="line">-- double 双精度浮点型 8字节（精度问题）</span><br><span class="line">	user_weight2 double null,</span><br><span class="line">-- float 单精度浮点型 4字节 精度不高</span><br><span class="line">	user_weight3 float null,</span><br><span class="line">/*字符串形式的浮点数 金融计算 16个字节 </span><br><span class="line">3代表有效位数,2代表小数点后的有效位数</span><br><span class="line">*/</span><br><span class="line">	user_money decimal(3,2) null,</span><br><span class="line">-- numeric 总的位数为2位数字，小数点后的位数为0位。</span><br><span class="line">	user_numeric numeric(2,0) null,</span><br><span class="line">-- char 字符串固定大小 0-255</span><br><span class="line">	user_gender char null,</span><br><span class="line">-- varchar 可变字符串，0-65535 常用对接java实体的String</span><br><span class="line">	user_name varchar(10) null,</span><br><span class="line">-- tinytext 微型文本 2^8 - 1</span><br><span class="line">	user_descrpt1 tinytext null,</span><br><span class="line">-- text 文本串 2^16-1</span><br><span class="line">	user_descrpt2 text null,</span><br><span class="line">-- mediumtext 文本串 2^24-1</span><br><span class="line">	user_descrpt3 mediumtext null,</span><br><span class="line">-- longtext 文本串 2^32-1</span><br><span class="line">	user_descrpt3 longtext null,</span><br><span class="line">-- date YYYY-MM-DD日期</span><br><span class="line">	user_brithday1 data,</span><br><span class="line">-- tiem HH:mm:ss 时间格式</span><br><span class="line">	user_brithday2 time ,</span><br><span class="line">-- datatime 最常用的格式 YYYY-MM-DD HH:mm:ss </span><br><span class="line">	user_brithday3 datatime null,</span><br><span class="line">-- timestamp 时间戳 1970.1.1到现在的毫秒数，也较为常用</span><br><span class="line">	user_brithday4 timestamp null,</span><br><span class="line">-- year 年份</span><br><span class="line">	user_brithday5 year null,</span><br><span class="line">-- null 没有值，未知，不要使用NULL进行运算，结果为NULL</span><br><span class="line">	user_brithday null,</span><br><span class="line">-- tinyblob 用于存储二进制文件 255字节</span><br><span class="line">	user_1  tinyblob NULL ,</span><br><span class="line">-- blob 用于存储二进制文件 最大65k</span><br><span class="line">  user_2  blob NULL ,</span><br><span class="line">-- mediumblob 用于存储二进制文件 最大16M</span><br><span class="line">  user_3  mediumblob NULL ,</span><br><span class="line">-- longblob 用于存储二进制文件 最大4G</span><br><span class="line">  user_4  longblob NULL ,</span><br><span class="line">-- enum(&#x27;&#x27;) 枚举类型是字符串类型 </span><br><span class="line">/*</span><br><span class="line">主要好处为MySQL在存储此类数据时，</span><br><span class="line">直接转化成数字存储而不是字符串，</span><br><span class="line">可以节省空间，</span><br><span class="line">并且在表的.frm文件中存储“数字-字符串”之间的对应关系</span><br><span class="line">*/</span><br><span class="line">  user_5  enum(&#x27;&#x27;) NULL ,</span><br><span class="line">-- set(&#x27;&#x27;) SET是一个字符串对象，可以有零或多个值 64个成员</span><br><span class="line">	user_6  set(&#x27;&#x27;) NULL DEFAULT &#x27;&#x27; ,</span><br><span class="line">-- binary  二进制类型  字节数为2</span><br><span class="line">	user_7  binary(2) NULL ,</span><br><span class="line">--varbinary(2) 二进制类型 0-2字节</span><br><span class="line">	user_8  varbinary(2) NULL ,</span><br><span class="line">-- point 空间数据格式 用于表示GIS中的地理坐标，在GIS中广泛使用 在表后设置ENGINE=MyISAM</span><br><span class="line">	user_9  point NULL ,</span><br><span class="line">-- LineString 空间数据格式 由Point个值组成</span><br><span class="line">	user_10  linestring NULL ,</span><br><span class="line">-- polygon 空间数据格式几何类型 </span><br><span class="line">	user_11  polygon NULL ,</span><br><span class="line">-- geometry 空间位置信息</span><br><span class="line">	user_12  geometry NULL ,</span><br><span class="line">-- multipoint 几何集合</span><br><span class="line">	user_13  multipoint NULL ,</span><br><span class="line">-- multilinestring 两个LineString值 返回一个双精度数字</span><br><span class="line">	user_14  multilinestring NULL ,</span><br><span class="line">-- multipolygon 有两个Polygon值</span><br><span class="line">	user_15  multipolygon NULL ,</span><br><span class="line">-- geometrycollection 包含两个Point值和一个LineString值</span><br><span class="line">	user_16  geometrycollection NULL ,</span><br><span class="line">)ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">-- 增加表中的字段</span><br><span class="line">alter table tb_user2 add user_name varchar(10) not null;</span><br><span class="line"></span><br><span class="line">-- 删除表中的字段</span><br><span class="line">alter table tb_user2 drop user_age;</span><br><span class="line"></span><br><span class="line">-- 修改表中的字段名和约束，**change**不管要不要改表名，表名都要写两次</span><br><span class="line">alter table tb_user2 change user_name user_name1 varchar(2);</span><br><span class="line">-- 修改表中的约束</span><br><span class="line">alter table tb_user2 modify user_name int(2);</span><br><span class="line"></span><br><span class="line">-- 展示表中的字段和约束</span><br><span class="line">desc tb_user2;</span><br><span class="line">describe tb_user2;</span><br><span class="line">show full columns from tb_user2;</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-8-操作表中的数据-主要DML，DQL"><a href="#2-8-操作表中的数据-主要DML，DQL" class="headerlink" title="2.8 操作表中的数据(主要DML，DQL)"></a>2.8 操作表中的数据(主要DML，DQL)</h5><blockquote>
-<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210529172519078.png" alt="image-20210529172519078"></p>
+<p><img src="https://xxy8.github.io/images/mysql1.png" alt="image-20210529172519078"></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 增加插入数据</span><br><span class="line">insert into tb_user2(user_id,user_name1) values(&#x27;11&#x27;,&#x27;li&#x27;);</span><br><span class="line"></span><br><span class="line">-- 删除表中的指定的数据</span><br><span class="line">delete from `tb_user2` where `user_name1`=&#x27;ke&#x27;;</span><br><span class="line">-- 清空表的内容；避免使用delete from `tb_user2`，因为不清空自增；</span><br><span class="line">truncate tb_user2;</span><br><span class="line"></span><br><span class="line">-- 修改表中的所有数据</span><br><span class="line">update `tb_user2` set `user_name1` = &#x27;kk&#x27;,`user_name` = &#x27;hh&#x27;;</span><br><span class="line">-- 修改表中指定的数据，where后面可以包括布尔值 &gt;、 &lt;、 =、 !=、between...and...、and、or、not</span><br><span class="line">update `tb_user2` set `user_name1` = &#x27;ke&#x27; where `user_id` = &#x27;11&#x27;;</span><br><span class="line"></span><br><span class="line">-- 查询表中的所有数据，尽量不要用*</span><br><span class="line">SELECT `user_id` as 用户Id,`user_name1` as 用户姓名1,`user_name` as 用户姓名 from tb_user2 as a;</span><br><span class="line">-- 查询表中的指定数据的数量 通过函数count（） where后面同样可以包括表达式，子查询，like%_，in()，is not null,</span><br><span class="line">SELECT count(*) as 总数 from tb_user2 where user_id = &#x27;12&#x27;;</span><br><span class="line">-- 去重查询某项</span><br><span class="line">SELECT DISTINCT user_name from tb_user2;</span><br><span class="line"></span><br><span class="line">--联表查询【SQL JOINS 】</span><br><span class="line">-- innner join</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">inner join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- left join 即使右边没有匹配的值</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">left join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- RIGHT JOIN 即使左边没有匹配的值，用Null代替</span><br><span class="line">select u1.student_id,student_name,user_age from tb_user1 as u1</span><br><span class="line">right join tb_student s</span><br><span class="line">on u1.student_id = s.student_id</span><br><span class="line">where u1.student_id=1000;</span><br><span class="line">-- 自连接</span><br><span class="line">select u1.user_id as &#x27;父ID&#x27;,u2.user_id as &#x27;子ID&#x27; </span><br><span class="line">from `tb_user1` as u1,`tb_user1` as u2</span><br><span class="line">where u1.user_id = u2.user_id;</span><br><span class="line"></span><br><span class="line">-- 分页limit和排序order by（一起必须在前面）</span><br><span class="line">select DISTINCT u1.user_id as &#x27;父ID&#x27;,u2.user_id as &#x27;子ID&#x27; </span><br><span class="line">from `tb_user1` as u1,`tb_user1` as u2</span><br><span class="line">where u1.user_id = u2.user_id</span><br><span class="line">order by u1.user_id desc/asc</span><br><span class="line">limit 1,2;</span><br></pre></td></tr></table></figure>
 
@@ -5819,7 +5819,7 @@ KPI考核</td>
 <blockquote>
 <p>不是所有的基础内容，只是个人的记录和随想。</p>
 </blockquote>
-<h2 id="1-计算机"><a href="#1-计算机" class="headerlink" title="1. 计算机"></a>1. 计算机</h2><p><img src="https://img-blog.csdnimg.cn/20210406112020973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDA1NDM0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="1-计算机"><a href="#1-计算机" class="headerlink" title="1. 计算机"></a>1. 计算机</h2><p><img src="https://xxy8.github.io/images/javajichu1.png" alt="在这里插入图片描述"></p>
 <h2 id="2-Java发展"><a href="#2-Java发展" class="headerlink" title="2. Java发展"></a>2. Java发展</h2><ul>
 <li><input checked="" disabled="" type="checkbox"> javaEE（企业）</li>
 <li><input disabled="" type="checkbox"> ME（手机，淘汰）</li>
@@ -5953,10 +5953,148 @@ KPI考核</td>
 <li><p>凡是属于IO流都要关掉</p>
 </li>
 <li><p>输入：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner.close();</span><br><span class="line">Scanner.next();<span class="comment">//不能得到空格</span></span><br><span class="line">Scanner.nextLine();<span class="comment">//以回车符为结束符</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>&#96;&#96;&#96;java<br>Scanner.close();<br>Scanner.next();&#x2F;&#x2F;不能得到空格<br>Scanner.nextLine();&#x2F;&#x2F;以回车符为结束符</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. switch（i）jdk7可以为字符串</span><br><span class="line"></span><br><span class="line">5. 反编译</span><br><span class="line"></span><br><span class="line">   &gt; .class--&gt;.java//用来看源码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 14. 面向对象</span><br><span class="line"></span><br><span class="line">- 方法</span><br><span class="line">  异常抛出throws</span><br><span class="line"></span><br><span class="line">- 方法的调用（递归）</span><br><span class="line">  static 和类一起加载</span><br><span class="line"></span><br><span class="line">- 值传递和引用传递</span><br><span class="line">  值传递：只是把值传给形参，</span><br><span class="line">  引用传递：对象，本质还是值传递</span><br><span class="line"></span><br><span class="line">- 面向对象本质：以类的方式组织代码，以对象来组织封装数据</span><br><span class="line"></span><br><span class="line">- javaME Android</span><br><span class="line"></span><br><span class="line">  2006 Hadoop</span><br><span class="line"></span><br><span class="line">- 值传递、引用传递</span><br><span class="line"></span><br><span class="line">  &gt; 构造函数：类名相同，没有返回值，**注意：一旦定义有参构造，必须显示定义无参构造，**</span><br><span class="line"></span><br><span class="line">  1. new 关键字本质在调用构造器</span><br><span class="line"></span><br><span class="line">  2. 初始化对象的值</span><br><span class="line"></span><br><span class="line">## 15. 抽象（abstract ）</span><br><span class="line"></span><br><span class="line">- 非非，抽象方法只能在抽象类中，非抽象类只能有非抽象方法，不能有抽象方法</span><br><span class="line"></span><br><span class="line">- 抽象类（里面的方法必须全部实现，不想全部实现，一般加一个适配模式）</span><br><span class="line"></span><br><span class="line">- 不能被 new </span><br><span class="line"></span><br><span class="line">- 抽象方法（只能靠子类帮我们实现）</span><br><span class="line"></span><br><span class="line">- 接口（制定的规则）架构师</span><br><span class="line"></span><br><span class="line">  - 方法默认有public abstract</span><br><span class="line"></span><br><span class="line">  - 属性是常量public static final</span><br><span class="line"></span><br><span class="line">  - 接口不能被实例化，没有构造方法</span><br><span class="line"></span><br><span class="line">## 16.  封装</span><br><span class="line"></span><br><span class="line">- 高内聚，低耦合</span><br><span class="line"></span><br><span class="line">- 属性私有化get、set</span><br><span class="line"></span><br><span class="line">## 17. 继承与多态</span><br><span class="line"></span><br><span class="line">- java单继承，多实现</span><br><span class="line"></span><br><span class="line">- public protected default private (不可继承)</span><br><span class="line"></span><br><span class="line">- 所有类都是直接或间接继承Object类</span><br><span class="line"></span><br><span class="line">- super（）调用父类的构造方法，必须在子类构造方法的第一个，不能和this同时调用构造方法。</span><br><span class="line"></span><br><span class="line">| 比较        | 对象 | 前提           | 构造方法 |</span><br><span class="line">| ----------- | ---- | -------------- | -------- |</span><br><span class="line">| this：      | 本身 | 没继承可以使用 | 本类构造 |</span><br><span class="line">| super（）： | 父类 | 只能继承条件下 | 父类构造 |</span><br><span class="line"></span><br><span class="line">- 方法重写：（和属性无关，需要有继承关系，修饰符范围可以扩大，抛出的异常可以被缩小）</span><br><span class="line"></span><br><span class="line">- 静态和非静态方法区别很大，</span><br><span class="line">- 方法多态（和属性无关，父类和子类有联系，重写和继承，父类的引用可以指向子类）</span><br><span class="line"></span><br><span class="line">- 对象执行 的方法看左边的类，</span><br><span class="line"></span><br><span class="line">1. static 方法属于类，不属于实例，</span><br><span class="line"></span><br><span class="line">2. final：常量</span><br><span class="line"></span><br><span class="line">3. private 方法不能继承，没有多态</span><br><span class="line"></span><br><span class="line">4. A instanceof B 判断引用类型</span><br><span class="line"></span><br><span class="line">5. 父类引用指向子类的对象</span><br><span class="line"></span><br><span class="line">6. 子类转换为父类：向上转型</span><br><span class="line"></span><br><span class="line">7. 父类转换为子类：向下转型：强制转换</span><br><span class="line"></span><br><span class="line">8. static：</span><br><span class="line"></span><br><span class="line">   - 静态导入包</span><br><span class="line"></span><br><span class="line">   - 静态变量：多线程</span><br><span class="line"></span><br><span class="line">   - 静态方法（静静）</span><br><span class="line"></span><br><span class="line">   - final 不能继承</span><br><span class="line"></span><br><span class="line">### 18. 内部类</span><br><span class="line"></span><br><span class="line">- 成员内部类：类中定义一个类</span><br><span class="line">- 静态内部类：类中定义一个静态类</span><br><span class="line">- 局部内部类：方法定义一个类</span><br><span class="line">- 匿名内部类：实现接口的类前面写一个类</span><br><span class="line"></span><br><span class="line">## 19. 异常</span><br><span class="line"></span><br><span class="line">- 异常，检查，运行，错误，通过JVM线程结束</span><br><span class="line">- 捕获</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">try &#123;</span><br><span class="line">    //里面可能会有异常，如果有异常则捕获</span><br><span class="line">&#125; catch &#123;</span><br><span class="line">    //抛出异常</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">    //不管有没有异常，都会执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>switch（i）jdk7可以为字符串</p>
+</li>
+<li><p>反编译</p>
+<blockquote>
+<p>.class–&gt;.java&#x2F;&#x2F;用来看源码</p>
+</blockquote>
+</li>
 </ol>
+<h2 id="14-面向对象"><a href="#14-面向对象" class="headerlink" title="14. 面向对象"></a>14. 面向对象</h2><ul>
+<li><p>方法<br>异常抛出throws</p>
+</li>
+<li><p>方法的调用（递归）<br>static 和类一起加载</p>
+</li>
+<li><p>值传递和引用传递<br>值传递：只是把值传给形参，<br>引用传递：对象，本质还是值传递</p>
+</li>
+<li><p>面向对象本质：以类的方式组织代码，以对象来组织封装数据</p>
+</li>
+<li><p>javaME Android</p>
+<p>2006 Hadoop</p>
+</li>
+<li><p>值传递、引用传递</p>
+<blockquote>
+<p>构造函数：类名相同，没有返回值，<strong>注意：一旦定义有参构造，必须显示定义无参构造，</strong></p>
+</blockquote>
+<ol>
+<li><p>new 关键字本质在调用构造器</p>
+</li>
+<li><p>初始化对象的值</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="15-抽象（abstract-）"><a href="#15-抽象（abstract-）" class="headerlink" title="15. 抽象（abstract ）"></a>15. 抽象（abstract ）</h2><ul>
+<li><p>非非，抽象方法只能在抽象类中，非抽象类只能有非抽象方法，不能有抽象方法</p>
+</li>
+<li><p>抽象类（里面的方法必须全部实现，不想全部实现，一般加一个适配模式）</p>
+</li>
+<li><p>不能被 new </p>
+</li>
+<li><p>抽象方法（只能靠子类帮我们实现）</p>
+</li>
+<li><p>接口（制定的规则）架构师</p>
+<ul>
+<li><p>方法默认有public abstract</p>
+</li>
+<li><p>属性是常量public static final</p>
+</li>
+<li><p>接口不能被实例化，没有构造方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-封装"><a href="#16-封装" class="headerlink" title="16.  封装"></a>16.  封装</h2><ul>
+<li><p>高内聚，低耦合</p>
+</li>
+<li><p>属性私有化get、set</p>
+</li>
+</ul>
+<h2 id="17-继承与多态"><a href="#17-继承与多态" class="headerlink" title="17. 继承与多态"></a>17. 继承与多态</h2><ul>
+<li><p>java单继承，多实现</p>
+</li>
+<li><p>public protected default private (不可继承)</p>
+</li>
+<li><p>所有类都是直接或间接继承Object类</p>
+</li>
+<li><p>super（）调用父类的构造方法，必须在子类构造方法的第一个，不能和this同时调用构造方法。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>对象</th>
+<th>前提</th>
+<th>构造方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this：</td>
+<td>本身</td>
+<td>没继承可以使用</td>
+<td>本类构造</td>
+</tr>
+<tr>
+<td>super（）：</td>
+<td>父类</td>
+<td>只能继承条件下</td>
+<td>父类构造</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>方法重写：（和属性无关，需要有继承关系，修饰符范围可以扩大，抛出的异常可以被缩小）</p>
+</li>
+<li><p>静态和非静态方法区别很大，</p>
+</li>
+<li><p>方法多态（和属性无关，父类和子类有联系，重写和继承，父类的引用可以指向子类）</p>
+</li>
+<li><p>对象执行 的方法看左边的类，</p>
+</li>
+</ul>
+<ol>
+<li><p>static 方法属于类，不属于实例，</p>
+</li>
+<li><p>final：常量</p>
+</li>
+<li><p>private 方法不能继承，没有多态</p>
+</li>
+<li><p>A instanceof B 判断引用类型</p>
+</li>
+<li><p>父类引用指向子类的对象</p>
+</li>
+<li><p>子类转换为父类：向上转型</p>
+</li>
+<li><p>父类转换为子类：向下转型：强制转换</p>
+</li>
+<li><p>static：</p>
+<ul>
+<li><p>静态导入包</p>
+</li>
+<li><p>静态变量：多线程</p>
+</li>
+<li><p>静态方法（静静）</p>
+</li>
+<li><p>final 不能继承</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="18-内部类"><a href="#18-内部类" class="headerlink" title="18. 内部类"></a>18. 内部类</h3><ul>
+<li>成员内部类：类中定义一个类</li>
+<li>静态内部类：类中定义一个静态类</li>
+<li>局部内部类：方法定义一个类</li>
+<li>匿名内部类：实现接口的类前面写一个类</li>
+</ul>
+<h2 id="19-异常"><a href="#19-异常" class="headerlink" title="19. 异常"></a>19. 异常</h2><ul>
+<li>异常，检查，运行，错误，通过JVM线程结束</li>
+<li>捕获</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//里面可能会有异常，如果有异常则捕获</span></span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="comment">//抛出异常</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//不管有没有异常，都会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>throw主动抛出异常，通常在方法中，throws一般在方法上</li>
 <li>自定义异常:继承Exception</li>
@@ -5981,7 +6119,7 @@ KPI考核</td>
 <li><p>一般开发的三层架构为：数据访问层（DAL Data Access Layer）、业务逻辑层（BLL Business Logic Layer）、表现层（UI User Interface）、实体类库&lt;不属于上面任何一层&gt;（Model）</p>
 </li>
 <li><p>模块</p>
-<p><img src="https://xxy8.github.io/images/5-1Z606104H1294.gif" alt="图片"></p>
+<p><img src="https://xxy8.github.io/images/ssm1.jpg" alt="图片"></p>
 </li>
 <li><p>Core Container(核心容器)</p>
 <ul>
@@ -6397,7 +6535,7 @@ KPI考核</td>
 <ol start="4">
 <li>singleton 作用域下bean的生命周期</li>
 </ol>
-<p><img src="D:\photo\5-1ZF1100325116.png"></p>
+<p><img src="https://xxy8.github.io/images/ssm2.png"></p>
 <p>(1)配置一个方法作为生命周期初始化方法,spring会在对象<strong>创建之后</strong>立刻调用 init-method</p>
 <p> (2)配置一个方法作为生命周期的销毁方法,spring容器在关闭并销毁所有容器中的对象<strong>之前</strong>调用destory-method</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">init-method</span>=<span class="string">&quot;init&quot;</span>  <span class="attr">destory-method</span>=<span class="string">&quot;destory&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>        对应注解为@PostConstruct</span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">“hello”</span> <span class="attr">class</span>=<span class="string">“完整类名”</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>                                 对应注解为@PreDestory</span><br><span class="line">分模块配置</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span> = <span class="string">“spring配置文件的全路径名”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -6736,7 +6874,7 @@ KPI考核</td>
 <ol>
 <li>工作原理</li>
 </ol>
-<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210630181734459.png" alt="image-20210630181734459"></p>
+<p><img src="https://xxy8.github.io/images/ssm3.png" alt="image-20210630181734459"></p>
 <ul>
 <li>栗子</li>
 </ul>
@@ -6883,7 +7021,7 @@ KPI考核</td>
 <ol start="2">
 <li>工作流程</li>
 </ol>
-<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210701004845439.png" alt="image-20210701004845439"></p>
+<p><img src="https://xxy8.github.io/images/ssm4.png" alt="image-20210701004845439"></p>
 <ol start="3">
 <li>核心类与注解</li>
 </ol>
@@ -6948,7 +7086,7 @@ KPI考核</td>
 <ol start="2">
 <li>流程</li>
 </ol>
-<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210701132530041.png" alt="image-20210701132530041"></p>
+<p><img src="https://xxy8.github.io/images/ssm5.png" alt="image-20210701132530041"></p>
 <ol start="3">
 <li>简单数据绑定</li>
 </ol>
@@ -7107,7 +7245,7 @@ KPI考核</td>
 <ol start="2">
 <li>文件组织结构</li>
 </ol>
-<p><img src="C:\Users\xxy\AppData\Roaming\Typora\typora-user-images\image-20210701210845702.png" alt="image-20210701210845702"></p>
+<p><img src="https://xxy8.github.io/images/ssm6.png" alt="image-20210701210845702"></p>
 <ol start="3">
 <li>数据库设置</li>
 </ol>
@@ -10856,8 +10994,8 @@ KPI考核</td>
 <li><p>规则：Java Web :网页编程 （B&#x2F;S）网络编程:TCP&#x2F;IP （C&#x2F;S）</p>
 </li>
 <li><p>协议：TCP&#x2F;IP OSI七层模型</p>
-<p>![对应的协议](D:\photo\屏幕截图 2021-05-23 145857.png)</p>
-<p>![对应的设备](D:\photo\屏幕截图 2021-05-23 150049.png)</p>
+<p><img src="https://xxy8.github.io/images/wlbc1.png" alt="对应的协议"></p>
+<p><img src="https://xxy8.github.io/images/wlbc2.png" alt="对应的设备"></p>
 </li>
 </ul>
 <p>1.2 IP地址（InetAddress）</p>
@@ -11329,7 +11467,7 @@ KPI考核</td>
 <li><p>反复记号</p>
 </li>
 </ul>
-<p> <img src="https://img-blog.csdnimg.cn/6cab812e2fb4497aa9dfbbc7fd203c1c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p> <img src="https://xxy8.github.io/images/music1.png" alt="反复记号"></p>
 <ul>
 <li>装饰音 倚音</li>
 </ul>
@@ -11353,7 +11491,7 @@ KPI考核</td>
 </li>
 <li><p>音程分类</p>
 </li>
-<li><p><img src="https://img-blog.csdnimg.cn/3edd248b41104a58ba63626e4fa801ee.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/1cc3f435c1bf46edaa515e0c1c40cb9d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<li><p><img src="https://xxy8.github.io/images/music2.png" alt="在这里插入图片描述"><br><img src="https://xxy8.github.io/images/music3.png" alt="在这里插入图片描述"></p>
 </li>
 </ul>
 <blockquote>
@@ -11369,7 +11507,7 @@ KPI考核</td>
 <li>重降记号(bb) ：重降记号表示将基本音级降低一个全音，如bb7，bbB；</li>
 <li>还原记号（互去掉上下两横）:还原记号表示将已升高或降低的音还原，即恢复成基本音级</li>
 <li>纯音扩大1&#x2F;2就是增音程</li>
-<li><img src="https://img-blog.csdnimg.cn/7e93e51090e44d7fb5576b0daeb45d27.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></li>
+<li><img src="https://xxy8.github.io/images/music4.png" alt="在这里插入图片描述"></li>
 </ul>
 <h2 id="4-三和弦-有三，七，九"><a href="#4-三和弦-有三，七，九" class="headerlink" title="4. 三和弦(有三，七，九)"></a>4. 三和弦(有三，七，九)</h2><ul>
 <li>大三和弦：大三度 + 小三度 CM(1-3-5) C(1 3 5) F(4 6 i) G(5 7 2);</li>
@@ -11416,7 +11554,7 @@ KPI考核</td>
 <li>音程</li>
 <li>和弦构唱</li>
 </ul>
-<h2 id="9-歌曲转调和弦"><a href="#9-歌曲转调和弦" class="headerlink" title="9. 歌曲转调和弦"></a>9. 歌曲转调和弦</h2><p><img src="https://img-blog.csdnimg.cn/bb6870818d9747afbb96b2ae42f4d6eb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA56yR55-l6K-t,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="9-歌曲转调和弦"><a href="#9-歌曲转调和弦" class="headerlink" title="9. 歌曲转调和弦"></a>9. 歌曲转调和弦</h2><p><img src="https://xxy8.github.io/images/music5.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>往后推</p>
 </blockquote>
@@ -11556,7 +11694,7 @@ KPI考核</td>
 </ul>
 <blockquote>
 <p>热传导：对流，热传导，热辐射，理想气体状态方程：</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160004.png"></p>
+<p><img src="https://xxy8.github.io/images/wl1.png"></p>
 <p>热力学定律仅仅适用于地球</p>
 </blockquote>
 <ul>
@@ -11569,14 +11707,14 @@ KPI考核</td>
 <h2 id="4-电磁量子观"><a href="#4-电磁量子观" class="headerlink" title="4.电磁量子观"></a>4.电磁量子观</h2><ul>
 <li>电磁光统一(麦克斯韦方程组)</li>
 </ul>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160214.png"></p>
+<p><img src="https://xxy8.github.io/images/wl2.png"></p>
 <ul>
-<li><p>麦克斯韦方程组微分形式<br><img src="D:\photo\物理学公式图片\2021-05-03_160437.png"></p>
+<li><p>麦克斯韦方程组微分形式<br><img src="https://xxy8.github.io/images/wl3.png"></p>
 </li>
 <li><p>磁</p>
 <ul>
 <li><p>洛伦兹力</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160546.png"></p>
+<p><img src="https://xxy8.github.io/images/wl4.png"></p>
 </li>
 <li><p>磁介质：顺磁、逆磁、铁磁(Fe2O3)</p>
 </li>
@@ -11628,18 +11766,18 @@ KPI考核</td>
 </li>
 <li><p>薛定谔方程</p>
 <p>一维薛定谔方程</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160701.png" alt="一维薛定谔方程"></p>
+<p><img src="https://xxy8.github.io/images/wl5.png" alt="一维薛定谔方程"></p>
 <p>三维薛定谔方程</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160742.png" alt="三维薛定谔方程"></p>
+<p><img src="https://xxy8.github.io/images/wl6.png" alt="三维薛定谔方程"></p>
 <p>定态薛定谔方程</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_160857.png" alt="定态薛定谔方程"></p>
+<p><img src="https://xxy8.github.io/images/wl7.png" alt="定态薛定谔方程"></p>
 </li>
 <li><p>约瑟夫森效应</p>
 <blockquote>
 <p>f &#x3D; （2eV）&#x2F;h</p>
 </blockquote>
 </li>
-<li><p>海森堡测不准原理<br>△q△p≥ħ&#x2F;2（ħ&#x3D;h&#x2F;2π）<br><img src="D:\photo\物理学公式图片\2021-05-03_161005.png"></p>
+<li><p>海森堡测不准原理<br>△q△p≥ħ&#x2F;2（ħ&#x3D;h&#x2F;2π）<br><img src="https://xxy8.github.io/images/wl8.png"></p>
 </li>
 <li><p>量子力学做成的科技：激光、 超导、晶体管</p>
 </li>
@@ -11694,9 +11832,9 @@ KPI考核</td>
 </ul>
 </li>
 <li><p>爱因斯坦场方程</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_161045.png"></p>
+<p><img src="https://xxy8.github.io/images/wl9.png"></p>
 <p>含宇宙常数项的场方程(广义相对论)</p>
-<p><img src="D:\photo\物理学公式图片\2021-05-03_161138.png"></p>
+<p><img src="https://xxy8.github.io/images/wl10.png"></p>
 <blockquote>
 <p>宇宙常数项的场方方程是以宇宙已经平衡了为基准</p>
 </blockquote>
