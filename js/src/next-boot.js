@@ -83,28 +83,28 @@ NexT.boot = {};
 // };
 
 NexT.boot.refresh = function () {
-  codeUnfold()
+  codeUnfold();
 
   /**
    * Register JS handlers by condition option.
    * Need to add config option in Front-End at 'scripts/helpers/next-config.js' file.
    */
-  // CONFIG.prism && window.Prism.highlightAll();
-  // CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-  // CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
-    // background: 'var(--content-bg-color)'
-  // });
-  // CONFIG.lazyload && window.lozad('.post-body img').observe();
-  // CONFIG.pangu && window.pangu.spacingPage();
+  CONFIG.prism && window.Prism.highlightAll();
+  CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
+  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
+    background: 'var(--content-bg-color)'
+  });
+  CONFIG.lazyload && window.lozad('.post-body img').observe();
+  CONFIG.pangu && window.pangu.spacingPage();
 
-  // CONFIG.exturl && NexT.utils.registerExtURL();
-  // NexT.utils.registerCopyCode();
-  // NexT.utils.registerTabsTag();
-  // NexT.utils.registerActiveMenuItem();
-  // NexT.utils.registerLangSelect();
-  // NexT.utils.registerSidebarTOC();
-  // NexT.utils.wrapTableWithBox();
-  // NexT.utils.registerVideoIframe();
+  CONFIG.exturl && NexT.utils.registerExtURL();
+  NexT.utils.registerCopyCode();
+  NexT.utils.registerTabsTag();
+  NexT.utils.registerActiveMenuItem();
+  NexT.utils.registerLangSelect();
+  NexT.utils.registerSidebarTOC();
+  NexT.utils.wrapTableWithBox();
+  NexT.utils.registerVideoIframe();
 };
 
 // NexT.boot.motion = function() {
