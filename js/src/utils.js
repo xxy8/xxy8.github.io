@@ -114,6 +114,43 @@ NexT.utils = NexT.$u = {
     });
   },
 
+  // registerScrollPercent: function() {
+    // const backToTop = document.querySelector('.back-to-top');
+    // const readingProgressBar = document.querySelector('.reading-progress-bar');
+    // // For init back to top in sidebar if page was scrolled after page refresh.
+    // window.addEventListener('scroll', () => {
+      // if (backToTop || readingProgressBar) {
+        // const contentHeight = document.body.scrollHeight - window.innerHeight;
+        // const scrollPercent = contentHeight > 0 ? Math.min(100 * window.scrollY / contentHeight, 100) : 0;
+        // if (backToTop) {
+          // backToTop.classList.toggle('back-to-top-on', Math.round(scrollPercent) >= 5);
+          // backToTop.querySelector('span').innerText = Math.round(scrollPercent) + '%';
+        // }
+        // if (readingProgressBar) {
+          // readingProgressBar.style.width = scrollPercent.toFixed(2) + '%';
+        // }
+      // }
+      // if (!Array.isArray(NexT.utils.sections)) return;
+      // let index = NexT.utils.sections.findIndex(element => {
+        // return element && element.getBoundingClientRect().top > 0;
+      // });
+      // if (index === -1) {
+        // index = NexT.utils.sections.length - 1;
+      // } else if (index > 0) {
+        // index--;
+      // }
+      // this.activateNavByIndex(index);
+    // });
+
+    // backToTop && backToTop.addEventListener('click', () => {
+      // window.anime({
+        // targets  : document.scrollingElement,
+        // duration : 500,
+        // easing   : 'linear',
+        // scrollTop: 0
+      // });
+    // });
+  // },
   /**
    * Transform embedded video to support responsive layout.
    * @see http://toddmotto.com/fluid-and-responsive-youtube-and-vimeo-videos-with-fluidvids-js/
