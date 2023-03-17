@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="工具," />
+  <meta name="keywords" content="工具,git," />
 
 
 
@@ -87,9 +87,10 @@
 <meta property="og:description" content="人生天地间，忽如远行客">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-05-06T08:44:56.000Z">
-<meta property="article:modified_time" content="2022-05-09T04:45:34.294Z">
+<meta property="article:modified_time" content="2023-03-17T18:07:42.030Z">
 <meta property="article:author" content="xxy">
 <meta property="article:tag" content="工具">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 
@@ -363,8 +364,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-05-09T12:45:34+08:00">
-                2022-05-09
+              <time title="更新于" itemprop="dateModified" datetime="2023-03-18T02:07:42+08:00">
+                2023-03-18
               </time>
             
           </span>
@@ -691,7 +692,30 @@
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>                <span class="comment"># 文章字数统计</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>                   <span class="comment"># 文章阅读时长</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span>          <span class="comment"># 站点总字数统计</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span>             <span class="comment"># 站点总阅读时长</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span>     <span class="comment"># 排除代码字数统计</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.  总结"></a>5.  总结</h2><p>在本次搭建博客中，对github pages能作为微服务器有了了解，也对自己的博客有了大致框架，遵循简洁实用的原则。</p>
+<h2 id="5-增加复制功能"><a href="#5-增加复制功能" class="headerlink" title="5. 增加复制功能"></a>5. 增加复制功能</h2><blockquote>
+<p>NexT版本为<strong>v5.1.4</strong>,NexT主题的v6.3已有此功能</p>
+</blockquote>
+<h3 id="5-1-添加copy-code-swig"><a href="#5-1-添加copy-code-swig" class="headerlink" title="5.1 添加copy-code.swig"></a>5.1 添加copy-code.swig</h3><p>在<code>themes/next/layout/_third-party/</code>此目录下创建copy-code.swig</p>
+<ul>
+<li>copy-code.swig</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.codeblock.copy_button.enable %&#125;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .copy-btn &#123;</span><br><span class="line">      display: inline-block;</span><br><span class="line">      padding: 6px 12px;</span><br><span class="line">      font-size: 13px;</span><br><span class="line">      font-weight: 700;</span><br><span class="line">      line-height: 20px;</span><br><span class="line">      color: #4D4D4C;</span><br><span class="line">      white-space: nowrap;</span><br><span class="line">      vertical-align: middle;</span><br><span class="line">      cursor: pointer;</span><br><span class="line">      background-color: #F7F7F7;</span><br><span class="line">      background-image: linear-gradient(#F7F7F7, #F7F7F7);</span><br><span class="line">      border: 1px solid #d5d5d5;</span><br><span class="line">      border-radius: 3px;</span><br><span class="line">      user-select: none;</span><br><span class="line">      outline: 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .highlight-wrap .copy-btn &#123;</span><br><span class="line">      transition: opacity .3s ease-in-out;</span><br><span class="line">      opacity: 0;</span><br><span class="line">      padding: 2px 6px;</span><br><span class="line">      position: absolute;</span><br><span class="line">      right: 4px;</span><br><span class="line">      top: 8px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .highlight-wrap:hover .copy-btn,</span><br><span class="line">    .highlight-wrap .copy-btn:focus &#123;</span><br><span class="line">      opacity: 1</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .highlight-wrap &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    $(&#x27;.highlight&#x27;).each(function (i, e) &#123;</span><br><span class="line">      var $wrap = $(&#x27;&lt;div&gt;&#x27;).addClass(&#x27;highlight-wrap&#x27;)</span><br><span class="line">      $(e).after($wrap)</span><br><span class="line">      $wrap.append($(&#x27;&lt;button&gt;&#x27;).addClass(&#x27;copy-btn&#x27;).append(&#x27;&#123;&#123;__(&quot;post.copy_button&quot;)&#125;&#125;&#x27;).on(&#x27;click&#x27;, function (e) &#123;</span><br><span class="line">        var code = $(this).parent().find(&#x27;.code&#x27;).find(&#x27;.line&#x27;).map(function (i, e) &#123;</span><br><span class="line">          return $(e).text()</span><br><span class="line">        &#125;).toArray().join(&#x27;\n&#x27;)</span><br><span class="line">        var ta = document.createElement(&#x27;textarea&#x27;)</span><br><span class="line">        document.body.appendChild(ta)</span><br><span class="line">        ta.style.position = &#x27;absolute&#x27;</span><br><span class="line">        ta.style.top = &#x27;0px&#x27;</span><br><span class="line">        ta.style.left = &#x27;0px&#x27;</span><br><span class="line">        ta.value = code</span><br><span class="line">        ta.select()</span><br><span class="line">        ta.focus()</span><br><span class="line">        var result = document.execCommand(&#x27;copy&#x27;)</span><br><span class="line">        document.body.removeChild(ta)</span><br><span class="line">        &#123;% if theme.codeblock.copy_button.show_result %&#125;</span><br><span class="line">          if(result)$(this).text(&#x27;&#123;&#123;__(&quot;post.copy_success&quot;)&#125;&#125;&#x27;)</span><br><span class="line">          else $(this).text(&#x27;&#123;&#123;__(&quot;post.copy_failure&quot;)&#125;&#125;&#x27;)</span><br><span class="line">        &#123;% endif %&#125;</span><br><span class="line">        $(this).blur()</span><br><span class="line">      &#125;)).on(&#x27;mouseleave&#x27;, function (e) &#123;</span><br><span class="line">        var $b = $(this).find(&#x27;.copy-btn&#x27;)</span><br><span class="line">        setTimeout(function () &#123;</span><br><span class="line">          $b.text(&#x27;&#123;&#123;__(&quot;post.copy_button&quot;)&#125;&#125;&#x27;)</span><br><span class="line">        &#125;, 300)</span><br><span class="line">      &#125;).append(e)</span><br><span class="line">    &#125;)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-编辑-layout-swig"><a href="#5-2-编辑-layout-swig" class="headerlink" title="5.2 编辑_layout.swig"></a>5.2 编辑_layout.swig</h3><p>在<code>themes/next/layout/</code>文件下编辑_layout.swig</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> # 要加入的代码</span><br><span class="line"> &#123;% include &#x27;_third-party/copy-code.swig&#x27; %&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-添加按钮上显示的语言"><a href="#5-3-添加按钮上显示的语言" class="headerlink" title="5.3 添加按钮上显示的语言"></a>5.3 添加按钮上显示的语言</h3><p>在<code>themes/next/languages/</code>目录下编辑zh-Hans.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">copy_button:</span> <span class="string">复制</span></span><br><span class="line">    <span class="attr">copy_success:</span> <span class="string">复制成功</span></span><br><span class="line">    <span class="attr">copy_failure:</span> <span class="string">复制失败</span></span><br></pre></td></tr></table></figure>
+
+<p>同理en.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">copy_button:</span> <span class="string">Copy</span></span><br><span class="line">    <span class="attr">copy_success:</span> <span class="string">Copied</span></span><br><span class="line">    <span class="attr">copy_failure:</span> <span class="string">Copy</span> <span class="string">failed</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-编辑主题配置"><a href="#5-4-编辑主题配置" class="headerlink" title="5.4 编辑主题配置"></a>5.4 编辑主题配置</h3><p>在<code>themes/next/_config.yml</code>下添加</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="attr">border_radius:</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Show text copy result</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="5-5-生成测试"><a href="#5-5-生成测试" class="headerlink" title="5.5 生成测试"></a>5.5 生成测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6.  总结"></a>6.  总结</h2><p>在本次搭建博客中，对github pages能作为微服务器有了了解，也对自己的博客有了大致框架，遵循简洁实用的原则。</p>
 
       
     </div>
@@ -710,6 +734,8 @@
         <div class="post-tags">
           
             <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -874,7 +900,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%B7%A5%E5%85%B7"><span class="nav-text">1. 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-text">2. 搭建个人仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-text">3. 美化博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%8F%E5%B7%A5%E5%85%B7"><span class="nav-text">4. 小工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="nav-text">5.  总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%B7%A5%E5%85%B7"><span class="nav-text">1. 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-text">2. 搭建个人仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-text">3. 美化博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%8F%E5%B7%A5%E5%85%B7"><span class="nav-text">4. 小工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A2%9E%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD"><span class="nav-text">5. 增加复制功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E6%B7%BB%E5%8A%A0copy-code-swig"><span class="nav-text">5.1 添加copy-code.swig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E7%BC%96%E8%BE%91-layout-swig"><span class="nav-text">5.2 编辑_layout.swig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE%E4%B8%8A%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-text">5.3 添加按钮上显示的语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E7%BC%96%E8%BE%91%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-text">5.4 编辑主题配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95"><span class="nav-text">5.5 生成测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%80%BB%E7%BB%93"><span class="nav-text">6.  总结</span></a></li></ol></div>
             
 
           </div>
@@ -1398,6 +1424,78 @@
   
 
   
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>
