@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后端,go," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="不求外物，不惧内心，不避因果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang基础">
+<meta property="og:url" content="https://xxy8.github.io/2023/03/17/Golang/index.html">
+<meta property="og:site_name" content="xxy">
+<meta property="og:description" content="不求外物，不惧内心，不避因果">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-03-17T13:46:37.000Z">
+<meta property="article:modified_time" content="2023-03-17T13:59:52.966Z">
+<meta property="article:author" content="xxy">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="https://xxy8.github.io/2023/03/17/Golang/"/>
+
+
+
+
+
+  <title>Golang基础 | xxy</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xxy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一笑之语</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-shuyu">
+          <a href="/shuyu/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书宇
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-play">
+          <a href="/play/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-play"></i> <br />
+            
+            媒体
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xxy8.github.io/2023/03/17/Golang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Golang基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-03-17T21:46:37+08:00">
+                2023-03-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2023-03-17T21:59:52+08:00">
+                2023-03-17
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<center>不求外物，不惧内心，不避因果</center>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="1-简述"><a href="#1-简述" class="headerlink" title="1. 简述"></a>1. 简述</h2><h3 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h3><ul>
+<li><p>Go语言自己的早期源码使用C语言和汇编语言写成</p>
+</li>
+<li><p>Go的三个作者分别是：Rob Pike（罗伯.派克），Ken Thompson（肯.汤普森）和Robert Griesemer（罗伯特.格利茨默） </p>
+</li>
+<li><p>2009年11月 GO语言第一个版本发布。2012年3月 第一个正式版本Go1.0发布</p>
+</li>
+<li><p>到go1.8时，相同业务场景下的GC时延已经可以从go1.1的数秒，控制在1ms以内。GC问题的解决，可以说GO语言在服务端开发方面，几乎抹平了所有的弱点</p>
+</li>
+<li><p>一家叫做 Docker 的公司。就是使用 Go 进行项目开发，并促进了计算机领域的容器行业，进而出现了像 Kubernetes 这样的项目</p>
+</li>
+</ul>
+<h3 id="1-2-定义"><a href="#1-2-定义" class="headerlink" title="1.2 定义"></a>1.2 定义</h3><blockquote>
+<p>将简单、实用体现得淋漓尽致的一种编程语言</p>
+</blockquote>
+<h3 id="1-3-GO项目"><a href="#1-3-GO项目" class="headerlink" title="1.3 GO项目"></a>1.3 GO项目</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/docker/docker">Docker</a></li>
+</ul>
+<blockquote>
+<p>Docker 是一种操作系统层面的虚拟化技术，可以在操作系统和应用程序之间进行隔离，也可以称之为容器。Docker  可以在一台物理服务器上快速运行一个或多个实例。例如，启动一个 CentOS  操作系统，并在其内部命令行执行指令后结束，整个过程就像自己在操作系统一样高效。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/golang/go">Go语言</a></li>
+</ul>
+<blockquote>
+<p>Go语言自己的早期源码使用C语言和汇编语言写成。从 Go 1.5 版本后，完全使用Go语言自身进行编写。Go语言的源码对了解Go语言的底层调度有极大的参考意义，建议希望对Go语言有深入了解的读者读一读。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/kubernetes/kubernetes">Kubernetes</a></li>
+</ul>
+<blockquote>
+<p>Google 公司开发的构建于 Docker 之上的容器调度服务，用户可以通过 Kubernetes 集群进行云端容器集群管理。系统会自动选取合适的工作节点来执行具体的容器集群调度处理工作。其核心概念是 Container Pod（容器仓）</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/coreos/etcd">etcd</a></li>
+</ul>
+<blockquote>
+<p>一款分布式、可靠的 KV 存储系统，可以快速进行云配置。由 CoreOS 开发并维护键值存储系统，它使用Go语言编写，并通过 Raft 一致性算法处理日志复制以保证强一致性</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/astaxie/beego">beego</a></li>
+</ul>
+<blockquote>
+<p>beego 是一个类似 Python 的 Tornado 框架，采用了 RESTFul 的设计思路，使用Go语言编写的一个极轻量级、高可伸缩性和高性能的 Web 应用框架</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/go-martini/martini">martini</a></li>
+</ul>
+<blockquote>
+<p>一款快速构建模块化的 Web 应用的Go语言框架</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/CodisLabs/codis">codis</a></li>
+</ul>
+<blockquote>
+<p>国产的优秀分布式 Redis 解决方案。可以将 codis 理解成为 Web 服务领域的 Nginx，它实现了对 Redis 的反向代理和负载均衡。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/derekparker/delve">delve</a></li>
+</ul>
+<blockquote>
+<p>Go语言强大的调试器，被很多集成环境和编辑器整合。</p>
+</blockquote>
+<h3 id="1-4-用处"><a href="#1-4-用处" class="headerlink" title="1.4 用处"></a>1.4 用处</h3><ul>
+<li>区块链</li>
+<li>云平台</li>
+<li>嵌入式</li>
+<li>网络编程</li>
+<li>服务器编程</li>
+</ul>
+<h3 id="1-5-编程库"><a href="#1-5-编程库" class="headerlink" title="1.5 编程库"></a>1.5 编程库</h3><table>
+<thead>
+<tr>
+<th>Go语言标准库包名</th>
+<th>功  能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bufio</td>
+<td>带缓冲的 I&#x2F;O 操作</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>实现字节操作</td>
+</tr>
+<tr>
+<td>container</td>
+<td>封装堆、列表和环形列表等容器</td>
+</tr>
+<tr>
+<td>crypto</td>
+<td>加密算法</td>
+</tr>
+<tr>
+<td>database</td>
+<td>数据库驱动和接口</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>各种调试文件格式访问及调试功能</td>
+</tr>
+<tr>
+<td>encoding</td>
+<td>常见算法如 JSON、XML、Base64 等</td>
+</tr>
+<tr>
+<td>flag</td>
+<td>命令行解析</td>
+</tr>
+<tr>
+<td>fmt</td>
+<td>格式化操作</td>
+</tr>
+<tr>
+<td>go</td>
+<td>Go语言的词法、语法树、类型等。可通过这个包进行代码信息提取和修改</td>
+</tr>
+<tr>
+<td>html</td>
+<td>HTML 转义及模板系统</td>
+</tr>
+<tr>
+<td>image</td>
+<td>常见图形格式的访问及生成</td>
+</tr>
+<tr>
+<td>io</td>
+<td>实现 I&#x2F;O 原始访问接口及访问封装</td>
+</tr>
+<tr>
+<td>math</td>
+<td>数学库</td>
+</tr>
+<tr>
+<td>net</td>
+<td>网络库，支持 Socket、HTTP、邮件、RPC、SMTP 等</td>
+</tr>
+<tr>
+<td>os</td>
+<td>操作系统平台不依赖平台操作封装</td>
+</tr>
+<tr>
+<td>path</td>
+<td>兼容各操作系统的路径操作实用函数</td>
+</tr>
+<tr>
+<td>plugin</td>
+<td>Go 1.7 加入的插件系统。支持将代码编译为插件，按需加载</td>
+</tr>
+<tr>
+<td>reflect</td>
+<td>语言反射支持。可以动态获得代码中的类型信息，获取和修改变量的值</td>
+</tr>
+<tr>
+<td>regexp</td>
+<td>正则表达式封装</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>运行时接口</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>排序接口</td>
+</tr>
+<tr>
+<td>strings</td>
+<td>字符串转换、解析及实用函数</td>
+</tr>
+<tr>
+<td>time</td>
+<td>时间接口</td>
+</tr>
+<tr>
+<td>text</td>
+<td>文本模板及 Token 词法器</td>
+</tr>
+</tbody></table>
+<h2 id="2-下载和环境"><a href="#2-下载和环境" class="headerlink" title="2. 下载和环境"></a>2. 下载和环境</h2><blockquote>
+<p>尽量使用压缩包安装方式，注意GoWorks工作目录下三个包 bin src pkg</p>
+</blockquote>
+<h3 id="2-1-下载go"><a href="#2-1-下载go" class="headerlink" title="2.1 下载go"></a>2.1 下载go</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://studygolang.com/dl">go中文网下载</a></li>
+<li><a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">go官网下载</a></li>
+<li>配置环境变量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装目录</span></span><br><span class="line">GOROOT D:\install\go </span><br><span class="line"><span class="comment"># 工作目录</span></span><br><span class="line">GOPATH D:\GoWorks</span><br><span class="line"><span class="comment"># 运行go.exe目录</span></span><br><span class="line">PATH %GOROOT%\bin</span><br><span class="line">Path %GOPATH%\bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进行检测是否成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go <span class="built_in">env</span></span><br><span class="line">go version</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://betheme.net/news/txtlist_i88756v.html?action=onClick">其他博主go压缩包安装和配置环境</a></p>
+</li>
+<li><p>开发工具：idea、vscode、Go Reviverevive、Goland</p>
+</li>
+<li><p>vscode需要安装go工具包，在工作&#x2F;bin目录下，运行F5</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>程序名</th>
+<th>程序用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dlv.exe</td>
+<td>go 语言调试工具</td>
+</tr>
+<tr>
+<td>gocode.exe</td>
+<td>go语言代码检查，自动补全</td>
+</tr>
+<tr>
+<td>godef.exe</td>
+<td>go语言代码定义和引用的跳转</td>
+</tr>
+<tr>
+<td>golint.exe</td>
+<td>go语言代码规范检查</td>
+</tr>
+<tr>
+<td>go-outline.exe</td>
+<td>用于在Go源文件中提取JSON形式声明的简单工具</td>
+</tr>
+<tr>
+<td>gopkgs.exe</td>
+<td>快速列出可用包的工具</td>
+</tr>
+<tr>
+<td>gorename.exe</td>
+<td>在Go源代码中执行标识符的精确类型安全重命名</td>
+</tr>
+<tr>
+<td>goreturns.exe</td>
+<td>类似fmt和import的工具，使用零值填充Go返回语句以匹配func返回类型</td>
+</tr>
+<tr>
+<td>go-symbols.exe</td>
+<td>从go源码树中提取JSON形式的包符号的工具</td>
+</tr>
+<tr>
+<td>gotour.exe</td>
+<td>go语言指南网页版</td>
+</tr>
+<tr>
+<td>guru.exe</td>
+<td>go语言源代码有关工具，如代码高亮等</td>
+</tr>
+</tbody></table>
+<h2 id="3-Go基础"><a href="#3-Go基础" class="headerlink" title="3. Go基础"></a>3. Go基础</h2><h3 id="3-1-hello-go"><a href="#3-1-hello-go" class="headerlink" title="3.1 hello.go"></a>3.1 hello.go</h3><blockquote>
+<p>在Go语言里，<strong>命名为main</strong>的包具有特殊的含义。Go语言的编译程序会试图把这种名字的包<strong>编译为二进制可执行文件</strong>。所有用Go语言编译的可执行程序<strong>都必须有一个</strong>名叫main的包，一个可执行程序 <strong>有且仅有一个</strong> main包</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run  hello.go</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当编译器发现某个包的名字为main时，它一定也会发现名为main()的函数，否则不会创建可执行文件。main()函数是程序的入口，所以，如果没有这个函数，程序就没有办法开始执行。程序编译时，会使用声明main包的代码所在的目录的目录名作为二进制可执行文件的文件名。</p>
+</blockquote>
+<h3 id="3-2-Go注释"><a href="#3-2-Go注释" class="headerlink" title="3.2 Go注释"></a>3.2 Go注释</h3><blockquote>
+<p>方便其他人理解代码</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">我是多行注释</span></span><br><span class="line"><span class="comment">我是多行注释</span></span><br><span class="line"><span class="comment">我是多行注释</span></span><br><span class="line"><span class="comment">我是多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-变量"><a href="#3-3-变量" class="headerlink" title="3.3 变量"></a>3.3 变量</h3><blockquote>
+<p>能够指向内存地址的可以变化的值，Go语言是<strong>静态类型</strong>语言</p>
+</blockquote>
+<ol>
+<li>变量的定义（声明）</li>
+</ol>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [name变量名] [<span class="keyword">type</span>变量类型]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		name   <span class="type">string</span></span><br><span class="line">		age    <span class="type">int</span></span><br><span class="line">		money  <span class="type">float64</span></span><br><span class="line">		isLike <span class="type">bool</span></span><br><span class="line">	)</span><br><span class="line">	fmt.Println(name, age,money, isLike )</span><br><span class="line"><span class="comment">// 空格 0 0 false</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    整形和浮点型变量的默认值为0和0.0</span></span><br><span class="line"><span class="comment">    字符串变量的默认值为空字符串</span></span><br><span class="line"><span class="comment">    布尔型变量默认为false</span></span><br><span class="line"><span class="comment">    切片、函数、指针变量的默认为nil</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>初始化</li>
+</ol>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//变量声明</span></span><br><span class="line">[name变量名] = [value变量值]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;dd&quot;</span></span><br><span class="line">age = <span class="number">12</span></span><br><span class="line">money = <span class="number">12.45</span></span><br><span class="line">isLike = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>声明并初始化</li>
+</ol>
+<blockquote>
+<p>由于使用了 :&#x3D; ，而不是赋值的 &#x3D; ，因此推导声明写法的左值<strong>必须是没有被定义</strong>过的，若定义过，将会发生编译错误</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[name未声明变量名] := [value变量值]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	name := <span class="string">&quot;dd&quot;</span></span><br><span class="line">	age := <span class="number">12</span></span><br><span class="line">	money := <span class="number">12.45</span></span><br><span class="line">	isLike := <span class="literal">true</span></span><br><span class="line"><span class="comment">//值改变，内存地址不变</span></span><br><span class="line">	name = <span class="string">&quot;tt&quot;</span></span><br><span class="line"><span class="comment">//交换，int会去掉float64小数部分</span></span><br><span class="line">age, money = <span class="type">int</span>(money), <span class="type">float64</span>(age)</span><br><span class="line">	fmt.Println(name, age, money, isLike)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%T,%T,%T,%T&quot;</span>, name, age, money, isLike)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%p,%p,%p,%p&quot;</span>, &amp;name, &amp;age, &amp;money, &amp;isLike)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dd 12 12.45 true</span></span><br><span class="line"><span class="comment">string,int,float64,bool</span></span><br><span class="line"><span class="comment">0xc000050270,0xc000018098,0xc0000180b0,0xc0000180b8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>匿名变量</li>
+</ol>
+<blockquote>
+<p>匿名变量的特点是一个下划线 “_”,但任何赋给这个标识符的值都将被抛弃,可以<strong>极大地增强代码的灵活性</strong>,匿名变量<strong>不占用内存空间</strong>，不会分配内存。</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_ := [<span class="function"><span class="keyword">func</span>/<span class="title">value</span>]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> (<span class="type">int</span>, <span class="type">int</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">100</span>, <span class="number">200</span></span><br><span class="line">&#125;	</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a,_ := test()</span><br><span class="line">    _,b := test()</span><br><span class="line">    fmt.<span class="built_in">println</span>(a,b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>变量作用域</li>
+</ol>
+<blockquote>
+<p><strong>一个变量（常量、类型或函数）在程序中都有一定的作用范围，称之为作用域</strong>，遵循就近原则</p>
+</blockquote>
+<ul>
+<li>局部变量</li>
+</ul>
+<blockquote>
+<p>在函数体内声明的变量称之为局部变量，它们的作用域只在函数体内，函数的参数和返回值变量都属于局部变量</p>
+</blockquote>
+<ul>
+<li>全局变量</li>
+</ul>
+<blockquote>
+<p>在函数体外声明的变量称之为全局变量，只需要在一个源文件中定义，就可以在所有源文件中使用，当然，不包含这个全局变量的源文件需要使用 import 关键字 引入<br>全局变量必须以 var 关键字开头，如果想要在外部包中使用全局变量的首字母必须大写</p>
+</blockquote>
+<ul>
+<li>注意</li>
+</ul>
+<blockquote>
+<p>Go语言程序中<strong>全局变量与局部变量名称可以相同</strong>，但是<strong>函数体内的局部变量</strong>会被优先考虑！</p>
+</blockquote>
+<h3 id="3-4-常量"><a href="#3-4-常量" class="headerlink" title="3.4 常量"></a>3.4 常量</h3><blockquote>
+<p>是一个简单值得标识符，在程序运行时，不会被修改的量</p>
+</blockquote>
+<ol>
+<li>普通常量</li>
+</ol>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [name常量名] [<span class="keyword">type</span>] = [value]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url <span class="type">string</span> = <span class="string">&quot;ssss.xx&quot;</span></span><br><span class="line"><span class="keyword">const</span> t, b, c = <span class="string">&quot;s&quot;</span>, <span class="number">3.12</span>, <span class="literal">true</span></span><br><span class="line">fmt.Println(t, b, c)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>特殊常量iota</li>
+</ol>
+<blockquote>
+<p>未赋值的常量向前面的常量寻找</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [name常量名] [<span class="keyword">type</span>] = <span class="literal">iota</span>        </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>eg</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">     a = <span class="literal">iota</span>        <span class="comment">//iota==0</span></span><br><span class="line">     b               <span class="comment">//iota==1</span></span><br><span class="line">     c               <span class="comment">//iota==2</span></span><br><span class="line">     d = <span class="string">&quot;kuangshen&quot;</span> <span class="comment">//iota==3</span></span><br><span class="line">     e = <span class="literal">iota</span>        <span class="comment">//iota==4</span></span><br><span class="line">     f = <span class="number">100</span>         <span class="comment">//iota==5</span></span><br><span class="line">     g               <span class="comment">//iota==6</span></span><br><span class="line">     h = <span class="literal">iota</span>      <span class="comment">//iota==7</span></span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-数据类型"><a href="#3-5-数据类型" class="headerlink" title="3.5 数据类型"></a>3.5 数据类型</h3><ol>
+<li>布尔型</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isFlang <span class="type">bool</span> <span class="comment">//默认false</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>数字型</li>
+</ol>
+<ul>
+<li>整数型</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age <span class="type">int</span><span class="comment">//默认0</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型和描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>uint8</strong>无符号8位整型(O到255)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>uint16</strong>无符号16位整型(O到65535)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>uint32</strong>无符号32位整型(O到4294967295)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>uint64</strong>无符号64位整型(0到18446744073709551615)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>int8</strong>有符号8位整型(-128到127)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>int16</strong>有符号16位整型(-32768到32767)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>int32</strong>有符号32位整型(-2147483648到2147483647)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>int64</strong>有符号64位整型(-9223372036854775808到 9223372036854775807)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>浮点型</li>
+</ul>
+<blockquote>
+<p>float32 不要进行运算，会精度损失</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> money <span class="type">float64</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;%.3f&quot;</span>, money)<span class="comment">//这里打印浮点数类型为%.3f四舍五入，默认是6位小数打印</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型和描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>float32 IEEE-754 32位浮点型数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>float64 lEEE-75464位浮点型数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>complex64 32位实数和虚数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>complex128 64位实数和虚数</td>
+</tr>
+</tbody></table>
+<ul>
+<li>其他别名</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型和描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>byte</strong>类似于uint8</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>rune</strong>类似于int32</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>uInt</strong>32或64位</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>int</strong>与uint一样大小</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>uintprt</strong>无符号整形，用于存放一个指针</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>字符</li>
+</ol>
+<blockquote>
+<p>单引号</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//英文编码表 ASCII字符表</span></span><br><span class="line"><span class="comment">//汉字编码表 ：GBK</span></span><br><span class="line"><span class="comment">//全世界编码表：Unicode</span></span><br><span class="line">	v1 := <span class="string">&#x27;在&#x27;</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;%T,%d&quot;</span>, v1, v1)</span><br><span class="line"><span class="comment">//int32,22312</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>字符串</li>
+</ol>
+<blockquote>
+<p>双引号</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	v2 := <span class="string">&quot;在&quot;</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;%T,%s&quot;</span>, v2, v2)</span><br><span class="line"><span class="comment">//string,在</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串连接和转义</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt.Printf(<span class="string">&quot;%T,%s&quot;</span>, v2, v2+<span class="string">&quot;gg\&quot;ff&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-数据类型转换"><a href="#3-6-数据类型转换" class="headerlink" title="3.6 数据类型转换"></a>3.6 数据类型转换</h3><blockquote>
+<p>数据类型转换都为显示，<strong>Go语言不存在隐式类型转换</strong>,每个分配的内存不同，bool类型和整数类型不能相互转换</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="type">float64</span>(a)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-运算符"><a href="#3-7-运算符" class="headerlink" title="3.7 运算符"></a>3.7 运算符</h3><ol>
+<li>算术运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>相加</td>
+<td>A+B输出结果30</td>
+</tr>
+<tr>
+<td>-</td>
+<td>相减</td>
+<td>A-B输出结果-10</td>
+</tr>
+<tr>
+<td>*</td>
+<td>相乘</td>
+<td>A*B输出结果为200</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>相除</td>
+<td>B&#x2F;A输出结果为2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余</td>
+<td>B%A输出结果为0</td>
+</tr>
+<tr>
+<td>++</td>
+<td>自增</td>
+<td>A++输出结果11</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减</td>
+<td>A–输出结果为9</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v1 := 10</span><br><span class="line">v2 := 3</span><br><span class="line">fmt.Println(v1 / v2)</span><br><span class="line">fmt.Println(v1 % v2)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>关系运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;&#x3D;</td>
+<td>检查两个值是否相等，如果相等返回True否则返回false</td>
+<td>A&#x3D;&#x3D;B 为false</td>
+</tr>
+<tr>
+<td>！&#x3D;</td>
+<td>检查两个值是否不相等，如果不相等返回True否则返回false</td>
+<td>A！&#x3D;B为true</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>检查左边值是否大于右边值，如果是返回True否则返回false</td>
+<td>A&gt;B 为false</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>检查左边值是否小于右边值，如果是返回True否则返回false</td>
+<td>A&lt;B为True</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>检查左边值是否大于等于右边值，如果是返回True否则返回false</td>
+<td>A&gt;&#x3D;B 为false</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>检查左边值是否小于等于右边值，如果是返回True否则返回false</td>
+<td>A&lt;&#x3D;B 为true</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>逻辑运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>逻辑AND运算符，如果两边的操作数都是True，则条件True，否则为False。</td>
+<td>A&amp;&amp;B 为false</td>
+</tr>
+<tr>
+<td>||</td>
+<td>逻辑OR运算符，如果两边的操作数有一个True，则条件True，否则为False。</td>
+<td>A||B为true</td>
+</tr>
+<tr>
+<td>！</td>
+<td>逻辑NOT运算符，如果条件为True，则逻辑NOT条件False，否则为True。</td>
+<td>！（A&amp;&amp;B ）为true</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>位运算符</li>
+</ol>
+<blockquote>
+<p>加密、解密、底层</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>按位与运算符”&amp;”是双目运算符。都是1结果为1，否则是0</td>
+<td>(A&amp;B)结果为12,二进制为0000 1100</td>
+</tr>
+<tr>
+<td>|</td>
+<td>按位或运算符”|”是双目运算符。只要有一个1就为1，都是0结果为0，否则是1</td>
+<td>(A |B)结果为61，二进制0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或运算符”A”是双目运算符。不同则为1，相同为0</td>
+<td>(A^B)结果为49,二进制为0011 0001</td>
+</tr>
+<tr>
+<td>&amp;^</td>
+<td>位清空，a &amp;^b，对于b上的每个数值，如果为0，则取a对应位上的数值，如果为1，则取0.</td>
+<td>(A&amp;^B)结果为48,二进制为0011 0000</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移运算符”&lt;&lt;”是双目运算符。左移n位就是乘以2的n次方。其功能把”&lt;&lt;”左边的运算数的各二进位全部左移若干位，由”&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补O。</td>
+<td>A&lt;&lt;2结果为240，二进制为1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移运算符”&gt;&gt;”是双目运算符。右移n位就是除以2的n次方。其功能是把”&gt;&gt;”左边的运算数的各二进位全部右移若干位，”&gt;&gt;”右边的数指定移动的位数。</td>
+<td>A&gt;&gt;2结果为15，二进制为0000 1111</td>
+</tr>
+</tbody></table>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">	v1 := <span class="number">10</span></span><br><span class="line">	v2 := <span class="number">3</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v1)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v2)</span><br><span class="line">	v3 := v1 &amp; v2</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v3)</span><br><span class="line">	v4 := v1 | v2</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v4)</span><br><span class="line">	v5 := v1 ^ v2</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v5)</span><br><span class="line">	v6 := v1 &lt;&lt; <span class="number">2</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v6)</span><br><span class="line">	v7 := v2 &gt;&gt; <span class="number">2</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;%b\n&quot;</span>, v7)</span><br><span class="line"><span class="number">1010</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">1011</span></span><br><span class="line"><span class="number">1001</span></span><br><span class="line"><span class="number">101000</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>赋值运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>简单的赋值运算符，将一个表达式的值赋给一个左值</td>
+<td>C &#x3D;A+B将A＋B表达式结果赋值给C</td>
+</tr>
+<tr>
+<td>+&#x3D;</td>
+<td>相加后再赋值</td>
+<td>C +&#x3D;A等于C&#x3D;C+A</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>相减后再赋值</td>
+<td>C -&#x3D;A等于C&#x3D;C-A</td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>相乘后再赋值</td>
+<td>C *&#x3D;A等于C&#x3D;C *A</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>相除后再赋值</td>
+<td>C&#x2F;&#x3D;A等于C&#x3D;C&#x2F; A</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>求余后再赋值</td>
+<td>C%&#x3D;A等于C&#x3D;C%A</td>
+</tr>
+<tr>
+<td>&lt;&lt;&#x3D;</td>
+<td>左移后赋值</td>
+<td>C&lt;&lt;&#x3D;2等于C&#x3D;C&lt;&lt;2</td>
+</tr>
+<tr>
+<td>&gt;&gt;&#x3D;</td>
+<td>右移后赋值</td>
+<td>C&gt;&gt;&#x3D;2等于C&#x3D;c&gt;&gt;2</td>
+</tr>
+<tr>
+<td>&amp;&#x3D;</td>
+<td>按位与后赋值</td>
+<td>C&amp;&#x3D;2等于C&#x3D;C&amp;2</td>
+</tr>
+<tr>
+<td>^&#x3D;</td>
+<td>按位异或后赋值</td>
+<td>C&#x3D;2等于C&#x3D;C2</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>按位或后赋值</td>
+<td>C|&#x3D;2等于C&#x3D;C|&#x3D;2</td>
+</tr>
+</tbody></table>
+<ol start="6">
+<li>其他运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>返回变量存储地址</td>
+<td>&amp;a;将给出变量的实际地址</td>
+</tr>
+<tr>
+<td>*</td>
+<td>指针变量</td>
+<td>*a；是一个指针变量</td>
+</tr>
+</tbody></table>
+<h3 id="3-8-输入输出"><a href="#3-8-输入输出" class="headerlink" title="3.8 输入输出"></a>3.8 输入输出</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> x <span class="type">int</span></span><br><span class="line">	<span class="keyword">var</span> y <span class="type">float64</span></span><br><span class="line"><span class="comment">//Print</span></span><br><span class="line"><span class="comment">//Printf 格式化</span></span><br><span class="line"><span class="comment">//Println 换行</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;请输入&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Scanln(&amp;x, &amp;y)</span><br><span class="line">	fmt.Println(x, y)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-9-编码规范"><a href="#3-9-编码规范" class="headerlink" title="3.9 编码规范"></a>3.9 编码规范</h3><ul>
+<li><p>当命名(包括常量、变量、类型、函数名、结构字段等等)以一个大写字母开头，如:Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用(客户端程序需要先导入这个包)，这被称为导出（像面向对象语言中的public) ;</p>
+</li>
+<li><p>命名如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的(像面向对象语言中的private )</p>
+</li>
+<li><p>保持package的名字和目录名保持一致，尽量采取有意义的包名，简短，有意义，尽量和标准库不要冲突。包名应该为小写单词，不要使用下划线或者混合大小写。</p>
+</li>
+<li><p>尽量采取有意义的文件名，简短，有意义，应该为小写单词，使用下划线分隔各个单词(蛇形命名)。</p>
+</li>
+</ul>
+<h3 id="3-10-流程控制"><a href="#3-10-流程控制" class="headerlink" title="3.10 流程控制"></a>3.10 流程控制</h3><ol>
+<li>顺序结构</li>
+</ol>
+<blockquote>
+<p>:从上到下，逐行执行。默认的逻辑</p>
+</blockquote>
+<ol start="2">
+<li>选择结构</li>
+</ol>
+<ul>
+<li>if</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> a &gt; <span class="number">12</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;大于12&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;《&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>switch</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="number">2</span></span><br><span class="line"><span class="keyword">switch</span> a &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">-1</span>, <span class="number">0</span>:</span><br><span class="line">	fmt.Print(<span class="string">&quot;0或小于0&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">	fmt.Print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">	fmt.Print(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">	<span class="keyword">fallthrough</span> <span class="comment">//贯穿，会继续执行下一个，结束用break</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">	fmt.Print(<span class="string">&quot;大于2&quot;</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>select</li>
+</ul>
+<ol start="3">
+<li>循环结构</li>
+</ol>
+<ul>
+<li>for</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++ &#123;</span><br><span class="line">	<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= i; j++ &#123;</span><br><span class="line">		fmt.Printf(<span class="string">&quot;%d*%d=%d\t&quot;</span>, j, i, i*j)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println()</span><br><span class="line">&#125;</span><br><span class="line">str := <span class="string">&quot;xx xy&quot;</span></span><br><span class="line"><span class="comment">//第二种循环输出字符串</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> str &#123;</span><br><span class="line">	fmt.Print(i)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%c&quot;</span>, v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>break与continue</li>
+</ol>
+<blockquote>
+<p>break 跳出，continue结束当前继续</p>
+</blockquote>
+<h3 id="3-11-string"><a href="#3-11-string" class="headerlink" title="3.11 string"></a>3.11 string</h3><blockquote>
+<p>string字符串里面字符是不能修改的，Go中的字符串是一个字节的切片，可以通过将其内容封装在””中来创建字符串，Go中的字符串Unicode兼容的，并且是UTF-8编码，字符串是一些字节的集合</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">str := <span class="string">&quot;xx xy&quot;</span></span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line">fmt.Println(<span class="built_in">len</span>(str))</span><br><span class="line"><span class="comment">//获取指定字符</span></span><br><span class="line">fmt.Println(str[<span class="number">0</span>])</span><br><span class="line">fmt.Printf(<span class="string">&quot;%c\n&quot;</span>, str[<span class="number">4</span>])</span><br><span class="line"><span class="comment">//循环输出</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(str); i++ &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%c\n&quot;</span>, str[i])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二种循环输出</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> str &#123;</span><br><span class="line">	fmt.Print(i)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%c&quot;</span>, v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-12-函数"><a href="#3-12-函数" class="headerlink" title="3.12 函数"></a>3.12 函数</h3><ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>函数的名称，返回类型和参数的代码块</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> [函数名]<span class="params">(函数参数...)</span></span>(函数返回值) &#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>可变参数函数</li>
+</ol>
+<blockquote>
+<p>如果一个函数的参数时可变参数，同时还有其他的参数，可变参数要放在列表的最后,一个函数的参数列表最多只能有一个可变参数</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">myfunc</span><span class="params">(nums ...<span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">		sum += nums[i]</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>参数传递</li>
+</ol>
+<ul>
+<li>值传递[深克隆]：数值，布尔，数组，字符串</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	arr := [<span class="number">4</span>]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	zhi(arr)</span><br><span class="line">fmt.Println(<span class="string">&quot;修改后&quot;</span>, arr)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">zhi</span><span class="params">(arr1 [4]<span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(arr1)</span><br><span class="line">	arr1[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;修改后&quot;</span>, arr1)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//arr数组不会改变，只是深克隆了arr，改变的数据属于arr1数组</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">修改前 [1 2 3 4]</span></span><br><span class="line"><span class="comment">修改后 [0 2 3 4]</span></span><br><span class="line"><span class="comment">调用后 [1 2 3 4]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用传递【不会拷贝,传送是地址】：slice，map，chan</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	s1 := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	qiepian(s1)</span><br><span class="line">	fmt.Println(<span class="string">&quot;调用切片后&quot;</span>, s1)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">qiepian</span><span class="params">(s2 []<span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;切片修改前&quot;</span>, s2)</span><br><span class="line">	s2[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;切片修改后&quot;</span>, s2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">切片修改前 [1 2 3 4]</span></span><br><span class="line"><span class="comment">切片修改后 [0 2 3 4]</span></span><br><span class="line"><span class="comment">调用切片后 [0 2 3 4]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>递归函数</li>
+</ol>
+<blockquote>
+<p>十分耗费内存，不建议使用</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	sum := digui(<span class="number">5</span>)</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">digui</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> digui(n<span class="number">-1</span>) + n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>defer函数</li>
+</ol>
+<blockquote>
+<p>推迟、延迟最后执行,先进后出，类似于栈，参数按照顺序传送进去，延迟执行</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">   f(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">   f(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">   <span class="keyword">defer</span> f(<span class="string">&quot;3&quot;</span>)</span><br><span class="line">   f(<span class="string">&quot;4&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">(s <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">   fmt.Println(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>函数数据类型（引用数据类型）</li>
+</ol>
+<blockquote>
+<p>函数在Go语言中是复合类型，可以看做是一种特殊的变量。函数名()︰调用返回结果, 函数名:指向函数体的内存地址，一种特殊类型的指针变量</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">func本身就是一个数据类型</span></span><br><span class="line"><span class="comment">1、创建一个函数</span></span><br><span class="line"><span class="comment">2、在mian方法定义相同类型的函数</span></span><br><span class="line"><span class="comment">3、将定义后的函数赋值个另一个函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//2、在mian方法定义相同类型的函数</span></span><br><span class="line">	<span class="keyword">var</span> fg <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//3、将定义后的函数赋值个另一个函数</span></span><br><span class="line">	fg = ff</span><br><span class="line">	fg(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1、创建一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ff</span><span class="params">(a, b <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(a, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>匿名函数</li>
+</ol>
+<blockquote>
+<p>Go语言是支持函数式编程:<br>1、将匿名函数作为另外一个函数的参数，回调函数<br>2、将匿名函数作为另外一个函数的返回值，可以形成闭包结构</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(a, b <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;我是带参匿名函数f&quot;</span>)</span><br><span class="line">	&#125;(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">f5 := <span class="function"><span class="keyword">func</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> a + b</span><br><span class="line">	&#125;(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">	fmt.Println(<span class="string">&quot;带参且有返回值匿名函数:&quot;</span>, f5)</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>回调函数</li>
+</ol>
+<blockquote>
+<p>将函数作为参数传入另外函数</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r1 := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">	fmt.Println(r1)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//3、调用高阶函数时，传入其他方法的函数</span></span><br><span class="line">	r3 := oper(<span class="number">3</span>, <span class="number">4</span>, add)</span><br><span class="line">	fmt.Println(r3)</span><br><span class="line">	r4 := oper(<span class="number">8</span>, <span class="number">4</span>, sub)</span><br><span class="line">	fmt.Println(r4)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1、创建一个高阶函数oper，传如一个函数类型的参数且有返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">oper</span><span class="params">(a, b <span class="type">int</span>, fun <span class="keyword">func</span>(<span class="type">int</span>, <span class="type">int</span>)</span></span> <span class="type">int</span>) <span class="type">int</span> &#123;</span><br><span class="line">	r2 := fun(a, b)</span><br><span class="line">	<span class="keyword">return</span> r2</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、创建其他方法的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、创建其他方法的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a - b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>闭包</li>
+</ol>
+<blockquote>
+<p>个外层函数中，有内层函数，该内层函数中，会操作外层函数的局部变量并且该外层函数的返回值就是这个内层函数。<br>这个内层函数和外层函数的局部变量,统称为闭包结构。<br>局部变量的生命周期就会发生改变，正常的局部变量会随着函数的调用而创建，随着函数的结束而销毁但是闭包结构中的外层函数的局部变量并不会随着外层函数的结束而销毁，因为内层函数还在继续使用。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//定义一个变量 接受返回值(函数)</span></span><br><span class="line">	r1 := increment()</span><br><span class="line">	fmt.Println(r1)</span><br><span class="line"></span><br><span class="line">	v1 := r1()</span><br><span class="line">	fmt.Println(v1)</span><br><span class="line">	<span class="comment">//不断调用自增+1</span></span><br><span class="line">	v2 := r1()</span><br><span class="line">	fmt.Println(v2)</span><br><span class="line">	<span class="comment">//不断调用自增+1</span></span><br><span class="line">	fmt.Println(r1())</span><br><span class="line">	fmt.Println(r1())</span><br><span class="line">	fmt.Println(r1())</span><br><span class="line">	fmt.Println(r1())</span><br><span class="line">	fmt.Println(<span class="string">&quot;====================&quot;</span>)</span><br><span class="line">	<span class="comment">//	==========================================================</span></span><br><span class="line">	r2 := increment()</span><br><span class="line">	v3 := r2()</span><br><span class="line">	fmt.Println(v3)</span><br><span class="line">	fmt.Println(r2())</span><br><span class="line">	fmt.Println(r2())</span><br><span class="line">	fmt.Println(r2())</span><br><span class="line">	fmt.Println(r1())</span><br><span class="line">	fmt.Println(r2())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> <span class="type">int</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//局部变量</span></span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	<span class="comment">//定义一个匿名函数 给变量自增并返回</span></span><br><span class="line">	fun := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> <span class="type">int</span> &#123;</span><br><span class="line">		<span class="comment">//内层函数，没有执行</span></span><br><span class="line">		i++</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> fun</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出结果：</span></span><br><span class="line"><span class="comment">0xd5ea00</span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">====================</span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">7</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-13-泛型"><a href="#3-13-泛型" class="headerlink" title="3.13 泛型"></a>3.13 泛型</h3><blockquote>
+<p>Go的1.18版本包括了参数类型参数的实现，也就是俗称的泛型,不限制传进去的参数类型Type,减少重复逻辑</p>
+</blockquote>
+<ol>
+<li>发现问题</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printIntSlice</span><span class="params">(arr <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">	<span class="comment">//类型断言</span></span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> arr.([]<span class="type">int</span>) &#123;</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printStringSlice</span><span class="params">(arr <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> arr.([]<span class="type">string</span>) &#123;</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这样很不方便</span></span><br><span class="line">s1 := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">s2 := []<span class="type">string</span>&#123;<span class="string">&quot;ni&quot;</span>, <span class="string">&quot;hao&quot;</span>, <span class="string">&quot;ma&quot;</span>&#125;</span><br><span class="line">printIntSlice(s1)</span><br><span class="line">printStringSlice(s2)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>改变代码</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fanxing1(s1)</span><br><span class="line">fanxing1(s2)</span><br><span class="line"><span class="comment">//泛型 任意类型any，比较类型comparable,也可以string|int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fanxing1</span>[<span class="title">T</span> <span class="title">any</span>]<span class="params">(arr []T, args ...T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;泛型&quot;</span>, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>泛型类型</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice[T <span class="type">int</span>|<span class="type">float32</span>|<span class="type">float64</span>][]T</span><br><span class="line"><span class="keyword">var</span> a Slice[<span class="type">int</span>] = []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">type</span> Mymap[Key <span class="type">string</span> | <span class="type">int</span>, value <span class="type">float32</span> | <span class="type">float64</span>] <span class="keyword">map</span>[Key]value</span><br><span class="line">   <span class="keyword">var</span> m1 Mymap[<span class="type">string</span>, <span class="type">float64</span>] = <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">float64</span>&#123;</span><br><span class="line">      <span class="string">&quot;Go&quot;</span>:   <span class="number">9.0</span>,</span><br><span class="line">      <span class="string">&quot;Java&quot;</span>: <span class="number">8.0</span>,</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Map 中的KEY和VALUE是类型形参<br>int|string 是KEY的类型约束, float32 | float64是VALUE的类型约束<br>KEY int|string, VALUE float32| float64整个一串文本因为定义了所有形参所以被称为类型形参列表Map[KEY,VALUE]是泛型类型，类型的名字就叫Map[KEY,VALUE]<br>var a MyMap[string,float64]&#x3D; xx 中的string和float64是类型实参，用于分别替换KEY和VALUE，实例化出了具体的类型MyMap[string, float64]</p>
+</blockquote>
+<ol start="4">
+<li>泛型函数</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、定义泛型切片</span></span><br><span class="line"><span class="keyword">type</span> MySlice[T <span class="type">int</span> | <span class="type">float64</span>] []T</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、定义泛型函数 传参类型为泛型</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s MySlice[T])</span></span> Sum() T &#123;</span><br><span class="line">   <span class="keyword">var</span> sum T</span><br><span class="line">   <span class="keyword">for</span> _, v := <span class="keyword">range</span> s &#123;</span><br><span class="line">      sum += v</span><br><span class="line">      fmt.Println(s)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>自定义泛型类型</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、定义接口，约束类型为int</span></span><br><span class="line"><span class="keyword">type</span> Myint <span class="keyword">interface</span> &#123;</span><br><span class="line">   <span class="type">int</span> | <span class="type">int16</span> | <span class="type">int32</span> | <span class="type">int64</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、自定义约束</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetNum</span>[<span class="title">T</span> <span class="title">Myint</span>]<span class="params">(a, b T)</span></span> T &#123; </span><br><span class="line">   <span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">      <span class="keyword">return</span> a</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> b</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3、方法实现</span></span><br><span class="line">   fmt.Println(GetNum(<span class="number">1</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-GO-Web开发"><a href="#4-GO-Web开发" class="headerlink" title="4. GO Web开发"></a>4. GO Web开发</h2><h3 id="4-1-web开发框架"><a href="#4-1-web开发框架" class="headerlink" title="4.1 web开发框架"></a>4.1 web开发框架</h3><ul>
+<li>Beego</li>
+<li>Gin</li>
+<li>Echo</li>
+<li>Iris</li>
+</ul>
+<h3 id="4-2-Gin开发"><a href="#4-2-Gin开发" class="headerlink" title="4.2 Gin开发"></a>4.2 Gin开发</h3><blockquote>
+<p>Gin 是一个用 Go (Golang) 编写的 HTTP Web 框架。 它具有类似 Martini 的 API，但性能比 Martini 快 40 倍。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gin-gonic.com/zh-cn/docs/">gin官网</a></li>
+</ul>
+<ol>
+<li>下载gin框架</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到go.mod文件</span></span><br><span class="line">go mod init go.mod</span><br><span class="line">go get -u github.com/gin-gonic/gin</span><br><span class="line"><span class="comment"># 最新可以使用go install</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>进行开发</li>
+</ol>
+<ul>
+<li>前端</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../static/css/1.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;script src=&quot;/static/js/1.js&quot;&gt; --&gt;</span></span><br><span class="line">        首页</span><br><span class="line">        &#123;&#123; .message &#125;&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/user/add&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userName&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>后端</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;encoding/json&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//获取访问地址</span></span><br><span class="line">	ginServer := gin.Default()</span><br><span class="line">	<span class="comment">//加载静态页面</span></span><br><span class="line">	ginServer.LoadHTMLGlob(<span class="string">&quot;templates/*&quot;</span>)</span><br><span class="line">	<span class="comment">//获取静态</span></span><br><span class="line">	ginServer.Static(<span class="string">&quot;/static&quot;</span>, <span class="string">&quot;./static&quot;</span>)</span><br><span class="line">	<span class="comment">//响应给前端</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/index&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// c.JSON(200, gin.H&#123;</span></span><br><span class="line">		<span class="comment">// 	&quot;message&quot;: &quot;hello&quot;,</span></span><br><span class="line">		<span class="comment">// &#125;)</span></span><br><span class="line">		c.HTML(http.StatusOK, <span class="string">&quot;index.html&quot;</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;hello&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//获取请求参数</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/user/info&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		userId := ctx.Query(<span class="string">&quot;userId&quot;</span>)</span><br><span class="line">		userName := ctx.Query(<span class="string">&quot;userName&quot;</span>)</span><br><span class="line">		ctx.JSON(http.StatusOK, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;userId&quot;</span>:   userId,</span><br><span class="line">			<span class="string">&quot;userName&quot;</span>: userName,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//restful</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/user/info/:userId/:userName&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		userId := ctx.Param(<span class="string">&quot;userId&quot;</span>)</span><br><span class="line">		userName := ctx.Param(<span class="string">&quot;userName&quot;</span>)</span><br><span class="line">		ctx.JSON(http.StatusOK, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;userId&quot;</span>:   userId,</span><br><span class="line">			<span class="string">&quot;userName&quot;</span>: userName,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//后端传递接口json</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/json&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		jsonStr := []<span class="type">byte</span>(<span class="string">&quot;&#123;\&quot;name\&quot;:\&quot;张三\&quot;,\&quot;age\&quot;:18,\&quot;high\&quot;:true,\&quot;sex\&quot;:\&quot;男\&quot;,\&quot;class\&quot;:&#123;\&quot;name\&quot;:\&quot;1班\&quot;,\&quot;level\&quot;:3&#125;&#125;&quot;</span>)</span><br><span class="line">		fmt.Println(jsonStr)</span><br><span class="line">		<span class="keyword">var</span> m <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">		err := json.Unmarshal(jsonStr, &amp;m)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">		&#125;</span><br><span class="line">		ctx.JSON(http.StatusOK, m)</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//输出 : &#123;&quot;lang&quot;:&quot;GO\u8bed\u8a00&quot;,&quot;tag&quot;:&quot;\u003cbr\u003e&quot;&#125;</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/asciiJSON&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		data := <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">			<span class="string">&quot;lang&quot;</span>: <span class="string">&quot;GO语言&quot;</span>,</span><br><span class="line">			<span class="string">&quot;tag&quot;</span>:  <span class="string">&quot;&lt;br&gt;&quot;</span>,</span><br><span class="line">		&#125;</span><br><span class="line">		ctx.AsciiJSON(http.StatusOK, data)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//获取前端表单</span></span><br><span class="line">	ginServer.POST(<span class="string">&quot;/user/add&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		userName := ctx.PostForm(<span class="string">&quot;userName&quot;</span>)</span><br><span class="line">		password := ctx.PostForm(<span class="string">&quot;password&quot;</span>)</span><br><span class="line">		ctx.JSON(http.StatusOK, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;msg&quot;</span>:      <span class="string">&quot;OK&quot;</span>,</span><br><span class="line">			<span class="string">&quot;userName&quot;</span>: userName,</span><br><span class="line">			<span class="string">&quot;password&quot;</span>: password,</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//路由</span></span><br><span class="line">	ginServer.GET(<span class="string">&quot;/router&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(ctx *gin.Context)</span></span> &#123;</span><br><span class="line">		ctx.Redirect(http.StatusMovedPermanently, <span class="string">&quot;https://www.bilibili.com&quot;</span>)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//设置访问端口</span></span><br><span class="line">	ginServer.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-xorm开发"><a href="#4-3-xorm开发" class="headerlink" title="4.3 xorm开发"></a>4.3 xorm开发</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/go-xorm/xorm/blob/master/README_CN.md">xorm官网文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.topgoer.com/">GO学习网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://xorm.io/zh/">xorm文档</a></li>
+</ul>
+<ol>
+<li>简述</li>
+</ol>
+<blockquote>
+<p>xorm是一个Go语言的ORM库</p>
+</blockquote>
+<ol start="2">
+<li>开发环境</li>
+</ol>
+<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">go mod init go.mod</span><br><span class="line">go get -u github.com/go-xorm/xorm</span><br><span class="line">go get -u github.com/go-sql-driver/mysql</span><br><span class="line"><span class="comment"># 引用项目需要的依赖增加到go.mod文件。</span></span><br><span class="line"><span class="comment"># 去掉go.mod文件中项目不需要的依赖。</span></span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>xorm开发</li>
+</ul>
+<blockquote>
+<p>import 下划线（如：_ “<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020">github</a>.com&#x2F;go-sql-driver&#x2F;mysql”）的作用：当导入一个包时，该包下的文件里所有 init() 函数 都会被执行</p>
+<p>import 和引用的包名之间加点（.）操作的含义就是这个包导入之后在调用这个包的函数时，可以省略前缀的包名 import . “fmt”</p>
+<p>别名操作顾名思义可以把包命名成另一个用起来容易记忆的名字import f “fmt”</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;time&quot;</span></span><br><span class="line"></span><br><span class="line">	_ <span class="string">&quot;github.com/go-sql-driver/mysql&quot;</span></span><br><span class="line">	<span class="string">&quot;xorm.io/xorm&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		userName  <span class="type">string</span> = <span class="string">&quot;root&quot;</span></span><br><span class="line">		password  <span class="type">string</span> = <span class="string">&quot;root&quot;</span></span><br><span class="line">		ipAddress <span class="type">string</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">		port      <span class="type">int</span>    = <span class="number">3306</span></span><br><span class="line">		dbName    <span class="type">string</span> = <span class="string">&quot;temp1&quot;</span></span><br><span class="line">		charset   <span class="type">string</span> = <span class="string">&quot;utf8mb4&quot;</span></span><br><span class="line">	)</span><br><span class="line">	<span class="comment">//构建数据库连接信息</span></span><br><span class="line">	dataSourceName := fmt.Sprintf(<span class="string">&quot;%s:%s@tcp(%s:%d)/%s?charset=%s&quot;</span>, userName, password, ipAddress, port, dbName, charset)</span><br><span class="line">	engine, err := xorm.NewEngine(<span class="string">&quot;mysql&quot;</span>, dataSourceName)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;数据库连接失败&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">type</span> TempUser <span class="keyword">struct</span> &#123;</span><br><span class="line">		Id      <span class="type">int64</span></span><br><span class="line">		Name    <span class="type">string</span></span><br><span class="line">		Salt    <span class="type">string</span></span><br><span class="line">		Age     <span class="type">int</span></span><br><span class="line">		Passwd  <span class="type">string</span>    <span class="string">`xorm:&quot;varchar(200)&quot;`</span></span><br><span class="line">		Created time.Time <span class="string">`xorm:&quot;created&quot;`</span></span><br><span class="line">		Updated time.Time <span class="string">`xorm:&quot;updated&quot;`</span></span><br><span class="line">	&#125;</span><br><span class="line">	err1 := engine.Sync2(<span class="built_in">new</span>(TempUser))</span><br><span class="line">	<span class="keyword">if</span> err1 != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;同步失败&quot;</span>, err1)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//插入开始</span></span><br><span class="line">	<span class="comment">// user := TempUser&#123;Id: 100, Name: &quot;xxy&quot;, Salt: &quot;11&quot;, Age: 25, Passwd: &quot;123&quot;&#125;</span></span><br><span class="line">	<span class="comment">// var users []TempUser</span></span><br><span class="line">	<span class="comment">// users = append(users, TempUser&#123;Id: 1001, Name: &quot;xxy&quot;, Salt: &quot;11&quot;, Age: 25, Passwd: &quot;123&quot;&#125;)</span></span><br><span class="line">	<span class="comment">// users = append(users, TempUser&#123;Id: 1002, Name: &quot;xxy&quot;, Salt: &quot;11&quot;, Age: 25, Passwd: &quot;123&quot;&#125;)</span></span><br><span class="line">	<span class="comment">// users = append(users, TempUser&#123;Id: 1003, Name: &quot;xxy&quot;, Salt: &quot;11&quot;, Age: 25, Passwd: &quot;123&quot;&#125;)</span></span><br><span class="line">	<span class="comment">// affected, _ := engine.Insert(&amp;users)</span></span><br><span class="line">	<span class="comment">// fmt.Println(affected)</span></span><br><span class="line">	<span class="comment">// if affected &gt;= 1 &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(&quot;插入成功&quot;)</span></span><br><span class="line">	<span class="comment">// &#125; else &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(&quot;插入失败&quot;)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">//插入结束</span></span><br><span class="line">	<span class="comment">//更新开始</span></span><br><span class="line">	<span class="comment">// var ids = []int64&#123;100, 1001&#125;</span></span><br><span class="line">	<span class="comment">// user := TempUser&#123;Name: &quot;zzxxy&quot;, Salt: &quot;10&quot;, Age: 24, Passwd: &quot;123&quot;&#125;</span></span><br><span class="line">	<span class="comment">// n, _ := engine.ID(100).Update(&amp;user)</span></span><br><span class="line">	<span class="comment">// n, err2 := engine.In(&quot;Id&quot;, ids).Update(&amp;user)</span></span><br><span class="line">	<span class="comment">// if err2 != nil &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(&quot;更新失败&quot;, err2)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">// fmt.Println(n)</span></span><br><span class="line">	<span class="comment">//更新结束</span></span><br><span class="line">	<span class="comment">//删除开始</span></span><br><span class="line">	<span class="comment">// user := TempUser&#123;Name: &quot;zzxxy&quot;, Salt: &quot;10&quot;, Age: 24, Passwd: &quot;123&quot;&#125;</span></span><br><span class="line">	<span class="comment">// n, _ := engine.ID(10).Delete(&amp;user)</span></span><br><span class="line">	<span class="comment">// if n &gt;= 1 &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Printf(&quot;删除%d条数据&quot;, n)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">//删除结束</span></span><br><span class="line">	<span class="comment">//查询开始</span></span><br><span class="line">	<span class="comment">//Query</span></span><br><span class="line">	<span class="comment">// results, _ := engine.Query(&quot;select * from temp_user LIMIT 0, 200&quot;)</span></span><br><span class="line">	<span class="comment">// results1, _ := engine.Where(&quot;salt = 10&quot;).Query(&quot;select * from temp_user&quot;)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// results2, _ := engine.QueryString(&quot;select * from temp_user LIMIT 0, 200&quot;)</span></span><br><span class="line">	<span class="comment">// results3, _ := engine.Where(&quot;salt = 10&quot;).QueryString(&quot;select * from temp_user&quot;)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// results4, _ := engine.QueryInterface(&quot;select * from temp_user LIMIT 0, 200&quot;)</span></span><br><span class="line">	<span class="comment">// results5, _ := engine.Where(&quot;salt = 11&quot;).QueryInterface(&quot;select * from temp_user&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;Query----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;Query条件----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results1)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;QueryString----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results2)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;QueryString条件----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results3)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;QueryInterface----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results4)</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;QueryInterface条件----------&quot;)</span></span><br><span class="line">	<span class="comment">// fmt.Println(results5)</span></span><br><span class="line">	<span class="comment">//Get查询单条记录</span></span><br><span class="line">	<span class="comment">// user := TempUser&#123;Name: &quot;xxy&quot;&#125;</span></span><br><span class="line">	<span class="comment">// engine.Where(&quot;name = ?&quot;, user.Name).Desc(&quot;id&quot;).Get(&amp;user)</span></span><br><span class="line">	<span class="comment">// fmt.Println(user)</span></span><br><span class="line">	<span class="comment">//Get获取指定字段</span></span><br><span class="line">	<span class="comment">// var name string</span></span><br><span class="line">	<span class="comment">// engine.Table(&amp;user).Where(&quot;id = ?&quot;, 100).Cols(&quot;name&quot;).Get(&amp;name)</span></span><br><span class="line">	<span class="comment">// fmt.Println(name)</span></span><br><span class="line">	<span class="comment">//Find找寻多条记录，当然可以使用Join和extends来组合使用</span></span><br><span class="line">	<span class="comment">// var users []TempUser</span></span><br><span class="line">	<span class="comment">// engine.Where(&quot;age=?&quot;, 25).And(&quot;passwd=?&quot;, 123).Limit(10, 0).Find(&amp;users)</span></span><br><span class="line">	<span class="comment">// fmt.Println(users)</span></span><br><span class="line">	<span class="comment">//获取记录条数</span></span><br><span class="line">	<span class="comment">// counts, _ := engine.Count(&amp;user)</span></span><br><span class="line">	<span class="comment">// fmt.Println(counts)</span></span><br><span class="line">	<span class="comment">//Iterate或Rows遍历数据</span></span><br><span class="line">	<span class="comment">// engine.Iterate(&amp;TempUser&#123;Passwd: &quot;123&quot;&#125;, func(idx int, bean interface&#123;&#125;) error &#123;</span></span><br><span class="line">	<span class="comment">// 	user := bean.(*TempUser)</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(user)</span></span><br><span class="line">	<span class="comment">// 	return nil</span></span><br><span class="line">	<span class="comment">// &#125;)</span></span><br><span class="line">	<span class="comment">//Rows遍历数据</span></span><br><span class="line">	<span class="comment">// rows, _ := engine.Rows(&amp;TempUser&#123;Passwd: &quot;123&quot;&#125;)</span></span><br><span class="line">	<span class="comment">// defer rows.Close()</span></span><br><span class="line">	<span class="comment">// userBean := new(TempUser)</span></span><br><span class="line">	<span class="comment">// for rows.Next() &#123;</span></span><br><span class="line">	<span class="comment">// 	rows.Scan(userBean)</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(userBean)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">//查询结束</span></span><br><span class="line">	<span class="comment">//执行SQL开始</span></span><br><span class="line">	<span class="comment">// affected, err2 := engine.Exec(&quot;update temp_user set Age = ? where Name = ?&quot;, 24, &quot;xxy&quot;)</span></span><br><span class="line">	<span class="comment">// if err2 != nil &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(&quot;更新失败&quot;)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">// fmt.Println(&quot;更新成功&quot;, affected)</span></span><br><span class="line">	<span class="comment">//执行SQL结束</span></span><br><span class="line">	<span class="comment">//事务开始</span></span><br><span class="line">	session := engine.NewSession()</span><br><span class="line">	<span class="keyword">defer</span> session.Close()</span><br><span class="line">	session.Begin()</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		err := <span class="built_in">recover</span>()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">			fmt.Println(<span class="string">&quot;rollback&quot;</span>)</span><br><span class="line">			session.Rollback()</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			session.Commit()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="comment">//增加</span></span><br><span class="line">	user1 := TempUser&#123;Id: <span class="number">111</span>, Name: <span class="string">&quot;xxy&quot;</span>, Salt: <span class="string">&quot;11&quot;</span>, Age: <span class="number">25</span>, Passwd: <span class="string">&quot;123&quot;</span>&#125;</span><br><span class="line">	<span class="keyword">if</span> _, err := session.Insert(&amp;user1); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//修改</span></span><br><span class="line">	user2 := TempUser&#123;Id: <span class="number">111</span>, Name: <span class="string">&quot;xxyz&quot;</span>, Salt: <span class="string">&quot;112&quot;</span>, Age: <span class="number">25</span>, Passwd: <span class="string">&quot;123&quot;</span>&#125;</span><br><span class="line">	<span class="keyword">if</span> _, err := session.Where(<span class="string">&quot;id=?&quot;</span>, user2.Id).Update(&amp;user2); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//删除</span></span><br><span class="line">	<span class="keyword">if</span> _, err := session.Exec(<span class="string">&quot;delete from temp_user where id = 100&quot;</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//事务结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-gRPC"><a href="#4-4-gRPC" class="headerlink" title="4.4 gRPC"></a>4.4 gRPC</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://grpc.io/">gRPC官网</a></li>
+<li><a target="_blank" rel="noopener" href="http://doc.oschina.net/grpc">gRPC中文文档</a></li>
+</ul>
+<ol>
+<li>简述</li>
+</ol>
+<blockquote>
+<p>一个高性能、开源的通用RPC框架</p>
+</blockquote>
+<ol start="2">
+<li>优点</li>
+</ol>
+<ul>
+<li>更高效的进程通信：使用基于protocol buffer在Http2 中以二进制协议通信，而不是JSON、XML文本格式,序列化和反序列化</li>
+<li>简单定义的服务接口、易扩展</li>
+<li>强类型、跨语言</li>
+<li>一元RPC、服务端流、客户端流、双工流</li>
+</ul>
+<ol start="3">
+<li>下载和环境配置</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/protocolbuffers/protobuf/releases/tag/v22.2">Protocol Buffers下载</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置系统环境Path</span></span><br><span class="line">D:\install\protoc-22.2-win64\bin</span><br><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line">protoc </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Protocol Buffers一种数据描述语言编译器，不依赖于语言和平台并且可扩展性极强,广泛用于各种结构化信息存储和交换</p>
+</blockquote>
+<ul>
+<li>安装grpc核心库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">go mod init go.mod </span><br><span class="line"><span class="comment"># 新版grpc核心库</span></span><br><span class="line">go get -u google.golang.org/grpc</span><br><span class="line"><span class="comment"># 旧版grpc核心库</span></span><br><span class="line">go install github.com/golang/protobuf/protoc-gen-go</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装go的protoc代码生成工具库</li>
+</ul>
+<blockquote>
+<p>已经下载的可以使用go install，没有下载用go get</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">go install google.golang.org/protobuf/cmd/protoc-gen-go@latest</span><br><span class="line">go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest</span><br><span class="line"><span class="comment"># go.mod模板需要</span></span><br><span class="line">go get google.golang.org/protobuf/cmd/protoc-gen-go</span><br><span class="line">go get google.golang.org/grpc/cmd/protoc-gen-go-grpc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>完成后可以查看自己gowork目录下bin有没有exe文件</p>
+</blockquote>
+<ol start="4">
+<li>编写proto文件</li>
+</ol>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是说明我们使用的是proto3语法</span></span><br><span class="line">syntax=<span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这部分的内容是关于最后生成的go文件是处在哪个目录哪个包中，代表在当前目录生成，service代表了生成的go文件的包名是service</span></span><br><span class="line"><span class="keyword">option</span> go_package =<span class="string">&quot;.;server&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后我们需要定义一个服务，在这个服务中需要有一个方法，这个方法可以接受客户端的参数，再返回服务端的响应</span></span><br><span class="line"><span class="comment">//其实很容易可以看出，我们定义了一个Server，称为SayHello，这个服只有一个rpc方法，名为SayHello。</span></span><br><span class="line"><span class="comment">//这个方法会发送一个HelloRequest，然后返回一个HelloResponse。</span></span><br><span class="line"><span class="keyword">service </span><span class="title class_">SayHello</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//message关键字，其实你可以理解为Golang中的结构体。</span></span><br><span class="line"><span class="comment">//这里比较特别的是变量后面的“赋值”。注意，这里并不是赋值，而是定义这个变量在这个message中的位置。</span></span><br><span class="line"><span class="keyword">message </span><span class="title class_">HelloRequest</span>&#123;</span><br><span class="line">  <span class="type">string</span> requestName = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">HelloResponse</span>&#123;</span><br><span class="line">  <span class="type">string</span> responseMsg = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>在&#x2F;proto目录下执行,会在&#x2F;proto生成go文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --go_out不是命令，加配置环境path %GOPATH%\bin</span></span><br><span class="line">protoc --go_out=. hello.proto</span><br><span class="line">protoc --go-grpc_out=. hello.proto</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>proto文件介绍</li>
+</ol>
+<ul>
+<li>message</li>
+</ul>
+<blockquote>
+<p>message:protobuf 中定义一个消息类型式是通过关键字message字段指定的。消息就是需要传输数据格式定义。message 关键字类似于C++中的class，JAVA中的class，go中的struct。在消息中承载的数据分别对应于每一个字段，其中每个字段都有一个名字和一种类型,一个proto文件中可以定义多个消息类型</p>
+</blockquote>
+<ul>
+<li>字段规则</li>
+</ul>
+<blockquote>
+<p>optional:消息体中的可选字段，protobuf3没有了required，optional等说明关键字，都默认为optional,</p>
+<p>repeate:消息体中可重复字段，重复的值的顺序会被保留着go中重复的回被定义为切片</p>
+</blockquote>
+<ul>
+<li>消息号</li>
+</ul>
+<blockquote>
+<p>在消息体的定义中，每个字段都必须要有一个唯一的标识号，标识号是[1,2^29-1]范围内的一个整数。</p>
+</blockquote>
+<ul>
+<li>嵌套信息</li>
+</ul>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message </span><span class="title class_">PersonInfo</span>&#123;</span><br><span class="line">     <span class="keyword">message </span><span class="title class_">Person</span>&#123;</span><br><span class="line">     <span class="type">string</span> name = <span class="number">1</span>;</span><br><span class="line">     <span class="type">int32</span> height = <span class="number">2</span>;</span><br><span class="line">     <span class="keyword">repeated</span> <span class="type">int32</span> weight = <span class="number">3</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">repeated</span> Person info = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//引用</span></span><br><span class="line"><span class="keyword">message </span><span class="title class_">PersonMessage</span>&#123;</span><br><span class="line">   PersonInfo.Person info = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>服务定义</li>
+</ul>
+<blockquote>
+<p>如果想要将消息类型用在PRC系统中，可以在&#x3D;&#x3D;.proto文件中定义一个RPC服务接口&#x3D;&#x3D;，protocol buffer编译器将会根据所选择的不同语言生成服务接口代码及存根</p>
+</blockquote>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">service </span><span class="title class_">SayHello</span>&#123;</span><br><span class="line">  # <span class="function"><span class="keyword">rpc</span> 服务函数名(参数) 返回 (返回参数)</span></span><br><span class="line"><span class="function">  <span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>服务端编写</li>
+</ol>
+<ul>
+<li>创建gRPC Server 对象，你可以理解为它是Server端的抽象对象</li>
+<li>将server(其包含需要被调用的服务端接口)注册到gRPC Server的内部注册中心，这样可以在接受到请求时，通过内部的服务发现，发现该服务端接口并转接进行逻辑处理</li>
+<li>创建Listen，监听TCP端口</li>
+<li>gRPC Server 开始 lis.Accept，知道Stop</li>
+</ul>
+<blockquote>
+<p>无法导入</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net&quot;</span></span><br><span class="line"></span><br><span class="line">	pb <span class="string">&quot;go.mod/grpcdemo/hello-server/proto&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// hello</span></span><br><span class="line"><span class="keyword">type</span> server <span class="keyword">struct</span> &#123;</span><br><span class="line">	pb.UnimplementedSayHelloServer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *server)</span></span> SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, <span class="type">error</span>) &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;hello&quot;</span> + req.RequestName)</span><br><span class="line">	<span class="keyword">return</span> &amp;pb.HelloResponse&#123;ResponseMsg: <span class="string">&quot;hello&quot;</span> + req.RequestName&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//开启端口</span></span><br><span class="line">	Listen, _ := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;:9090&quot;</span>)</span><br><span class="line">	<span class="comment">//创建grpc服务,注册,提供接口</span></span><br><span class="line">	grpcServer := grpc.NewServer()</span><br><span class="line">	pb.RegisterSayHelloServer(grpcServer, &amp;server&#123;&#125;)</span><br><span class="line">	<span class="comment">//监听,启动服务</span></span><br><span class="line">	err := grpcServer.Server(Listen)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">&quot;启动失败: %v&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>客户端编写</li>
+</ol>
+<ul>
+<li>创建与给定目标（服务端）的连接交互</li>
+<li>创建server的客户端对象</li>
+<li>发送RPC请求，等待同步响应，得到回调后返回响应结果</li>
+<li>输出响应结果</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line"></span><br><span class="line">	pb <span class="string">&quot;go.mod/grpcdemo/hello-client/proto&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc/credentials/insecure&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//连接</span></span><br><span class="line">	conn, err := grpc.Dial(<span class="string">&quot;127.0.0.1:9090&quot;</span>, grpc.WithTransportCredentials(insecure.NewCredentials()))</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalf(<span class="string">&quot;不能连接:%v&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//关闭</span></span><br><span class="line">	<span class="keyword">defer</span> conn.Close()</span><br><span class="line">	<span class="comment">//建立连接</span></span><br><span class="line">	client := pb.NewSayHelloClient(conn)</span><br><span class="line">	<span class="comment">//进行请求</span></span><br><span class="line">	resp, err := client.SayHello(context.Background(), &amp;pb.HelloRequest&#123;RequestName: <span class="string">&quot; xxy&quot;</span>&#125;)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalf(<span class="string">&quot;不能请求:%v&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//获得内容输出打印</span></span><br><span class="line">	fmt.Println(resp.GetResponseMsg())</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>认证-安全</li>
+</ol>
+<blockquote>
+<p><strong>gRPC 通常默认是使用 protobuf 来作为传输协议</strong>，grpc将各种认证方式浓缩统一到一个凭证上，可以单独使用一种凭证，也可以多种凭证组合，提供统一的API认证方式</p>
+</blockquote>
+<ul>
+<li>方式<ul>
+<li>SSL&#x2F;TLS 认证方式（采用 http2 协议）</li>
+<li>基于 Token 的认证方式（基于安全连接）</li>
+<li>不采用任何措施的连接，这是不安全的连接（默认采用 http1）</li>
+<li>自定义的身份认证</li>
+</ul>
+</li>
+</ul>
+<ol start="10">
+<li>SSL&#x2F;TLS认证方式</li>
+</ol>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.openssl.org/source/">SSL&#x2F;TLS官网下载</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://slproweb.com/products/Win32OpenSSL.html">便捷版安装包</a></p>
+</li>
+<li><p>证书参数</p>
+<ul>
+<li>key：服务器上的私钥文件，用于对发送给客户端数据的加密，以及对从客户端接收到的数据解密</li>
+<li>csr：证书签名请求文件，用于提交给证书颁发机构(CA) 对证书签名</li>
+<li>crt：由证书颁发机构(CA) 签名后的证书，或者是开发者自签名的证书，包含证书持有人的信息，持有人的公钥，以及签名者的签名等信息</li>
+<li>pem: 是基于Base64编码的证书格式，扩展名包括PEM、CRT和CER</li>
+</ul>
+</li>
+<li><p>生成参数</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、生成私钥</span></span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line"><span class="comment"># 2、生成证书 全部回车即可，可以不填</span></span><br><span class="line">openssl req -new -x509 -key server.key -out server.crt -days 3600</span><br><span class="line"><span class="comment"># 国家名称</span></span><br><span class="line">Country Name (2 letter code) [AU]:</span><br><span class="line"><span class="comment"># 省名称</span></span><br><span class="line">State or Province Name (full name) [Some-State]:</span><br><span class="line"><span class="comment"># 城市名称</span></span><br><span class="line">Locality Name (eg, city) []:</span><br><span class="line"><span class="comment"># 公司组织名称</span></span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:</span><br><span class="line"><span class="comment"># 部门名称</span></span><br><span class="line">Organizational Unit Name (eg, section) []:</span><br><span class="line"><span class="comment"># 服务器or网站名称</span></span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:</span><br><span class="line"><span class="comment"># 邮件</span></span><br><span class="line">Email Address []:</span><br><span class="line"><span class="comment"># 3、生成 csr</span></span><br><span class="line">openssl req -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更改openssl.cnf</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更改openssl.cnf </span></span><br><span class="line"><span class="comment">#1) 复制一份你安装的openssl的bin目录里面的openssl.cnf文件到你项目所在的目录</span></span><br><span class="line"><span class="comment">#2) 找到 [ CA_default ] 打开 copy_extensions = copy (就是把前面的#去掉)</span></span><br><span class="line"><span class="comment">#3）找到 [ req ] 打开 req_extensions = v3_req # The extensions to add to a certificate request</span></span><br><span class="line"><span class="comment">#4) 找到 [ v3_req ] 添加 subjectAltName = @alt_names</span></span><br><span class="line"><span class="comment">#5) 添加新的标签[ alt_name ] 和标签字段</span></span><br><span class="line"><span class="comment">#指定特定的网站才能访问</span></span><br><span class="line">DNS.1 = *.newbie.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成证书</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成证书私钥test.key</span></span><br><span class="line">openssl genpkey -algorithm RSA -out test.key</span><br><span class="line"></span><br><span class="line"><span class="comment">#通过私钥test.key生成证书请求文件test.csr (注意cfg和cnf)</span></span><br><span class="line">openssl req -new -nodes -key test.key -out test.csr -days 3650 -subj <span class="string">&quot;/C=cn/OU=myorg/O=mycomp/CN=myname&quot;</span> -config ./openssl.cnf -extensions v3_req</span><br><span class="line"><span class="comment">#test.csr是上面生成的证书请求文件。ca.crt/server.key是CA证书文件和key，用来对test.csr进行签名认证。这两个文件在第一部分生成。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成SAN证书 pem</span></span><br><span class="line">openssl x509 -req -days 365 -<span class="keyword">in</span> test.csr -out test.pem -CA server.crt -CAkey server.key -CAcreateserial -extfile ./openssl.cnf -extensions v3_req</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Server端</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc/credentials&quot;</span></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line">	<span class="string">&quot;net&quot;</span></span><br><span class="line">	pb <span class="string">&quot;xxb-grpc-study/hello-server/proto&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//hello server 服务器端</span></span><br><span class="line"><span class="keyword">type</span> server <span class="keyword">struct</span> &#123;</span><br><span class="line">	pb.UnimplementedSayHelloServer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法重写</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *server)</span></span> SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;pb.HelloResponse&#123;ResponseMsg: <span class="string">&quot;hello&quot;</span> + req.RequestName&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//从提供的根证书颁发机构证书文件构建TLS凭据，两个参数分别是自签名证书和私钥文件 改</span></span><br><span class="line">	creds, _ := credentials.NewServerTLSFromFile(<span class="string">&quot;D:\\Go_Dev\\src\\xxb-grpc-study\\key\\test.pem&quot;</span>, <span class="string">&quot;D:\\Go_Dev\\src\\xxb-grpc-study\\key\\test.key&quot;</span>)</span><br><span class="line">	<span class="comment">//开启端口</span></span><br><span class="line">	listen, _ := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;:9090&quot;</span>)</span><br><span class="line">	<span class="comment">//创建grpc服务 改</span></span><br><span class="line">	grpcServer := grpc.NewServer(grpc.Creds(creds))</span><br><span class="line">	<span class="comment">//在grpc服务端中去注册我们自己编写的服务,注册一定是引用注册</span></span><br><span class="line">	pb.RegisterSayHelloServer(grpcServer, &amp;server&#123;&#125;)</span><br><span class="line">	<span class="comment">//启动服务</span></span><br><span class="line">	err := grpcServer.Serve(listen)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Println(<span class="string">&quot;启动失败~&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Client端</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc/credentials&quot;</span></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line">	pb <span class="string">&quot;xxb-grpc-study/hello-client/proto&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//改</span></span><br><span class="line">	creds, _ := credentials.NewClientTLSFromFile(<span class="string">&quot;D:\\Go_Dev\\src\\xxb-grpc-study\\key\\test.pem&quot;</span>, <span class="string">&quot;*.newbie.com&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//WithTransportCredentials返回一个DialOption，用于配置连接级别的安全凭证(例如，TLS/SSL)。这不能与WithCredentialsBundle一起使用。改</span></span><br><span class="line">	conn, err := grpc.Dial(<span class="string">&quot;127.0.0.1:9090&quot;</span>, grpc.WithTransportCredentials(creds))</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalf(<span class="string">&quot;Did not connect:%v&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()</span><br><span class="line">	<span class="comment">//建立连接</span></span><br><span class="line">	client := pb.NewSayHelloClient(conn)</span><br><span class="line">	<span class="comment">//rpc方法调用</span></span><br><span class="line">	resp, _ := client.SayHello(context.Background(), &amp;pb.HelloRequest&#123;RequestName: <span class="string">&quot; newbie&quot;</span>&#125;)</span><br><span class="line">	fmt.Println(resp.GetResponseMsg())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>Token认证</li>
+</ol>
+<ul>
+<li>Server端</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc/credentials/insecure&quot;</span></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line">	pb <span class="string">&quot;xxb-grpc-study/hello-client/proto&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ClientTokenAuth <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ClientTokenAuth)</span></span> GetRequestMetadata(ctx context.Context, uri ...<span class="type">string</span>) (<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">		<span class="string">&quot;appId&quot;</span>:  <span class="string">&quot;newbie&quot;</span>,</span><br><span class="line">		<span class="string">&quot;appKey&quot;</span>: <span class="string">&quot;123123&quot;</span>,</span><br><span class="line">	&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ClientTokenAuth)</span></span> RequireTransportSecurity() <span class="type">bool</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//creds, _ := credentials.NewClientTLSFromFile(&quot;D:\\Go_Dev\\src\\xxb-grpc-study\\key\\test.pem&quot;, &quot;*.newbie.com&quot;)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//WithTransportCredentials返回一个DialOption，用于配置连接级别的安全凭证(例如，TLS/SSL)。这不能与WithCredentialsBundle一起使用。</span></span><br><span class="line">	<span class="keyword">var</span> opts []grpc.DialOption</span><br><span class="line">	opts = <span class="built_in">append</span>(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))</span><br><span class="line">	opts = <span class="built_in">append</span>(opts, grpc.WithPerRPCCredentials(<span class="built_in">new</span>(ClientTokenAuth)))</span><br><span class="line"></span><br><span class="line">	conn, err := grpc.Dial(<span class="string">&quot;127.0.0.1:9090&quot;</span>, opts...)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalf(<span class="string">&quot;Did not connect:%v&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()</span><br><span class="line">	<span class="comment">//建立连接</span></span><br><span class="line">	client := pb.NewSayHelloClient(conn)</span><br><span class="line">	<span class="comment">//rpc方法调用</span></span><br><span class="line">	resp, _ := client.SayHello(context.Background(), &amp;pb.HelloRequest&#123;RequestName: <span class="string">&quot; newbie&quot;</span>&#125;)</span><br><span class="line">	fmt.Println(resp.GetResponseMsg())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>client端</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc/credentials/insecure&quot;</span></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line">	pb <span class="string">&quot;xxb-grpc-study/hello-client/proto&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ClientTokenAuth <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ClientTokenAuth)</span></span> GetRequestMetadata(ctx context.Context, uri ...<span class="type">string</span>) (<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">		<span class="string">&quot;appId&quot;</span>:  <span class="string">&quot;newbie&quot;</span>,</span><br><span class="line">		<span class="string">&quot;appKey&quot;</span>: <span class="string">&quot;123123&quot;</span>,</span><br><span class="line">	&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ClientTokenAuth)</span></span> RequireTransportSecurity() <span class="type">bool</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//creds, _ := credentials.NewClientTLSFromFile(&quot;D:\\Go_Dev\\src\\xxb-grpc-study\\key\\test.pem&quot;, &quot;*.newbie.com&quot;)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//WithTransportCredentials返回一个DialOption，用于配置连接级别的安全凭证(例如，TLS/SSL)。这不能与WithCredentialsBundle一起使用。</span></span><br><span class="line">	<span class="keyword">var</span> opts []grpc.DialOption</span><br><span class="line">	opts = <span class="built_in">append</span>(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))</span><br><span class="line">	opts = <span class="built_in">append</span>(opts, grpc.WithPerRPCCredentials(<span class="built_in">new</span>(ClientTokenAuth)))</span><br><span class="line"></span><br><span class="line">	conn, err := grpc.Dial(<span class="string">&quot;127.0.0.1:9090&quot;</span>, opts...)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalf(<span class="string">&quot;Did not connect:%v&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()</span><br><span class="line">	<span class="comment">//建立连接</span></span><br><span class="line">	client := pb.NewSayHelloClient(conn)</span><br><span class="line">	<span class="comment">//rpc方法调用</span></span><br><span class="line">	resp, _ := client.SayHello(context.Background(), &amp;pb.HelloRequest&#123;RequestName: <span class="string">&quot; newbie&quot;</span>&#125;)</span><br><span class="line">	fmt.Println(resp.GetResponseMsg())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><blockquote>
+<p>了解最基础的Go语言，语言只是工具，思想永远最重要</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag"># 后端</a>
+          
+            <a href="/tags/go/" rel="tag"># go</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/03/17/Git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/03/17/Mybatis/" rel="prev" title="Mybatis">
+                Mybatis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                
+				<a href="/archives">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xxy8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_44005434" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-CSDN"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E8%BF%B0"><span class="nav-text">1. 简述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E8%83%8C%E6%99%AF"><span class="nav-text">1.1 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-GO%E9%A1%B9%E7%9B%AE"><span class="nav-text">1.3 GO项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E7%94%A8%E5%A4%84"><span class="nav-text">1.4 用处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E7%BC%96%E7%A8%8B%E5%BA%93"><span class="nav-text">1.5 编程库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%92%8C%E7%8E%AF%E5%A2%83"><span class="nav-text">2. 下载和环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%B8%8B%E8%BD%BDgo"><span class="nav-text">2.1 下载go</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Go%E5%9F%BA%E7%A1%80"><span class="nav-text">3. Go基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-hello-go"><span class="nav-text">3.1 hello.go</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Go%E6%B3%A8%E9%87%8A"><span class="nav-text">3.2 Go注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%8F%98%E9%87%8F"><span class="nav-text">3.3 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E5%B8%B8%E9%87%8F"><span class="nav-text">3.4 常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.5 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">3.6 数据类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.7 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">3.8 输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-9-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="nav-text">3.9 编码规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-text">3.10 流程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-11-string"><span class="nav-text">3.11 string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-%E5%87%BD%E6%95%B0"><span class="nav-text">3.12 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-13-%E6%B3%9B%E5%9E%8B"><span class="nav-text">3.13 泛型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GO-Web%E5%BC%80%E5%8F%91"><span class="nav-text">4. GO Web开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-text">4.1 web开发框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Gin%E5%BC%80%E5%8F%91"><span class="nav-text">4.2 Gin开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-xorm%E5%BC%80%E5%8F%91"><span class="nav-text">4.3 xorm开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-gRPC"><span class="nav-text">4.4 gRPC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="nav-text">5. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xxy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
