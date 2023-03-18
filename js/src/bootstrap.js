@@ -11,7 +11,7 @@ $(document).ready(function () {
   NexT.utils.registerESCKeyEvent();
 
   NexT.utils.registerBackToTop();
-  // codeUnfold();
+  codeUnfold();
   // Mobile top menu bar.
   $('.site-nav-toggle button').on('click', function () {
     var $siteNav = $('.site-nav');
