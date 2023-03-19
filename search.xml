@@ -17250,7 +17250,7 @@ KPI考核</td>
 <li>控制反转（IOC）、面向切面编程（AOP）</li>
 <li>支持事务的处理，对框架整合的支持</li>
 </ul>
-<h3 id="1-6-组成"><a href="#1-6-组成" class="headerlink" title="1.6 组成"></a>1.6 组成</h3><p><img src="D:\blog\public\images\ssm1.jpg" alt="ssm1"></p>
+<h3 id="1-6-组成"><a href="#1-6-组成" class="headerlink" title="1.6 组成"></a>1.6 组成</h3><p><img src="https://xxy8.github.io/images/ssm1.jpg" alt="图片"></p>
 <h2 id="2-IOC（Inversion-of-Control思想，DI是其一种实现方法）"><a href="#2-IOC（Inversion-of-Control思想，DI是其一种实现方法）" class="headerlink" title="2. IOC（Inversion of Control思想，DI是其一种实现方法）"></a>2. IOC（Inversion of Control思想，DI是其一种实现方法）</h2><blockquote>
 <p>有很多实现方式，注解零配置（约定大于配置）、XML配置</p>
 </blockquote>
